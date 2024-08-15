@@ -21,5 +21,10 @@ Tangentially, it also achieves social work, in that it connects people with comm
 
 ## Method :
 Creation of a web page in which, by providing the user with some data in a questionnaire, the web itself connects them with the most suitable routes according to their tastes, limitations, characteristics, crossing the information contained in the database.
-## Flows diagram
+## Views Flows diagram
 ![V1-Views Elements](documentation_en/Views_V1.jpg)
+## Database Entity Relation diagram
+### V1
+![V1-Entity Relation](documentation_en/EntityRelation_V1.jpg)
+### V2
+![V2-Entity Relation](documentation_en/EntityRelation_V2.jpg)
