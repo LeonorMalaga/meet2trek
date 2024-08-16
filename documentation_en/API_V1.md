@@ -55,17 +55,30 @@ The combination of every filter.
 Url: https://121.0.0.1:8080/api/v1/routes?difficulty={difficulty}&distance={distanceaprox}&range={range}&country={country}&province={province}&area={area}
 
 ### User 
-Gets a Json User Object by its Id.
+Gets a Json UserDto Object by its Id.
 
 Url: https://121.0.0.1:8080/api/v1/users/{Id}
+
+Sample result for Username = Trekker123 using a Dto: 
+{  
+    "username": Trekker123,  
+    "password": "\*\*\*\*\*\*\*\*",  
+    "email": "\*\*\*\*\*\*\*\*@\*\*\*\*\*.\*\*\*",  
+    "icon": "/Users/Trekker123",  ,  
+    "p_difficulty": 1,  
+    "p_distance": 3000,  
+    "p_country": "España",  
+    "p_province": "Malaga",  
+    "p_area": "Malaga"  
+}
 ### UserList
-Returns a Json ArrayList of all users, filtering them by meeting.
+Returns a Json ArrayList of all users (UserDto), filtering them by meeting.
 #### FindAllUsers
-Returns an ArrayList of all registered users.
+Returns an ArrayList of all registered users (UserDto).
 
 Url: https://121.0.0.1:8080/api/v1/users
 #### UserListByMeeting
-Get a list of all users who joined a specific meeting in a specific Route.
+Get a list of all users (UserDto) who joined a specific meeting in a specific Route.
 
 Url: https://121.0.0.1:8080/api/v1/routes/{Id}/meetings/{Meeting_Id}
 
@@ -89,6 +102,6 @@ Edits an existing Meeting object, given a Json body and having specified its Id 
 ### Route
 Deletes an existing Route object, having specified its Id (PK).
 ### User
-Deletes an existing User object, having specified its Id (PK).
+Deletes an existing User object, having specified its Username (PK).
 ### Meeting
 Deletes an existing Meeting object, having specified its Id (PK).
