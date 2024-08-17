@@ -26,5 +26,4 @@ Creation of a web page in which, by providing the user with some data in a quest
 ## Database Entity Relation diagram
 ### V1
 ![V1-Entity Relation](documentation_en/EntityRelation_V1.jpg)
-### V2
-![V2-Entity Relation](documentation_en/EntityRelation_V2.jpg)
+
