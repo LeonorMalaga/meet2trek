@@ -9,7 +9,7 @@ Tangencialmente, se consigue además una labor social, en cuanto a que conecta p
 Creación de una pagina web en la que, facilitando el usuario unos datos en un cuestionario, la propia web le conecte con las rutas mas adecuadas a sus gustos, limitaciones, características, cruzando la información contenida en la base de datos.
 
 ## V1
-Puedes consultar las peticiones Http disponibles en [API_V1 documentación](documentacion_es/API_V1.md).
+Puedes consultar las peticiones Http disponibles en [ la documentación del API .V1](documentacion_es/API_V1.md).
 ### Flujogramas
 ![V1-Elementos en cada Vista](documentacion_es/ElementosVistas%20V1.jpg)
 ### Diagrama entidad relación
