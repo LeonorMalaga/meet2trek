@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog-Z Bootstrap 5.0 HTML Template</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <!--
+    
+TemplateMo 556 Catalog-Z
+
+https://templatemo.com/tm-556-catalog-z
+
+-->
+<style>
+    * {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  body {
+    
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #search {
+    width: 95%;
+    padding: 10px;
+    margin: 20px 0;
+    font-size: 1rem;
+  }
+  
+  #rutas-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .rutas-card {
+    background-color: white;
+    border: 1px solid #0a0000;
+    cursor: pointer;
+    width: 150px;
+    height: 280px;
+  }
+  
+  .iden {
+    position: absolute;
+    translate: 0 -120%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: -10px;
+    background-color: rgb(162, 161, 161);
+  }
+  
+  .Id {
+    padding-left: 10px;
+  }
+  
+  .nombre {
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    margin-top: 0;
+  }
+  
+  .evo {
+    border-left: solid 5px black;
+    padding-left: 5px;
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .ev {
+    font-size: .7rem;
+  }
+  
+  img {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(188, 187, 187);
+    padding: 17%;
+  }
+  .property1 {
+    border: solid #5c3613 1px;
+    color: #5c3613;
+    display: inline;
+    width: 45%;
+    font-size: 60%;
+    border-radius: 20%;
+    padding: 1px;
+    text-transform: uppercase;
+  }
+  .property2 {
+    border: solid #5c3613 1px;
+    color: #5c3613;
+    display: inline;
+    width: 45%;
+    font-size: 60%;
+    border-radius: 20%;
+    padding: 1px;
+    text-transform: uppercase;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #rutas-detail {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #rutas-detail img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  @media (max-whidth: 400px) {
+    #rutas-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
+</head>
+
+<body>
+    
+
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+        
+    </div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="navbar-brand" href="#">
+                <img src="logo4.png" alt="Image" class="img-fluid" style="margin-left: 0" >
+    
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1 active" aria-current="page" href="index.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-2" href="videos.html">Rutas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-3" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-4" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div>
+        <video loop autoplay muted id="hero-video" class="parallax-slider" height="800px">
+            <source src="hero.mp4" type="video/mp4">
+            No se puede reproducir el video
+        </video>
+        <div id="overlay-text" class="overlay-text">Mucho más que senderismo...</div>
+    </div>
+
+    <article id="a1">
+        <h2 class="tm-text-primary mb-5">Regístrate</h2>
+                <form id="contact-form" action="" method="POST" class="tm-contact-form mx-auto">
+                    <div class="form-group">
+                        <input type="text" name="nombre" class="form-control rounded-0" placeholder="Nombre" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="apellido" class="form-control rounded-0" placeholder="Apellidos" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control rounded-0" placeholder="Email" required />
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="contact-select" name="inquiry">
+                            <option value="-">Destino</option>
+                            <option value="sales">Málaga</option>
+                            <option value="creative">Córdoba</option>
+                            <option value="uiux">Sevilla</option>
+                            <option value="uiux">Cádiz</option>
+                            <option value="uiux">Huelva</option>
+                            <option value="uiux">Almería</option>
+                            <option value="uiux">Jaén</option>
+                            <option value="uiux">Granada</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="contact-select" name="inquiry">
+                            <option value="-">Población</option>
+                            <option value="sales">Málaga</option>
+                            <option value="creative">Ronda</option>
+                            <option value="uiux">Antequera</option>
+                            <option value="uiux">Axarquía</option>
+                            <option value="uiux">Guadalhorce</option>
+                            <option value="uiux">Abdalajís</option>
+                            <option value="uiux">Costa del Sol</option>
+                            <option value="uiux">Almijara</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="edad" class="form-control rounded-0" placeholder="Edad" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="dific" class="form-control rounded-0" placeholder="Dificultad (del 1 al 10)" min="0" max="10" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="distancia" class="form-control rounded-0" placeholder="Distancia (de 1 al 30km)" min="0" max="30" required />
+                    </div>
+
+                    <div class="form-group tm-text-right">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </form>
+    </article>
+    <article id="rutas-list"></article>
+    <article id="rutas-detail" class="hidden"></article>
+
+    <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
+        <div class="container-fluid tm-container-small">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
+                    <h3 class="tm-text-primary mb-4 tm-footer-title">Acerca de Meet2Trek</h3>
+                    <p>Catalog-Z is free <a rel="sponsored" href="https://v5.getbootstrap.com/">Bootstrap 5</a> Alpha 2
+                        HTML Template for video and photo websites. You can freely use this TemplateMo layout for a
+                        front-end integration with any kind of CMS website.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+                    <h3 class="tm-text-primary mb-4 tm-footer-title">Our Links</h3>
+                    <ul class="tm-footer-links pl-0">
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Our Company</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+                    <ul class="tm-social-links d-flex justify-content-end pl-0 mb-5">
+                        <li class="mb-2"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+                        <li class="mb-2"><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+                        <li class="mb-2"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>
+                        <li class="mb-2"><a href="https://pinterest.com"><i class="fab fa-pinterest"></i></a></li>
+                    </ul>
+                    <a href="#" class="tm-text-gray text-right d-block mb-2">Terms of Use</a>
+                    <a href="#" class="tm-text-gray text-right d-block">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
+                    Copyright 2020 Catalog-Z Company. All rights reserved.
+                </div>
+                <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
+                    Designed by <a href="https://templatemo.com" class="tm-text-gray" rel="sponsored"
+                        target="_parent">TemplateMo</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/plugins.js"></script>
+    <script>
+        $(window).on("load", function () {
+            $('body').addClass('loaded');
+        });
+
+    window.onload = function() {
+    setTimeout(function() {
+        document.getElementById("overlay-text").classList.add("visible");
+    }, 2000); // El texto aparece después de 1 segundo
+};
+
+/* script js de las rutas */
+const apiUrl = "#";
+const speciesUrl = "#";
+const app = document.getElementById("app");
+const searchInput = document.getElementById("search");
+const rutaList = document.getElementById("ruta-list");
+const rutaDetail = document.getElementById("ruta-detail");
+const rutaInfo = document.getElementById("ruta-info");
+const backButton = document.getElementById("back-button");
+
+let rutas = [];
+
+const fetchRutas = async () => {
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    const rutaDetails = await Promise.all(
+      data.results.map((ruta) =>
+        fetch(ruta.url).then((res) => res.json())
+      )
+    );
+
+    rutas = rutaDetails;
+    displayRutas(rutas);
+  } catch (error) {
+    console.error("Error fetching Ruta data:", error);
+  }
+};
+
+const displayRutas = (rutas) => {
+    rutaList.innerHTML = rutas
+    .map(
+      (ruta) => `
+        <div class="ruta-card" onclick="showRutaDetail(${ruta.id})">
+            <div class="image">
+            <img src="${ruta.sprites.front_default}" alt="${ruta.name}">
+            </div>
+            <div class="Id">
+             <div class="iden">ID/${ruta.id}</div><br>
+            <p class= "nombre"><b>${ruta.name}</b></p>
+            <p class="property1">${ruta.types[0].type.name}</p>
+            <p class="property2">${ruta.types[1]?.type.name}</p>
+            <div class= "evo">
+            <p class= "ev">Evoluciona de:</p>
+            <p>${ruta.is_default ? "Base" : "Evoluciona de"}</p>
+            </div>
+            </div>
+        </div>   
+    `
+    )
+    .join("");
+};
+
+const filterRutas = (event) => {
+  const searchText = event.target.value.toLowerCase();
+  const filteredRutas = rutas.filter((ruta) =>
+  ruta.name.toLowerCase().includes(searchText)
+  );
+  displayRutas(filteredRutas);
+};
+
+const showRutaDetail = (id) => {
+  const ruta = rutas.find((ruta) => ruta.id === id);
+  const newWindow = window.open("", "_blank");
+
+  newWindow.document.write(`
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>${ruta.name} Details</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    padding: 20px;
+                    text-align: center;
+                }
+                img {
+                    width: 200px;
+                    height: 200px;
+                }
+                     button {
+                    margin-top: 20px;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+            </style>
+        </head>
+        <body>
+            <h2>${ruta.id}. ${ruta.name}</h2>
+            <img src="${ruta.sprites.front_default}" alt="${ruta.name}">
+            <p>Tipo: ${ruta.types
+              .map((type) => type.type.name)
+              .join(", ")}</p>
+            <p>Evolución: ${ruta.is_default ? "Base" : "Evolución"}</p>
+            <button id="backButton" onclick="window.close()">Volver al listado</button>
+        </body>
+        </html>
+    `);
+};
+
+const showRutaList = () => {
+    rutaDetail.classList.add("hidden");
+    rutaList.classList.remove("hidden");
+    rutaDetail.style.display = "none";
+};
+
+searchInput.addEventListener("input", filterRutas);
+backButton.addEventListener("click", showRutaList);
+
+fetchRutas();
+</script>
+</body>
+
+</html>
