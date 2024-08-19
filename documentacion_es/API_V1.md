@@ -123,37 +123,37 @@ URL: https://121.0.0.1:8080/api/v1/routes
 ```
 Ejemplo de filtros:
 #### <u> FindByDifficulty</u><br>
-Filtra rutas por su dificultad.
+Devuelve todas las rutas con el nivel de dificultad indicado.
 
 URL: https://121.0.0.1:8080/api/v1/routes?difficulty={difficulty}
 #### <u> FindByDistance</u><br>
-Filtra rutas por su distancia.
+Devuelve todas las rutas con un distancia comprendida entre (diatanciaprox-range) y (distanceaprox + range).
 
 URL: https://121.0.0.1:8080/api/v1/routes?distance={distanceaprox}&range={range}
 #### <u> FindByCountry</u><br>
-Filtra rutas por su país.
+Devuelve todas las rutas del país indicado.
 
 URL: https://121.0.0.1:8080/api/v1/routes?country={country}
 #### <u> FindByProvince</u><br>
-Filtra rutas por su provincia.
+Devuelve todas las rutas de la provincia indicada.
 
 URL: https://121.0.0.1:8080/api/v1/routes?province={province}
 #### <u> FindByArea</u><br>
-Filtra rutas por su area (pueblo o zona).
+Devuelve todas las rutas que esten asociadas al area (pueblo, parque natural, area recreativa o nombre de la zona) indicada.
 
 URL: https://121.0.0.1:8080/api/v1/routes?area={area}
 #### <u> All Filters</u><br>
-Combinando todos los filtros disponibles.
+Ejemplo de filtros disponibles, puede usar uno o varios:
 
 URL: https://121.0.0.1:8080/api/v1/routes?difficulty={difficulty}&distance={distanceaprox}&range={range}&country={country}&province={province}&area={area}
 
 ### User
 #### <u> UserFindById</u><br>
-Obten un objeto Json de UserDto por su Id.
+Devuelve un objeto Json de UserDto por su Id.
 
 URL: https://121.0.0.1:8080/api/v1/users/{Id}
 
-Ejemplo para (Username [nombre de  usuario] = Trekker123, user_id [Id de usuario] = 1) usando un Dto: 
+Ejemplo de respuesta para  [Id de usuario] = 1), se regresa UserDto(password y e-mail ocultos) : 
 ```json
 {  
     "user_id": 1,
@@ -169,7 +169,7 @@ Ejemplo para (Username [nombre de  usuario] = Trekker123, user_id [Id de usuario
 }
 ```
 #### <u> FindAllUsers</u><br>
-Devuelve un ArrayList de todos los usuarios registrados (usando un UserDto).
+Devuelve un ArrayList de todos los usuarios registrados (regresa UserDto).
 
 URL: https://121.0.0.1:8080/api/v1/user
 
@@ -517,14 +517,14 @@ Crea un nuevo objeto ruta, dado un cuerpo Json.
 406(No aceptable):
 ```json
 {
-    message:"Campos del cuerpo Json incorrectos o incompletos",
+    message:"Incorrect or Incomplete Json body Fields",
     incorrectFields: "Lista de campos incorrectos"
 }
 ```
 409(Conflicto):
 ```json
 {
-    message:"La ruta ya existe, por favor indique un valor diferente para: name, difficulty, distance,  starting_point, country, province o area (Es decir, los campos nombre, dificultad, distancia, punto_de_inicio, país, provincia o area).",
+    message:"The route already exists, please indicate a different dates for: name or difficulty or distance or starting_point or country or province or area.",
     {
     "route_id": 11,
     "name": "Montes de Malaga",  
@@ -542,7 +542,7 @@ Crea un nuevo objeto ruta, dado un cuerpo Json.
 501(Error interno de servidor):
 ```json
 {
-    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
+    "message": "Saturation on server, try again later"
 }
 ```
 ### <u>post_User</u><br>
@@ -581,20 +581,20 @@ Crea un nuevo objeto de usuario, dado un cuerpo Json.
 406(No aceptable):
 ```json
 {
-    message:"Campos del cuerpo Json incompletos o incorrectos.",
+    message:"Incorrect or Incomplete Json body Fields",
     incorrectFields: "Lista de campos incorrectos"
 }
 ```
 409(Conflicto):
 ```json
 {
-    message:"El usuario ya existe. Por favor, usa otro nombre de usuario."
+    message:"The user already exists, Change the user's name"
 }
 ```
 501(Error interno de servidor):
 ```json
 {
-    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
+    "message": "Saturation on server, try again later"
 }
 ```
 ### <u>post_Meeting</u><br>
@@ -645,14 +645,14 @@ Crea un nuevo objeto de quedada, dado un cuerpo Json, usando la Id de una ruta y
 406(No aceptable):
 ```json
 {
-    message:"Campos del cuerpo Json incorrectos o incompletos",
+    message:"Incorrect or Incomplete Json body Fields",
     incorrectFields: "Lista de campos incorrectos"
 }
 ```
 409(Conflicto):
 ```json
 {
-    message:"La fecha y la hora para la quedada de esta ruta ya han sido escogidas. Por favor, eliga otra.",
+    message:"The date for this route meeting already selected, chose another minute",
     "selectedRoute": 1,
     "selectedDate":  "19/08/2024 17:00"
 }
@@ -660,7 +660,7 @@ Crea un nuevo objeto de quedada, dado un cuerpo Json, usando la Id de una ruta y
 501(Error interno de servidor):
 ```json
 {
-    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
+    "message": "Saturation on server, try again later"
 }
 ```
 ## PUT
@@ -701,14 +701,14 @@ PUT url: https://121.0.0.1:8080/api/v1/route/{Id}
 406(No aceptable):
 ```json
 {
-    message:"route_Id = Campos Json incorrectos o incompletos",
-    incorrectFields: "route_Id no existe" o "Lista de campos incorrectos"
+    message:"route_Id o Incorrect or Incomplete Json Fields",
+    incorrectFields:  "route_Id not exist"  o "List of incorrect fields"
 }
 ```
 501(Error interno de servidor):
 ```json
 {
-    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
+    "message": "Saturation on server, try again later"
 }
 ```
 ### <u>put_User</u><br>
@@ -746,14 +746,14 @@ PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}
 406(No aceptable):
 ```json
 {
-    message:"User_id = Campos del cuerpo Json incorrectos o incompletos",
-    incorrectFields: "user_id no existe" o "Lista de campos incorrectos"
+    message:"User_id = Incorrect or Incomplete Json body Fields",
+    incorrectFields: "user_id no exist" o "Lista de campos incorrectos"
 }
 ```
 501(Error interno de servidor):
 ```json
 {
-    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
+    "message": "Saturation on server, try again later"
 }
 ```
 ### <u>put_Meeting</u><br>
@@ -817,14 +817,14 @@ PUT URL: https://121.0.0.1:8080/api/v1/meeting/{Id}
 406(No aceptable):
 ```json
 {
-    message:"Meeting_Id = Campos del cuerpo Json incorrectos o incompletos",
-    incorrectFields: "Meeting_Id no existe" o "Lista de campos incorrectos"
+    message:"Meeting_Id = Incorrect or Incomplete Json body Fields",
+    incorrectFields: "Meeting_Id no exist" o "Lista de campos incorrectos"
 }
 ```
 501(Error interno de servidor):
 ```json
 {
-    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
+    "message": "Saturation on server, try again later"
 }
 ```
 ### <u>put_user_in_Meeting</u><br>
@@ -885,7 +885,7 @@ Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15
 ```json
 {
     message:"Incorrect Id",
-    incorrectFields: "Meeting_Id no existe", "User_id no existe" o "No existe ni User_Id ni Meeting_Id"
+    incorrectFields: "Meeting_Id no exist", "User_id no exist" o "User_id and Meeting_Id not exist"
 }
 ```
 409(Conflicto):
@@ -901,7 +901,7 @@ Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15
 501(Error interno de servidor):
 ```json
 {
-    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
+    "message": "Saturation on server, try again later"
 }
 ```
 ## DELETE
@@ -919,13 +919,13 @@ example: https://121.0.0.1:8080/api/v1/route/20
 406(No aceptable):
 ```json
 {
-    "message": "route_Id no existe"
+    "message": "route_Id no exist"
 }
 ```
 501(Error interno de servidor):
 ```json
 {
-    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
+    "message": "Saturation on server, try again later"
 }
 ```
 ### <u>delete_User</u><br>
@@ -942,13 +942,13 @@ example: https://121.0.0.1:8080/api/v1/user/15
 406(No aceptable):
 ```json
 {
-    "message":"User_id no existe",
+    "message":"User_id no existe,
 }
 ```
 501(Error interno de servidor):
 ```json
 {
-    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
+    "message": "Saturation on server, try again later"
 }
 ```
 ### <u>delete_Meeting</u><br>
@@ -965,13 +965,13 @@ example: https://121.0.0.1:8080/api/v1/meeting/25
 406(No aceptable):
 ```json
 {
-    "message":"meeting_id no existe",
+    "message":"meeting_id no exist",
 }
 ```
 501(Error interno de servidor):
 ```json
 {
-    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
+    "message": "Saturation on server, try again later"
 }
 ```
 ### <u>delete_user_from_Meeting</u><br>
@@ -982,18 +982,18 @@ example: https://121.0.0.1:8080/api/v1/meeting?meetingId=25&userId=10
 <br>201(OK):
 ```json
 {
-    "message": "El usuario 10 fue eliminado de la quedada 25",
+    "message": "User 10 leaves meeting 25",
 }
 ```
 406(No aceptable):
 ```json
 {
-    "message":"meeting_id no existe" o "User 10 no se ha unido a la quedada 25"
+    "message":"meeting_id no exist" o "User 10 is nor registered in meeting 25"
 }
 ```
 501(Error interno de servidor):
 ```json
 {
-    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
+    "message": "Saturation on server, try again later"
 }
 ```
