@@ -1,7 +1,7 @@
 # API
 ***
 ***
-# Table of Contents
+# Table de Contenidos
 
 ## GET
 - [Route](#route)
@@ -46,13 +46,13 @@
 
 
 ## GET 
-Gets Json Objects.
+Obtiene objetos Json.
 ### Route
 #### <u> RouteFindById</u><br>
-Gets a Json Route Object by its Id.
+Obtiene un objeto Json de Ruta por su Id.
 
 URL: https://121.0.0.1:8080/api/v1/routes/{route_Id}
-<br>Sample result:
+<br>Ejemplo:
 ```json
 {  
     "route_id": 1,  
@@ -69,14 +69,14 @@ URL: https://121.0.0.1:8080/api/v1/routes/{route_Id}
 ```
  
 #### <u> RouteList</u><br>
-Returns a Json ArrayList of routes. You can filter them by the following variables: difficulty, distance, country, province, area. 
-You can filter for one, two o more variables.
+Devuelve una Json ArrayList de rutas. Puedes filtrarlas a través de las siguientes variables: dificultad, distancia, país, provincia, area. 
+Puedes filtrar por una, dos o más variables.
 
 ##### <u> FindAll</u><br>
-Gets all routes without any filters.
+Obtiene todas las rutas sin aplicar filtros.
 
 URL: https://121.0.0.1:8080/api/v1/routes
-<br>Sample result:  
+<br>Ejemplo:  
 ```json
 [
 {  
@@ -121,39 +121,39 @@ URL: https://121.0.0.1:8080/api/v1/routes
 
 ]
 ```
-Examples Filters:
+Ejemplo de filtros:
 #### <u> FindByDifficulty</u><br>
-Filters routes by their difficulty.
+Filtra rutas por su dificultad.
 
 URL: https://121.0.0.1:8080/api/v1/routes?difficulty={difficulty}
 #### <u> FindByDistance</u><br>
-Filters routes by their distance.
+Filtra rutas por su distancia.
 
 URL: https://121.0.0.1:8080/api/v1/routes?distance={distanceaprox}&range={range}
 #### <u> FindByCountry</u><br>
-Filters routes by their country.
+Filtra rutas por su país.
 
 URL: https://121.0.0.1:8080/api/v1/routes?country={country}
 #### <u> FindByProvince</u><br>
-Filters routes by their province
+Filtra rutas por su provincia.
 
 URL: https://121.0.0.1:8080/api/v1/routes?province={province}
 #### <u> FindByArea</u><br>
-Filters routes by their area.
+Filtra rutas por su area (pueblo o zona).
 
 URL: https://121.0.0.1:8080/api/v1/routes?area={area}
 #### <u> All Filters</u><br>
-The combination of every filter.
+Combinando todos los filtros disponibles.
 
 URL: https://121.0.0.1:8080/api/v1/routes?difficulty={difficulty}&distance={distanceaprox}&range={range}&country={country}&province={province}&area={area}
 
 ### User
 #### <u> UserFindById</u><br>
-Gets a Json UserDto Object by its Id.
+Obten un objeto Json de UserDto por su Id.
 
 URL: https://121.0.0.1:8080/api/v1/users/{Id}
 
-Sample result for (Username = Trekker123) using a Dto: 
+Ejemplo para (Username [nombre de  usuario] = Trekker123, user_id [Id de usuario] = 1) usando un Dto: 
 ```json
 {  
     "user_id": 1,
@@ -169,11 +169,11 @@ Sample result for (Username = Trekker123) using a Dto:
 }
 ```
 #### <u> FindAllUsers</u><br>
-Returns an ArrayList of all registered users (UserDto).
+Devuelve un ArrayList de todos los usuarios registrados (usando un UserDto).
 
 URL: https://121.0.0.1:8080/api/v1/user
 
-<br>Sample result:
+<br>Ejemplo:
 ```json
 [
 {  
@@ -218,11 +218,12 @@ URL: https://121.0.0.1:8080/api/v1/user
 ]
 ```
 #### <u> UserListByMeeting</u><br>
-Get a list of all users (UserDto) who joined a specific meeting in a specific Route.
+Obtiene una lista de todos los usuarios (UserDto) que se han unido a una quedada específica en una ruta específica.
 
 URL: https://121.0.0.1:8080/api/v1/users/meeting/{Meeting_Id}
-<br>Sample result:
+<br>Ejemplo:
 ```json
+[
 {  
     "user_id": 1,
     "username": "Trekker123",  
@@ -266,10 +267,10 @@ URL: https://121.0.0.1:8080/api/v1/users/meeting/{Meeting_Id}
 ```
 ### Meeting
 #### <u> MeetingFindById</u><br>
-Gets a Json Meeting Object by its Id.
+Obtiene un objeto Json de quedada por su Id.
 
 URL: https://121.0.0.1:8080/api/v1/meetings/{meeting_Id}
-<br>Sample result:
+<br>Ejemplo:
 ```json
 {  
     "meeting_id": 1,  
@@ -330,10 +331,10 @@ URL: https://121.0.0.1:8080/api/v1/meetings/{meeting_Id}
 }
 ```
 #### <u> GetAllMeetings</u><br>
-Returns an ArrayList of all meetings (MeetingsDto).
+Devuelve una ArrayList de todas las quedadas (usando un MeetingDto).
 URL: https://121.0.0.1:8080/api/v1/meetings
+<br> Ejemplo:
 ```json
-Sample result`
 [
     {  
         "meeting_id": 1,  
@@ -356,9 +357,9 @@ Sample result`
 ]
 ```
 #### <u> GetAllActiveMeetings</u><br>
-Returns an ArrayList of all active meetings (MeetingsDto).
+Devuelve una ArrayList de todas las quedadas activas (usando un MeetingDto).
 URL: https://121.0.0.1:8080/api/v1/meetings/active
-<br>Sample result:
+<br>Ejemplo:
 ```json
 [
     {  
@@ -437,9 +438,9 @@ URL: https://121.0.0.1:8080/api/v1/meetings/active
 ]
 ```
 #### <u> FindMeetingsByDate</u><br>
-Returns an ArrayList meetings (MeetingsDto) from a date.
+Devuelve una ArrayList de las quedadas (MeetingsDto) a partir de una fecha.
 <br>URL: https://121.0.0.1:8080/api/v1/meetings?date={date}
-<br>Sample result:
+<br>Ejemplo:
 ```json
 [
     {  
@@ -482,9 +483,9 @@ Returns an ArrayList meetings (MeetingsDto) from a date.
 ```
 ## POST
 ### <u>post_Route</u><br>
-Creates a new Route object, given a Json body.
+Crea un nuevo objeto ruta, dado un cuerpo Json.
 <br>POST URL: https://121.0.0.1:8080/api/v1/route/
-<br>Json Body to send:
+<br>Cuerpo Json que enviar:
 ```json
 {  
     "name": "Montes de Malaga",  
@@ -497,7 +498,7 @@ Creates a new Route object, given a Json body.
     "area": "Montes de Malaga"  
 }
 ```
-<br>Possible responses:
+<br>Respuestas posibles:
 <br>201(OK):
 ```json
 {
@@ -513,17 +514,17 @@ Creates a new Route object, given a Json body.
     "area": "Montes de Malaga"  
 }
 ```
-406(Not Acceptable):
+406(No aceptable):
 ```json
 {
-    message:"Incorrect or Incomplete Json body Fields",
-    incorrectFields: "List of incorrect fields"
+    message:"Campos del cuerpo Json incorrectos o incompletos",
+    incorrectFields: "Lista de campos incorrectos"
 }
 ```
-409(Conflict):
+409(Conflicto):
 ```json
 {
-    message:"The route already exists, please indicate a different dates for: name or difficulty or distance or starting_point or country or province or area.",
+    message:"La ruta ya existe, por favor indique un valor diferente para: name, difficulty, distance,  starting_point, country, province o area (Es decir, los campos nombre, dificultad, distancia, punto_de_inicio, país, provincia o area).",
     {
     "route_id": 11,
     "name": "Montes de Malaga",  
@@ -538,17 +539,17 @@ Creates a new Route object, given a Json body.
     }
 }
 ```
-501(Internal Server Error):
+501(Error interno de servidor):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
 }
 ```
 ### <u>post_User</u><br>
-Creates a new User object, given a Json body.
+Crea un nuevo objeto de usuario, dado un cuerpo Json.
 
 <br>POST URL: https://121.0.0.1:8080/api/v1/user/
-<br>Json Body to send:
+<br>Cuerpo Json que mandar:
 ```json
 {  
     "username": "Jonatan0",  
@@ -561,7 +562,7 @@ Creates a new User object, given a Json body.
     "p_area": "Malaga"  
 }
 ```
-<br>Possible responses:
+<br>Respuestas posibles:
 <br>201(OK):
 ```json
 {
@@ -577,29 +578,29 @@ Creates a new User object, given a Json body.
     "p_area": "Malaga"  
 }
 ```
-406(Not Acceptable):
+406(No aceptable):
 ```json
 {
-    message:"Incorrect or Incomplete Json body Fields",
-    incorrectFields: "List of incorrect fields"
+    message:"Campos del cuerpo Json incompletos o incorrectos.",
+    incorrectFields: "Lista de campos incorrectos"
 }
 ```
-409(Conflict):
+409(Conflicto):
 ```json
 {
-    message:"The user already exists, Change the user's name",
+    message:"El usuario ya existe. Por favor, usa otro nombre de usuario."
 }
 ```
-501(Internal Server Error):
+501(Error interno de servidor):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
 }
 ```
 ### <u>post_Meeting</u><br>
-Creates a new Meeting object, given a Json body, using a Route's ID and an ArrayList of Users' usernames.
+Crea un nuevo objeto de quedada, dado un cuerpo Json, usando la Id de una ruta y una ArrayList de las Ids de los usuarios.
 <br>POST URL: https://121.0.0.1:8080/api/v1/meeting
-<br>Json Body to send: 
+<br>Cuerpo Json que mandar: 
 ```json
 {  
     "date": "19/08/2024 17:00",  
@@ -607,7 +608,7 @@ Creates a new Meeting object, given a Json body, using a Route's ID and an Array
     "user_id": 15,
 }
 ```
-<br>Possible responses:
+<br>Respuestas posibles:
 <br>201(OK):
 ```json
 {  
@@ -641,32 +642,32 @@ Creates a new Meeting object, given a Json body, using a Route's ID and an Array
     }
 }
 ```
-406(Not Acceptable):
+406(No aceptable):
 ```json
 {
-    message:"Incorrect or Incomplete Json body Fields",
-    incorrectFields: "List of incorrect fields"
+    message:"Campos del cuerpo Json incorrectos o incompletos",
+    incorrectFields: "Lista de campos incorrectos"
 }
 ```
-409(Conflict):
+409(Conflicto):
 ```json
 {
-    message:"The date for this route meeting already selected, chose another minute",
+    message:"La fecha y la hora para la quedada de esta ruta ya han sido escogidas. Por favor, eliga otra.",
     "selectedRoute": 1,
     "selectedDate":  "19/08/2024 17:00"
 }
 ```
-501(Internal Server Error):
+501(Error interno de servidor):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
 }
 ```
 ## PUT
 ### <u>put_Route</u><br>
-Edits an existing Route object, given a Json body and having specified its Id (PK).
+Edita un objeto ruta existente, dado un cuerpo Json y habiendo especificado su Id (PK).
 PUT url: https://121.0.0.1:8080/api/v1/route/{Id}
-<br>Json Body to send:
+<br>Cuerpo Json que mandar:
 ```json
 {  
     "route_id": 20,
@@ -681,7 +682,7 @@ PUT url: https://121.0.0.1:8080/api/v1/route/{Id}
     "area": "Montes de Malaga"  
 }
 ```
-<br>Possible responses:
+<br>Respuestas posibles:
 <br>201(OK):
 ```json
 {
@@ -697,23 +698,23 @@ PUT url: https://121.0.0.1:8080/api/v1/route/{Id}
     "area": "Montes de Malaga"  
 }
 ```
-406(Not Acceptable):
+406(No aceptable):
 ```json
 {
-    message:"route_Id o Incorrect or Incomplete Json Fields",
-    incorrectFields: "route_Id not exist" or "List of incorrect fields"
+    message:"route_Id = Campos Json incorrectos o incompletos",
+    incorrectFields: "route_Id no existe" o "Lista de campos incorrectos"
 }
 ```
-501(Internal Server Error):
+501(Error interno de servidor):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
 }
 ```
 ### <u>put_User</u><br>
-Edits an existing User object, given a Json body and having specified its Username (PK).
+Edita un objeto usuario existente, dado un cuerpo Json y habiendo especificado su Id (PK).
 PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}
-<br>Json Body to send: 
+<br>Cuerpo Json que mandar: 
 ```json
 {  
     "username": "Jonatan0",  
@@ -726,7 +727,7 @@ PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}
     "p_area": "Antequera"  
 }
 ```
-<br>Possible responses:
+<br>Respuestas posibles:
 <br>201(OK):
 ```json
 {
@@ -742,30 +743,30 @@ PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}
     "p_area": "Antequera"  
 }
 ```
-406(Not Acceptable):
+406(No aceptable):
 ```json
 {
-    message:"User_id o Incorrect or Incomplete Json body Fields",
-    incorrectFields: "user_id not exists" or "List of incorrect fields"
+    message:"User_id = Campos del cuerpo Json incorrectos o incompletos",
+    incorrectFields: "user_id no existe" o "Lista de campos incorrectos"
 }
 ```
-501(Internal Server Error):
+501(Error interno de servidor):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
 }
 ```
 ### <u>put_Meeting</u><br>
-Edits an existing Meeting object, given a Json body and having specified its Id (PK).
+Edita un objeto quedada existente, dado un cuerpo Json y habiendo especificado su Id (PK).
 PUT URL: https://121.0.0.1:8080/api/v1/meeting/{Id}
-<br>Json Body to send: 
+<br>Cuerpo Json que mandar: 
 ```json
 {  
     "date": "19/08/2024 19:00",  
     "route_id": 1,
 }
 ```
-<br>Possible responses:
+<br>Respuestas posibles:
 <br>201(OK):
 ```json
 {  
@@ -813,24 +814,24 @@ PUT URL: https://121.0.0.1:8080/api/v1/meeting/{Id}
     }
 }
 ```
-406(Not Acceptable):
+406(No aceptable):
 ```json
 {
-    message:"Meeting_Id error or incorrect or Incomplete Json body Fields",
-    incorrectFields: "Meeting_Id not exist" or "List of incorrect fields"
+    message:"Meeting_Id = Campos del cuerpo Json incorrectos o incompletos",
+    incorrectFields: "Meeting_Id no existe" o "Lista de campos incorrectos"
 }
 ```
-501(Internal Server Error):
+501(Error interno de servidor):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
 }
 ```
 ### <u>put_user_in_Meeting</u><br>
-Add and user to a meeting.
+Añade un usuario a una quedada.
 <br>POST URL: https://121.0.0.1:8080/api/v1/meeting?meeting_id={Id}&user_id={Id}
 Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15
-<br>Possible responses:
+<br>Respuestas posibles:
 
 <br>201(OK):
 ```json
@@ -880,119 +881,119 @@ Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15
     }
 }
 ```
-406(Not Acceptable):
+406(No aceptable):
 ```json
 {
     message:"Incorrect Id",
-    incorrectFields: "Meeting_Id not exist" or "User_id not exist" or " User_id and Meeting_Id not exist"
+    incorrectFields: "Meeting_Id no existe", "User_id no existe" o "No existe ni User_Id ni Meeting_Id"
 }
 ```
-409(Conflict):
+409(Conflicto):
 ```json
 {
-    message:"The indicate User already is joined to this meeting",
+    message:"Este usuario ya se ha unido a esta quedada",
     "meeting_id": 1,  
     "date": "19/08/2024 17:00",
     "route_id": 1,
     "user_id": 15,
 }
 ```
-501(Internal Server Error):
+501(Error interno de servidor):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
 }
 ```
 ## DELETE
 ### <u>delete_Route</u><br> 
-Deletes an existing Route object, having specified its Id (PK).
+Borra un objeto ruta existente, habiendo especificado su Id (PK).
 DELETE URL: https://121.0.0.1:8080/api/v1/route/{Id}
 example: https://121.0.0.1:8080/api/v1/route/20
-<br>Possible responses:
+<br>Respuestas posibles:
 <br>201(OK):
 ```json
 {
-    "message": "route 20 deleted", 
+    "message": "La ruta 20 ha sido eliminada con éxito", 
 }
 ```
-406(Not Acceptable):
+406(No aceptable):
 ```json
 {
-    "message": "route_Id not exist"
+    "message": "route_Id no existe"
 }
 ```
-501(Internal Server Error):
+501(Error interno de servidor):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
 }
 ```
 ### <u>delete_User</u><br>
-Deletes an existing User object, having specified its Username (PK).
+Borra un objeto usuario existente, habiendo especificado su Id (PK).
 DELETE URL: https://121.0.0.1:8080/api/v1/user/{Id}
 example: https://121.0.0.1:8080/api/v1/user/15
-<br>Possible responses:
+<br>Respuestas posibles:
 <br>201(OK):
 ```json
 {
-    "message": " User 15 deleted",
+    "message": "El usuario 15 ha sido eliminado con éxito",
 }
 ```
-406(Not Acceptable):
+406(No aceptable):
 ```json
 {
-    "message":"User_id not exist",
+    "message":"User_id no existe",
 }
 ```
-501(Internal Server Error):
+501(Error interno de servidor):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
 }
 ```
 ### <u>delete_Meeting</u><br>
-Deletes an existing Meeting object, having specified its Id (PK).
+Borra un objeto de quedada existente, habiendo especificado su Id (PK).
 DELETE URL: https://121.0.0.1:8080/api/v1/meeting/{Id}
 example: https://121.0.0.1:8080/api/v1/meeting/25
-<br>Possible responses:
+<br>Respuestas posibles:
 <br>201(OK):
 ```json
 {
-    "message": " meeting 25 deleted",
+    "message": "La quedada 25 ha sido eliminada con éxito",
 }
 ```
-406(Not Acceptable):
+406(No aceptable):
 ```json
 {
-    "message":"meeting_id not exist",
+    "message":"meeting_id no existe",
 }
 ```
-501(Internal Server Error):
+501(Error interno de servidor):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
 }
 ```
 ### <u>delete_user_from_Meeting</u><br>
-Unregister a user from a meeting
+Quita a un usuario de una quedada
 DELETE URL: https://121.0.0.1:8080/api/v1/meeting?meetingId={Id}&userId={Id}
 example: https://121.0.0.1:8080/api/v1/meeting?meetingId=25&userId=10
-<br><br>Possible responses:
+<br><br>Respuestas posibles:
 <br>201(OK):
 ```json
 {
-    "message": " user 10 leaves meeting 25",
+    "message": "El usuario 10 fue eliminado de la quedada 25",
 }
 ```
-406(Not Acceptable):
+406(No aceptable):
 ```json
 {
-    "message":"meeting_id not exist" or "User 10 is nor registered in meeting 25"
+    "message":"meeting_id no existe" o "User 10 no se ha unido a la quedada 25"
 }
 ```
-501(Internal Server Error):
+501(Error interno de servidor):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "El servidor está saturado en estos momentos. Por favor, inténtelo de nuevo más tarde."
 }
 ```

@@ -153,7 +153,7 @@ Gets a Json UserDto Object by its Id.
 
 URL: https://121.0.0.1:8080/api/v1/users/{Id}
 
-Sample result for (Username = Trekker123) using a Dto: 
+Sample result for (Username = Trekker123, user_id = 1) using a Dto: 
 ```json
 {  
     "user_id": 1,
@@ -169,7 +169,7 @@ Sample result for (Username = Trekker123) using a Dto:
 }
 ```
 #### <u> FindAllUsers</u><br>
-Returns an ArrayList of all registered users (UserDto).
+Returns an ArrayList of all registered users (using UserDto).
 
 URL: https://121.0.0.1:8080/api/v1/user
 
@@ -223,6 +223,7 @@ Get a list of all users (UserDto) who joined a specific meeting in a specific Ro
 URL: https://121.0.0.1:8080/api/v1/users/meeting/{Meeting_Id}
 <br>Sample result:
 ```json
+[
 {  
     "user_id": 1,
     "username": "Trekker123",  
@@ -330,10 +331,10 @@ URL: https://121.0.0.1:8080/api/v1/meetings/{meeting_Id}
 }
 ```
 #### <u> GetAllMeetings</u><br>
-Returns an ArrayList of all meetings (MeetingsDto).
+Returns an ArrayList of all meetings (MeetingDto).
 URL: https://121.0.0.1:8080/api/v1/meetings
+<br> Sample result
 ```json
-Sample result`
 [
     {  
         "meeting_id": 1,  
@@ -356,7 +357,7 @@ Sample result`
 ]
 ```
 #### <u> GetAllActiveMeetings</u><br>
-Returns an ArrayList of all active meetings (MeetingsDto).
+Returns an ArrayList of all active meetings (MeetingDto).
 URL: https://121.0.0.1:8080/api/v1/meetings/active
 <br>Sample result:
 ```json
@@ -437,7 +438,7 @@ URL: https://121.0.0.1:8080/api/v1/meetings/active
 ]
 ```
 #### <u> FindMeetingsByDate</u><br>
-Returns an ArrayList meetings (MeetingsDto) from a date.
+Returns an ArrayList meetings (MeetingDto) from a date.
 <br>URL: https://121.0.0.1:8080/api/v1/meetings?date={date}
 <br>Sample result:
 ```json
@@ -523,7 +524,7 @@ Creates a new Route object, given a Json body.
 409(Conflict):
 ```json
 {
-    message:"The route already exists, please indicate a different dates for: name or difficulty or distance or starting_point or country or province or area.",
+    message:"The route already exists, please indicate a different dates for: name, difficulty, distance,  starting_point, country, province or area.",
     {
     "route_id": 11,
     "name": "Montes de Malaga",  
@@ -541,7 +542,7 @@ Creates a new Route object, given a Json body.
 501(Internal Server Error):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "The server is currently saturated. Please try again later."
 }
 ```
 ### <u>post_User</u><br>
@@ -587,17 +588,17 @@ Creates a new User object, given a Json body.
 409(Conflict):
 ```json
 {
-    message:"The user already exists, Change the user's name",
+    message:"The user already exists. Please use a different username."
 }
 ```
 501(Internal Server Error):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "The server is currently saturated. Please try again later."
 }
 ```
 ### <u>post_Meeting</u><br>
-Creates a new Meeting object, given a Json body, using a Route's ID and an ArrayList of Users' usernames.
+Creates a new Meeting object, given a Json body, using a Route's Ids and an ArrayList of Users' Ids.
 <br>POST URL: https://121.0.0.1:8080/api/v1/meeting
 <br>Json Body to send: 
 ```json
@@ -651,7 +652,7 @@ Creates a new Meeting object, given a Json body, using a Route's ID and an Array
 409(Conflict):
 ```json
 {
-    message:"The date for this route meeting already selected, chose another minute",
+    message:"The date and time for this route's meeting has already been selected. Please select another one.",
     "selectedRoute": 1,
     "selectedDate":  "19/08/2024 17:00"
 }
@@ -659,7 +660,7 @@ Creates a new Meeting object, given a Json body, using a Route's ID and an Array
 501(Internal Server Error):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "The server is currently saturated. Please try again later."
 }
 ```
 ## PUT
@@ -700,14 +701,14 @@ PUT url: https://121.0.0.1:8080/api/v1/route/{Id}
 406(Not Acceptable):
 ```json
 {
-    message:"route_Id o Incorrect or Incomplete Json Fields",
-    incorrectFields: "route_Id not exist" or "List of incorrect fields"
+    message:"route_Id = Incorrect or Incomplete Json Fields",
+    incorrectFields: "route_Id does not exist" or "List of incorrect fields"
 }
 ```
 501(Internal Server Error):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "The server is currently saturated. Please try again later."
 }
 ```
 ### <u>put_User</u><br>
@@ -745,14 +746,14 @@ PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}
 406(Not Acceptable):
 ```json
 {
-    message:"User_id o Incorrect or Incomplete Json body Fields",
-    incorrectFields: "user_id not exists" or "List of incorrect fields"
+    message:"User_id = Incorrect or Incomplete Json body Fields",
+    incorrectFields: "user_id does not exist" or "List of incorrect fields"
 }
 ```
 501(Internal Server Error):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "The server is currently saturated. Please try again later."
 }
 ```
 ### <u>put_Meeting</u><br>
@@ -816,18 +817,18 @@ PUT URL: https://121.0.0.1:8080/api/v1/meeting/{Id}
 406(Not Acceptable):
 ```json
 {
-    message:"Meeting_Id error or incorrect or Incomplete Json body Fields",
-    incorrectFields: "Meeting_Id not exist" or "List of incorrect fields"
+    message:"Meeting_Id = Incorrect or Incomplete Json body Fields",
+    incorrectFields: "Meeting_Id does not exist" or "List of incorrect fields"
 }
 ```
 501(Internal Server Error):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "The server is currently saturated. Please try again later."
 }
 ```
 ### <u>put_user_in_Meeting</u><br>
-Add and user to a meeting.
+Add an user to a meeting.
 <br>POST URL: https://121.0.0.1:8080/api/v1/meeting?meeting_id={Id}&user_id={Id}
 Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15
 <br>Possible responses:
@@ -884,13 +885,13 @@ Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15
 ```json
 {
     message:"Incorrect Id",
-    incorrectFields: "Meeting_Id not exist" or "User_id not exist" or " User_id and Meeting_Id not exist"
+    incorrectFields: "Meeting_Id does not exist", "User_id does not exist" or "Neither User_Id nor Meeting_Id exist"
 }
 ```
 409(Conflict):
 ```json
 {
-    message:"The indicate User already is joined to this meeting",
+    message:"This User has already joined this meeting",
     "meeting_id": 1,  
     "date": "19/08/2024 17:00",
     "route_id": 1,
@@ -900,7 +901,7 @@ Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15
 501(Internal Server Error):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "The server is currently saturated. Please try again later."
 }
 ```
 ## DELETE
@@ -912,42 +913,42 @@ example: https://121.0.0.1:8080/api/v1/route/20
 <br>201(OK):
 ```json
 {
-    "message": "route 20 deleted", 
+    "message": "Route 20 has succesfully been deleted", 
 }
 ```
 406(Not Acceptable):
 ```json
 {
-    "message": "route_Id not exist"
+    "message": "route_Id does not exist"
 }
 ```
 501(Internal Server Error):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "The server is currently saturated. Please try again later."
 }
 ```
 ### <u>delete_User</u><br>
-Deletes an existing User object, having specified its Username (PK).
+Deletes an existing User object, having specified its Id (PK).
 DELETE URL: https://121.0.0.1:8080/api/v1/user/{Id}
 example: https://121.0.0.1:8080/api/v1/user/15
 <br>Possible responses:
 <br>201(OK):
 ```json
 {
-    "message": " User 15 deleted",
+    "message": "User 15 has succesfully been deleted",
 }
 ```
 406(Not Acceptable):
 ```json
 {
-    "message":"User_id not exist",
+    "message":"User_id does not exist",
 }
 ```
 501(Internal Server Error):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "The server is currently saturated. Please try again later."
 }
 ```
 ### <u>delete_Meeting</u><br>
@@ -958,41 +959,41 @@ example: https://121.0.0.1:8080/api/v1/meeting/25
 <br>201(OK):
 ```json
 {
-    "message": " meeting 25 deleted",
+    "message": "Meeting 25 has succesfully been deleted",
 }
 ```
 406(Not Acceptable):
 ```json
 {
-    "message":"meeting_id not exist",
+    "message":"meeting_id does not exist",
 }
 ```
 501(Internal Server Error):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "The server is currently saturated. Please try again later."
 }
 ```
 ### <u>delete_user_from_Meeting</u><br>
-Unregister a user from a meeting
+Removes an user from a meeting
 DELETE URL: https://121.0.0.1:8080/api/v1/meeting?meetingId={Id}&userId={Id}
 example: https://121.0.0.1:8080/api/v1/meeting?meetingId=25&userId=10
 <br><br>Possible responses:
 <br>201(OK):
 ```json
 {
-    "message": " user 10 leaves meeting 25",
+    "message": "User 10 has been removed from Meeting 25",
 }
 ```
 406(Not Acceptable):
 ```json
 {
-    "message":"meeting_id not exist" or "User 10 is nor registered in meeting 25"
+    "message":"meeting_id does not exist" or "User 10 has not joined meeting 25"
 }
 ```
 501(Internal Server Error):
 ```json
 {
-    "message": "Saturation on server, try again later"
+    "message": "The server is currently saturated. Please try again later."
 }
 ```
