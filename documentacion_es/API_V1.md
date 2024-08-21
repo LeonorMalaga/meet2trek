@@ -1,45 +1,45 @@
 # API
 ***
 ***
-# Table de Contenidos
+# INDICE
 
 ## GET
-- [Route](#route)
-  - [RouteFindById](#routefindbyid)
-  - [RouteList](#routelist)
-    - [FindAll](#findall)
-    - [FindByDifficulty](#findbydifficulty)
-    - [FindByDistance](#findbydistance)
-    - [FindByCountry](#findbycountry)
-    - [FindByProvince](#findbyprovince)
-    - [FindByArea](#findbyarea)
-    - [All Filters](#all-filters)
-- [User](#user)
-  - [UserFindById](#userfindbyid)
-  - [FindAllUsers](#findallusers)
-  - [UserListByMeeting](#userlistbymeeting)
-- [Meeting](#meeting)
-    - [MeetingFindById](#meetingfindbyid)
-    - [GetAllMeetings](#getallmeetings)
-    - [GetAllActiveMeetings](#getallactivemeetings)
-    - [FindMeetingsByDate](#findmeetingsbydate)
+- [RUTAS](#route)
+  - [Encontrar ruta por ID](#routefindbyid)
+  - [LISTADO DE RUTAS](#routelist)
+    - [Obtener todas las rutas](#findall)
+    - [Filtrar por dificultad](#findbydifficulty)
+    - [Filtrar por longitud](#findbydistance)
+    - [Filtrat por ciudad](#findbycountry)
+    - [Filtrar por provincia](#findbyprovince)
+    - [Filtrar por zona](#findbyarea)
+    - [Filtros disponibles](#all-filters)
+- [USUARIOS](#user)
+  - [Obtener usuario por Id](#userfindbyid)
+  - [Obtener todos los usuarios](#findallusers)
+  - [Obtener los usuarios por quedada](#userlistbymeeting)
+- [QUEDADAS](#meeting)
+    - [Obtener quedada por Id](#meetingfindbyid)
+    - [Obtener todas las quedadas](#getallmeetings)
+    - [Obtener todas las quedadas pendientes](#getallactivemeetings)
+    - [Obtener quedadas por fecha](#findmeetingsbydate)
 
 ## POST
-- [post_Route](#post_route)
-- [post_User](#post_user)
-- [post_Meeting](#post_meeting)
+- [Crear una ruta](#post_route)
+- [Crear un usuario](#post_user)
+- [Crear una Quedada](#post_meeting)
 
 ## PUT
-- [put_Route](#put_route)
-- [put_User](#put_user)
-- [put_Meeting](#put_meeting)
-- [put_user_in_Meeting](#put_user_in_meeting)
+- [Actualizar una Ruta](#put_route)
+- [Actualizar un Usuario](#put_user)
+- [Actualizar una quedada](#put_meeting)
+- [Añadir nuevo usuario a una quedada](#put_user_in_meeting)
 
 ## DELETE
-- [delete_Route](#delete_route)
-- [delete_User](#delete_user)
-- [delete_Meeting](#delete_meeting)
-- [delete_user_from_Meeting](#delete_user_from_meeting)
+- [Borrar ruta](#delete_route)
+- [Borrar Usuario](#delete_user)
+- [Borrar Quedada](#delete_meeting)
+- [Eliminar un usuario de una quedada](#delete_user_from_meeting)
 
 ***
 ***
