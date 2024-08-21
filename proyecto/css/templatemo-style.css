@@ -14,6 +14,7 @@ https://templatemo.com/tm-556-catalog-z
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 header,
 
     /* bloques */
@@ -41,9 +42,31 @@ header {
     gap: 10px;
   }
   
+  .article-title {
+    font-size: 24px; /* Ajusta según tus necesidades */
+    margin-top: 16px;
+    margin-bottom: 8px;
+    color: #437571;
+}
 
+/* Estilos para el subtítulo H3 */
+.article-subtitle {
+    font-size: 18px; /* Ajusta según tus necesidades */
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #437571;
+    }
+    .fichas {
+        
+        clear: none;
+           /* limpio lo anterior */
+           float: left;
+           height: 100%;
+           padding-bottom: 10px;
+           text-align: center;
+       }
 #a1 {
-    
+    text-align: center;
 }
 
 #a2 {
@@ -53,7 +76,14 @@ header {
 
 #a3 {
     
-    text-align: right;
+    text-align: center;
+}
+
+.pictograms a img {
+    width: 30px; /* Ajusta el tamaño del pictograma */
+    height: 30px; /* Ajusta el tamaño del pictograma */
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
 
@@ -62,6 +92,8 @@ header {
 
 /* cuando supera ese tamaño se producen cambios */
     {
+
+        
     header {
        
         text-align: left;
@@ -115,6 +147,9 @@ header {
         padding-bottom: 10px;
         text-align: center;
     }
+
+    
+    
 
 /*CSS para las fichas*/    
 /* Estilo para la imagen dentro del artículo */
@@ -314,6 +349,8 @@ a:hover { color:#009999; }
     padding: 12px 50px 14px;
     font-size: 1.2rem;
 }
+
+
 
 .btn-primary:hover,
 .btn-primary:focus {
@@ -759,7 +796,7 @@ select:not([multiple]) {
 
 @media (max-width: 991px) {
     .navbar-collapse {
-        position: fixed;
+        position: relative;
         top: 50px;
         right: 0px;
         background: white;

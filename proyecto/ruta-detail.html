@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,65 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/templatemo-style.css">
+    <!-- <link rel="stylesheet" href="css/mi-style.css"> -->
 
-    
-TemplateMo 556 Catalog-Z
+    <script src="popup.js"></script>
 
-https://templatemo.com/tm-556-catalog-z
 
+    <!-- TemplateMo 556 Catalog-Z
+
+https://templatemo.com/tm-556-catalog-z -->
+    <style>
+        /* Estilo del popup overlay */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilo del contenido del popup */
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            position: relative;
+        }
+
+        /* Estilo del botón de cierre */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Estilo del formulario */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+    </style>
 
 </head>
+
 <body>
     <!-- Page Loader -->
     <div id="loader-wrapper">
@@ -27,32 +79,34 @@ https://templatemo.com/tm-556-catalog-z
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
-                <img src="logo4.png" alt="Image" class="img-fluid" style="margin-left: 0" >
-                
+                <img src="logo4.png" alt="Image" class="img-fluid" style="margin-left: 0">
+
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-1 active" aria-current="page" href="index.html">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-2" href="videos.html">Mi perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-3" href="about.html">Rutas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-4" href="contact.html">Contacto</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1 active" aria-current="page" href="index.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-2" href="videos.html">Mi perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-3" href="about.html">Rutas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-4" href="contact.html">Contacto</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/caminito.jpg">
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll"
+        data-image-src="img/caminito.jpg">
         <!-- <form class="d-flex tm-search-form">
             <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success tm-search-btn" type="submit">
@@ -65,27 +119,49 @@ https://templatemo.com/tm-556-catalog-z
         <div class="row mb-4">
             <h2 class="col-12 tm-text-primary">Caminito del Rey. Ardales (Málaga)</h2>
         </div>
-        <div class="row tm-mb-90">            
+        <div class="row tm-mb-90">
             <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
                 <!-- <img src="img/caminito1.jpg" alt="Image" class="img-fluid" style="margin-bottom: 10px;"> -->
                 <!-- <iframe src="https://youtu.be/enmed/AUjtuNOZe4Y" frameborder="0" title="historia del caminito"
                 allowfullscreen></iframe> -->
 
-                <iframe id="vid" width="743" height="418" src="https://www.youtube.com/embed/cjcZGvytKaU" title="Historia del Caminito del Rey" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" controls referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe id="vid" width="743" height="418" src="https://www.youtube.com/embed/cjcZGvytKaU"
+                    title="Historia del Caminito del Rey" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    controls referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <div class="">
-                <img src="img/caminito1.jpg" alt="Image" class="img-fluid" style="margin-top: 10px;">
-                <img src="img/caminito2.jpg" alt="Image" class="img-fluid" style="margin-top: 10px; margin-bottom: 10px;">
-            </div>
+                    <img src="img/caminito1.jpg" alt="Image" class="img-fluid" style="margin-top: 10px;" width="100%" >
+                    <!-- <img src="img/caminito2.jpg" alt="Image" class="img-fluid"
+                        style="margin-top: 10px; margin-bottom: 10px;"> -->
+                        <h2 style="margin:20px 0;  color: #437571">Mapa de la ruta</h2>
+                <!-- Map -->
+                    <div class="gmap-canvas">
+                        <iframe width="100%" height="520" id="gmap-canvas"
+                            src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    </div>
+                
+                </div>
             </div>
             <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
                 <div class="tm-bg-gray tm-video-details">
-                    <h2 class="col-12 tm-text-primary">Historia</h2>
+                    <h2 class="col-12 tm-text-primary" style="padding-top: 25px;">Historia</h2>
                     <p class="mb-4">
-                        El Caminito del Rey es una pasarela colgante que se construyó entre 1901 y 1905 para unir dos presas que la compañía Sociedad Hidroeléctrica del Chorro usaba como saltos de agua para generar energía eléctrica1. El camino fue construido con tablones de madera por valientes marineros atados con cuerdas, suspendidos a 100 metros del suelo2. El rey Alfonso XIII se desplazó en 1921 hasta el lugar en la presa del Conde del Guadalhorce para inaugurar esta gran obra, y a partir de este momento, las gentes comenzaron a denominar a aquel camino como "Caminito del Rey"
+                        El Caminito del Rey es una pasarela colgante que se construyó entre 1901 y 1905 para unir dos
+                        presas que la compañía Sociedad Hidroeléctrica del Chorro usaba como saltos de agua para generar
+                        energía eléctrica1. El camino fue construido con tablones de madera por valientes marineros
+                        atados con cuerdas, suspendidos a 100 metros del suelo2. El rey Alfonso XIII se desplazó en 1921
+                        hasta el lugar en la presa del Conde del Guadalhorce para inaugurar esta gran obra, y a partir
+                        de este momento, las gentes comenzaron a denominar a aquel camino como "Caminito del Rey"
                     </p>
                     <h2 class="col-12 tm-text-primary">Descripción de la ruta</h2>
                     <p class="mb-4">
-                        El Caminito del Rey es una pasarela colgante que se construyó entre 1901 y 1905 para unir dos presas que la compañía Sociedad Hidroeléctrica del Chorro usaba como saltos de agua para generar energía eléctrica1. El camino fue construido con tablones de madera por valientes marineros atados con cuerdas, suspendidos a 100 metros del suelo2. El rey Alfonso XIII se desplazó en 1921 hasta el lugar en la presa del Conde del Guadalhorce para inaugurar esta gran obra, y a partir de este momento, las gentes comenzaron a denominar a aquel camino como "Caminito del Rey"
+                        El Caminito del Rey es una pasarela colgante que se construyó entre 1901 y 1905 para unir dos
+                        presas que la compañía Sociedad Hidroeléctrica del Chorro usaba como saltos de agua para generar
+                        energía eléctrica1. El camino fue construido con tablones de madera por valientes marineros
+                        atados con cuerdas, suspendidos a 100 metros del suelo2. El rey Alfonso XIII se desplazó en 1921
+                        hasta el lugar en la presa del Conde del Guadalhorce para inaugurar esta gran obra, y a partir
+                        de este momento, las gentes comenzaron a denominar a aquel camino como "Caminito del Rey"
                     </p>
                     <div class="mr-4 mb-2">
                         <span class="tm-text-gray-dark">Duración: </span><span class="tm-text-primary">2 horas</span>
@@ -94,179 +170,54 @@ https://templatemo.com/tm-556-catalog-z
                         <span class="tm-text-gray-dark">Dificultad: </span><span class="tm-text-primary">Media</span>
                     </div>
                     <div class="text-center mb-5">
-                        <a href="#" class="btn btn-primary tm-btn-big" style="margin-top: 20px;">Únete</a>
-                    </div>                    
-                    <div class="mb-4 d-flex flex-wrap">
-                        
-                    
-                       <!--  <h3 class="tm-text-gray-dark mb-3">Tags</h3>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Cloud</a>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Bluesky</a>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Nature</a>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Background</a>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Timelapse</a>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Night</a>
-                        <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Real Estate</a> -->
+                        <a href="#" class="btn btn-primary tm-btn-big" style="margin-top: 20px;"
+                            id="openPopup">Únete</a>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="row mb-4">
-            <h2 class="col-12 tm-text-primary">
-                Related Photos
-            </h2>
-        </div> -->
-        <!-- <div class="row mb-3 tm-gallery">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="img/img-01.jpg" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Hangers</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">16 Oct 2020</span>
-                    <span>12,460 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="img/img-02.jpg" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Perfumes</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">12 Oct 2020</span>
-                    <span>11,402 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="img/img-03.jpg" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Clocks</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">8 Oct 2020</span>
-                    <span>9,906 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="img/img-04.jpg" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Plants</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">6 Oct 2020</span>
-                    <span>16,100 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="img/img-05.jpg" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Morning</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">26 Sep 2020</span>
-                    <span>16,008 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="img/img-06.jpg" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Pinky</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">22 Sep 2020</span>
-                    <span>12,860 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="img/img-07.jpg" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>Bus</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">12 Sep 2020</span>
-                    <span>10,900 views</span>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                <figure class="effect-ming tm-video-item">
-                    <img src="img/img-08.jpg" alt="Image" class="img-fluid">
-                    <figcaption class="d-flex align-items-center justify-content-center">
-                        <h2>New York</h2>
-                        <a href="#">View more</a>
-                    </figcaption>                    
-                </figure>
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light">4 Sep 2020</span>
-                    <span>11,300 views</span>
-                </div>
-            </div>        
-        </div> --> <!-- row -->
-    </div> <!-- container-fluid, tm-container-content -->
 
-    <!-- <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
-        <div class="container-fluid tm-container-small">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
-                    <h3 class="tm-text-primary mb-4 tm-footer-title">About Catalog-Z</h3>
-                    <p>Integer ipsum odio, pharetra ac massa ac, pretium facilisis nibh. Donec lobortis consectetur molestie. Nullam nec diam dolor. Fusce quis viverra nunc, sit amet varius sapien.</p>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
-                    <h3 class="tm-text-primary mb-4 tm-footer-title">Our Links</h3>
-                    <ul class="tm-footer-links pl-0">
-                        <li><a href="#">Advertise</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Our Company</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
-                    <ul class="tm-social-links d-flex justify-content-end pl-0 mb-5">
-                        <li class="mb-2"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
-                        <li class="mb-2"><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
-                        <li class="mb-2"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>
-                        <li class="mb-2"><a href="https://pinterest.com"><i class="fab fa-pinterest"></i></a></li>
-                    </ul>
-                    <a href="#" class="tm-text-gray text-right d-block mb-2">Terms of Use</a>
-                    <a href="#" class="tm-text-gray text-right d-block">Privacy Policy</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
-                    Copyright 2020 Catalog-Z Company. All rights reserved.
-                </div>
-                <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
-                    Designed by <a href="https://templatemo.com" class="tm-text-gray" rel="sponsored" target="_parent">TemplateMo</a>
+                    <!-- Popup -->
+                    <div id="popupForm" class="popup-overlay">
+                        <div class="popup-content">
+                            <span class="close-btn" id="closePopup">&times;</span>
+                            <h2>Registro</h2>
+                            <form id="registrationForm" action="tu-url-de-base-de-datos" method="POST">
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Nombre de usuario:</label>
+                                    <input type="text" id="username" name="username" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Contraseña:</label>
+                                    <input type="password" id="password" name="password"
+                                        placeholder="8 caracteres entre letras y números" required
+                                        pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                                        title="La contraseña debe tener al menos 8 caracteres, con letras y números."
+                                        style="font-size: .8em;">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
-    </footer> -->
-    
-    <script src="js/plugins.js"></script>
-    <script>
-        $(window).on("load", function() {
-            $('body').addClass('loaded');
-        });
-    </script>
+
+
+        <script src="js/plugins.js"></script>
+        <script src="js/popup.js"></script>
+        <script>
+            $(window).on("load", function () {
+                $('body').addClass('loaded');
+            });
+
+            
+
+
+        </script>
 </body>
+
 </html>
