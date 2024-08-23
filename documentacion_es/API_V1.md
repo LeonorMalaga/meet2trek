@@ -58,7 +58,7 @@ URL: https://121.0.0.1:8080/api/v1/routes/{route_Id}
     "route_id": 1,  
     "name": "Caminito del Rey acceso Sur",  
     "description": "Precioso camino sobre un rio",  
-    "url_resources": "/Routes/1",  
+    "url_resources": "/Routes/Spain/Malaga/",  
     "starting_point": "https://maps.app.goo.gl/W1kaNRYSE45TMHqr6",  
     "difficulty": 2,  
     "distance": 8720,  
