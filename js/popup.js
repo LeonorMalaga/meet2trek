@@ -1,7 +1,7 @@
 // popup.js
 
 // Mostrar el popup
-document.getElementById('openPopup').addEventListener('click', function (event) {
+document.getElementById('openPopupNav').addEventListener('click', function (event) {
     event.preventDefault();
     document.getElementById('popupForm').style.display = 'flex';
 });
@@ -86,13 +86,4 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 500); // Simula un retraso en el envío
     });
 
-    /* function preventEditProfile(event) {
-        if (!isFormSubmitted) {
-            event.preventDefault();
-            alert("Por favor, completa el registro antes de editar tu perfil.");
-        }
-    } */
-
-    // Asocia preventEditProfile al evento de clic del botón "Editar perfil"
-    editProfileBtn.addEventListener("click", preventEditProfile);
 });
