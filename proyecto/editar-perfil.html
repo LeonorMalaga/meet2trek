@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+
+</head>
+
+<body>
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="navbar-brand" href="#">
+                <img src="img/logo4.png" alt="Image" class="img-logo" style="margin-left: 0">
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1 active" href="Index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-2" href="mis-rutas.html">Mis rutas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-3" href="mis-filtros.html">Mis filtros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll"
+        data-image-src="img/lago.jpg" style="margin-bottom: 50px;"></div>
+
+    <div class="container-fluid tm-mt-60 mb-4">
+        <div class="row tm-mb-50">
+            <div class="col-lg-4 col-12 ">
+                <h2 class="tm-text-primary mb-4">Editar datos de mi perfil</h2>
+                <form id="registrationForm" action="tu-url-de-base-de-datos" method="POST">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="form-label">Nombre de usuario:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-label">Nueva contraseña:</label>
+                        <input type="password" id="password" name="password"
+                            placeholder="8 caracteres entre letras y números" required
+                            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                            title="La contraseña debe tener al menos 8 caracteres, con letras y números."
+                            style="font-size: .8em;">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword" class="form-label">Repetir contraseña:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required
+                            style="font-size: 1em;">
+                        <span id="La contraseña no coincide" style="color:red; font-size: 0.9em;"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+
+                </form>
+            </div>
+            <div class="col-lg-4 col-12 mb-4 mb-5">
+                <img src="img/people-3.jpg" alt="Image" class="mb-4 img-fluid" style="border-radius: 50%; padding-bottom: 0px;">
+                <h2 class="tm-text-primary" style="margin-bottom: .5rem;">Fran Fernández</h2>
+                <h3 class="tm-text-secondary h5" style="margin-bottom: .5rem;">Amante de la naturaleza</h3>
+                <p class="mb-4">
+                    Mauris ante tellus, feugiat nec metus non, bibendum semper velit. Praesent laoreet urna id tristique
+                    fermentum. Morbi venenatis dui quis diam mollis pellentesque.
+                </p>
+            </div>
+
+            <div class="col-lg-4 col-12  mb-4">
+                <h2 class="tm-text-primary mb-4">Editar mi perfil</h2>
+                <form id="registrationForm" action="tu-url-de-base-de-datos" method="POST">
+                    <div class="form-group frase">
+                        <label for="frase" class="form-label">Frase que me define</label>
+                        <input type="text" id="frase" class="form-control" maxlength="30"
+                            placeholder="Escribe tu frase">
+                    </div>
+
+                    <div class="form-group perfil">
+                        <label for="perfil" class="form-label">Mi perfil</label>
+                        <textarea id="perfil" class="form-control" rows="7" maxlength="200" 
+                            placeholder="Describete como quieras"></textarea>
+                    </div>
+                    <button style="float: right;" type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+
+            <div>
+                <h2 class="tm-text-primary" style="margin-bottom: 1.5rem; text-align: center;">Personas con algunos intereses comunes</h2>  
+            </div>
+
+        </div>
+        <div class="row tm-mb-74 tm-people-row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
+                <img src="img/people-1.jpg" alt="Image" class="mb-4 img-fluid">
+                <h2 class="tm-text-primary" style="margin-bottom: 1.5rem;">Ryan Smith</h2>
+                <h3 class="tm-text-secondary h5" style="margin-bottom: 1.5rem;">Sólo se vive una vez</h3>
+                <p class="mb-4">
+                    Mauris ante tellus, feugiat nec metus non, bibendum semper velit. Praesent laoreet urna id tristique
+                    fermentum. Morbi venenatis dui quis diam mollis pellentesque.</p>
+                <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
+                <img src="img/people-2.jpg" alt="Image" class="mb-4 img-fluid">
+                <h2 class="tm-text-primary" style="margin-bottom: 1.5rem;">Sonia Parrado</h2>
+                <h3 class="tm-text-secondary h5" style="margin-bottom: 1.5rem;">Me chifla la montaña</h3>
+                <p class="mb-4">
+                    Mauris ante tellus, feugiat nec metus non, bibendum semper velit. Praesent laoreet urna id tristique
+                    fermentum. Morbi venenatis dui quis diam mollis pellentesque.</p>
+                <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
+                <img src="img/people-4.jpg" alt="Image" class="mb-4 img-fluid">
+                <h2 class="tm-text-primary" style="margin-bottom: 1.5rem;">Antonio Rubio</h2>
+                <h3 class="tm-text-secondary h5" style="margin-bottom: 1.5rem;">Escapista urbano</h3>
+                <p class="mb-4">
+                    Mauris ante tellus, feugiat nec metus non, bibendum semper velit. Praesent laoreet urna id tristique
+                    fermentum. Morbi venenatis dui quis diam mollis pellentesque.</p>
+                <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
+                <img src="img/people-5.jpg" alt="Image" class="mb-4 img-fluid">
+                <h2 class="tm-text-primary" style="margin-bottom: 1.5rem;">Inma Morales</h2>
+                <h3 class="tm-text-secondary h5" style="margin-bottom: 1.5rem;">De la ofi al campo</h3>
+                <p class="mb-4">
+                    Mauris ante tellus, feugiat nec metus non, bibendum semper velit. Praesent laoreet urna id tristique
+                    fermentum. Morbi venenatis dui quis diam mollis pellentesque.</p>
+                <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            </div>
+
+
+
+        </div>
+    </div> <!-- container-fluid, tm-container-content -->
+
+    <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
+        <div class=" px-5 ">
+            <h3 class="tm-text-primary mb-4 tm-footer-title">Política de privacidad</h3>
+            <p>La política de privacidad contiene las normas acerca de qué datos personales se van a recoger en el sitio
+                web, cuáles ser guardarán y qué uso se les va a dar. Asimismo, se informará a los usuarios de la
+                posibilidad de acceder, modificar o cancelar dichos datos, y el procedimiento para hacerlo.
+
+                Este documento contiene las normas relativas al tratamiento (recogida, gestión y retención) de datos de
+                carácter personal. Por tanto, su elaboración es obligatoria para todos aquellos sitios webs que
+                recolecten datos personales de sus usuarios. También comprende los derechos de los usuarios y las
+                obligaciones del titular del sitio web en relación con el tratamiento de los datos personales.
+
+                Se consideran datos personales toda aquella información que haga referencia a una persona identificada o
+                identificable (ej. nombre, dirección postal, correo electrónico, teléfono).</p>
+        </div>
+    </footer>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/popup.js"></script>
+    <script>
+        $(window).on("load", function () {
+            $('body').addClass('loaded');
+        });
+    </script>
+</body>
+
+</html>
