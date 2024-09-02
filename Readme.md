@@ -9,7 +9,7 @@ Tangencialmente, se consigue además una labor social, en cuanto a que conecta p
 Creación de un projecto en el que, facilitando el usuario unos datos, la propia web le conecte con las rutas mas adecuadas a sus gustos, limitaciones, características, cruzando la información contenida en la base de datos y le facilita el establecer comunicacion con otros usuarios con gustos similares. Además de permitirle dar de alta sus propias rutas y propuestas de quedadas.
 
 ## Prototipo
-Permite :registro, eliminación y modificacion de Usuarios;  creación, eliminación , modificacion y busqueda de rutas ; creación, eliminación y modificacion de quedadas, para ello se desarrolla en SpringBootData + Hibernate un API RESTFULL[ pinche aqui para ver la documentación del API](documentacion_es/API_V1.md).
+Permite :registro, eliminación y modificacion de Usuarios;  creación, eliminación , modificacion y busqueda de rutas ; creación, eliminación y modificacion de quedadas, para ello se desarrolla en SpringBootData + Hibernate un API RESTFULL[ pinche aqui para ver la documentación del API](documentacion_es/API_Prototipo.md).
 ### Flujogramas del prototipo
 ![Prototipo-Elementos en cada Vista](documentacion_es/Prototipo_ElementosVistas.jpg)
 El prototipo consta de 5 vistas principales y 5 popups-listados:
@@ -54,7 +54,7 @@ Permite al usuario:
     - Localidad o nombre de la zona (ejem. El Torcal).
 
 ### Diagrama entidad relación
-![V1-Esquema base de datos](documentacion_es/EntityRelation_V1.jpg)
+![V1-Esquema base de datos](documentacion_es/EntityRelation_Prototype.jpg)
 ___
 # EN
 ## Match Project
