@@ -48,11 +48,11 @@
 ## GET 
 Gets Json Objects.
 ### Route
-#### <u> RouteFindById</u><br>
+####  RouteFindById
 Gets a Json Route Object by its Id.
 
-URL: https://121.0.0.1:8080/api/v1/routes/{route_Id}
-<br>Sample result:
+URL: https://121.0.0.1:8080/api/v1/routes/{route_Id}  
+Sample result:
 ```json
 {  
     "route_id": 1,  
@@ -68,15 +68,15 @@ URL: https://121.0.0.1:8080/api/v1/routes/{route_Id}
 }
 ```
  
-#### <u> RouteList</u><br>
+####  RouteList
 Returns a Json ArrayList of routes. You can filter them by the following variables: difficulty, distance, country, province, area. 
 You can filter for one, two o more variables.
 
-##### <u> FindAll</u><br>
+#####  FindAll
 Gets all routes without any filters.
 
-URL: https://121.0.0.1:8080/api/v1/routes
-<br>Sample result:  
+URL: https://121.0.0.1:8080/api/v1/routes  
+Sample result:  
 ```json
 [
 {  
@@ -122,33 +122,33 @@ URL: https://121.0.0.1:8080/api/v1/routes
 ]
 ```
 Examples Filters:
-#### <u> FindByDifficulty</u><br>
+####  FindByDifficulty
 Filters routes by their difficulty.
 
 URL: https://121.0.0.1:8080/api/v1/routes?difficulty={difficulty}
-#### <u> FindByDistance</u><br>
+####  FindByDistance
 Filters routes by their distance.
 
 URL: https://121.0.0.1:8080/api/v1/routes?distance={distanceaprox}&range={range}
-#### <u> FindByCountry</u><br>
+####  FindByCountry
 Filters routes by their country.
 
 URL: https://121.0.0.1:8080/api/v1/routes?country={country}
-#### <u> FindByProvince</u><br>
+####  FindByProvince
 Filters routes by their province
 
 URL: https://121.0.0.1:8080/api/v1/routes?province={province}
-#### <u> FindByArea</u><br>
+####  FindByArea
 Filters routes by their area.
 
 URL: https://121.0.0.1:8080/api/v1/routes?area={area}
-#### <u> All Filters</u><br>
+####  All Filters
 The combination of every filter.
 
 URL: https://121.0.0.1:8080/api/v1/routes?difficulty={difficulty}&distance={distanceaprox}&range={range}&country={country}&province={province}&area={area}
 
 ### User
-#### <u> UserFindById</u><br>
+####  UserFindById
 Gets a Json UserDto Object by its Id.
 
 URL: https://121.0.0.1:8080/api/v1/users/{Id}
@@ -168,12 +168,12 @@ Sample result for (Username = Trekker123, user_id = 1) using a Dto:
     "p_area": "Malaga"  
 }
 ```
-#### <u> FindAllUsers</u><br>
+####  FindAllUsers
 Returns an ArrayList of all registered users (using UserDto).
 
 URL: https://121.0.0.1:8080/api/v1/user
 
-<br>Sample result:
+Sample result:
 ```json
 [
 {  
@@ -217,11 +217,11 @@ URL: https://121.0.0.1:8080/api/v1/user
 }
 ]
 ```
-#### <u> UserListByMeeting</u><br>
+####  UserListByMeeting
 Get a list of all users (UserDto) who joined a specific meeting in a specific Route.
 
-URL: https://121.0.0.1:8080/api/v1/users/meeting/{Meeting_Id}
-<br>Sample result:
+URL: https://121.0.0.1:8080/api/v1/users/meeting/{Meeting_Id}  
+Sample result:
 ```json
 [
 {  
@@ -266,11 +266,11 @@ URL: https://121.0.0.1:8080/api/v1/users/meeting/{Meeting_Id}
 ]
 ```
 ### Meeting
-#### <u> MeetingFindById</u><br>
+####  MeetingFindById
 Gets a Json Meeting Object by its Id.
 
-URL: https://121.0.0.1:8080/api/v1/meetings/{meeting_Id}
-<br>Sample result:
+URL: https://121.0.0.1:8080/api/v1/meetings/{meeting_Id}  
+Sample result:
 ```json
 {  
     "meeting_id": 1,  
@@ -330,10 +330,10 @@ URL: https://121.0.0.1:8080/api/v1/meetings/{meeting_Id}
     }  
 }
 ```
-#### <u> GetAllMeetings</u><br>
+####  GetAllMeetings
 Returns an ArrayList of all meetings (MeetingDto).
-URL: https://121.0.0.1:8080/api/v1/meetings
-<br> Sample result
+URL: https://121.0.0.1:8080/api/v1/meetings  
+ Sample result
 ```json
 [
     {  
@@ -356,10 +356,10 @@ URL: https://121.0.0.1:8080/api/v1/meetings
     }
 ]
 ```
-#### <u> GetAllActiveMeetings</u><br>
+####  GetAllActiveMeetings
 Returns an ArrayList of all active meetings (MeetingDto).
-URL: https://121.0.0.1:8080/api/v1/meetings/active
-<br>Sample result:
+URL: https://121.0.0.1:8080/api/v1/meetings/active  
+Sample result:
 ```json
 [
     {  
@@ -437,10 +437,10 @@ URL: https://121.0.0.1:8080/api/v1/meetings/active
 
 ]
 ```
-#### <u> FindMeetingsByDate</u><br>
-Returns an ArrayList meetings (MeetingDto) from a date.
-<br>URL: https://121.0.0.1:8080/api/v1/meetings?date={date}
-<br>Sample result:
+####  FindMeetingsByDate
+Returns an ArrayList meetings (MeetingDto) from a date.  
+URL: https://121.0.0.1:8080/api/v1/meetings?date={date}  
+Sample result:
 ```json
 [
     {  
@@ -482,10 +482,10 @@ Returns an ArrayList meetings (MeetingDto) from a date.
 ]
 ```
 ## POST
-### <u>post_Route</u><br>
-Creates a new Route object, given a Json body.
-<br>POST URL: https://121.0.0.1:8080/api/v1/route/
-<br>Json Body to send:
+### post_Route
+Creates a new Route object, given a Json body.  
+POST URL: https://121.0.0.1:8080/api/v1/route/  
+Json Body to send:
 ```json
 {  
     "name": "Montes de Malaga",  
@@ -497,9 +497,9 @@ Creates a new Route object, given a Json body.
     "province": "Malaga",  
     "area": "Montes de Malaga"  
 }
-```
-<br>Possible responses:
-<br>201(OK):
+```  
+Possible responses:  
+201(OK):
 ```json
 {
     "route_id": 20,
@@ -545,11 +545,11 @@ Creates a new Route object, given a Json body.
     "message": "The server is currently saturated. Please try again later."
 }
 ```
-### <u>post_User</u><br>
+### post_User
 Creates a new User object, given a Json body.
 
-<br>POST URL: https://121.0.0.1:8080/api/v1/user/
-<br>Json Body to send:
+POST URL: https://121.0.0.1:8080/api/v1/user/  
+Json Body to send:
 ```json
 {  
     "username": "Jonatan0",  
@@ -561,9 +561,9 @@ Creates a new User object, given a Json body.
     "p_province": "Malaga",  
     "p_area": "Malaga"  
 }
-```
-<br>Possible responses:
-<br>201(OK):
+```  
+Possible responses:  
+201(OK):
 ```json
 {
     "user_id": 15,
@@ -597,19 +597,19 @@ Creates a new User object, given a Json body.
     "message": "The server is currently saturated. Please try again later."
 }
 ```
-### <u>post_Meeting</u><br>
-Creates a new Meeting object, given a Json body, using a Route's Ids and an ArrayList of Users' Ids.
-<br>POST URL: https://121.0.0.1:8080/api/v1/meeting
-<br>Json Body to send: 
+### post_Meeting
+Creates a new Meeting object, given a Json body, using a Route's Ids and an ArrayList of Users' Ids.  
+POST URL: https://121.0.0.1:8080/api/v1/meeting  
+Json Body to send: 
 ```json
 {  
     "date": "19/08/2024 17:00",  
     "route_id": 1,
     "user_id": 15,
 }
-```
-<br>Possible responses:
-<br>201(OK):
+```  
+Possible responses:  
+201(OK):
 ```json
 {  
     "meeting_id": 300,  
@@ -664,10 +664,10 @@ Creates a new Meeting object, given a Json body, using a Route's Ids and an Arra
 }
 ```
 ## PUT
-### <u>put_Route</u><br>
+### put_Route
 Edits an existing Route object, given a Json body and having specified its Id (PK).
-PUT url: https://121.0.0.1:8080/api/v1/route/{Id}
-<br>Json Body to send:
+PUT url: https://121.0.0.1:8080/api/v1/route/{Id}  
+Json Body to send:
 ```json
 {  
     "route_id": 20,
@@ -681,9 +681,9 @@ PUT url: https://121.0.0.1:8080/api/v1/route/{Id}
     "province": "Malaga",  
     "area": "Montes de Malaga"  
 }
-```
-<br>Possible responses:
-<br>201(OK):
+```  
+Possible responses:  
+201(OK):
 ```json
 {
     "route_id": 20,
@@ -711,10 +711,10 @@ PUT url: https://121.0.0.1:8080/api/v1/route/{Id}
     "message": "The server is currently saturated. Please try again later."
 }
 ```
-### <u>put_User</u><br>
+### put_User
 Edits an existing User object, given a Json body and having specified its Username (PK).
-PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}
-<br>Json Body to send: 
+PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}  
+Json Body to send: 
 ```json
 {  
     "username": "Jonatan0",  
@@ -726,9 +726,9 @@ PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}
     "p_province": "Malaga",  
     "p_area": "Antequera"  
 }
-```
-<br>Possible responses:
-<br>201(OK):
+```  
+Possible responses:  
+201(OK):
 ```json
 {
     "user_id": 15,
@@ -756,18 +756,18 @@ PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}
     "message": "The server is currently saturated. Please try again later."
 }
 ```
-### <u>put_Meeting</u><br>
+### put_Meeting
 Edits an existing Meeting object, given a Json body and having specified its Id (PK).
-PUT URL: https://121.0.0.1:8080/api/v1/meeting/{Id}
-<br>Json Body to send: 
+PUT URL: https://121.0.0.1:8080/api/v1/meeting/{Id}  
+Json Body to send: 
 ```json
 {  
     "date": "19/08/2024 19:00",  
     "route_id": 1,
 }
-```
-<br>Possible responses:
-<br>201(OK):
+```  
+Possible responses:  
+201(OK):
 ```json
 {  
     "meeting_id": 300,  
@@ -827,13 +827,13 @@ PUT URL: https://121.0.0.1:8080/api/v1/meeting/{Id}
     "message": "The server is currently saturated. Please try again later."
 }
 ```
-### <u>put_user_in_Meeting</u><br>
-Add an user to a meeting.
-<br>POST URL: https://121.0.0.1:8080/api/v1/meeting?meeting_id={Id}&user_id={Id}
-Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15
-<br>Possible responses:
+### put_user_in_Meeting
+Add an user to a meeting.  
+POST URL: https://121.0.0.1:8080/api/v1/meeting?meeting_id={Id}&user_id={Id}  
+Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15  
+Possible responses:
 
-<br>201(OK):
+201(OK):
 ```json
 {  
     "meeting_id": 1,  
@@ -905,12 +905,12 @@ Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15
 }
 ```
 ## DELETE
-### <u>delete_Route</u><br> 
+### delete_Route 
 Deletes an existing Route object, having specified its Id (PK).
-DELETE URL: https://121.0.0.1:8080/api/v1/route/{Id}
-example: https://121.0.0.1:8080/api/v1/route/20
-<br>Possible responses:
-<br>201(OK):
+DELETE URL: https://121.0.0.1:8080/api/v1/route/{Id}  
+example: https://121.0.0.1:8080/api/v1/route/20  
+Possible responses:  
+201(OK):
 ```json
 {
     "message": "Route 20 has succesfully been deleted", 
@@ -928,12 +928,12 @@ example: https://121.0.0.1:8080/api/v1/route/20
     "message": "The server is currently saturated. Please try again later."
 }
 ```
-### <u>delete_User</u><br>
-Deletes an existing User object, having specified its Id (PK).
-DELETE URL: https://121.0.0.1:8080/api/v1/user/{Id}
-example: https://121.0.0.1:8080/api/v1/user/15
-<br>Possible responses:
-<br>201(OK):
+### delete_User
+Deletes an existing User object, having specified its Id (PK).  
+DELETE URL: https://121.0.0.1:8080/api/v1/user/{Id}  
+example: https://121.0.0.1:8080/api/v1/user/15  
+Possible responses:  
+201(OK):
 ```json
 {
     "message": "User 15 has succesfully been deleted",
@@ -951,12 +951,12 @@ example: https://121.0.0.1:8080/api/v1/user/15
     "message": "The server is currently saturated. Please try again later."
 }
 ```
-### <u>delete_Meeting</u><br>
-Deletes an existing Meeting object, having specified its Id (PK).
-DELETE URL: https://121.0.0.1:8080/api/v1/meeting/{Id}
-example: https://121.0.0.1:8080/api/v1/meeting/25
-<br>Possible responses:
-<br>201(OK):
+### delete_Meeting
+Deletes an existing Meeting object, having specified its Id (PK).  
+DELETE URL: https://121.0.0.1:8080/api/v1/meeting/{Id}  
+example: https://121.0.0.1:8080/api/v1/meeting/25  
+Possible responses:  
+201(OK):
 ```json
 {
     "message": "Meeting 25 has succesfully been deleted",
@@ -974,12 +974,12 @@ example: https://121.0.0.1:8080/api/v1/meeting/25
     "message": "The server is currently saturated. Please try again later."
 }
 ```
-### <u>delete_user_from_Meeting</u><br>
+### delete_user_from_Meeting
 Removes an user from a meeting
-DELETE URL: https://121.0.0.1:8080/api/v1/meeting?meetingId={Id}&userId={Id}
-example: https://121.0.0.1:8080/api/v1/meeting?meetingId=25&userId=10
-<br><br>Possible responses:
-<br>201(OK):
+DELETE URL: https://121.0.0.1:8080/api/v1/meeting?meetingId={Id}&userId={Id}  
+example: https://121.0.0.1:8080/api/v1/meeting?meetingId=25&userId=10  
+Possible responses:    
+201(OK):
 ```json
 {
     "message": "User 10 has been removed from Meeting 25",

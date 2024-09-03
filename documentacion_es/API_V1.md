@@ -48,11 +48,11 @@
 ## GET 
 Obtiene objetos Json.
 ### Route
-#### <u> RouteFindById</u><br>
+####  RouteFindById
 Obtiene un objeto Json de Ruta por su Id.
 
-URL: https://121.0.0.1:8080/api/v1/routes/{route_Id}
-<br>Ejemplo:
+URL: https://121.0.0.1:8080/api/v1/routes/{route_Id}  
+Ejemplo:
 ```json
 {  
     "route_id": 1,  
@@ -68,15 +68,15 @@ URL: https://121.0.0.1:8080/api/v1/routes/{route_Id}
 }
 ```
  
-#### <u> RouteList</u><br>
+####  RouteList
 Devuelve una Json ArrayList de rutas. Puedes filtrarlas a través de las siguientes variables: dificultad, distancia, país, provincia, area. 
 Puedes filtrar por una, dos o más variables.
 
-##### <u> FindAll</u><br>
+#####  FindAll
 Obtiene todas las rutas sin aplicar filtros.
 
-URL: https://121.0.0.1:8080/api/v1/routes
-<br>Ejemplo:  
+URL: https://121.0.0.1:8080/api/v1/routes  
+Ejemplo:  
 ```json
 [
 {  
@@ -122,33 +122,33 @@ URL: https://121.0.0.1:8080/api/v1/routes
 ]
 ```
 Ejemplo de filtros:
-#### <u> FindByDifficulty</u><br>
+####  FindByDifficulty
 Devuelve todas las rutas con el nivel de dificultad indicado.
 
 URL: https://121.0.0.1:8080/api/v1/routes?difficulty={difficulty}
-#### <u> FindByDistance</u><br>
+####  FindByDistance
 Devuelve todas las rutas con un distancia comprendida entre (diatanciaprox-range) y (distanceaprox + range).
 
 URL: https://121.0.0.1:8080/api/v1/routes?distance={distanceaprox}&range={range}
-#### <u> FindByCountry</u><br>
+####  FindByCountry
 Devuelve todas las rutas del país indicado.
 
 URL: https://121.0.0.1:8080/api/v1/routes?country={country}
-#### <u> FindByProvince</u><br>
+####  FindByProvince
 Devuelve todas las rutas de la provincia indicada.
 
 URL: https://121.0.0.1:8080/api/v1/routes?province={province}
-#### <u> FindByArea</u><br>
+####  FindByArea
 Devuelve todas las rutas que esten asociadas al area (pueblo, parque natural, area recreativa o nombre de la zona) indicada.
 
 URL: https://121.0.0.1:8080/api/v1/routes?area={area}
-#### <u> All Filters</u><br>
+####  All Filters
 Ejemplo de filtros disponibles, puede usar uno o varios:
 
 URL: https://121.0.0.1:8080/api/v1/routes?difficulty={difficulty}&distance={distanceaprox}&range={range}&country={country}&province={province}&area={area}
 
 ### User
-#### <u> UserFindById</u><br>
+####  UserFindById
 Devuelve un objeto Json de UserDto por su Id.
 
 URL: https://121.0.0.1:8080/api/v1/users/{Id}
@@ -168,12 +168,12 @@ Ejemplo de respuesta para  [Id de usuario] = 1), se regresa UserDto(password y e
     "p_area": "MALAGA"  
 }
 ```
-#### <u> FindAllUsers</u><br>
+####  FindAllUsers
 Devuelve un ArrayList de todos los usuarios registrados (regresa UserDto).
 
 URL: https://121.0.0.1:8080/api/v1/user
 
-<br>Ejemplo:
+Ejemplo:
 ```json
 [
 {  
@@ -217,11 +217,11 @@ URL: https://121.0.0.1:8080/api/v1/user
 }
 ]
 ```
-#### <u> UserListByMeeting</u><br>
+####  UserListByMeeting
 Obtiene una lista de todos los usuarios (UserDto) que se han unido a una quedada específica en una ruta específica.
 
-URL: https://121.0.0.1:8080/api/v1/users/meeting/{Meeting_Id}
-<br>Ejemplo:
+URL: https://121.0.0.1:8080/api/v1/users/meeting/{Meeting_Id}  
+Ejemplo:
 ```json
 [
 {  
@@ -266,11 +266,11 @@ URL: https://121.0.0.1:8080/api/v1/users/meeting/{Meeting_Id}
 ]
 ```
 ### Meeting
-#### <u> MeetingFindById</u><br>
+####  MeetingFindById
 Obtiene un objeto Json de quedada por su Id.
 
-URL: https://121.0.0.1:8080/api/v1/meetings/{meeting_Id}
-<br>Ejemplo:
+URL: https://121.0.0.1:8080/api/v1/meetings/{meeting_Id}  
+Ejemplo:
 ```json
 {  
     "meeting_id": 1,  
@@ -330,10 +330,10 @@ URL: https://121.0.0.1:8080/api/v1/meetings/{meeting_Id}
     }  
 }
 ```
-#### <u> GetAllMeetings</u><br>
+####  GetAllMeetings
 Devuelve una ArrayList de todas las quedadas (usando un MeetingDto).
-URL: https://121.0.0.1:8080/api/v1/meetings
-<br> Ejemplo:
+URL: https://121.0.0.1:8080/api/v1/meetings  
+Ejemplo:
 ```json
 [
     {  
@@ -356,10 +356,10 @@ URL: https://121.0.0.1:8080/api/v1/meetings
     }
 ]
 ```
-#### <u> GetAllActiveMeetings</u><br>
+####  GetAllActiveMeetings
 Devuelve una ArrayList de todas las quedadas activas (usando un MeetingDto).
-URL: https://121.0.0.1:8080/api/v1/meetings/active
-<br>Ejemplo:
+URL: https://121.0.0.1:8080/api/v1/meetings/active  
+Ejemplo:
 ```json
 [
     {  
@@ -437,10 +437,10 @@ URL: https://121.0.0.1:8080/api/v1/meetings/active
 
 ]
 ```
-#### <u> FindMeetingsByDate</u><br>
-Devuelve una ArrayList de las quedadas (MeetingsDto) a partir de una fecha.
-<br>URL: https://121.0.0.1:8080/api/v1/meetings?date={date}
-<br>Ejemplo:
+####  FindMeetingsByDate
+Devuelve una ArrayList de las quedadas (MeetingsDto) a partir de una fecha.  
+URL: https://121.0.0.1:8080/api/v1/meetings?date={date}  
+Ejemplo:
 ```json
 [
     {  
@@ -482,10 +482,10 @@ Devuelve una ArrayList de las quedadas (MeetingsDto) a partir de una fecha.
 ]
 ```
 ## POST
-### <u>post_Route</u><br>
-Crea un nuevo objeto ruta, dado un cuerpo Json.
-<br>POST URL: https://121.0.0.1:8080/api/v1/route/
-<br>Cuerpo Json que enviar:
+### post_Route
+Crea un nuevo objeto ruta, dado un cuerpo Json.  
+POST URL: https://121.0.0.1:8080/api/v1/route/  
+Cuerpo Json que enviar:
 ```json
 {  
     "name": "Montes de MALAGA",  
@@ -497,9 +497,9 @@ Crea un nuevo objeto ruta, dado un cuerpo Json.
     "province": "MALAGA",  
     "area": "Montes de MALAGA"  
 }
-```
-<br>Respuestas posibles:
-<br>201(OK):
+```  
+Respuestas posibles:  
+201(OK):
 ```json
 {
     "route_id": 20,
@@ -545,11 +545,11 @@ Crea un nuevo objeto ruta, dado un cuerpo Json.
     "message": "Saturation on server, try again later"
 }
 ```
-### <u>post_User</u><br>
+### post_User
 Crea un nuevo objeto de usuario, dado un cuerpo Json.
 
-<br>POST URL: https://121.0.0.1:8080/api/v1/user/
-<br>Cuerpo Json que mandar:
+POST URL: https://121.0.0.1:8080/api/v1/user/  
+Cuerpo Json que mandar:
 ```json
 {  
     "username": "Jonatan0",  
@@ -561,9 +561,9 @@ Crea un nuevo objeto de usuario, dado un cuerpo Json.
     "p_province": "MALAGA",  
     "p_area": "MALAGA"  
 }
-```
-<br>Respuestas posibles:
-<br>201(OK):
+```  
+Respuestas posibles:  
+201(OK):
 ```json
 {
     "user_id": 15,
@@ -597,19 +597,19 @@ Crea un nuevo objeto de usuario, dado un cuerpo Json.
     "message": "Saturation on server, try again later"
 }
 ```
-### <u>post_Meeting</u><br>
-Crea un nuevo objeto de quedada, dado un cuerpo Json, usando la Id de una ruta y una ArrayList de las Ids de los usuarios.
-<br>POST URL: https://121.0.0.1:8080/api/v1/meeting
-<br>Cuerpo Json que mandar: 
+### post_Meeting
+Crea un nuevo objeto de quedada, dado un cuerpo Json, usando la Id de una ruta y una ArrayList de las Ids de los usuarios.  
+POST URL: https://121.0.0.1:8080/api/v1/meeting  
+Cuerpo Json que mandar: 
 ```json
 {  
     "date": "19/08/2024 17:00",  
     "route_id": 1,
     "user_id": 15,
 }
-```
-<br>Respuestas posibles:
-<br>201(OK):
+```  
+Respuestas posibles:  
+201(OK):
 ```json
 {  
     "meeting_id": 300,  
@@ -664,10 +664,10 @@ Crea un nuevo objeto de quedada, dado un cuerpo Json, usando la Id de una ruta y
 }
 ```
 ## PUT
-### <u>put_Route</u><br>
+### put_Route
 Edita un objeto ruta existente, dado un cuerpo Json y habiendo especificado su Id (PK).
-PUT url: https://121.0.0.1:8080/api/v1/route/{Id}
-<br>Cuerpo Json que mandar:
+PUT url: https://121.0.0.1:8080/api/v1/route/{Id}  
+Cuerpo Json que mandar:
 ```json
 {  
     "route_id": 20,
@@ -681,9 +681,9 @@ PUT url: https://121.0.0.1:8080/api/v1/route/{Id}
     "province": "MALAGA",  
     "area": "Montes de MALAGA"  
 }
-```
-<br>Respuestas posibles:
-<br>201(OK):
+```  
+Respuestas posibles:  
+201(OK):
 ```json
 {
     "route_id": 20,
@@ -711,10 +711,10 @@ PUT url: https://121.0.0.1:8080/api/v1/route/{Id}
     "message": "Saturation on server, try again later"
 }
 ```
-### <u>put_User</u><br>
+### put_User
 Edita un objeto usuario existente, dado un cuerpo Json y habiendo especificado su Id (PK).
-PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}
-<br>Cuerpo Json que mandar: 
+PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}  
+Cuerpo Json que mandar: 
 ```json
 {  
     "username": "Jonatan0",  
@@ -726,9 +726,9 @@ PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}
     "p_province": "MALAGA",  
     "p_area": "Antequera"  
 }
-```
-<br>Respuestas posibles:
-<br>201(OK):
+```  
+Respuestas posibles:  
+201(OK):
 ```json
 {
     "user_id": 15,
@@ -756,18 +756,18 @@ PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}
     "message": "Saturation on server, try again later"
 }
 ```
-### <u>put_Meeting</u><br>
+### put_Meeting
 Edita un objeto quedada existente, dado un cuerpo Json y habiendo especificado su Id (PK).
-PUT URL: https://121.0.0.1:8080/api/v1/meeting/{Id}
-<br>Cuerpo Json que mandar: 
+PUT URL: https://121.0.0.1:8080/api/v1/meeting/{Id}  
+Cuerpo Json que mandar: 
 ```json
 {  
     "date": "19/08/2024 19:00",  
     "route_id": 1,
 }
-```
-<br>Respuestas posibles:
-<br>201(OK):
+```  
+Respuestas posibles:  
+201(OK):
 ```json
 {  
     "meeting_id": 300,  
@@ -827,13 +827,13 @@ PUT URL: https://121.0.0.1:8080/api/v1/meeting/{Id}
     "message": "Saturation on server, try again later"
 }
 ```
-### <u>put_user_in_Meeting</u><br>
-Añade un usuario a una quedada.
-<br>POST URL: https://121.0.0.1:8080/api/v1/meeting?meeting_id={Id}&user_id={Id}
-Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15
-<br>Respuestas posibles:
+### put_user_in_Meeting
+Añade un usuario a una quedada.  
+POST URL: https://121.0.0.1:8080/api/v1/meeting?meeting_id={Id}&user_id={Id}
+Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15  
+Respuestas posibles:
 
-<br>201(OK):
+201(OK):
 ```json
 {  
     "meeting_id": 1,  
@@ -905,12 +905,12 @@ Example: https://121.0.0.1:8080/api/v1/meeting?meeting_id=1&user_id=15
 }
 ```
 ## DELETE
-### <u>delete_Route</u><br> 
+### delete_Route 
 Borra un objeto ruta existente, habiendo especificado su Id (PK).
 DELETE URL: https://121.0.0.1:8080/api/v1/route/{Id}
-example: https://121.0.0.1:8080/api/v1/route/20
-<br>Respuestas posibles:
-<br>201(OK):
+example: https://121.0.0.1:8080/api/v1/route/20  
+Respuestas posibles:  
+201(OK):
 ```json
 {
     "message": "La ruta 20 ha sido eliminada con éxito", 
@@ -928,12 +928,12 @@ example: https://121.0.0.1:8080/api/v1/route/20
     "message": "Saturation on server, try again later"
 }
 ```
-### <u>delete_User</u><br>
+### delete_User
 Borra un objeto usuario existente, habiendo especificado su Id (PK).
 DELETE URL: https://121.0.0.1:8080/api/v1/user/{Id}
-example: https://121.0.0.1:8080/api/v1/user/15
-<br>Respuestas posibles:
-<br>201(OK):
+example: https://121.0.0.1:8080/api/v1/user/15  
+Respuestas posibles:  
+201(OK):
 ```json
 {
     "message": "El usuario 15 ha sido eliminado con éxito",
@@ -951,12 +951,12 @@ example: https://121.0.0.1:8080/api/v1/user/15
     "message": "Saturation on server, try again later"
 }
 ```
-### <u>delete_Meeting</u><br>
+### delete_Meeting
 Borra un objeto de quedada existente, habiendo especificado su Id (PK).
 DELETE URL: https://121.0.0.1:8080/api/v1/meeting/{Id}
-example: https://121.0.0.1:8080/api/v1/meeting/25
-<br>Respuestas posibles:
-<br>201(OK):
+example: https://121.0.0.1:8080/api/v1/meeting/25  
+Respuestas posibles:  
+201(OK):
 ```json
 {
     "message": "La quedada 25 ha sido eliminada con éxito",
@@ -974,12 +974,12 @@ example: https://121.0.0.1:8080/api/v1/meeting/25
     "message": "Saturation on server, try again later"
 }
 ```
-### <u>delete_user_from_Meeting</u><br>
+### delete_user_from_Meeting
 Quita a un usuario de una quedada
 DELETE URL: https://121.0.0.1:8080/api/v1/meeting?meetingId={Id}&userId={Id}
-example: https://121.0.0.1:8080/api/v1/meeting?meetingId=25&userId=10
-<br><br>Respuestas posibles:
-<br>201(OK):
+example: https://121.0.0.1:8080/api/v1/meeting?meetingId=25&userId=10  
+Respuestas posibles:  
+201(OK):
 ```json
 {
     "message": "User 10 leaves meeting 25",
