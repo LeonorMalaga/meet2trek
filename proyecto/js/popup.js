@@ -1,4 +1,3 @@
-// popup.js
 
 // Mostrar el popup
 document.getElementById('openPopupNav').addEventListener('click', function (event) {
