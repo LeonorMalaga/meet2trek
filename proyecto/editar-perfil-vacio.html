@@ -8,46 +8,9 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/templatemo-style.css">
-
-    <style>
-        .image-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Imagen circular */
-        #userImage {
-            border-radius: 50%;
-            max-width: 200px;
-            height: 200px;
-        }
-
-        /* Estilos del ícono */
-        .icon-overlay {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            background-color: #007bff;
-            color: white;
-            border-radius: 50%;
-            padding: 8px;
-            cursor: pointer;
-        }
-
-        .icon-overlay:hover {
-            background-color: #0056b3;
-        }
-
-        .icon-overlay i {
-            font-size: 16px;
-            /* Tamaño del ícono */
-        }
-
-        /* Ocultar el input de archivo */
-        #imageUpload {
-            display: none;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -69,10 +32,7 @@
 
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-1 active" href="Index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-2" href="editar-perfil.html">Mi i perfil</a>
+                        <a class="nav-link nav-link-1 active" href="user_page.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-3" href="mis-filtros.html">Mis filtros</a>
@@ -136,7 +96,7 @@
             </div>
 
             <div class="col-lg-4 col-12 ">
-                <h2 class="tm-text-primary mb-4">Editar mi perfil</h2>
+                <h2 class="tm-text-primary mb-4">Editar mi perfil<h2>
                 <form id="registrationForm" action="tu-url-de-base-de-datos" method="POST">
                     <div class="form-group frase">
                         <label for="frase" class="form-label">Nombre de usuario</label>
@@ -160,7 +120,7 @@
                 </form>
             </div>
         </div>
-    </div> <!-- container-fluid, tm-container-content -->
+    </div>
 
     <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
         <div class=" px-5 ">
@@ -187,7 +147,8 @@
         });
     </script>
 
-    // Escucha cambios en el input de tipo "file"
+<!-- Función para cargar foto en el perfil -->
+    <!-- Escucha cambios en el input de tipo "file" -->
     <script>
         document.getElementById('imageUpload').addEventListener('change', function (event) {
             // Verifica si se seleccionó un archivo
@@ -206,7 +167,6 @@
             }
         });
     </script>
-
     <!-- Cargar Font Awesome para el ícono -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>

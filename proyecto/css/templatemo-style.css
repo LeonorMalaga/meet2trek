@@ -15,6 +15,56 @@ article {
     margin: 15px;
 }
 
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    text-align: center;
+    max-width: 100%;
+    /* Limita el ancho máximo del contenedor */
+    margin: auto;
+}
+
+h1 {
+    margin-bottom: 20px !important;
+}
+
+.form-filters {
+    margin: 0 auto;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    height: auto;
+    width: 80%;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.form-titular {
+    margin: 0 auto;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+}
+
+.check {
+    margin-top: 40px;
+}
+
+#checbox {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    text-align: left;
+    max-width: 100%;
+    /* Limita el ancho máximo del contenedor */
+    margin: auto;
+}
 .foot {
     width: 100%;
     float: left;
@@ -93,6 +143,19 @@ h1 {
     margin: 10px 75px;
 }
 
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+#hero-video {
+    width: 100%;
+    width: auto;
+    display: block;
+}
+
 .img-recomend {
     width: 80%;
 }
@@ -143,6 +206,104 @@ header {
     height: 100%;
     padding-bottom: 10px;
     text-align: center;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* css de mis-rutas */
+.tabla {
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    max-width: 100%;
+    /* Limita el ancho máximo del contenedor */
+    margin: auto;
+    width: 100%;
+}
+
+.cont-rutas {
+    margin: 0 auto;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    height: 80vh;
+    width: 80%;
+    text-align: center;
+}
+
+.rutas-titular {
+    margin: 0 auto;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+}
+
+.tg {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.tg td {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 15px;
+    word-break: normal;
+    text-align: left;
+}
+
+#eliminar1,
+#eliminar2,
+#eliminar1 {
+    cursor: pointer;
+    color: red;
+    text-align: center;
+}
+
+/* css de editar-perfil.vacio */
+/* Imagen circular */
+#userImage {
+    border-radius: 50%;
+    max-width: 200px;
+    height: 200px;
+}
+
+/* Estilos del ícono */
+.icon-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.icon-overlay:hover {
+    background-color: #0056b3;
+}
+
+.icon-overlay i {
+    font-size: 16px;
+    /* Tamaño del ícono */
+}
+
+/* Ocultar el input de archivo */
+#imageUpload {
+    display: none;
 }
 
 /* Para tamaños superiores a 576px (small, medio) */
@@ -225,7 +386,7 @@ article {
         /* Centra horizontalmente */
         align-items: center;
         /* Centra verticalmente */
-        height: 70vh;
+        height: 100vh;
         /* Asegura que el cuerpo ocupe toda la altura de la ventana */
         margin: 0;
         float: left;
@@ -238,6 +399,7 @@ article {
         gap: 10px;
         text-align: center;
         max-width: 70%;
+        height: auto;
         /* Limita el ancho máximo del contenedor */
         margin: auto;
     }
@@ -601,12 +763,18 @@ a:hover {
 }
 
 .overlay-text {
+/*    display: flex;
+    align-items: center
+    justify-content: center;
+    height: 100vh; */
     text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2.5em;
+    font-size: 5vw;
+
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     color: white;
     opacity: 0;
     /* Comienza invisible */
@@ -1163,6 +1331,10 @@ padding-left: 5px !important;
     #vid {
         width: 100%;
         float: left;
+    }
+
+    .overlay-text {
+        font-size: 8vw;
     }
 
 }
