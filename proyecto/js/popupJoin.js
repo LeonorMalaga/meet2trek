@@ -7,7 +7,13 @@ function  closePopupJoin(){
     document.getElementById("popupJoin").style.display = "none";
 }
 function  openPopupGroup() {
-    document.getElementById("popupJoin").style.display = "none";
+    var popupElement = document.getElementById("popupJoin");
+
+if (popupElement) {
+    popupElement.style.display = "none";
+} else {
+    console.log("Element with ID 'popupJoin' does not exist.");
+}
     document.getElementById("popupGroup").style.display = "block";
 }
 
