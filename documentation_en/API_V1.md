@@ -4,7 +4,11 @@
 # Table of Contents
 
 ## GET
-- [Route](#route)
+- [savedRoutes](#savedroutes)
+  - [getSaveRouteById](#getsaveroutebyid)
+  - [getAllSaveRoutes](#getallsaveroutes)
+  - [getSaveRoutesByUser](#getsaveroutebyid)
+  - [Route](#route)
   - [RouteFindById](#routefindbyid)
   - [RouteList](#routelist)
     - [FindAll](#findall)
@@ -15,16 +19,20 @@
     - [FindByArea](#findbyarea)
     - [All Filters](#all-filters)
 - [User](#user)
+  - [ExistUser](#existuser)
   - [UserFindById](#userfindbyid)
   - [FindAllUsers](#findallusers)
   - [UserListByMeeting](#userlistbymeeting)
 - [Meeting](#meeting)
+    - [MeetingsFindByUser](#meetingsfindbyuser)
+    - [GetMeetingsByRoute](#getmeetingsbyroute)
     - [MeetingFindById](#meetingfindbyid)
     - [GetAllMeetings](#getallmeetings)
     - [GetAllActiveMeetings](#getallactivemeetings)
     - [FindMeetingsByDate](#findmeetingsbydate)
 
 ## POST
+- [post_Save](#post_save)
 - [post_Route](#post_route)
 - [post_User](#post_user)
 - [post_Meeting](#post_meeting)
@@ -36,6 +44,7 @@
 - [put_user_in_Meeting](#put_user_in_meeting)
 
 ## DELETE
+- [delete_save_route](#delete_save_route)
 - [delete_Route](#delete_route)
 - [delete_User](#delete_user)
 - [delete_Meeting](#delete_meeting)
@@ -47,6 +56,15 @@
 
 ## GET 
 Gets Json Objects.
+### savedRoutes
+ 
+#### getSaveRouteById
+URL: https://121.0.0.1:8080/api/v1/save_routes/{route_Id}
+#### getAllSaveRoutes
+URL: https://121.0.0.1:8080/api/v1/save_routes
+#### getSaveRoutesByUser
+URL: https://121.0.0.1:8080/api/v1/save_routes?user={userId}
+
 ### Route
 ####  RouteFindById
 Gets a Json Route Object by its Id.
@@ -148,6 +166,19 @@ The combination of every filter.
 URL: https://121.0.0.1:8080/api/v1/routes?difficulty={difficulty}&distance={distanceaprox}&range={range}&country={country}&province={province}&area={area}
 
 ### User
+
+####  ExistUser
+Get a true o false.
+
+URL: https://121.0.0.1:8080/api/v1/users/{Username}
+
+Sample result for (Username = Trekker123) using a Dto: 
+```json
+{
+    "Username" = Trekker123;
+    "exist" = true;
+}
+```
 ####  UserFindById
 Gets a Json UserDto Object by its Id.
 
@@ -266,6 +297,9 @@ Sample result:
 ]
 ```
 ### Meeting
+#### MeetingsFindByUser
+Get al Meetings by UserId
+URL: https://121.0.0.1:8080/api/v1/meetings/{user_Id}
 ####  MeetingFindById
 Gets a Json Meeting Object by its Id.
 
@@ -356,6 +390,9 @@ URL: https://121.0.0.1:8080/api/v1/meetings
     }
 ]
 ```
+#### GetMeetingsByroute
+Retuns and ArrayList of all meeting asociate to a Route.
+URL: https://121.0.0.1:8080/api/v1/meetings?route={route_id}
 ####  GetAllActiveMeetings
 Returns an ArrayList of all active meetings (MeetingDto).
 URL: https://121.0.0.1:8080/api/v1/meetings/active  
@@ -482,6 +519,44 @@ Sample result:
 ]
 ```
 ## POST
+
+#### post_Save
+Save a route to a user.
+URL: https://121.0.0.1:8080/api/v1/save_routes
+Json Body to send:
+```json
+{  
+    "userId": 1,  
+    "routeId": 1 
+}
+```  
+Possible responses:  
+201(OK):
+```json
+{
+    "route_id": 1,
+    "user_id": 1    
+}
+```
+406(Not Acceptable):
+```json
+{
+    message:"User id or Route Id not exist",
+    incorrectFields: "UserId: 1" or "RouteId:1" or "UserId and RouteId"
+}
+```
+409(Conflict):
+```json
+{
+    message:"The route 1 is already asigned to user 1."
+}
+```
+501(Internal Server Error):
+```json
+{
+    "message": "The server is currently saturated. Please try again later."
+}
+```
 ### post_Route
 Creates a new Route object, given a Json body.  
 POST URL: https://121.0.0.1:8080/api/v1/route/  
@@ -884,14 +959,14 @@ Possible responses:
 406(Not Acceptable):
 ```json
 {
-    message:"Incorrect Id",
-    incorrectFields: "Meeting_Id does not exist", "User_id does not exist" or "Neither User_Id nor Meeting_Id exist"
+    "message":"Incorrect Id",
+    "incorrectFields": "Meeting_Id does not exist", "User_id does not exist" or "Neither User_Id nor Meeting_Id exist"
 }
 ```
 409(Conflict):
 ```json
 {
-    message:"This User has already joined this meeting",
+    "message":"This User has already joined this meeting",
     "meeting_id": 1,  
     "date": "19/08/2024 17:00",
     "route_id": 1,
@@ -905,6 +980,37 @@ Possible responses:
 }
 ```
 ## DELETE
+#### delete_save_route
+Save a route to a user.
+URL: https://121.0.0.1:8080/api/v1/save_route/
+Json Body to send:
+```json
+{  
+    "userId": 1,  
+    "routeId": 1  
+}
+```
+Possible responses:  
+201(OK):
+```json
+{
+    "message": "Route 1 save to user 1", 
+}
+```
+406(Not Acceptable):
+```json
+{
+    "message": "route_Id or user_Id not exist",
+    "incorrectFields":"route_Id: 1" or "user_Id:1" or "route_Id:1 and user_Id:1"
+}
+```
+501(Internal Server Error):
+```json
+{
+    "message": "The server is currently saturated. Please try again later."
+}
+```
+
 ### delete_Route 
 Deletes an existing Route object, having specified its Id (PK).
 DELETE URL: https://121.0.0.1:8080/api/v1/route/{Id}  
