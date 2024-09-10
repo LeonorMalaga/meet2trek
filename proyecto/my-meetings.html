@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi perfil-Mis rutas</title>
+    <title>Mi perfil-Mis quedadas</title>
+    <link rel="stylesheet" href="css/seeMeeting.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/templatemo-style.css">
@@ -13,6 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
+    <script src="js/popupSeeMeeting.js"></script>
 
 </head>
 
@@ -39,7 +41,7 @@
                         <a class="nav-link nav-link-3" href="editar-perfil.html">Mi perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-1 active" href="my-meetings.html">Mis Quedadas</a>
+                        <a class="nav-link nav-link-1 active" href="mis-rutas.html">Mis rutas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-3" href="mis-filtros.html">Mis filtros</a>
@@ -54,7 +56,7 @@
     </div>
 
     <div class="cont-rutas">
-        <h1 class="rutas-titular">Mis Rutas</h1>
+        <h1 class="rutas-titular">Mis Quedadas</h1>
         <div class="tabla">
             <table class="tg">
                 <thead>
@@ -63,54 +65,76 @@
                         <th>Localidad</th>
                         <th>Ruta</th>
                         <th>Eliminar</th>
+                        <th>FormarGrupo</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
                         <td class="tg-0pky">Málaga</td>
-                        <td class="tg-0pky">Nerja</td>
-                        <td class="tg-0pky"><a href="user-rute1-detail.html"><u>Sendero acuático río Chillar</u></a></td>
-                        <td class="tg-0pky" id="eliminar1" style="text-align: center; color: red;"><u>Eliminar</u></td>
- 
-                    </tr>
-                    <tr style="background-color:  lightseagreen;">
-                        <td class="tg-0pky">Málaga</td>
                         <td class="tg-0pky">Ardales</td>
                         <td class="tg-0pky"><a href="user-rute2-detail.html"><u>Caminito delRey</u></a></td>
                         <td class="tg-0pky" id="eliminar2" style="text-align: center; color: red;"><u>Eliminar</u></td>
- 
+                        <td class="tg-0pky" style="text-align: center;"><button type="button"
+                                onclick=" openPopupSeeMeeting()">
+                                <u> Ver</u>
+                            </button></td>
                     </tr>
-                    <tr style="background-color: lightseagreen;">
+                    <tr>
                         <td class="tg-0pky">Málaga</td>
                         <td class="tg-0pky">Antequera</td>
                         <td class="tg-0pky"><a href="user-rute1-detail.html"><u>Sendero del Torcal</u></a></td>
                         <td class="tg-0pky" id="eliminar3" style="text-align: center; color: red;"><u>Eliminar</u></td>
- 
+                        <td class="tg-0pky" style="text-align: center;"><button type="button"
+                                onclick=" openPopupSeeMeeting()">
+                                <u> Ver</u>
+                            </button></td>
                     </tr>
+ 
                     <tr>
-                        <td class="tg-0pky">Málaga</td>
-                        <td class="tg-0pky">Nerja</td>
-                        <td class="tg-0pky"><a href="user-rute2-detail.html"><u>Sendero acuático río Chillar</u></a></td>
-                        <td class="tg-0pky" id="eliminar4" style="text-align: center; color: red;"><u>Eliminar</u></td>
- 
-                    </tr>
-                    <tr style="background-color:  lightseagreen;">
                         <td class="tg-0pky">Málaga</td>
                         <td class="tg-0pky">Ardales</td>
                         <td class="tg-0pky"><a href="user-rute1-detail.html"><u>Caminito delRey</u></a></td>
                         <td class="tg-0pky" id="eliminar5" style="text-align: center; color: red;"><u>Eliminar</u></td>
- 
-                    </tr>
-                    <tr>
-                        <td class="tg-0pky">Málaga</td>
-                        <td class="tg-0pky">Antequera</td>
-                        <td class="tg-0pky"><a href="user-rute1-detail.html"><u>Sendero del Torcal</u></a></td>
-                        <td class="tg-0pky" id="eliminar6" style="text-align: center; color: red;"><u>Eliminar</u></td>
- 
+                        <td class="tg-0pky" style="text-align: center;"><button type="button"
+                                onclick=" openPopupSeeMeeting()">
+                                <u> Ver</u>
+                            </button></td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <!-- Popup Group -->
+        <div id="popupGroup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closePopupGroup()">&times;</span>
+                <table>
+                    <tr>
+                        <td>  <img src="img/people-2.jpg" alt="Image" class="mb-4 img-fluid" /> </td>
+                        <td> <h2 class="tm-text-primary" style="margin-bottom: 1.5rem">
+                            Sonia Parrado
+                          </h2></td>
+                    </tr>
+                    <tr>
+                        <td> <img src="img/people-4.jpg" alt="Image" class="mb-4 img-fluid" /> </td>
+                        <td> <h2 class="tm-text-primary" style="margin-bottom: 1.5rem">
+                            Antonio Rubio
+                          </h2></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Popup Join -->
+        <div id="popupSeeMeeting" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closepopupSeeMeeting()">&times;</span>
+                <table>
+                    <tr>
+                        <td>12/01/2025 16:30</td>
+                        <td><button onclick="openPopupGroup()">Ver Grupo</button></td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <a href="user_page.html" class="btn btn-primary" style="float: right; margin-top: 30px;">Hecho</a>
     </div>
