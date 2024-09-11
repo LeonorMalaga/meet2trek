@@ -1,21 +1,18 @@
 package com.esplai.meet2trek.dto;
 
 import com.esplai.meet2trek.model.User;
-//import com.esplai.meet2trek.model.UserFullName;
-//import com.esplai.meet2trek.model.UserPreferredCharacteristics;
-//import com.esplai.meet2trek.model.UserPreferredLocation;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-//import java.util.List;
 
 @NoArgsConstructor
 @Getter @Setter
 public class UserDto {
     private Long userId;
     private String username;
+    @SuppressWarnings("unused")
     private String password;
+    @SuppressWarnings("unused")
     private String email;
     private String icon;
     private String name;
