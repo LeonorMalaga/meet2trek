@@ -46,4 +46,8 @@ public class UserService {
         }
         return userDtoList;
     }
+
+    public boolean usernameExists(String username) { // R
+        return userRepository.existsByUsername(username);
+    }
 }

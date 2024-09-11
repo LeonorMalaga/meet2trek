@@ -42,4 +42,9 @@ public class UserController {
         user.setUserId(userId);
         return userService.editUser(user);
     }
+
+    @GetMapping("/user/check/{username}")
+    public boolean usernameExists(@PathVariable String username) {
+        return userService.usernameExists(username);
+    }
 }
