@@ -16,10 +16,8 @@ public class Route {
     private Long routeId;
     @NotBlank
     private String name;
-    @NotBlank
     private String shortDescription;
-    private String portrait;
-    private List<String> resources;
+    private String resourcesUrl;
     private String fullDescription;
     @NotBlank
     private String startingPoint;

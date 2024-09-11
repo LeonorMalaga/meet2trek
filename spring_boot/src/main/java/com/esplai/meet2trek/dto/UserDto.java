@@ -48,4 +48,8 @@ public class UserDto {
     public String getPassword() {
         return "********";
     }
+
+    public String getEmail() {
+        return "********@*****.***";
+    }
 }
