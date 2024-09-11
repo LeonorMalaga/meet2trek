@@ -21,7 +21,7 @@ public class Route {
     private String startingPoint;
     private Byte difficulty;
     private int distance;
-    private String country;
-    private String province;
+    private String country = "SPAIN";
+    private String province = "MALAGA";
     private String area;
 }

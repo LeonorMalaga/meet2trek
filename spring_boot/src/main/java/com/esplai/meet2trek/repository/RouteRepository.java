@@ -1,4 +1,9 @@
 package com.esplai.meet2trek.repository;
 
-public interface RouteRepository {
+import com.esplai.meet2trek.model.Route;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface RouteRepository extends JpaRepository<Route, Long> {
 }
