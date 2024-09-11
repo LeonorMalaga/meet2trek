@@ -22,14 +22,13 @@ public class User {
     @NotBlank
     private String email;
     private String icon;
-    /*@Embedded
-    private UserFullName fullName;
+    private String name;
+    private String surname;
     private String slogan;
     private String aboutMe;
     private Byte preferredDifficulty;
     private int preferredDistance;
-    @Embedded
-    private UserPreferredLocation preferredLocation;
-    @Embedded
-    private UserPreferredCharacteristics preferredCharacteristics;*/
+    private String preferredCountry;
+    private String preferredProvince;
+    private String preferredArea;
 }

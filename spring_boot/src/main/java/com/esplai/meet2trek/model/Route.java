@@ -23,8 +23,7 @@ public class Route {
     private String startingPoint;
     private Byte difficulty;
     private int distance;
-    @Embedded
-    private RouteLocation Location;
-    @Embedded
-    private RouteCharacteristics Characteristics;
+    private String country;
+    private String province;
+    private String area;
 }

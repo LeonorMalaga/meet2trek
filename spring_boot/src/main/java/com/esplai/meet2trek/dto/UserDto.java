@@ -18,13 +18,15 @@ public class UserDto {
     private String password;
     private String email;
     private String icon;
-    /*private UserFullName fullName;
+    private String name;
+    private String surname;
     private String slogan;
     private String aboutMe;
     private Byte preferredDifficulty;
     private int preferredDistance;
-    private UserPreferredLocation preferredLocation;
-    private UserPreferredCharacteristics preferredCharacteristics;*/
+    private String preferredCountry;
+    private String preferredProvince;
+    private String preferredArea;
 
     public UserDto(User user) {
         this.userId = user.getUserId();
@@ -32,13 +34,15 @@ public class UserDto {
         this.password = user.getPassword();
         this.email = user.getEmail();
         this.icon = user.getIcon();
-        /*this.fullName = user.getFullName();
+        this.name = user.getName();
+        this.surname = user.getSurname();
         this.slogan = user.getSlogan();
         this.aboutMe = user.getAboutMe();
         this.preferredDifficulty = user.getPreferredDifficulty();
         this.preferredDistance = user.getPreferredDistance();
-        this.preferredLocation = user.getPreferredLocation();
-        this.preferredCharacteristics = user.getPreferredCharacteristics();*/
+        this.preferredCountry = user.getPreferredCountry();
+        this.preferredProvince = user.getPreferredProvince();
+        this.preferredArea = user.getPreferredArea();
     }
 
     public String getPassword() {
