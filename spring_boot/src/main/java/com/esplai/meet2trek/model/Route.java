@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,7 +19,7 @@ public class Route {
     @NotBlank
     private String shortDescription;
     private String portrait;
-    private String resources;
+    private List<String> resources;
     private String fullDescription;
     @NotBlank
     private String startingPoint;
