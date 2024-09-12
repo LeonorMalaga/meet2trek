@@ -8,7 +8,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter @Setter
 public class UserDto {
-    private long userId;
+    private Long userId;
     private String username;
     @SuppressWarnings("unused")
     private String password;

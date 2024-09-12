@@ -5,7 +5,9 @@ import com.esplai.meet2trek.model.User;
 import com.esplai.meet2trek.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+// import org.springframework.web.multipart.MultipartFile;
 
+// import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -16,11 +18,15 @@ public class UserService {
     UserRepository userRepository;
 
     public UserDto createUser(User user) { // C
-        user = userRepository.save(user);
-        return new UserDto(user);
+        if (userRepository.existsByUsername(user.getUsername())) {
+            throw new IllegalArgumentException("Username already exists.");
+        } else {
+            user = userRepository.save(user);
+            return new UserDto(user);
+        }
     }
 
-    public Optional<UserDto> getUser(long userId) { // R
+    public Optional<UserDto> getUser(Long userId) { // R
         User user = userRepository.findById(userId).orElse(null);
         if (user == null) {
             return Optional.empty();
@@ -30,11 +36,15 @@ public class UserService {
     }
 
     public UserDto editUser(User user) { // U
-        user = userRepository.save(user);
-        return new UserDto(user);
+        if (userRepository.existsByUsername(user.getUsername())) {
+            throw new IllegalArgumentException("Username already exists.");
+        } else {
+            user = userRepository.save(user);
+            return new UserDto(user);
+        }
     }
 
-    public void deleteUser(long userId) { // D
+    public void deleteUser(Long userId) { // D
         userRepository.deleteById(userId);
     }
 
@@ -47,7 +57,30 @@ public class UserService {
         return userDtoList;
     }
 
-    public boolean usernameExists(String username) { // R
+    public boolean usernameExists(String username) {
         return userRepository.existsByUsername(username);
     }
+
+    /*public UserDto uploadUserIcon(Long userId, MultipartFile file) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (userOptional.isEmpty()) {
+            throw new IllegalArgumentException("User not found.");
+        } else {
+            User user = userOptional.get();
+            String fileName = saveImage(userId, file);
+            user.setIcon(fileName);
+            return new UserDto(userRepository.save(user));
+        }
+    }
+
+    private String saveImage(Long userId, MultipartFile file) {
+        if (file.isEmpty()) {
+            throw new IllegalArgumentException("Can't upload an empty file!");
+        } else {
+            Path uploadPath = Paths.get(String.valueOf(userId));
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
+        }
+    }*/
 }
