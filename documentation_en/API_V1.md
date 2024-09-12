@@ -565,7 +565,6 @@ Json Body to send:
 {
     "name": "Caminito_del_Rey",
     "shortDescription": "Caminata difícil. Se necesita buena forma física. Se requiere tener paso firme, calzado adecuado y experiencia en alta montaña. El punto de inicio de la Ruta está junto a un aparcamiento. ",
-    "resourcesUrl": "UserName2",
     "fullDescription": "El Caminito del Rey es un senda aérea construida en las paredes del Desfiladero de los Gaitanes en El Chorro. Es un camino adosado al citado desfiladero con una longitud de 3 kilómetros que cuenta con largos tramos y con una anchura de apenas 1 metro. Se inicia en el término municipal de Ardales, atraviesa terrenos de Antequera y concluye en El Chorro, perteneciente a Álora.<br>Este camino está colgado en las paredes verticales del desfiladero y a una distancia media de 100 metros sobre el río.",
     "startingPoint":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18041.690409557472!2d-4.7954183316169985!3d36.9297929996558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72be9311fa8f01%3A0x599abbe8aafbd4b8!2sCaminito%20del%20Rey%20-%20Acceso%20Norte!5e0!3m2!1ses!2ses!4v1726132950970!5m2!1ses!2ses",
     "resourcesPath": "../ROUTES/SPAIN/MALAGA/CAMINITO/1_Caminito_del_Rey",

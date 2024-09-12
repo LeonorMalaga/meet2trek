@@ -16,6 +16,7 @@ public class Route {
     private Long routeId;
     @NotBlank
     private String name;
+    @Size(max = 500)
     private String shortDescription;
     private String resourcesPath;
     private String portraitPath;
