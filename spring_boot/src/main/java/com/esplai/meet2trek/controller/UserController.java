@@ -6,6 +6,7 @@ import com.esplai.meet2trek.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+// import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,19 +27,19 @@ public class UserController {
         return userService.listUsers();
     }
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/user/{userId}")
     public void deleteUser(@PathVariable Long userId) {
         userService.deleteUser(userId);
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/user/{userId}")
     @ResponseBody
     public Optional<UserDto> userInfo(@PathVariable Long userId) {
         return userService.getUser(userId);
     }
 
-    @PutMapping("/user/{id}")
-    public UserDto editUser(@PathVariable long userId, User user) {
+    @PutMapping("/user/{userId}")
+    public UserDto editUser(@PathVariable Long userId, @RequestBody User user) {
         user.setUserId(userId);
         return userService.editUser(user);
     }
@@ -47,4 +48,9 @@ public class UserController {
     public boolean usernameExists(@PathVariable String username) {
         return userService.usernameExists(username);
     }
+
+    /*@PatchMapping("user/{userId}")
+    public UserDto editUserIcon(@PathVariable Long userId, @RequestParam MultipartFile icon) {
+        userService.editUserIcon(userId, String.valueOf(icon));
+    }*/
 }
