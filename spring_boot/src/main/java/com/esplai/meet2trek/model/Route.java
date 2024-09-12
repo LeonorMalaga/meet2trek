@@ -13,7 +13,7 @@ import org.w3c.dom.Text;
 public class Route {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long routeId;
+    private Long routeId;
     @NotBlank
     private String name;
     private String shortDescription;
