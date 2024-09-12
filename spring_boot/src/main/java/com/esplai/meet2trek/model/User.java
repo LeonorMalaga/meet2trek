@@ -1,7 +1,7 @@
 package com.esplai.meet2trek.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +24,9 @@ public class User {
     private String icon;
     private String name;
     private String surname;
+    @Size(max = 120)
     private String slogan;
+    @Size(max = 500)
     private String aboutMe;
     private Byte preferredDifficulty;
     private int preferredDistance;
