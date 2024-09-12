@@ -17,7 +17,9 @@ public class Route {
     @NotBlank
     private String name;
     private String shortDescription;
-    private String resourcesUrl;
+    private String resourcesPath;
+    private String portraitPath;
+    private String videoUrl;
     @Size(max = 8000)
     private String fullDescription;
     @NotBlank
