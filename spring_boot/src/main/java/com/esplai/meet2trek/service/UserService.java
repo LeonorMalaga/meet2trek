@@ -20,7 +20,7 @@ public class UserService {
         return new UserDto(user);
     }
 
-    public Optional<UserDto> getUser(Long userId) { // R
+    public Optional<UserDto> getUser(long userId) { // R
         User user = userRepository.findById(userId).orElse(null);
         if (user == null) {
             return Optional.empty();
@@ -34,7 +34,7 @@ public class UserService {
         return new UserDto(user);
     }
 
-    public void deleteUser(Long userId) { // D
+    public void deleteUser(long userId) { // D
         userRepository.deleteById(userId);
     }
 
