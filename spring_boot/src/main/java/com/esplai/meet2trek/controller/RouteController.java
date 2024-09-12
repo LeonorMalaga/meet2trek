@@ -19,6 +19,7 @@ public class RouteController {
     @PostMapping("/")
     public Route createRoute(@RequestBody Route route)
     {
+        System.out.println("Received JSON:" + route);
         log.info("Received Route: {}", route);
         // Create the route
         Route createdRoute = routeService.createNewRoute(route);
