@@ -15,5 +15,8 @@ public class RouteService {
     }
     public void deleteRoute(long id){ routeRepository.deleteById(id);}
     public Route updateRoute(Route route){ return routeRepository.save(route);}
-    public boolean existsById(Long id){ return routeRepository.existsByrouteId(id);}
+    public boolean existsByrouteId(Long routeId){ return routeRepository.existsByrouteId(routeId);}
+    public boolean routeExists(String name, String province, String country, String area, int distance) {
+        return routeRepository.routeExists(name, province, country, area, distance);
+    }
 }
