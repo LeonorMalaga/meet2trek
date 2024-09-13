@@ -559,68 +559,36 @@ Possible responses:
 ```
 ### post_Route
 Creates a new Route object, given a Json body.  
-POST URL: http://localhost:8080/route/  
+POST URL: http://localhost:8080/routes  
 Json Body to send:
 ```json
 {
-    "name": "Caminito_del_Rey",
-    "shortDescription": "Caminata difícil. Se necesita buena forma física. Se requiere tener paso firme, calzado adecuado y experiencia en alta montaña. El punto de inicio de la Ruta está junto a un aparcamiento. ",
-    "fullDescription": "El Caminito del Rey es un senda aérea construida en las paredes del Desfiladero de los Gaitanes en El Chorro. Es un camino adosado al citado desfiladero con una longitud de 3 kilómetros que cuenta con largos tramos y con una anchura de apenas 1 metro. Se inicia en el término municipal de Ardales, atraviesa terrenos de Antequera y concluye en El Chorro, perteneciente a Álora.<br>Este camino está colgado en las paredes verticales del desfiladero y a una distancia media de 100 metros sobre el río.",
-    "startingPoint":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18041.690409557472!2d-4.7954183316169985!3d36.9297929996558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72be9311fa8f01%3A0x599abbe8aafbd4b8!2sCaminito%20del%20Rey%20-%20Acceso%20Norte!5e0!3m2!1ses!2ses!4v1726132950970!5m2!1ses!2ses",
-    "resourcesPath": "../ROUTES/SPAIN/MALAGA/CAMINITO/1_Caminito_del_Rey",
-    "portraitPath" : "../ROUTES/SPAIN/MALAGA/CAMINITO/1_Caminito_del_Rey/img/Caminito_del_Rey.jpg",
-    "videoUrl" : "https://youtu.be/enmed/AUjtuNOZe4Y",
-    "difficulty": 5,
-    "distance": 8650,
-    "area": "CAMINITO"
+    "name": "Rio_Chillar",
+    "shortDescription": "Tiene todos los ingredientes para una caminata clásica: la variedad, la necesidad de cuidados para la transición al barranco, la lucha y el sentido de llegada a una cumbre espectacular, refugio para almorzar y una corriente para lavar el sudor después del descenso. ",
+    "fullDescription": "Después de llegar a las estribaciones de la Sierra Tejeda desde Nerja se llega al pueblo de Acebuchal, destruido después de que terminara la Guerra Civil. Afortunadamente, ha sido reconstruido <br>Una caminata de 2 km en un lecho de río seco (rambla) da paso a un camino de tierra desde donde se asoma la desalentadora vista de Cisne como un monstruo prehistórico. Aunque no está entre los puntos más altos y es una escalada difícil.<br>Tiene todos los ingredientes para una caminata clásica: la variedad, la necesidad de cuidados para la transición al barranco, la lucha y el sentido de llegada a una cumbre espectacular, refugio para almorzar y una corriente para lavar el sudor después del descenso.<br>En la cima se encuentran las ruinas de un puesto avanzado de la Guardia Civil que data de la Guerra Civil Española. Los soldados de Franco pudieron observar movimientos de tropas republicanas desde esta posición a 1,779 metros. Cuando vea las vistas, se dará cuenta de por qué lo construyeron.",
+    "startingPoint":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102254.50054410713!2d-3.954936180733223!3d36.783684382177064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7225167826ddb3%3A0x53bbce5d36620e0f!2zUsOtbyBDaMOtbGxhcg!5e0!3m2!1ses!2ses!4v1726141095705!5m2!1ses!2ses",
+    "resourcesPath": "../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar",
+    "portraitPath" : "../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar/img/Rio_chilla.jpg",
+    "videoUrl" : "https://www.youtube.com/watch?v=aYRW6SMR8usY",
+    "difficulty": 6,
+    "distance": 280,
+    "area": "CHILLAR"
 }
 ```  
 Possible responses:  
-201(OK):
+200(OK):
 ```json
 {
-    "route_id": 20,
-    "name": "Montes de Malaga",  
-    "description": "Ruta apta par ir en bicicleta", 
-    "url_resources": "/Routes/20",  
-    "starting_point": "https://maps.app.goo.gl/jPsaPmnpNTyu8KiB6,  
-    "difficulty": 3,  
-    "distance": 12000,  
-    "country": "Spain",  
-    "province": "Malaga",  
-    "area": "Montes de Malaga"  
-}
-```
-406(Not Acceptable):
-```json
-{
-    message:"Incorrect or Incomplete Json body Fields",
-    incorrectFields: "List of incorrect fields"
+    "message": "Route Create: {\"routeId\":8,\"name\":\"Rio_Chillar\",\"shortDescription\":\"Tiene todos los ingredientes para una caminata clásica: la variedad, la necesidad de cuidados para la transición al barranco, la lucha y el sentido de llegada a una cumbre espectacular, refugio para almorzar y una corriente para lavar el sudor después del descenso. \",\"resourcesPath\":\"../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar\",\"portraitPath\":\"../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar/img/Rio_chilla.jpg\",\"videoUrl\":\"https://www.youtube.com/watch?v=aYRW6SMR8usY\",\"fullDescription\":\"Después de llegar a las estribaciones de la Sierra Tejeda desde Nerja se llega al pueblo de Acebuchal, destruido después de que terminara la Guerra Civil. Afortunadamente, ha sido reconstruido <br>Una caminata de 2 km en un lecho de río seco (rambla) da paso a un camino de tierra desde donde se asoma la desalentadora vista de Cisne como un monstruo prehistórico. Aunque no está entre los puntos más altos y es una escalada difícil.<br>Tiene todos los ingredientes para una caminata clásica: la variedad, la necesidad de cuidados para la transición al barranco, la lucha y el sentido de llegada a una cumbre espectacular, refugio para almorzar y una corriente para lavar el sudor después del descenso.<br>En la cima se encuentran las ruinas de un puesto avanzado de la Guardia Civil que data de la Guerra Civil Española. Los soldados de Franco pudieron observar movimientos de tropas republicanas desde esta posición a 1,779 metros. Cuando vea las vistas, se dará cuenta de por qué lo construyeron.\",\"startingPoint\":\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102254.50054410713!2d-3.954936180733223!3d36.783684382177064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7225167826ddb3%3A0x53bbce5d36620e0f!2zUsOtbyBDaMOtbGxhcg!5e0!3m2!1ses!2ses!4v1726141095705!5m2!1ses!2ses\",\"difficulty\":6,\"distance\":280,\"country\":\"SPAIN\",\"province\":\"MALAGA\",\"area\":\"CHILLAR\"}"
 }
 ```
 409(Conflict):
 ```json
 {
-    message:"The route already exists, please indicate a different dates for: name, difficulty, distance,  starting_point, country, province or area.",
-    {
-    "route_id": 11,
-    "name": "Montes de Malaga",  
-    "description": "Zona alborada cercana a la ciudad, apto para pasear en perro  y con niños", 
-    "url_resources": "/Routes/11",  
-    "starting_point": "https://maps.app.goo.gl/jPsaPmnpNTyu8KiB6,  
-    "difficulty": 3,  
-    "distance": 12000,  
-    "country": "Spain",  
-    "province": "Malaga",  
-    "area": "Montes de Malaga"  
-    }
+    "message": "Route already exist"
 }
 ```
-501(Internal Server Error):
-```json
-{
-    "message": "The server is currently saturated. Please try again later."
-}
+
 ```
 ### post_User
 Creates a new User object, given a Json body.
@@ -1015,25 +983,22 @@ Possible responses:
 
 ### delete_Route 
 Deletes an existing Route object, having specified its Id (PK).
-DELETE URL: https://121.0.0.1:8080/api/v1/route/{Id}  
-example: http://localhost:8080/route/2 
+DELETE URL: https://121.0.0.1:8080/api/routes/{Id}  
+example: http://localhost:8080/routes/7
 Possible responses:  
 201(OK):
 ```json
-true
-```
-406(Not Acceptable):
-```json
 {
-    "message": "route_Id does not exist"
+    "message": "Route with id: 7 deleted."
 }
 ```
-501(Internal Server Error):
+404(Not Faund):
 ```json
 {
-    "message": "The server is currently saturated. Please try again later."
+    "message": "Not found"
 }
 ```
+
 ### delete_User
 Deletes an existing User object, having specified its Id (PK).  
 DELETE URL: https://121.0.0.1:8080/api/v1/user/{Id}  
