@@ -1016,13 +1016,11 @@ Possible responses:
 ### delete_Route 
 Deletes an existing Route object, having specified its Id (PK).
 DELETE URL: https://121.0.0.1:8080/api/v1/route/{Id}  
-example: https://121.0.0.1:8080/api/v1/route/20  
+example: http://localhost:8080/route/2 
 Possible responses:  
 201(OK):
 ```json
-{
-    "message": "Route 20 has succesfully been deleted", 
-}
+true
 ```
 406(Not Acceptable):
 ```json
