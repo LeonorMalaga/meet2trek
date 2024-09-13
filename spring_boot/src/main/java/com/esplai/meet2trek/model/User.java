@@ -29,7 +29,7 @@ public class User {
     @Size(max = 500)
     private String aboutMe;
     private Byte preferredDifficulty;
-    private int preferredDistance;
+    private Integer preferredDistance;
     private String preferredCountry;
     private String preferredProvince;
     private String preferredArea;

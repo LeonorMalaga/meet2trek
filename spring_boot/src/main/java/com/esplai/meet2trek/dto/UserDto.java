@@ -20,7 +20,7 @@ public class UserDto {
     private String slogan;
     private String aboutMe;
     private Byte preferredDifficulty;
-    private int preferredDistance;
+    private Integer preferredDistance;
     private String preferredCountry;
     private String preferredProvince;
     private String preferredArea;

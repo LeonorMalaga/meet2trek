@@ -17,7 +17,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/user")
+    @PostMapping("/users")
     public UserDto createUser (@RequestBody User user) {
         return userService.createUser(user);
     }
@@ -27,26 +27,31 @@ public class UserController {
         return userService.listUsers();
     }
 
-    @DeleteMapping("/user/{userId}")
+    @DeleteMapping("/users/{userId}")
     public void deleteUser(@PathVariable Long userId) {
         userService.deleteUser(userId);
     }
 
-    @GetMapping("/user/{userId}")
+    @GetMapping("/users/{userId}")
     @ResponseBody
     public Optional<UserDto> userInfo(@PathVariable Long userId) {
         return userService.getUser(userId);
     }
 
-    @PutMapping("/user/{userId}")
+    @PutMapping("/users/{userId}")
     public UserDto editUser(@PathVariable Long userId, @RequestBody User user) {
         user.setUserId(userId);
-        return userService.editUser(user);
+        return userService.editUser(userId, user);
     }
 
-    @GetMapping("/user/check/{username}")
+    @GetMapping("/users/check/{username}")
     public boolean usernameExists(@PathVariable String username) {
         return userService.usernameExists(username);
+    }
+
+    @PatchMapping("users/{userId}")
+    public UserDto editUserProfile(@PathVariable Long userId, @RequestBody User user) {
+        return userService.partialEdit(userId, user);
     }
 
     /*@PatchMapping("user/{userId}")
