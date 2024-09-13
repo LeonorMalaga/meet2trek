@@ -18,8 +18,12 @@ public class UserService {
     UserRepository userRepository;
 
     public UserDto createUser(User user) { // C
-        if (userRepository.existsByUsername(user.getUsername())) {
+        if (userRepository.existsByUsername(user.getUsername()) && userRepository.existsByEmail(user.getEmail())) {
+            throw new IllegalArgumentException("Username already exists, and this email is already in use.");
+        } else if (userRepository.existsByUsername(user.getUsername())) {
             throw new IllegalArgumentException("Username already exists.");
+        } else if (userRepository.existsByEmail(user.getEmail())) {
+            throw new IllegalArgumentException("This email is already in use.");
         } else {
             user = userRepository.save(user);
             return new UserDto(user);
@@ -35,10 +39,15 @@ public class UserService {
         }
     }
 
-    public UserDto editUser(User user) { // U
-        if (userRepository.existsByUsername(user.getUsername())) {
+    public UserDto editUser(Long userId, User user) { // U
+        if (userRepository.existsByUsername(user.getUsername()) && userRepository.existsByEmail(user.getEmail())) {
+            throw new IllegalArgumentException("Username already exists, and this email is already in use.");
+        } else if (userRepository.existsByUsername(user.getUsername())) {
             throw new IllegalArgumentException("Username already exists.");
+        } else if (userRepository.existsByEmail(user.getEmail())) {
+            throw new IllegalArgumentException("This email is already in use.");
         } else {
+            userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found."));
             user = userRepository.save(user);
             return new UserDto(user);
         }
@@ -59,6 +68,82 @@ public class UserService {
 
     public boolean usernameExists(String username) {
         return userRepository.existsByUsername(username);
+    }
+
+    public UserDto partialEdit(Long userId, User user) {
+
+        User existingUser = userRepository.findById(userId).orElseThrow(() ->
+                new IllegalArgumentException("User not found."));
+        mergeUser(existingUser, user);
+
+        return new UserDto(userRepository.save(existingUser));
+    }
+
+    private void mergeUser(User existingUser, User user) {
+
+        if (userRepository.existsByUsername(user.getUsername()) && userRepository.existsByEmail(user.getEmail())) {
+            throw new IllegalArgumentException("Username already exists, and email is already in use.");
+        }
+
+        if (user.getUsername() != null) {
+            if (userRepository.existsByUsername(user.getUsername())) {
+                throw new IllegalArgumentException("Username already exists.");
+            } else {
+                existingUser.setUsername(user.getUsername());
+            }
+        }
+
+        if (user.getPassword() != null) {
+            existingUser.setPassword(user.getPassword());
+        }
+
+        if (user.getEmail() != null) {
+            if (userRepository.existsByEmail(user.getEmail())) {
+                throw new IllegalArgumentException("Email is already in use.");
+            } else {
+                existingUser.setEmail(user.getEmail());
+            }
+        }
+
+        if (user.getIcon() != null) {
+            existingUser.setIcon(user.getIcon());
+        }
+
+        if (user.getName() != null) {
+            existingUser.setName(user.getName());
+        }
+
+        if (user.getSurname() != null) {
+            existingUser.setSurname((user.getSurname()));
+        }
+
+        if (user.getSlogan() != null) {
+            existingUser.setSlogan(user.getSlogan());
+        }
+
+        if (user.getAboutMe() != null) {
+            existingUser.setAboutMe(user.getAboutMe());
+        }
+
+        if (user.getPreferredDifficulty() != null) {
+            existingUser.setPreferredDifficulty(user.getPreferredDifficulty());
+        }
+
+        if (user.getPreferredDistance() != null) {
+            existingUser.setPreferredDistance(user.getPreferredDistance());
+        }
+
+        if (user.getPreferredCountry() != null) {
+            existingUser.setPreferredCountry(user.getPreferredCountry());
+        }
+
+        if (user.getPreferredProvince() != null) {
+            existingUser.setPreferredProvince(user.getPreferredProvince());
+        }
+
+        if (user.getPreferredArea() != null) {
+            existingUser.setPreferredArea(user.getPreferredArea());
+        }
     }
 
     /*public UserDto uploadUserIcon(Long userId, MultipartFile file) {

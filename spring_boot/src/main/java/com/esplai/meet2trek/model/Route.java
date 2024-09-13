@@ -25,7 +25,7 @@ public class Route {
     @Size(max = 500)
     private String startingPoint;
     private Byte difficulty;
-    private int distance;
+    private Integer distance;
     private String country = "SPAIN";
     private String province = "MALAGA";
     private String area;
