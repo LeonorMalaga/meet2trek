@@ -4,11 +4,12 @@
 # Table of Contents
 
 ## GET
-- [savedRoutes](#savedroutes)
+- [savedRoutes](#savedroutes) 
   - [getSaveRouteById](#getsaveroutebyid)
   - [getAllSaveRoutes](#getallsaveroutes)
   - [getSaveRoutesByUser](#getsaveroutebyid)
-  - [Route](#route)
+- [Route](#route)
+ - [findRouteIdByParams](#findrouteidbyparams)
   - [RouteFindById](#routefindbyid)
   - [RouteList](#routelist)
     - [FindAll](#findall)
@@ -66,23 +67,54 @@ URL: https://121.0.0.1:8080/api/v1/save_routes
 URL: https://121.0.0.1:8080/api/v1/save_routes?user={userId}
 
 ### Route
+#### findRouteIdByParams
+Get a Route Id.
+URL:http://localhost:8080/routes/getId
+BODY:
+```json
+{
+    "area": "CAMINITO",
+    "province":"MALAGA",
+    "country":"SPAIN",
+    "name":"Caminito_del_rey",
+    "distance":8650
+}
+```
+Sample result:
+200 OK:
+```json
+{
+    "message": "Route  id: 2"
+}
+```
+404 NOT FOUND:
+```json
+{
+    "message": "Not Found"
+}
+```
 ####  RouteFindById
 Gets a Json Route Object by its Id.
 
-URL: https://121.0.0.1:8080/api/v1/routes/{route_Id}  
-Sample result:
+URL: https://121.0.0.1:8080/routes/{route_Id}  
+Sample result:GET http://localhost:8080/routes/1
 ```json
 {  
-    "route_id": 1,  
-    "name": "Caminito del Rey acceso Sur",  
-    "description": "Precioso camino sobre un rio",  
-    "url_resources": "/Routes/1",  
-    "starting_point": "https://maps.app.goo.gl/W1kaNRYSE45TMHqr6",  
-    "difficulty": 2,  
-    "distance": 8720,  
-    "country": "Spain",  
-    "province": "Malaga",  
-    "area": "Caminito del Rey"  
+{
+    "routeId": 1,
+    "name": "Rio_Chillar",
+    "shortDescription": "Tiene todos los ingredientes para una caminata clásica: la variedad, la necesidad de cuidados para la transición al barranco, la lucha y el sentido de llegada a una cumbre espectacular, refugio para almorzar y una corriente para lavar el sudor después del descenso. ",
+    "resourcesPath": "../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar",
+    "portraitPath": "../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar/img/Rio_chilla.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=aYRW6SMR8usY",
+    "fullDescription": "Después de llegar a las estribaciones de la Sierra Tejeda desde Nerja se llega al pueblo de Acebuchal, destruido después de que terminara la Guerra Civil. Afortunadamente, ha sido reconstruido <br>Una caminata de 2 km en un lecho de río seco (rambla) da paso a un camino de tierra desde donde se asoma la desalentadora vista de Cisne como un monstruo prehistórico. Aunque no está entre los puntos más altos y es una escalada difícil.<br>Tiene todos los ingredientes para una caminata clásica: la variedad, la necesidad de cuidados para la transición al barranco, la lucha y el sentido de llegada a una cumbre espectacular, refugio para almorzar y una corriente para lavar el sudor después del descenso.<br>En la cima se encuentran las ruinas de un puesto avanzado de la Guardia Civil que data de la Guerra Civil Española. Los soldados de Franco pudieron observar movimientos de tropas republicanas desde esta posición a 1,779 metros. Cuando vea las vistas, se dará cuenta de por qué lo construyeron.",
+    "startingPoint": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102254.50054410713!2d-3.954936180733223!3d36.783684382177064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7225167826ddb3%3A0x53bbce5d36620e0f!2zUsOtbyBDaMOtbGxhcg!5e0!3m2!1ses!2ses!4v1726141095705!5m2!1ses!2ses",
+    "difficulty": 6,
+    "distance": 280,
+    "country": "SPAIN",
+    "province": "MALAGA",
+    "area": "CHILLAR"
+} 
 }
 ```
  
@@ -93,78 +125,85 @@ You can filter for one, two o more variables.
 #####  FindAll
 Gets all routes without any filters.
 
-URL: https://121.0.0.1:8080/api/v1/routes  
+URL: https://121.0.0.1:8080/routes  
 Sample result:  
 ```json
 [
-{  
-    "route_id": 1,  
-    "name": "Caminito del Rey acceso Sur",  
-    "description": "Precioso camino sobre un rio",  
-    "url_resources": "/Routes/1",  
-    "starting_point": "https://maps.app.goo.gl/W1kaNRYSE45TMHqr6",  
-    "difficulty": 2,  
-    "distance": 8720,  
-    "country": "Spain",  
-    "province": "Malaga",  
-    "area": "Caminito del Rey"  
-},
-{  
-    "route_id": 2,  
-    "name": "Caminito del Rey acceso Norte",  
-    "description": "Precioso camino sobre un rio",  
-    "url_resources": "/Routes/2",  
-    "starting_point": "https://maps.app.goo.gl/U7BB8LSMW13LNdc29",  
-    "difficulty": 2,  
-    "distance": 8720,  
-    "country": "Spain",  
-    "province": "Malaga",  
-    "area": "Caminito del Rey"  
-},
-.
-.
-.
-{  
-    "route_id": 3000,  
-    "name": "Los Cahorros del Rio Chillar",  
-    "description": "Caminar dentro de un rio",  
-    "url_resources": "/Routes/3000",  
-    "starting_point": "https://maps.app.goo.gl/sKeceJMropWTW7S27",  
-    "difficulty": 4,  
-    "distance": 8720,  
-    "country": "Spain",  
-    "province": "Malaga",  
-    "area": "Rio Chillar"  
-}
-
+    {
+        "routeId": 1,
+        "name": "Rio_Chillar",
+        "shortDescription": "Tiene todos los ingredientes para una caminata clásica: la variedad, la necesidad de cuidados para la transición al barranco. ",
+        "resourcesPath": "../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar",
+        "portraitPath": "../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar/img/Rio_chilla.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=aYRW6SMR8usY",
+        "fullDescription": "Después de llegar a las estribaciones de la Sierra Tejeda desde Nerja se llega al pueblo de Acebuchal, destruido después de que terminara la Guerra Civil. Afortunadamente, ha sido reconstruido <br>Una caminata de 2 km en un lecho de río seco (rambla) da paso a un camino de tierra desde donde se asoma la desalentadora vista de Cisne como un monstruo prehistórico. Aunque no está entre los puntos más altos y es una escalada difícil",
+        "startingPoint": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102254.50054410713!2d-3.954936180733223!3d36.783684382177064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7225167826ddb3%3A0x53bbce5d36620e0f!2zUsOtbyBDaMOtbGxhcg!5e0!3m2!1ses!2ses!4v1726141095705!5m2!1ses!2ses",
+        "difficulty": 6,
+        "distance": 280,
+        "country": "SPAIN",
+        "province": "MALAGA",
+        "area": "CHILLAR"
+    },
+    {
+        "routeId": 2,
+        "name": "Caminito_del_Rey",
+        "shortDescription": "Caminata difícil. Se necesita buena forma física. ",
+        "resourcesPath": "../ROUTES/SPAIN/MALAGA/CAMINITO/1_Caminito_del_Rey",
+        "portraitPath": "../ROUTES/SPAIN/MALAGA/CAMINITO/1_Caminito_del_Rey/img/Caminito_del_Rey.jpg",
+        "videoUrl": "https://youtu.be/enmed/AUjtuNOZe4Y",
+        "fullDescription": "El Caminito del Rey es un senda aérea construida en las paredes del Desfiladero de los Gaitanes en El Chorro. Es un camino adosado al citado desfiladero con una longitud de 3 kilómetros que cuenta con largos tramos y con una anchura de apenas 1 metro. Se inicia en el término municipal de Ardales, atraviesa terrenos de Antequera y concluye en El Chorro, perteneciente a Álora.<br>Este camino está colgado en las paredes verticales del desfiladero y a una distancia media de 100 metros sobre el río.<br>Este sendero se construyó porque la Sociedad Hidroeléctrica del Chorro, propietaria del Salto del Gaitanejo y del Salto del Chorro, necesitaba un acceso entre ambos “saltos de agua“ para facilitar tanto el paso de los operarios de mantenimiento como el transporte de materiales y la vigilancia de los mismos.<br>Las obras se iniciaron en 1901 y concluyeron en 1905. El camino comenzaba junto a las vías del tren de Renfe y recorría el Desfiladero de los Gaitanes, comunicando y facilitando el paso entre ambos lados. i",
+        "startingPoint": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18041.690409557472!2d-4.7954183316169985!3d36.9297929996558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72be9311fa8f01%3A0x599abbe8aafbd4b8!2sCaminito%20del%20Rey%20-%20Acceso%20Norte!5e0!3m2!1ses!2ses!4v1726132950970!5m2!1ses!2ses",
+        "difficulty": 5,
+        "distance": 8650,
+        "country": "SPAIN",
+        "province": "MALAGA",
+        "area": "CAMINITO"
+    }
 ]
 ```
 Examples Filters:
 ####  FindByDifficulty
 Filters routes by their difficulty.
 
-URL: https://121.0.0.1:8080/api/v1/routes?difficulty={difficulty}
+URL: http://localhost:8080/routes/getByFilter?difficulty={difficulty}
 ####  FindByDistance
 Filters routes by their distance.
 
-URL: https://121.0.0.1:8080/api/v1/routes?distance={distanceaprox}&range={range}
+URL: http://localhost:8080/routes/getByFilter?distance={distanceaprox}&range={range}
 ####  FindByCountry
 Filters routes by their country.
 
-URL: https://121.0.0.1:8080/api/v1/routes?country={country}
+URL: http://localhost:8080/routes/getByFilter?country={country}
 ####  FindByProvince
 Filters routes by their province
 
-URL: https://121.0.0.1:8080/api/v1/routes?province={province}
+URL: http://localhost:8080/routes/getByFilter?province={province}
 ####  FindByArea
 Filters routes by their area.
 
-URL: https://121.0.0.1:8080/api/v1/routes?area={area}
+URL: http://localhost:8080/routes/getByFilter?area={area}
 ####  All Filters
 The combination of every filter.
 
-URL: https://121.0.0.1:8080/api/v1/routes?difficulty={difficulty}&distance={distanceaprox}&range={range}&country={country}&province={province}&area={area}
-
+URL: http://localhost:8080/routes/getByFilter?country=SPAIN&province=MALAGA&area=CHILLAR&name=Rio_Chillar&difficulty=6&distance=280
+Sample result:
+[
+    {
+        "routeId": 1,
+        "name": "Rio_Chillar",
+        "shortDescription": "Tiene todos los ingredientes para una caminata clásica. ",
+        "resourcesPath": "../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar",
+        "portraitPath": "../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar/img/Rio_chilla.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=aYRW6SMR8usY",
+        "fullDescription": "Después de llegar a las estribaciones de la Sierra Tejeda desde Nerja se llega al pueblo de Acebuchal, destruido después de que terminara la Guerra Civil. ",
+        "startingPoint": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102254.50054410713!2d-3.954936180733223!3d36.783684382177064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7225167826ddb3%3A0x53bbce5d36620e0f!2zUsOtbyBDaMOtbGxhcg!5e0!3m2!1ses!2ses!4v1726141095705!5m2!1ses!2ses",
+        "difficulty": 6,
+        "distance": 280,
+        "country": "SPAIN",
+        "province": "MALAGA",
+        "area": "CHILLAR"
+    }
+]
 ### User
 
 ####  ExistUser
@@ -175,8 +214,8 @@ URL: https://121.0.0.1:8080/api/v1/users/{Username}
 Sample result for (Username = Trekker123) using a Dto: 
 ```json
 {
-    "Username" = Trekker123;
-    "exist" = true;
+    "Username" : "Trekker123",
+    "exist" : true
 }
 ```
 ####  UserFindById
@@ -194,9 +233,9 @@ Sample result for (Username = Trekker123, user_id = 1) using a Dto:
     "icon": "/Users/1,   
     "p_difficulty": 2,  
     "p_distanceApprox": 3000,  
-    "p_country": "Spain",  
-    "p_province": "Malaga",  
-    "p_area": "Malaga"  
+    "p_country": "SPAIN",  
+    "p_province": "MALAGA",  
+    "p_area": "MALAGA"  
 }
 ```
 ####  FindAllUsers
@@ -215,9 +254,9 @@ Sample result:
     "icon": "/Users/1",   
     "p_difficulty": 2,  
     "p_distanceApprox": 3000,  
-    "p_country": "Spain",  
-    "p_province": "Malaga",  
-    "p_area": "Malaga"  
+    "p_country": "SPAIN",  
+    "p_province": "MALAGA",  
+    "p_area": "MALAGA"  
 },
 {  
     "user_id": 2,
@@ -227,9 +266,9 @@ Sample result:
     "icon": "/Users/2",   
     "p_difficulty": 1,  
     "p_distanceApprox": 500,  
-    "p_country": "Spain",  
-    "p_province": "Malaga",  
-    "p_area": "Malaga"  
+    "p_country": "SPAIN",  
+    "p_province": "MALAGA",  
+    "p_area": "MALAGA"  
 },
     .
     .
@@ -242,9 +281,9 @@ Sample result:
     "icon": "/Users/100",   
     "p_difficulty": 1,  
     "p_distanceApprox": 120,  
-    "p_country": "Spain",  
-    "p_province": "Malaga",  
-    "p_area": "Malaga"  
+    "p_country": "SPAIN",  
+    "p_province": "MALAGA",  
+    "p_area": "MALAGA"  
 }
 ]
 ```
@@ -263,9 +302,9 @@ Sample result:
     "icon": "/Users/1",   
     "p_difficulty": 2,  
     "p_distanceApprox": 3000,  
-    "p_country": "Spain",  
-    "p_province": "Malaga",  
-    "p_area": "Malaga"  
+    "p_country": "SPAIN",  
+    "p_province": "MALAGA",  
+    "p_area": "MALAGA"  
 },
 {  
     "user_id": 2,
@@ -275,9 +314,9 @@ Sample result:
     "icon": "/Users/2",   
     "p_difficulty": 1,  
     "p_distanceApprox": 500,  
-    "p_country": "Spain",  
-    "p_province": "Malaga",  
-    "p_area": "Malaga"  
+    "p_country": "SPAIN",  
+    "p_province": "MALAGA",  
+    "p_area": "MALAGA"  
 },
     .
     .
@@ -290,9 +329,9 @@ Sample result:
     "icon": "/Users/100",   
     "p_difficulty": 1,  
     "p_distanceApprox": 120,  
-    "p_country": "Spain",  
-    "p_province": "Malaga",  
-    "p_area": "Malaga"  
+    "p_country": "SPAIN",  
+    "p_province": "MALAGA",  
+    "p_area": "MALAGA"  
 }
 ]
 ```
@@ -317,8 +356,8 @@ Sample result:
         "starting_point": "https://maps.app.goo.gl/W1kaNRYSE45TMHqr6",  
         "difficulty": 2,  
         "distance": 8720,  
-        "country": "Spain",  
-        "province": "Malaga",  
+        "country": "SPAIN",  
+        "province": "MALAGA",  
         "area": "Ardales"  
     },  
     {  
@@ -330,9 +369,9 @@ Sample result:
             "icon": "/Users/1",   
             "p_difficulty": 2,  
             "p_distanceApprox": 3000,  
-            "p_country": "Spain",  
-            "p_province": "Malaga",  
-            "p_area": "Malaga"  
+            "p_country": "SPAIN",  
+            "p_province": "MALAGA",  
+            "p_area": "MALAGA"  
         },
         {  
             "user_id": 2,
@@ -342,9 +381,9 @@ Sample result:
             "icon": "/Users/2",   
             "p_difficulty": 1,  
             "p_distanceApprox": 500,  
-            "p_country": "Spain",  
-            "p_province": "Malaga",  
-            "p_area": "Malaga"  
+            "p_country": "SPAIN",  
+            "p_province": "MALAGA",  
+            "p_area": "MALAGA"  
         },
             .
             .
@@ -357,9 +396,9 @@ Sample result:
             "icon": "/Users/100",   
             "p_difficulty": 1,  
             "p_distanceApprox": 120,  
-            "p_country": "Spain",  
-            "p_province": "Malaga",  
-            "p_area": "Malaga"  
+            "p_country": "SPAIN",  
+            "p_province": "MALAGA",  
+            "p_area": "MALAGA"  
         } 
     }  
 }
@@ -579,7 +618,7 @@ Possible responses:
 200(OK):
 ```json
 {
-    "message": "Route Create: {\"routeId\":8,\"name\":\"Rio_Chillar\",\"shortDescription\":\"Tiene todos los ingredientes para una caminata clásica: la variedad, la necesidad de cuidados para la transición al barranco, la lucha y el sentido de llegada a una cumbre espectacular, refugio para almorzar y una corriente para lavar el sudor después del descenso. \",\"resourcesPath\":\"../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar\",\"portraitPath\":\"../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar/img/Rio_chilla.jpg\",\"videoUrl\":\"https://www.youtube.com/watch?v=aYRW6SMR8usY\",\"fullDescription\":\"Después de llegar a las estribaciones de la Sierra Tejeda desde Nerja se llega al pueblo de Acebuchal, destruido después de que terminara la Guerra Civil. Afortunadamente, ha sido reconstruido <br>Una caminata de 2 km en un lecho de río seco (rambla) da paso a un camino de tierra desde donde se asoma la desalentadora vista de Cisne como un monstruo prehistórico. Aunque no está entre los puntos más altos y es una escalada difícil.<br>Tiene todos los ingredientes para una caminata clásica: la variedad, la necesidad de cuidados para la transición al barranco, la lucha y el sentido de llegada a una cumbre espectacular, refugio para almorzar y una corriente para lavar el sudor después del descenso.<br>En la cima se encuentran las ruinas de un puesto avanzado de la Guardia Civil que data de la Guerra Civil Española. Los soldados de Franco pudieron observar movimientos de tropas republicanas desde esta posición a 1,779 metros. Cuando vea las vistas, se dará cuenta de por qué lo construyeron.\",\"startingPoint\":\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102254.50054410713!2d-3.954936180733223!3d36.783684382177064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7225167826ddb3%3A0x53bbce5d36620e0f!2zUsOtbyBDaMOtbGxhcg!5e0!3m2!1ses!2ses!4v1726141095705!5m2!1ses!2ses\",\"difficulty\":6,\"distance\":280,\"country\":\"SPAIN\",\"province\":\"MALAGA\",\"area\":\"CHILLAR\"}"
+    "message": "Route Create with id: 1"
 }
 ```
 409(Conflict):
@@ -602,9 +641,9 @@ Json Body to send:
     "email": "\*\*\*\*\*\*\*\*@\*\*\*\*\*.\*\*\*",    
     "p_difficulty": 3,  
     "p_distanceApprox": 8000,  
-    "p_country": "Spain",  
-    "p_province": "Malaga",  
-    "p_area": "Malaga"  
+    "p_country": "SPAIN",  
+    "p_province": "MALAGA",  
+    "p_area": "MALAGA"  
 }
 ```  
 Possible responses:  
@@ -618,9 +657,9 @@ Possible responses:
     "icon": "/Users/15",   
     "p_difficulty": 3,  
     "p_distanceApprox": 8000,  
-    "p_country": "Spain",  
-    "p_province": "Malaga",  
-    "p_area": "Malaga"  
+    "p_country": "SPAIN",  
+    "p_province": "MALAGA",  
+    "p_area": "MALAGA"  
 }
 ```
 406(Not Acceptable):
@@ -667,8 +706,8 @@ Possible responses:
         "starting_point": "https://maps.app.goo.gl/W1kaNRYSE45TMHqr6",  
         "difficulty": 2,  
         "distance": 8720,  
-        "country": "Spain",  
-        "province": "Malaga",  
+        "country": "SPAIN",  
+        "province": "MALAGA",  
         "area": "Ardales"  
     },  
     {  
@@ -680,8 +719,8 @@ Possible responses:
             "icon": "/Users/15",   
             "p_difficulty": 5,  
             "p_distanceApprox": 18000,  
-            "p_country": "Spain",  
-            "p_province": "Malaga",  
+            "p_country": "SPAIN",  
+            "p_province": "MALAGA",  
             "p_area": "Ardales"  
         }
     }
@@ -716,15 +755,15 @@ Json Body to send:
 ```json
 {  
     "route_id": 20,
-    "name": "Montes de Malaga",  
+    "name": "Montes de MALAGA",  
     "description": "Ruta apta par ir en bicicleta y con niños", 
     "url_resources": "/Routes/20",  
     "starting_point": "https://maps.app.goo.gl/jPsaPmnpNTyu8KiB6,  
     "difficulty": 3,  
     "distance": 12000,  
-    "country": "Spain",  
-    "province": "Malaga",  
-    "area": "Montes de Malaga"  
+    "country": "SPAIN",  
+    "province": "MALAGA",  
+    "area": "Montes de MALAGA"  
 }
 ```  
 Possible responses:  
@@ -732,15 +771,15 @@ Possible responses:
 ```json
 {
     "route_id": 20,
-    "name": "Montes de Malaga",  
+    "name": "Montes de MALAGA",  
     "description": "Ruta apta par ir en bicicleta y con niños", 
     "url_resources": "/Routes/20",  
     "starting_point": "https://maps.app.goo.gl/jPsaPmnpNTyu8KiB6,  
     "difficulty": 3,  
     "distance": 12000,  
-    "country": "Spain",  
-    "province": "Malaga",  
-    "area": "Montes de Malaga"  
+    "country": "SPAIN",  
+    "province": "MALAGA",  
+    "area": "Montes de MALAGA"  
 }
 ```
 406(Not Acceptable):
@@ -767,8 +806,8 @@ Json Body to send:
     "email": "\*\*\*\*\*\*\*\*@\*\*\*\*\*.\*\*\*",    
     "p_difficulty": 3,  
     "p_distanceApprox": 9000,  
-    "p_country": "Spain",  
-    "p_province": "Malaga",  
+    "p_country": "SPAIN",  
+    "p_province": "MALAGA",  
     "p_area": "Antequera"  
 }
 ```  
@@ -783,8 +822,8 @@ Possible responses:
     "icon": "/Users/15",   
     "p_difficulty": 3,  
     "p_distanceApprox": 9000,  
-    "p_country": "Spain",  
-    "p_province": "Malaga",  
+    "p_country": "SPAIN",  
+    "p_province": "MALAGA",  
     "p_area": "Antequera"  
 }
 ```
@@ -825,8 +864,8 @@ Possible responses:
         "starting_point": "https://maps.app.goo.gl/W1kaNRYSE45TMHqr6",  
         "difficulty": 2,  
         "distance": 8720,  
-        "country": "Spain",  
-        "province": "Malaga",  
+        "country": "SPAIN",  
+        "province": "MALAGA",  
         "area": "Ardales"  
     },  
     {  
@@ -838,8 +877,8 @@ Possible responses:
             "icon": "/Users/15",   
             "p_difficulty": 5,  
             "p_distanceApprox": 18000,  
-            "p_country": "Spain",  
-            "p_province": "Malaga",  
+            "p_country": "SPAIN",  
+            "p_province": "MALAGA",  
             "p_area": "Ardales"  
         },
         .
@@ -852,8 +891,8 @@ Possible responses:
             "icon": "/Users/10",   
             "p_difficulty": 4,  
             "p_distanceApprox": 12000,  
-            "p_country": "Spain",  
-            "p_province": "Malaga",  
+            "p_country": "SPAIN",  
+            "p_province": "MALAGA",  
             "p_area": "Ardales"  
         },
     }
@@ -891,8 +930,8 @@ Possible responses:
         "starting_point": "https://maps.app.goo.gl/W1kaNRYSE45TMHqr6",  
         "difficulty": 2,  
         "distance": 8720,  
-        "country": "Spain",  
-        "province": "Malaga",  
+        "country": "SPAIN",  
+        "province": "MALAGA",  
         "area": "Ardales"  
     },  
     {  
@@ -904,8 +943,8 @@ Possible responses:
             "icon": "/Users/10",   
             "p_difficulty": 3,  
             "p_distanceApprox": 7000,  
-            "p_country": "Spain",  
-            "p_province": "Malaga",  
+            "p_country": "SPAIN",  
+            "p_province": "MALAGA",  
             "p_area": "Ardales"  
         }
         .
@@ -919,8 +958,8 @@ Possible responses:
             "icon": "/Users/15",   
             "p_difficulty": 5,  
             "p_distanceApprox": 18000,  
-            "p_country": "Spain",  
-            "p_province": "Malaga",  
+            "p_country": "SPAIN",  
+            "p_province": "MALAGA",  
             "p_area": "Ardales"  
         }
     }

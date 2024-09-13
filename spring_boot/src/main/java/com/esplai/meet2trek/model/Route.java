@@ -2,6 +2,7 @@ package com.esplai.meet2trek.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
@@ -26,6 +27,7 @@ public class Route {
     @Size(max = 500)
     private String startingPoint;
     private Byte difficulty;
+    @NotNull
     private Integer distance;
     private String country = "SPAIN";
     private String province = "MALAGA";
