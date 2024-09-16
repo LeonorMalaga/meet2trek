@@ -1,5 +1,5 @@
 POST
-http://localhost:8080/route/
+http://localhost:8080/routes/
 -------------------------------------
 {
     "name": "Caminito_del_Rey",
@@ -28,3 +28,15 @@ http://localhost:8080/route/
 }
 
 ------------------------------------------------------------------
+{
+    "name": "Paraje_Natural_Torcal",
+    "shortDescription": " Se requiere tener paso firme, calzado adecuado y experiencia en alta montaña. El punto de inicio de la Ruta está junto a un aparcamiento. ",
+    "fullDescription": "El Torcal, que goza de la calificación de Paraje Natural, está constituido predominantemente por calizas que tuvieron su origen en el fondo marino durante el periodo jurásico, hace más de 150 millones de años.<br> Los materiales depositados en el mar emergieron a la superficie como consecuencia del plegamiento alpino, conservando en buena parte su horizontalidad, a pesar de haber ascendido más de mil metros sobre el nivel del mar.<br> A partir de ese momento, el conjunto quedó sometido a un proceso de erosión, en el que la acción lenta pero continuada de la lluvia, la nieve y el viento ha configurado no solo curiosas siluetas en las rocas, sino también callejones laberínticos que discurren entre ellas y forman en su interior unas depresiones circulares, denominadas dolinas o torcas, a las que este espacio natural debe su nombre..",
+    "startingPoint":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51014.64047448552!2d-4.583563989749063!3d36.9521435543267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd728de00cde0189%3A0x775490ea2a28385b!2sParaje%20Natural%20Torcal%20de%20Antequera!5e0!3m2!1ses!2ses!4v1726510214688!5m2!1ses!2ses",
+    "resourcesPath": "../ROUTES/SPAIN/MALAGA/TORCAL/3_Torcal",
+    "portraitPath" : "../ROUTES/SPAIN/MALAGA/TORCAL/3_Torcal/img/Torcal.jpg",
+    "videoUrl" : "https://www.youtube.com/watch?v=XbAhngYQHIw",
+    "difficulty": 4,
+    "distance": 10300,
+    "area": "ANTEQUERA"
+}
