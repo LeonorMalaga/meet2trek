@@ -25,7 +25,7 @@ public class RouteService {
         return routeRepository.routeExists(name, province, country, area, distance);
     }
     public Long findRouteIdByParams(String name, String province, String country, String area, Integer distance) {
-        System.out.println("RouteExists:" + name+", Province: " + province+",Country: " + country +", area:" + area+ ",distance :"+ distance);
+        // System.out.println("RouteExists:" + name+", Province: " + province+",Country: " + country +", area:" + area+ ",distance :"+ distance);
         return routeRepository.findRouteIdByParams(name, province, country, area, distance);
     }
    public Optional<Route> findRouteById(Long id)

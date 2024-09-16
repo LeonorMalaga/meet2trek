@@ -6,6 +6,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,4 +35,7 @@ public class Route {
     private String country = "SPAIN";
     private String province = "MALAGA";
     private String area;
+
+    @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
+    private List<Meeting> meetings = new ArrayList<>();
 }

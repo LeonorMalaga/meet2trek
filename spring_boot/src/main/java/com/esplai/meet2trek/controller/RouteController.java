@@ -37,7 +37,7 @@ public class RouteController {
             );
 
             if (exists) {
-                return ResponseEntity.status(409).body(new ResponseMessage("Route already exist"));
+                return ResponseEntity.status(409).body(new ResponseMessage("Route already exists"));
             }
 
             // Create the route
@@ -45,7 +45,7 @@ public class RouteController {
             return ResponseEntity.ok(new ResponseMessage("Route created with id: " + createdRoute.getRouteId()));
         }catch(Exception e){
             //System.out.println("Caught exception: " + e.getMessage());
-            return ResponseEntity.status(406).body(new ResponseMessage("the field : name ,startingPoint, distance; are mandatory. ERROR: " + e.getLocalizedMessage()));
+            return ResponseEntity.status(406).body(new ResponseMessage("The fields : name, startingPoint, distance; are mandatory. ERROR: " + e.getLocalizedMessage()));
         }
     }
     @GetMapping("/routes/getId")
@@ -59,9 +59,9 @@ public class RouteController {
         );
         if(routeId == null)
         {
-            return ResponseEntity.status(404).body(new ResponseMessage("Not Found"));
+            return ResponseEntity.status(404).body(new ResponseMessage("Route not found"));
         }
-        return ResponseEntity.status(200).body(new ResponseMessage("Route  id: "+ routeId));
+        return ResponseEntity.status(200).body(new ResponseMessage("Route ID: " + routeId));
     }
     @GetMapping("/routes/{id}")
     public  Optional<Route> getTasks(@PathVariable Long id){
@@ -87,19 +87,19 @@ public class RouteController {
         filter.setArea(area);
         filter.setDistance(distance);
         filter.setDifficulty(difficulty);
-        System.out.println("name: " + name +", difficulty:"+ difficulty+",country:"+ country+", distance:"+ distance+",area: "+area+ ", province :"+ province);
+        // System.out.println("name: " + name +", difficulty:"+ difficulty+",country:"+ country+", distance:"+ distance+",area: "+area+ ", province :"+ province);
 
-         return routeService.getFilteredRoutes(filter);
+        return routeService.getFilteredRoutes(filter);
     }
     @DeleteMapping("/routes/{id}")
     public ResponseEntity<ResponseMessage> deleteRoute(@PathVariable Long id){
         boolean exists= routeService.existsByrouteId(id);
         if(!exists)
         {
-            return ResponseEntity.status(404).body(new ResponseMessage("Not found"));
+            return ResponseEntity.status(404).body(new ResponseMessage("Route not found"));
         }
         routeService.deleteRoute(id);
-        return ResponseEntity.status(200).body(new ResponseMessage("Route with id: " +id+ " deleted."));
+        return ResponseEntity.status(200).body(new ResponseMessage("The route with id " + id + " has been deleted."));
     }
     @PutMapping("/routes/{id}")
     public ResponseEntity<Route> updateRoute(@PathVariable Long id, @RequestBody Route route)

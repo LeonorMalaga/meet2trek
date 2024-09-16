@@ -7,6 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,4 +36,7 @@ public class User {
     private String preferredCountry;
     private String preferredProvince;
     private String preferredArea;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Meeting> meetings = new ArrayList<>();
 }
