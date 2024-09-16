@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi perfil</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="css/templatemo-style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="navbar-brand" href="#">
+        <img src="img/logo4.png" alt="Image" class="img-logo" style="margin-left: 0" />
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link nav-link-1 active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-4" href="mis-filtros.html">Mis filtros</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll"
+    data-image-src="img/img-09.jpg" style="margin-bottom: 50px">
+  </div>
+  <section>
+    <div class="container-fluid tm-mt-60 mb-4">
+      <div class="row tm-mb-50">
+        <div class="col-lg-4 col-12">
+          <h2 class="tm-text-primary mb-4">Modificar mis datos de registro</h2>
+          <form id="registrationForm" action="url-de-base-de-datos-user" method="POST">
+            <div class="form-group">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="username" class="form-label">Nombre de usuario:</label>
+              <input type="text" id="username" name="username" required />
+            </div>
+            <div class="form-group">
+              <label for="password" class="form-label">Antigua contraseña:</label>
+              <input type="password" id="password" name="password" placeholder="8 caracteres entre letras y números"
+                required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                title="La contraseña debe tener al menos 8 caracteres, con letras y números."
+                style="font-size: 0.8em" />
+            </div>
+            <div class="form-group">
+              <label for="password" class="form-label">Nueva contraseña:</label>
+              <input type="password" id="password" name="password" placeholder="8 caracteres entre letras y números"
+                required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                title="La contraseña debe tener al menos 8 caracteres, con letras y números."
+                style="font-size: 0.8em" />
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword" class="form-label">Repetir contraseña:</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" required style="font-size: 1em" />
+              <span id="La contraseña no coincide" style="color: red; font-size: 0.9em"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+        <div class="col-lg-4 col-12 mb-4 mb-5">
+          <img src="img/people-3.jpg" alt="Image" class="mb-4 img-fluid"
+            style="border-radius: 50%; padding-bottom: 0px" />
+          <h2 class="tm-text-primary" style="margin-bottom: 0.5rem">
+            Fran Fernández
+          </h2>
+          <h3 class="tm-text-secondary h5" style="margin-bottom: 0.5rem">
+            Amante de la naturaleza
+          </h3>
+          <p class="mb-4">
+            Mauris ante tellus, feugiat nec metus non, bibendum semper velit.
+            Praesent laoreet urna id tristique fermentum. Morbi venenatis dui
+            quis diam mollis pellentesque.
+          </p>
+        </div>
+
+        <div class="col-lg-4 col-12 mb-4">
+          <h2 class="tm-text-primary mb-4">Modificar mi perfil</h2>
+          <form id="registrationForm" action="url-de-base-de-datos-user" method="POST">
+            <div class="form-group frase">
+              <label for="frase" class="form-label">Frase que me define</label>
+              <input type="text" id="frase" class="form-control" maxlength="30" placeholder="Escribe tu frase" />
+            </div>
+
+            <div class="form-group perfil">
+              <label for="perfil" class="form-label">Mi perfil</label>
+              <textarea id="perfil" class="form-control" rows="7" maxlength="200"
+                placeholder="Describete como quieras"></textarea>
+            </div>
+            <button style="float: right" type="submit" class="btn btn-primary">
+              Enviar
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="cont-rutas">
+        <h1 class="rutas-titular">Quedadas para apuntarme</h1>
+        <div class="tabla">
+          <table class="tg">
+            <thead>
+              <tr>
+                <th>Provincia</th>
+                <th>Localidad</th>
+                <th>Rutas guardadas</th>
+                <th>Quedadas</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="tg-0pky">Málaga</td>
+                <td class="tg-0pky">Nerja</td>
+                <td class="tg-0pky"><a href="ruta-recomend-detail.html"><u>Sendero acuático río Chillar</u></a></td>
+                <td class="tg-0pky" id="formarGrupo1" style="text-align: center; cursor: pointer;"><a
+                    style="color: green;" href="quedadas.html"><u>Ver quedadas en esta ruta</u></a></td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">Málaga</td>
+                <td class="tg-0pky">Ardales</td>
+                <td class="tg-0pky"><a href="ruta-detail.html"><u>Caminito delRey</u></a></td>
+                <td class="tg-0pky" id="formarGrupo2" style="text-align: center; cursor: pointer;"><a
+                    style="color: green;"><u>Ver quedadas en esta ruta</u></a></td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">Málaga</td>
+                <td class="tg-0pky">Antequera</td>
+                <td class="tg-0pky"><a href="#"><u>Sendero del Torcal</u></a></td>
+                <td class="tg-0pky" id="formarGrupo3" style="text-align: center; cursor: pointer;"><a
+                    style="color: green;"><u>Ver quedadas en esta ruta</u></a></td>
+              </tr>
+              <!-- Repetir lo mismo para las demás filas -->
+            </tbody>
+          </table>
+
+          <h1 class="rutas-titular" style="margin-top: 50px;">Rutas guardadas</h1>
+          <div class="tabla">
+            <table class="tg">
+              <thead>
+                <tr>
+                  <th>Provincia</th>
+                  <th>Localidad</th>
+                  <th>Ruta</th>
+                  <th>Eliminar</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class="tg-0pky">Málaga</td>
+                  <td class="tg-0pky">Nerja</td>
+                  <td class="tg-0pky"><a href="ruta-recomend-detail.html"><u>Sendero acuático río Chillar</u></a></td>
+                  <td class="tg-0pky" id="eliminar1" style="text-align: center; color: red; cursor: pointer;">
+                    <u>Eliminar</u></td>
+
+                </tr>
+                <tr style="background-color:  lightseagreen;">
+                  <td class="tg-0pky">Málaga</td>
+                  <td class="tg-0pky">Ardales</td>
+                  <td class="tg-0pky"><a href="ruta-detail.html"><u>Caminito delRey</u></a></td>
+                  <td class="tg-0pky" id="eliminar2" style="text-align: center; color: red; cursor: pointer;">
+                    <u>Eliminar</u></td>
+
+                </tr>
+                <tr style="background-color: lightseagreen;">
+                  <td class="tg-0pky">Málaga</td>
+                  <td class="tg-0pky">Antequera</td>
+                  <td class="tg-0pky"><a href="user-rute1-detail.html"><u>Sendero del Torcal</u></a></td>
+                  <td class="tg-0pky" id="eliminar3" style="text-align: center; color: red; cursor: pointer;">
+                    <u>Eliminar</u></td>
+
+                </tr>
+                <tr>
+                  <td class="tg-0pky">Málaga</td>
+                  <td class="tg-0pky">Nerja</td>
+                  <td class="tg-0pky"><a href="ruta-recomend-detail.html"><u>Sendero acuático río Chillar</u></a></td>
+                  <td class="tg-0pky" id="eliminar4" style="text-align: center; color: red; cursor: pointer;">
+                    <u>Eliminar</u></td>
+
+                </tr>
+                <tr style="background-color:  lightseagreen;">
+                  <td class="tg-0pky">Málaga</td>
+                  <td class="tg-0pky">Ardales</td>
+                  <td class="tg-0pky"><a href="ruta-detail.html"><u>Caminito delRey</u></a></td>
+                  <td class="tg-0pky" id="eliminar5" style="text-align: center; color: red; cursor: pointer;">
+                    <u>Eliminar</u></td>
+
+                </tr>
+                <tr>
+                  <td class="tg-0pky">Málaga</td>
+                  <td class="tg-0pky">Antequera</td>
+                  <td class="tg-0pky"><a href="user-rute1-detail.html"><u>Sendero del Torcal</u></a></td>
+                  <td class="tg-0pky" id="eliminar6" style="text-align: center; color: red;"><u>Eliminar</u></td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <button style="float: right; margin-top: 30px;" type="submit" class="btn btn-primary"
+          onclick="confirmarCierreSesion()">
+          Cerrar sesión
+        </button>
+
+  </section>
+
+
+
+  <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
+    <div class="px-5">
+      <h3 class="tm-text-primary mb-4 tm-footer-title">
+        Política de privacidad
+      </h3>
+      <p>
+        La política de privacidad contiene las normas acerca de qué datos
+        personales se van a recoger en el sitio web, cuáles ser guardarán y
+        qué uso se les va a dar. Asimismo, se informará a los usuarios de la
+        posibilidad de acceder, modificar o cancelar dichos datos, y el
+        procedimiento para hacerlo. Este documento contiene las normas
+        relativas al tratamiento (recogida, gestión y retención) de datos de
+        carácter personal. Por tanto, su elaboración es obligatoria para todos
+        aquellos sitios webs que recolecten datos personales de sus usuarios.
+        También comprende los derechos de los usuarios y las obligaciones del
+        titular del sitio web en relación con el tratamiento de los datos
+        personales. Se consideran datos personales toda aquella información
+        que haga referencia a una persona identificada o identificable (ej.
+        nombre, dirección postal, correo electrónico, teléfono).
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/plugins.js"></script>
+  <script src="js/popup.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    $(window).on("load", function () {
+      $("body").addClass("loaded");
+    });
+  </script>
+
+  <script>
+    // Función que se ejecutará al hacer clic en un botón de "Eliminar"
+    function eliminarFila(id) {
+      var fila = document.getElementById(id).parentNode;
+      fila.remove();
+    }
+
+    // Asignar eventos de clic a cada "Eliminar" usando sus IDs
+    document.getElementById('eliminar1').addEventListener('click', function () {
+      eliminarFila('eliminar1');
+    });
+    document.getElementById('eliminar2').addEventListener('click', function () {
+      eliminarFila('eliminar2');
+    });
+    document.getElementById('eliminar3').addEventListener('click', function () {
+      eliminarFila('eliminar3');
+    });
+    document.getElementById('eliminar4').addEventListener('click', function () {
+      eliminarFila('eliminar4');
+    });
+    document.getElementById('eliminar5').addEventListener('click', function () {
+      eliminarFila('eliminar5');
+    });
+    document.getElementById('eliminar6').addEventListener('click', function () {
+      eliminarFila('eliminar6');
+    });
+  </script>
+
+  <script>
+    function confirmarCierreSesion() {
+      // Muestra el diálogo de confirmación
+      const confirmacion = confirm("¿Estás seguro de que deseas cerrar sesión?");
+
+      if (confirmacion) {
+        // Si el usuario confirma, ejecuta la función para cerrar sesión
+        cerrarSesion();
+      }
+      // Si el usuario cancela, no se hace nada
+    }
+
+    function cerrarSesion() {
+      // Enviamos una petición al servidor para cerrar la sesión
+      fetch('/logout.php', {
+        method: 'POST',
+      }).then(response => {
+        if (response.ok) {
+          // Redirigimos al usuario a la página de inicio o login después de cerrar la sesión
+          window.location.href = '/login.html';
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
