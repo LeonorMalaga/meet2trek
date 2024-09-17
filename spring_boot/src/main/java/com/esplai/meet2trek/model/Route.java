@@ -1,5 +1,6 @@
 package com.esplai.meet2trek.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -37,5 +38,6 @@ public class Route {
     private String area;
 
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Meeting> meetings = new ArrayList<>();
 }

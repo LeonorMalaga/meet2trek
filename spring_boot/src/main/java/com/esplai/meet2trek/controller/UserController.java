@@ -44,6 +44,11 @@ public class UserController {
         return userService.editUser(userId, user);
     }
 
+    @GetMapping("meetings/{meetingId}/users")
+    public List<UserDto> getUsersByMeeting(@PathVariable Long meetingId) {
+        return userService.getUsersByMeeting(meetingId);
+    }
+
     @GetMapping("/users/check/{username}")
     public boolean usernameExists(@PathVariable String username) {
         return userService.usernameExists(username);

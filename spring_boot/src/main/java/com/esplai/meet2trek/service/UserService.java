@@ -1,7 +1,9 @@
 package com.esplai.meet2trek.service;
 
 import com.esplai.meet2trek.dto.UserDto;
+import com.esplai.meet2trek.model.Meeting;
 import com.esplai.meet2trek.model.User;
+import com.esplai.meet2trek.repository.MeetingRepository;
 import com.esplai.meet2trek.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,9 @@ import java.util.Optional;
 public class UserService {
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    MeetingRepository meetingRepository;
 
     public UserDto createUser(User user) { // C
         if (userRepository.existsByUsername(user.getUsername()) && userRepository.existsByEmail(user.getEmail())) {
@@ -33,7 +38,7 @@ public class UserService {
     public Optional<UserDto> getUser(Long userId) { // R
         User user = userRepository.findById(userId).orElse(null);
         if (user == null) {
-            return Optional.empty();
+            throw new IllegalArgumentException("User not found.");
         } else {
             return Optional.of(new UserDto(user));
         }
@@ -54,14 +59,19 @@ public class UserService {
     }
 
     public void deleteUser(Long userId) { // D
-        userRepository.deleteById(userId);
+        User user = userRepository.findById(userId).orElse(null);
+        if (user == null) {
+            throw new IllegalArgumentException("User not found.");
+        } else {
+            userRepository.deleteById(userId);
+        }
     }
 
     public List<UserDto> listUsers() {
         List<User> userList = userRepository.findAll();
         List<UserDto> userDtoList = new ArrayList<>();
         for (User user : userList) {
-            userDtoList.add(new UserDto((user)));
+            userDtoList.add(new UserDto(user));
         }
         return userDtoList;
     }
@@ -143,6 +153,20 @@ public class UserService {
 
         if (user.getPreferredArea() != null) {
             existingUser.setPreferredArea(user.getPreferredArea());
+        }
+    }
+
+    public List<UserDto> getUsersByMeeting(Long meetingId) {
+        meetingRepository.findById(meetingId).orElseThrow(() -> new IllegalArgumentException("Meeting not found."));
+        List<User> userList = userRepository.findByMeetings_MeetingId(meetingId);
+        List<UserDto> userDtoList = new ArrayList<>();
+        for (User user : userList) {
+            userDtoList.add(new UserDto(user));
+        }
+        if (userList.isEmpty()) {
+            throw new IllegalArgumentException("This meeting is empty.");
+        } else {
+            return userDtoList;
         }
     }
 

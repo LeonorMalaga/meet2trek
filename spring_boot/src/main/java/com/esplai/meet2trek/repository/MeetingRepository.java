@@ -1,12 +1,15 @@
 package com.esplai.meet2trek.repository;
 
-import com.esplai.meet2trek.embeddedid.MeetingId;
 import com.esplai.meet2trek.model.Meeting;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.time.LocalDate;
+import java.util.List;
 
 @Repository
-public interface MeetingRepository extends JpaRepository<Meeting, MeetingId> {
+public interface MeetingRepository extends JpaRepository<Meeting, Long> {
+    List<Meeting> findByRoute_RouteId(Long routeId);
+    List<Meeting> findByUsers_UserId(Long userId);
+    List<Meeting> findByMeetingDate(LocalDate meetingDate);
 }
