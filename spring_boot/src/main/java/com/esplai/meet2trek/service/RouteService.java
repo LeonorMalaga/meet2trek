@@ -17,9 +17,15 @@ public class RouteService {
     {
         return routeRepository.save(route);
     }
-    public void deleteRoute(long id){ routeRepository.deleteById(id);}
-    public Route updateRoute(Route route){ return routeRepository.save(route);}
-    public boolean existsByrouteId(Long routeId){ return routeRepository.existsByrouteId(routeId);}
+    public void deleteRoute(long id){
+        routeRepository.deleteById(id);
+    }
+    public Route updateRoute(Route route){
+        return routeRepository.save(route);
+    }
+    public boolean existsByRouteId(Long routeId){
+        return routeRepository.existsByrouteId(routeId);
+    }
     public boolean routeExists(String name, String province, String country, String area, Integer distance) {
         //System.out.println("RouteExists:" + name+", Province: " + province+",Country: " + country +", area:" + area+ ",distance :"+ distance);
         return routeRepository.routeExists(name, province, country, area, distance);
@@ -33,7 +39,7 @@ public class RouteService {
        Route mRoute = routeRepository.findById(id).orElse(null);
        if(mRoute == null)
        {
-           return Optional.empty();
+           throw new IllegalArgumentException("Route not found.");
        } else {
            return Optional.of(mRoute);
        }

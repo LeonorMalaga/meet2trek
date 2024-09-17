@@ -1,12 +1,14 @@
 package com.esplai.meet2trek.controller;
 
-import com.esplai.meet2trek.embeddedid.MeetingId;
+import com.esplai.meet2trek.dto.MeetingDto;
 import com.esplai.meet2trek.model.Meeting;
 import com.esplai.meet2trek.service.MeetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,29 +19,56 @@ public class MeetingController {
     MeetingService meetingService;
 
     @PostMapping("/meetings")
-    public Meeting createMeeting(@RequestBody Meeting meeting) {
-        return meetingService.createMeeting(meeting);
+    public MeetingDto createMeeting(@RequestParam Long routeId,
+                                    @RequestParam LocalDate meetingDate,
+                                    @RequestParam LocalTime meetingTime,
+                                    @RequestParam(required = false) String meetingPoint) {
+        return meetingService.createMeeting(routeId, meetingDate, meetingTime, meetingPoint);
     }
 
     @GetMapping("/meetings")
-    public List<Meeting> listMeetings() {
+    public List<MeetingDto> listMeetings() {
         return meetingService.listMeetings();
     }
 
     @DeleteMapping("/meetings/{meetingId}")
-    public void deleteMeeting(@PathVariable MeetingId meetingId) {
+    public void deleteMeeting(@PathVariable Long meetingId) {
         meetingService.deleteMeeting(meetingId);
     }
 
     @GetMapping("/meetings/{meetingId}")
     @ResponseBody
-    public Optional<Meeting> meetingInfo(@PathVariable MeetingId meetingId) {
+    public Optional<MeetingDto> meetingInfo(@PathVariable Long meetingId) {
         return meetingService.getMeeting(meetingId);
     }
 
     @PutMapping("/meetings/{meetingId}")
-    public Meeting editMeeting(@PathVariable MeetingId meetingId, @RequestBody Meeting meeting) {
+    public MeetingDto editMeeting(@PathVariable Long meetingId, Meeting meeting,
+                               @RequestParam Long routeId,
+                               @RequestParam LocalDate meetingDate,
+                               @RequestParam LocalTime meetingTime,
+                               @RequestParam(required = false) String meetingPoint) {
         meeting.setMeetingId(meetingId);
-        return meetingService.editMeeting(meetingId, meeting);
+        return meetingService.editMeeting(meetingId, routeId, meetingDate, meetingTime, meetingPoint);
+    }
+
+    @GetMapping("/routes/{routeId}/meetings")
+    public List<MeetingDto> getMeetingsByRoute(@PathVariable Long routeId) {
+        return meetingService.getMeetingsByRoute(routeId);
+    }
+
+    @GetMapping("/users/{userId}/meetings")
+    public List<MeetingDto> getMeetingsByUser(@PathVariable Long userId) {
+        return meetingService.getMeetingsByUser(userId);
+    }
+
+    @PostMapping("/meetings/{meetingId}/addUser")
+    public MeetingDto addUserToMeeting(@PathVariable Long meetingId, @RequestParam Long userId) {
+        return meetingService.addUserToMeeting(meetingId, userId);
+    }
+
+    @DeleteMapping("/meetings/{meetingId}/removeUser/{userId}")
+    public MeetingDto removeUserFromMeeting(@PathVariable Long meetingId, @PathVariable Long userId) {
+        return meetingService.removeUserFromMeeting(meetingId, userId);
     }
 }

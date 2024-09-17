@@ -93,7 +93,7 @@ public class RouteController {
     }
     @DeleteMapping("/routes/{id}")
     public ResponseEntity<ResponseMessage> deleteRoute(@PathVariable Long id){
-        boolean exists= routeService.existsByrouteId(id);
+        boolean exists= routeService.existsByRouteId(id);
         if(!exists)
         {
             return ResponseEntity.status(404).body(new ResponseMessage("Route not found"));
