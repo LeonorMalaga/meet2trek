@@ -2,6 +2,7 @@ package com.esplai.meet2trek.controller;
 
 import com.esplai.meet2trek.dto.MeetingDto;
 import com.esplai.meet2trek.model.Meeting;
+import com.esplai.meet2trek.repository.MeetingRepository;
 import com.esplai.meet2trek.service.MeetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -70,5 +71,16 @@ public class MeetingController {
     @DeleteMapping("/meetings/{meetingId}/removeUser/{userId}")
     public MeetingDto removeUserFromMeeting(@PathVariable Long meetingId, @PathVariable Long userId) {
         return meetingService.removeUserFromMeeting(meetingId, userId);
+    }
+
+    @GetMapping("/meetings/findByDate")
+    public List<MeetingDto> findMeetingByDate(@RequestParam LocalDate meetingDate) {
+        return meetingService.getMeetingByDate(meetingDate);
+    }
+
+    @GetMapping("/meetings/findByDateAndTime")
+    public List<MeetingDto> findMeetingByDateAndTime(@RequestParam LocalDate meetingDate,
+                                                     @RequestParam LocalTime meetingTime) {
+        return meetingService.getMeetingByDateAndTime(meetingDate, meetingTime);
     }
 }

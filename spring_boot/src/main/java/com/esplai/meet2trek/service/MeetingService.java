@@ -145,4 +145,17 @@ public class MeetingService {
             return meetingDtoList;
         }
     }
+
+    public List<MeetingDto> getMeetingByDateAndTime(LocalDate meetingDate, LocalTime meetingTime) {
+        List<Meeting> meetingList = meetingRepository.findByMeetingDateAndMeetingTime(meetingDate, meetingTime);
+        List<MeetingDto> meetingDtoList = new ArrayList<>();
+        for (Meeting meeting : meetingList) {
+            meetingDtoList.add(new MeetingDto(meeting));
+        }
+        if (meetingList.isEmpty()) {
+            throw new IllegalArgumentException("There are no meetings for this date and time.");
+        } else {
+            return meetingDtoList;
+        }
+    }
 }
