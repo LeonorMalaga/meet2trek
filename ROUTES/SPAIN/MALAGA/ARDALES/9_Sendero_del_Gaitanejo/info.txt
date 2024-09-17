@@ -1,0 +1,44 @@
+Manantial_arcos_del_Capellan
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12770.132925574526!2d-4.8902233552154835!3d36.85365344715219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72c78abe828b43%3A0x1e725eb8b93458d!2sCasa%20Rural%20Arcos%20del%20Capellan!5e0!3m2!1ses!2ses!4v1726567981000!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>>
+
+
+
+https://www.youtube.com/watch?v=kYW8iQGBxNQ
+
+https://es.wikiloc.com/rutas-a-pie/2017-12-17-arcos-del-capellan-ruta-del-manantial-ardales-21983990
+
+
+Distancia
+2,6 km
+Desnivel positivo
+111 m
+Dificultad técnica
+Fácil
+Desnivel negativo
+111 m
+Altitud máxima
+646 m
+TrailRank 
+45
+Altitud mínima
+534 m
+Tipo de ruta
+Circular
+
+La Ruta del Manantial es un bonito paseo que sugieren a los huéspedes alojados en Casa rural Arcos del Capellán para conocer el entorno.
+Salimos de la casa por el camino de acceso y nos detenemos a ver el estanque formado en la base de una roca por la que resbala el agua que lo abastece. Continuamos bajando hasta encontrar la pista forestal, aquí giramos a la izquierda. Caminamos entre pinos por la pista hasta el siguiente cruce (600 metros) y de nuevo a la izquierda. Caminamos de nuevo unos 900 metros por pista hasta llegar a la altura de la casa, a la izquierda encontramos un sendero que nos llevará de vuelta, pasando antes, por el nacimiento del manantial y la antigua alberca.
+En resumen, un agradable paseo para toda la familia, con poco desnivel, de unos 2,5 km que podemos hacer en una hora aproximadamente.
+
+{  
+    "name": "Manantial_arcos_del_Capellan",
+    "shortDescription": " En resumen, un agradable paseo para toda la familia, con poco desnivel, de unos 2,5 km que podemos hacer en una hora aproximadamente.. ",
+    "fullDescription": "La Ruta del Manantial es un bonito paseo que sugieren a los huéspedes alojados en Casa rural Arcos del Capellán para conocer el entorno.<br>Salimos de la casa por el camino de acceso y nos detenemos a ver el estanque formado en la base de una roca por la que resbala el agua que lo abastece. Continuamos bajando hasta encontrar la pista forestal, aquí giramos a la izquierda. Caminamos entre pinos por la pista hasta el siguiente cruce (600 metros) y de nuevo a la izquierda.<br> Caminamos de nuevo unos 900 metros por pista hasta llegar a la altura de la casa, a la izquierda encontramos un sendero que nos llevará de vuelta, pasando antes, por el nacimiento del manantial y la antigua alberca.",
+    "startingPoint":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12770.132925574526!2d-4.8902233552154835!3d36.85365344715219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72c78abe828b43%3A0x1e725eb8b93458d!2sCasa%20Rural%20Arcos%20del%20Capellan!5e0!3m2!1ses!2ses!4v1726567981000!5m2!1ses!2ses",
+    "resourcesPath": "../ROUTES/SPAIN/MALAGA/ARDALES/8_Manantial_arcos_del_Capellan",
+    "portraitPath" : "../ROUTES/SPAIN/MALAGA/ARDALES/8_Manantial_arcos_del_Capellan/img/view.jpg",
+    "videoUrl" : "https://www.youtube.com/watch?v=kYW8iQGBxNQ",
+    "difficulty": 1,
+    "distance": 2600,
+    "area": "ARDALES"
+}

@@ -1,0 +1,40 @@
+Acequias Río Higuerón
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4518.821255118616!2d-3.898152291971107!3d36.78761704899499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7225ab5a1501e5%3A0xae3f9112b202b3c4!2sMirador%20Barranco%20del%20Rio%20Higueron!5e0!3m2!1ses!2ses!4v1726563355805!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+https://www.youtube.com/watch?v=fqRiHaA08bc
+
+Distancia aproximada: 20,5 km
+Tiempo aproximado: 11 horas (con paradas incluidas)
+Desnivel: Inicio 300 m (Frigiliana), altura máxima 640 m (última cascada), altura mínima 160 m (Cahorros bajos)
+Dificultad: Baja en el río, alta en la acequia
+Trazado: circular
+
+La ruta circular Frigiliana - Acequia de Lizar - Río Higuerón - Acequia Batán es un sendero de baja dificultad que se desarrolla en el entorno natural de Frigiliana, Málaga. A continuación, se presentan los principales aspectos de esta ruta:
+
+Parajes y puntos de interés
+
+La ruta comienza en el pueblo de Frigiliana y transcurre paralela al cauce del río Higuerón hasta llegar a los impresionantes estrechamientos conocidos como “cahorros” o “cajorros”.
+En el trayecto, se cruza la Acequia de Lizar, un canal de riego que lleva agua desde el Pozo Lízar hasta el Pozo Batán.
+El Pozo Batán es una alberca de aguas cristalinas construida en el siglo XIX, ubicada en la margen izquierda del río Higuerón. Originalmente, alimentaba una fábrica de papel (Batán) que se menciona en documentos del año 1752 y 1847.
+La ruta incluye un bosque de pinos y ofrece vistas panorámicas del entorno.
+Características
+
+
+La ruta puede ser realizada en ambos sentidos, pero se recomienda seguir el trazado original para disfrutar de las mejores vistas y parajes.
+Es importante tener en cuenta que la señalización puede ser limitada en algunos tramos, por lo que es recomendable llevar un mapa y GPS.
+La ruta es apta para senderistas con experiencia, pero no para personas con problemas de altura o miedo a precipicios, debido a los estrechos pasos y profundas acequias.
+
+POST http://localhost:8080/routes
+{
+    "name": "Cruz_de_pino",
+    "shortDescription": " La ruta circular Frigiliana - Acequia de Lizar - Río Higuerón - Acequia Batán es un sendero de baja dificultad que se desarrolla en el entorno natural de Frigiliana, Málaga. ",
+    "fullDescription": "La ruta comienza en el pueblo de Frigiliana y transcurre paralela al cauce del río Higuerón hasta llegar a los impresionantes estrechamientos conocidos como 'cahorros' o 'cajorros'.<br>En el trayecto, se cruza la Acequia de Lizar, un canal de riego que lleva agua desde el Pozo Lízar hasta el Pozo Batán.<br>El Pozo Batán es una alberca de aguas cristalinas construida en el siglo XIX, ubicada en la margen izquierda del río Higuerón. Originalmente, alimentaba una fábrica de papel (Batán) que se menciona en documentos del año 1752 y 1847<br>La ruta incluye un bosque de pinos y ofrece vistas panorámicas del entorno.<br>La ruta puede ser realizada en ambos sentidos, pero se recomienda seguir el trazado original para disfrutar de las mejores vistas y parajes.<br>Es importante tener en cuenta que la señalización puede ser limitada en algunos tramos, por lo que es recomendable llevar un mapa y GPS.<br>La ruta es apta para senderistas con experiencia, pero no para personas con problemas de altura o miedo a precipicios, debido a los estrechos pasos y profundas acequias.",
+    "startingPoint":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4518.821255118616!2d-3.898152291971107!3d36.78761704899499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7225ab5a1501e5%3A0xae3f9112b202b3c4!2sMirador%20Barranco%20del%20Rio%20Higueron!5e0!3m2!1ses!2ses!4v1726563355805!5m2!1ses!2ses",
+    "resourcesPath": "../ROUTES/SPAIN/MALAGA/FRIGILIANA/5_Acequias_Rio_Higueron",
+    "portraitPath" : "../ROUTES/SPAIN/MALAGA/FRIGILIANA/5_Acequias_Rio_Higueron/img/ditch.jpg",
+    "videoUrl" : "https://www.youtube.com/watch?v=fqRiHaA08bc",
+    "difficulty": 7,
+    "distance": 20500,
+    "area": "FRIGILIANA"
+}
