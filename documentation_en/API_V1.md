@@ -167,9 +167,9 @@ Filters routes by their difficulty.
 
 URL: http://localhost:8080/routes/getByFilter?difficulty={difficulty}
 ####  FindByDistance
-Filters routes by their distance.
+Filters routes by their distance, going to locate the route with distance between (distance +1000m and distance-1000m).
 
-URL: http://localhost:8080/routes/getByFilter?distance={distanceaprox}&range={range}
+URL: http://localhost:8080/routes/getByFilter?distance={distanceaprox}
 ####  FindByCountry
 Filters routes by their country.
 
