@@ -11,6 +11,6 @@ https://es.wikiloc.com/rutas-senderismo/montes-de-malaga-paseo-alrededor-del-mir
     "portraitPath" : "../ROUTES/SPAIN/MALAGA/MONTES_DE_MALAGA/10_Mirador_del_Cochino/img/cochino.jpg",
     "videoUrl" : "https://www.youtube.com/watch?v=vjjnAoX5EEk",
     "difficulty": 3,
-    "distance": 75400,
+    "distance": 7540,
     "area": "MONTES_DE_MALAGA"
 }

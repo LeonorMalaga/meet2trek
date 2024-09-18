@@ -33,7 +33,7 @@
     - [FindMeetingsByDate](#findmeetingsbydate)
 
 ## POST
-- [post_Save](#post_save)
+- [post_SaveRoute](#post_saveroute)
 - [post_Route](#post_route)
 - [post_User](#post_user)
 - [post_Meeting](#post_meeting)
@@ -63,8 +63,56 @@ Gets Json Objects.
 URL: https://121.0.0.1:8080/api/v1/save_routes/{route_Id}
 #### getAllSaveRoutes
 URL: https://121.0.0.1:8080/api/v1/save_routes
+
 #### getSaveRoutesByUser
-URL: https://121.0.0.1:8080/api/v1/save_routes?user={userId}
+URL: http://localhost:8080/users/{userId}/savedRoutes
+ex: http://localhost:8080/users/1/savedRoutes
+
+200 OK:
+```json
+[
+    {
+        "routeId": 2,
+        "name": "Rio_Chillar",
+        "shortDescription": "Tiene todos los ingredientes para una caminata clásica: la variedad, la necesidad de cuidados para la transición al barranco, la lucha y el sentido de llegada a una cumbre espectacular, refugio para almorzar y una corriente para lavar el sudor después del descenso. ",
+        "resourcesPath": "../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar",
+        "portraitPath": "../ROUTES/SPAIN/MALAGA/CHILLAR/2_Rio_Chillar/img/Rio_chilla.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=aYRW6SMR8usY",
+        "fullDescription": "Después de llegar a las estribaciones de la Sierra Tejeda desde Nerja se llega al pueblo de Acebuchal, destruido después de que terminara la Guerra Civil. Afortunadamente, ha sido reconstruido <br>Una caminata de 2 km en un lecho de río seco (rambla) da paso a un camino de tierra desde donde se asoma la desalentadora vista de Cisne como un monstruo prehistórico. Aunque no está entre los puntos más altos y es una escalada difícil.<br>Tiene todos los ingredientes para una caminata clásica: la variedad, la necesidad de cuidados para la transición al barranco, la lucha y el sentido de llegada a una cumbre espectacular, refugio para almorzar y una corriente para lavar el sudor después del descenso.<br>En la cima se encuentran las ruinas de un puesto avanzado de la Guardia Civil que data de la Guerra Civil Española. Los soldados de Franco pudieron observar movimientos de tropas republicanas desde esta posición a 1,779 metros. Cuando vea las vistas, se dará cuenta de por qué lo construyeron.",
+        "startingPoint": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102254.50054410713!2d-3.954936180733223!3d36.783684382177064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7225167826ddb3%3A0x53bbce5d36620e0f!2zUsOtbyBDaMOtbGxhcg!5e0!3m2!1ses!2ses!4v1726141095705!5m2!1ses!2ses",
+        "difficulty": 6,
+        "distance": 280,
+        "country": "SPAIN",
+        "province": "MALAGA",
+        "area": "CHILLAR"
+    },
+    {
+        "routeId": 5,
+        "name": "Cruz_de_pino",
+        "shortDescription": " La ruta circular Frigiliana - Acequia de Lizar - Río Higuerón - Acequia Batán es un sendero de baja dificultad que se desarrolla en el entorno natural de Frigiliana, Málaga. ",
+        "resourcesPath": "../ROUTES/SPAIN/MALAGA/FRIGILIANA/5_Acequias_Rio_Higueron",
+        "portraitPath": "../ROUTES/SPAIN/MALAGA/FRIGILIANA/5_Acequias_Rio_Higueron/img/ditch.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=fqRiHaA08bc",
+        "fullDescription": "La ruta comienza en el pueblo de Frigiliana y transcurre paralela al cauce del río Higuerón hasta llegar a los impresionantes estrechamientos conocidos como 'cahorros' o 'cajorros'.<br>En el trayecto, se cruza la Acequia de Lizar, un canal de riego que lleva agua desde el Pozo Lízar hasta el Pozo Batán.<br>El Pozo Batán es una alberca de aguas cristalinas construida en el siglo XIX, ubicada en la margen izquierda del río Higuerón. Originalmente, alimentaba una fábrica de papel (Batán) que se menciona en documentos del año 1752 y 1847<br>La ruta incluye un bosque de pinos y ofrece vistas panorámicas del entorno.<br>La ruta puede ser realizada en ambos sentidos, pero se recomienda seguir el trazado original para disfrutar de las mejores vistas y parajes.<br>Es importante tener en cuenta que la señalización puede ser limitada en algunos tramos, por lo que es recomendable llevar un mapa y GPS.<br>La ruta es apta para senderistas con experiencia, pero no para personas con problemas de altura o miedo a precipicios, debido a los estrechos pasos y profundas acequias.",
+        "startingPoint": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4518.821255118616!2d-3.898152291971107!3d36.78761704899499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7225ab5a1501e5%3A0xae3f9112b202b3c4!2sMirador%20Barranco%20del%20Rio%20Higueron!5e0!3m2!1ses!2ses!4v1726563355805!5m2!1ses!2ses",
+        "difficulty": 7,
+        "distance": 20500,
+        "country": "SPAIN",
+        "province": "MALAGA",
+        "area": "FRIGILIANA"
+    }
+]
+´´´
+There is no routes asociated with the user
+```json
+[]
+´´´
+404:
+```json
+{
+    "message": "User with ID 10 not found"
+}
+´´´
 
 ### Route
 #### findRouteIdByParams
@@ -167,9 +215,9 @@ Filters routes by their difficulty.
 
 URL: http://localhost:8080/routes/getByFilter?difficulty={difficulty}
 ####  FindByDistance
-Filters routes by their distance.
+Filters routes by their distance, going to locate the route with distance between (distance +1000m and distance-1000m).
 
-URL: http://localhost:8080/routes/getByFilter?distance={distanceaprox}&range={range}
+URL: http://localhost:8080/routes/getByFilter?distance={distanceaprox}
 ####  FindByCountry
 Filters routes by their country.
 
@@ -559,43 +607,26 @@ Sample result:
 ```
 ## POST
 
-#### post_Save
+#### post_SaveRoute
 Save a route to a user.
-URL: https://121.0.0.1:8080/api/v1/save_routes
-Json Body to send:
-```json
-{  
-    "userId": 1,  
-    "routeId": 1 
-}
-```  
+URL: http://localhost:8080/users/{userId}/savedRoutes?routeId={routeId}
+ex: http://localhost:8080/users/1/savedRoutes?routeId=2
+
 Possible responses:  
 201(OK):
 ```json
 {
-    "route_id": 1,
-    "user_id": 1    
-}
-```
-406(Not Acceptable):
-```json
-{
-    message:"User id or Route Id not exist",
-    incorrectFields: "UserId: 1" or "RouteId:1" or "UserId and RouteId"
+    "message": "The route with id: 2, has been save for the user with id:1"
 }
 ```
 409(Conflict):
 ```json
 {
-    message:"The route 1 is already asigned to user 1."
+    "message": "Route: 2, already saved by user:1"
 }
+
 ```
-501(Internal Server Error):
-```json
-{
-    "message": "The server is currently saturated. Please try again later."
-}
-```
+
 ### post_Route
 Creates a new Route object, given a Json body.  
 POST URL: http://localhost:8080/routes  
@@ -991,32 +1022,20 @@ Possible responses:
 ## DELETE
 #### delete_save_route
 Save a route to a user.
-URL: https://121.0.0.1:8080/api/v1/save_route/
-Json Body to send:
-```json
-{  
-    "userId": 1,  
-    "routeId": 1  
-}
-```
+URL: http://localhost:8080/users/{userId}/savedRoutes?routeId={routeId}
+ex: http://localhost:8080/users/1/savedRoutes?routeId=10
+
 Possible responses:  
 201(OK):
 ```json
 {
-    "message": "Route 1 save to user 1", 
+    "message": "The route with id: 2 has been removed from the user: 1 in the saved_routed table."
 }
 ```
-406(Not Acceptable):
+404(Not Faund):
 ```json
 {
-    "message": "route_Id or user_Id not exist",
-    "incorrectFields":"route_Id: 1" or "user_Id:1" or "route_Id:1 and user_Id:1"
-}
-```
-501(Internal Server Error):
-```json
-{
-    "message": "The server is currently saturated. Please try again later."
+    "message": "Route not found"
 }
 ```
 

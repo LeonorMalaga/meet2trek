@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -41,4 +42,13 @@ public class User {
     @ManyToMany(mappedBy = "users")
     @JsonIgnore
     private List<Meeting> meetings = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_saved_routes", // This is the name of the join table
+            joinColumns = @JoinColumn(name = "user_id"), // Foreign key in join table for User
+            inverseJoinColumns = @JoinColumn(name = "route_id") // Foreign key in join table for Route
+    )
+    private Set<Route> savedRoutes;
+
 }

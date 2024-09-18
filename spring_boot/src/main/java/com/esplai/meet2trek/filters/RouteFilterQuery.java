@@ -23,7 +23,9 @@ public class RouteFilterQuery {
             }
 
             if (filter.getDistance() != null) {
-                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("distance"), filter.getDistance()));
+                Integer minDistance = (int) (filter.getDistance() - 1000);
+                Integer maxDistance = (int) (filter.getDistance() + 1000);
+                predicate = criteriaBuilder.and(predicate, criteriaBuilder.between(root.get("distance"), minDistance, maxDistance));
             }
 
             if (filter.getDifficulty() != null) {
