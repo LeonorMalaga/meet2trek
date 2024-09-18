@@ -1,6 +1,8 @@
 package com.esplai.meet2trek.service;
 
 import com.esplai.meet2trek.dto.MeetingDto;
+import com.esplai.meet2trek.error.ConflictErrorResponse;
+import com.esplai.meet2trek.error.NotFoundErrorResponse;
 import com.esplai.meet2trek.model.Meeting;
 import com.esplai.meet2trek.model.Route;
 import com.esplai.meet2trek.model.User;
@@ -13,7 +15,6 @@ import org.springframework.stereotype.Service;
 import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -29,7 +30,7 @@ public class MeetingService {
 
     public MeetingDto createMeeting(Long routeId, LocalDate meetingDate, LocalTime meetingTime, String meetingPoint) { // C
         Route route = routeRepository.findById(routeId)
-                .orElseThrow(() -> new NoSuchElementException("Route not found."));
+                .orElseThrow(() -> new NotFoundErrorResponse("Route not found."));
 
         Meeting meeting = new Meeting();
         meeting.setRoute(route);
@@ -43,7 +44,7 @@ public class MeetingService {
     public Optional<MeetingDto> getMeeting(Long meetingId) { // R
         Meeting meeting = meetingRepository.findById(meetingId).orElse(null);
         if (meeting == null) {
-            throw new NoSuchElementException("Meeting not found.");
+            throw new NotFoundErrorResponse("Meeting not found.");
         } else {
             return Optional.of(new MeetingDto(meeting));
         }
@@ -52,11 +53,11 @@ public class MeetingService {
     public MeetingDto editMeeting(Long meetingId, Long routeId, LocalDate meetingDate,
                                LocalTime meetingTime, String meetingPoint) { // U
         Route route = routeRepository.findById(routeId)
-                .orElseThrow(() -> new IllegalArgumentException("Route not found."));
+                .orElseThrow(() -> new NotFoundErrorResponse("Route not found."));
 
         Meeting meeting = meetingRepository.findById(meetingId).orElse(null);
         if (meeting == null) {
-            throw new NoSuchElementException("Meeting not found.");
+            throw new NotFoundErrorResponse("Meeting not found.");
         } else {
             meeting.setRoute(route);
             meeting.setMeetingDate(meetingDate);
@@ -70,7 +71,7 @@ public class MeetingService {
     public void deleteMeeting(Long meetingId) { // D
         Meeting meeting = meetingRepository.findById(meetingId).orElse(null);
         if (meeting == null) {
-            throw new NoSuchElementException("Meeting not found.");
+            throw new NotFoundErrorResponse("Meeting not found.");
         } else {
             meetingRepository.deleteById(meetingId);
         }
@@ -104,14 +105,17 @@ public class MeetingService {
     }
 
     public MeetingDto addUserToMeeting(Long meetingId, Long userId) {
+        if (meetingRepository.findById(meetingId).isEmpty() && userRepository.findById(userId).isEmpty()) {
+            throw new NotFoundErrorResponse("Neither the meeting nor the user were found.");
+        }
         Meeting meeting = meetingRepository.findById(meetingId)
-                .orElseThrow(() -> new NoSuchElementException("Meeting not found."));
+                .orElseThrow(() -> new NotFoundErrorResponse("Meeting not found."));
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new NoSuchElementException("User not found."));
+                .orElseThrow(() -> new NotFoundErrorResponse("User not found."));
         boolean userAlreadyInMeeting = meeting.getUsers().stream()
                 .anyMatch(existingUser -> existingUser.getUserId().equals(userId));
         if (userAlreadyInMeeting) {
-            throw new IllegalArgumentException("This user is already part of this meeting.");
+            throw new ConflictErrorResponse("This user is already part of this meeting.");
         } else {
             meeting.getUsers().add(user);
             return new MeetingDto(meetingRepository.save(meeting));
@@ -119,17 +123,20 @@ public class MeetingService {
     }
 
     public MeetingDto removeUserFromMeeting(Long meetingId, Long userId) {
+        if (meetingRepository.findById(meetingId).isEmpty() && userRepository.findById(userId).isEmpty()) {
+            throw new NotFoundErrorResponse("Neither the meeting nor the user were found.");
+        }
         Meeting meeting = meetingRepository.findById(meetingId)
-                .orElseThrow(() -> new NoSuchElementException("Meeting not found."));
+                .orElseThrow(() -> new NotFoundErrorResponse("Meeting not found."));
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new NoSuchElementException("User not found."));
+                .orElseThrow(() -> new NotFoundErrorResponse("User not found."));
         boolean userAlreadyInMeeting = meeting.getUsers().stream()
                 .anyMatch(existingUser -> existingUser.getUserId().equals(userId));
         if (userAlreadyInMeeting) {
             meeting.getUsers().remove(user);
             return new MeetingDto(meetingRepository.save(meeting));
         } else {
-            throw new NoSuchElementException("This user is not in this meeting.");
+            throw new NotFoundErrorResponse("This user is not in this meeting.");
         }
     }
 
@@ -140,7 +147,7 @@ public class MeetingService {
             meetingDtoList.add(new MeetingDto(meeting));
         }
         if (meetingList.isEmpty()) {
-            throw new NoSuchElementException("There are no meetings for this date.");
+            throw new NotFoundErrorResponse("There are no meetings for this date.");
         } else {
             return meetingDtoList;
         }
@@ -153,7 +160,7 @@ public class MeetingService {
             meetingDtoList.add(new MeetingDto(meeting));
         }
         if (meetingList.isEmpty()) {
-            throw new NoSuchElementException("There are no meetings for this date and time.");
+            throw new NotFoundErrorResponse("There are no meetings for this date and time.");
         } else {
             return meetingDtoList;
         }
@@ -172,17 +179,20 @@ public class MeetingService {
             }
         }
         if (activeMeetings.isEmpty()) {
-            throw new NoSuchElementException("There are no active meeting.");
+            throw new NotFoundErrorResponse("There are no active meeting.");
         } else {
             return activeMeetings;
         }
     }
 
     public boolean isUserInMeeting(Long meetingId, Long userId) {
+        if (meetingRepository.findById(meetingId).isEmpty() && userRepository.findById(userId).isEmpty()) {
+            throw new NotFoundErrorResponse("Neither the meeting nor the user were found.");
+        }
         Meeting meeting = meetingRepository.findById(meetingId)
-                .orElseThrow(() -> new NoSuchElementException("Meeting not found."));
+                .orElseThrow(() -> new NotFoundErrorResponse("Meeting not found."));
         userRepository.findById(userId)
-                .orElseThrow(() -> new NoSuchElementException("User not found."));
+                .orElseThrow(() -> new NotFoundErrorResponse("User not found."));
         return meeting.getUsers().stream()
                 .anyMatch(existingUser -> existingUser.getUserId().equals(userId));
     }

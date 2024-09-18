@@ -1,14 +1,13 @@
 package com.esplai.meet2trek.service;
 
+import com.esplai.meet2trek.error.NotFoundErrorResponse;
 import com.esplai.meet2trek.repository.RouteRepository;
 import com.esplai.meet2trek.model.Route;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.esplai.meet2trek.filters.RouterFilters;
 import com.esplai.meet2trek.filters.RouteFilterQuery;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.List;
 @Service
@@ -41,7 +40,7 @@ public class RouteService {
        Route mRoute = routeRepository.findById(id).orElse(null);
        if(mRoute == null)
        {
-           throw new NoSuchElementException("Route not found.");
+           throw new NotFoundErrorResponse("Route not found.");
        } else {
            return Optional.of(mRoute);
        }

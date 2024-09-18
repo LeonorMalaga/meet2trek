@@ -1,7 +1,8 @@
 package com.esplai.meet2trek.service;
 
 import com.esplai.meet2trek.dto.UserDto;
-import com.esplai.meet2trek.model.Meeting;
+import com.esplai.meet2trek.error.ConflictErrorResponse;
+import com.esplai.meet2trek.error.NotFoundErrorResponse;
 import com.esplai.meet2trek.model.User;
 import com.esplai.meet2trek.repository.MeetingRepository;
 import com.esplai.meet2trek.repository.UserRepository;
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Service;
 // import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @SuppressWarnings("unused")
@@ -26,11 +26,11 @@ public class UserService {
 
     public UserDto createUser(User user) { // C
         if (userRepository.existsByUsername(user.getUsername()) && userRepository.existsByEmail(user.getEmail())) {
-            throw new IllegalArgumentException("Username already exists, and this email is already in use.");
+            throw new ConflictErrorResponse("Username already exists, and this email is already in use.");
         } else if (userRepository.existsByUsername(user.getUsername())) {
-            throw new IllegalArgumentException("Username already exists.");
+            throw new ConflictErrorResponse("Username already exists.");
         } else if (userRepository.existsByEmail(user.getEmail())) {
-            throw new IllegalArgumentException("This email is already in use.");
+            throw new ConflictErrorResponse("This email is already in use.");
         } else {
             user = userRepository.save(user);
             return new UserDto(user);
@@ -40,7 +40,7 @@ public class UserService {
     public Optional<UserDto> getUser(Long userId) { // R
         User user = userRepository.findById(userId).orElse(null);
         if (user == null) {
-            throw new NoSuchElementException("User not found.");
+            throw new NotFoundErrorResponse("User not found.");
         } else {
             return Optional.of(new UserDto(user));
         }
@@ -48,13 +48,13 @@ public class UserService {
 
     public UserDto editUser(Long userId, User user) { // U
         if (userRepository.existsByUsername(user.getUsername()) && userRepository.existsByEmail(user.getEmail())) {
-            throw new IllegalArgumentException("Username already exists, and this email is already in use.");
+            throw new ConflictErrorResponse("Username already exists, and this email is already in use.");
         } else if (userRepository.existsByUsername(user.getUsername())) {
-            throw new IllegalArgumentException("Username already exists.");
+            throw new ConflictErrorResponse("Username already exists.");
         } else if (userRepository.existsByEmail(user.getEmail())) {
-            throw new IllegalArgumentException("This email is already in use.");
+            throw new ConflictErrorResponse("This email is already in use.");
         } else {
-            userRepository.findById(userId).orElseThrow(() -> new NoSuchElementException("User not found."));
+            userRepository.findById(userId).orElseThrow(() -> new NotFoundErrorResponse("User not found."));
             user = userRepository.save(user);
             return new UserDto(user);
         }
@@ -63,7 +63,7 @@ public class UserService {
     public void deleteUser(Long userId) { // D
         User user = userRepository.findById(userId).orElse(null);
         if (user == null) {
-            throw new NoSuchElementException("User not found.");
+            throw new NotFoundErrorResponse("User not found.");
         } else {
             userRepository.deleteById(userId);
         }
@@ -85,7 +85,7 @@ public class UserService {
     public UserDto partialEdit(Long userId, User user) {
 
         User existingUser = userRepository.findById(userId).orElseThrow(() ->
-                new NoSuchElementException("User not found."));
+                new NotFoundErrorResponse("User not found."));
         mergeUser(existingUser, user);
 
         return new UserDto(userRepository.save(existingUser));
@@ -94,12 +94,12 @@ public class UserService {
     private void mergeUser(User existingUser, User user) {
 
         if (userRepository.existsByUsername(user.getUsername()) && userRepository.existsByEmail(user.getEmail())) {
-            throw new IllegalArgumentException("Username already exists, and email is already in use.");
+            throw new ConflictErrorResponse("Username already exists, and email is already in use.");
         }
 
         if (user.getUsername() != null) {
             if (userRepository.existsByUsername(user.getUsername())) {
-                throw new IllegalArgumentException("Username already exists.");
+                throw new ConflictErrorResponse("Username already exists.");
             } else {
                 existingUser.setUsername(user.getUsername());
             }
@@ -111,7 +111,7 @@ public class UserService {
 
         if (user.getEmail() != null) {
             if (userRepository.existsByEmail(user.getEmail())) {
-                throw new IllegalArgumentException("Email is already in use.");
+                throw new ConflictErrorResponse("Email is already in use.");
             } else {
                 existingUser.setEmail(user.getEmail());
             }
@@ -159,14 +159,14 @@ public class UserService {
     }
 
     public List<UserDto> getUsersByMeeting(Long meetingId) {
-        meetingRepository.findById(meetingId).orElseThrow(() -> new IllegalArgumentException("Meeting not found."));
+        meetingRepository.findById(meetingId).orElseThrow(() -> new NotFoundErrorResponse("Meeting not found."));
         List<User> userList = userRepository.findByMeetings_MeetingId(meetingId);
         List<UserDto> userDtoList = new ArrayList<>();
         for (User user : userList) {
             userDtoList.add(new UserDto(user));
         }
         if (userList.isEmpty()) {
-            throw new NoSuchElementException("This meeting is empty.");
+            throw new NotFoundErrorResponse("This meeting is empty.");
         } else {
             return userDtoList;
         }
@@ -175,7 +175,7 @@ public class UserService {
     /*public UserDto uploadUserIcon(Long userId, MultipartFile file) {
         Optional<User> userOptional = userRepository.findById(userId);
         if (userOptional.isEmpty()) {
-            throw new IllegalArgumentException("User not found.");
+            throw new NotFoundErrorResponse("User not found.");
         } else {
             User user = userOptional.get();
             String fileName = saveImage(userId, file);
@@ -186,7 +186,7 @@ public class UserService {
 
     private String saveImage(Long userId, MultipartFile file) {
         if (file.isEmpty()) {
-            throw new IllegalArgumentException("Can't upload an empty file!");
+            throw new ConflictErrorResponse("Can't upload an empty file!");
         } else {
             Path uploadPath = Paths.get(String.valueOf(userId));
             if (!Files.exists(uploadPath)) {
