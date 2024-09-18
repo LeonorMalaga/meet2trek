@@ -9,6 +9,7 @@ import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -40,4 +41,6 @@ public class Route {
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Meeting> meetings = new ArrayList<>();
+    @ManyToMany(mappedBy = "savedRoutes")
+    private Set<User> Users;
 }

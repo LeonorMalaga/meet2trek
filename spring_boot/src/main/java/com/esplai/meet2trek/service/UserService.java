@@ -2,6 +2,7 @@ package com.esplai.meet2trek.service;
 
 import com.esplai.meet2trek.dto.UserDto;
 import com.esplai.meet2trek.model.Meeting;
+import com.esplai.meet2trek.model.Route;
 import com.esplai.meet2trek.model.User;
 import com.esplai.meet2trek.repository.MeetingRepository;
 import com.esplai.meet2trek.repository.UserRepository;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class UserService {
@@ -192,4 +194,14 @@ public class UserService {
             }
         }
     }*/
+   public Set<Route> getSavedRoutersByUser(Long userId){
+       User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+       return user.getSavedRoutes();
+   }
+    public void saveRoute(Long userId, Route route){
+       User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("Use not found"));
+       user.getSavedRoutes().add(route);
+       userRepository.save(user);
+    }
+
 }

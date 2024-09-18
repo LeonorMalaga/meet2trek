@@ -1,15 +1,20 @@
 package com.esplai.meet2trek.controller;
 
 import com.esplai.meet2trek.dto.UserDto;
+import com.esplai.meet2trek.dto.ResponseMessage;
+
 import com.esplai.meet2trek.model.User;
+import com.esplai.meet2trek.model.Route;
 import com.esplai.meet2trek.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 // import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 @RestController
@@ -63,4 +68,18 @@ public class UserController {
     public UserDto editUserIcon(@PathVariable Long userId, @RequestParam MultipartFile icon) {
         userService.editUserIcon(userId, String.valueOf(icon));
     }*/
+
+    @GetMapping("users/savedRoutes")
+    public Set<Route> getSavedRoutes(@PathVariable Long userId) {
+        return userService.getSavedRoutersByUser(userId);
+    }
+
+    @PostMapping("users/saveRoute")
+    public ResponseEntity<ResponseMessage> saveRoute(@PathVariable Long userId, @RequestBody Route routeId) {
+        userService.saveRoute(userId,routeId);
+        return ResponseEntity.status(200).body(new ResponseMessage("The route with id: " + routeId + ", has been save for the user with id:"+ userId ));
+    }
+
+
+
 }
