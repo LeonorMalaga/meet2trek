@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 // import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @SuppressWarnings("unused")
@@ -39,7 +40,7 @@ public class UserService {
     public Optional<UserDto> getUser(Long userId) { // R
         User user = userRepository.findById(userId).orElse(null);
         if (user == null) {
-            throw new IllegalArgumentException("User not found.");
+            throw new NoSuchElementException("User not found.");
         } else {
             return Optional.of(new UserDto(user));
         }
@@ -53,7 +54,7 @@ public class UserService {
         } else if (userRepository.existsByEmail(user.getEmail())) {
             throw new IllegalArgumentException("This email is already in use.");
         } else {
-            userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found."));
+            userRepository.findById(userId).orElseThrow(() -> new NoSuchElementException("User not found."));
             user = userRepository.save(user);
             return new UserDto(user);
         }
@@ -62,7 +63,7 @@ public class UserService {
     public void deleteUser(Long userId) { // D
         User user = userRepository.findById(userId).orElse(null);
         if (user == null) {
-            throw new IllegalArgumentException("User not found.");
+            throw new NoSuchElementException("User not found.");
         } else {
             userRepository.deleteById(userId);
         }
@@ -84,7 +85,7 @@ public class UserService {
     public UserDto partialEdit(Long userId, User user) {
 
         User existingUser = userRepository.findById(userId).orElseThrow(() ->
-                new IllegalArgumentException("User not found."));
+                new NoSuchElementException("User not found."));
         mergeUser(existingUser, user);
 
         return new UserDto(userRepository.save(existingUser));
@@ -165,7 +166,7 @@ public class UserService {
             userDtoList.add(new UserDto(user));
         }
         if (userList.isEmpty()) {
-            throw new IllegalArgumentException("This meeting is empty.");
+            throw new NoSuchElementException("This meeting is empty.");
         } else {
             return userDtoList;
         }
