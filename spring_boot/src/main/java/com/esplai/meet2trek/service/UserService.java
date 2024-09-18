@@ -217,4 +217,9 @@ public class UserService {
     public boolean userSavedRoute(Long userId, Long routeId) {
         return userRepository.userSavedRoute(userId, routeId);
     }
+
+    public boolean deleteSavedRoute(Long userId, Long routeId) {
+        int rowsAffected = userRepository.deleteSavedRoute(userId, routeId);
+        return rowsAffected > 0;
+    }
 }

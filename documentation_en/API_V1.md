@@ -1022,32 +1022,20 @@ Possible responses:
 ## DELETE
 #### delete_save_route
 Save a route to a user.
-URL: https://121.0.0.1:8080/api/v1/save_route/
-Json Body to send:
-```json
-{  
-    "userId": 1,  
-    "routeId": 1  
-}
-```
+URL: http://localhost:8080/users/{userId}/savedRoutes?routeId={routeId}
+ex: http://localhost:8080/users/1/savedRoutes?routeId=10
+
 Possible responses:  
 201(OK):
 ```json
 {
-    "message": "Route 1 save to user 1", 
+    "message": "The route with id: 2 has been removed from the user: 1 in the saved_routed table."
 }
 ```
-406(Not Acceptable):
+404(Not Faund):
 ```json
 {
-    "message": "route_Id or user_Id not exist",
-    "incorrectFields":"route_Id: 1" or "user_Id:1" or "route_Id:1 and user_Id:1"
-}
-```
-501(Internal Server Error):
-```json
-{
-    "message": "The server is currently saturated. Please try again later."
+    "message": "Route not found"
 }
 ```
 
