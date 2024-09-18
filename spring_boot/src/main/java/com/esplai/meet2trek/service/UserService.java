@@ -6,7 +6,9 @@ import com.esplai.meet2trek.model.Route;
 import com.esplai.meet2trek.model.User;
 import com.esplai.meet2trek.repository.MeetingRepository;
 import com.esplai.meet2trek.repository.UserRepository;
+import com.esplai.meet2trek.repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 // import org.springframework.web.multipart.MultipartFile;
 
@@ -23,6 +25,9 @@ public class UserService {
 
     @Autowired
     MeetingRepository meetingRepository;
+
+    @Autowired
+    RouteRepository routeRepository;
 
     public UserDto createUser(User user) { // C
         if (userRepository.existsByUsername(user.getUsername()) && userRepository.existsByEmail(user.getEmail())) {
@@ -194,14 +199,22 @@ public class UserService {
             }
         }
     }*/
-   public Set<Route> getSavedRoutersByUser(Long userId){
+
+    public boolean existUserById(Long userId){
+        return userRepository.existsByUserId(userId);
+    }
+    public Set<Route> getSavedRoutersByUser(Long userId){
        User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
        return user.getSavedRoutes();
    }
-    public void saveRoute(Long userId, Route route){
+    public void saveRoute(Long userId, Long routeId){
        User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("Use not found"));
+       Route route = routeRepository.findById(routeId).orElseThrow(() -> new RuntimeException("Route not found"));
        user.getSavedRoutes().add(route);
        userRepository.save(user);
     }
 
+    public boolean userSavedRoute(Long userId, Long routeId) {
+        return userRepository.userSavedRoute(userId, routeId);
+    }
 }

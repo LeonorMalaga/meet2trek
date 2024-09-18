@@ -42,5 +42,6 @@ public class Route {
     @JsonIgnore
     private List<Meeting> meetings = new ArrayList<>();
     @ManyToMany(mappedBy = "savedRoutes")
+    @JsonIgnore
     private Set<User> Users;
 }
