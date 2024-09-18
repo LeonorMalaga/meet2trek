@@ -179,7 +179,7 @@ public class MeetingService {
             }
         }
         if (activeMeetings.isEmpty()) {
-            throw new NotFoundErrorResponse("There are no active meeting.");
+            throw new NotFoundErrorResponse("There are no active meetings.");
         } else {
             return activeMeetings;
         }
