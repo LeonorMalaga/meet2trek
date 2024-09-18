@@ -18,6 +18,7 @@ import java.util.Optional;
 @Controller
 @Data
 @RestController
+@RequestMapping("/api")
 public class RouteController {
     private static final Logger log = LoggerFactory.getLogger(RouteController.class);
     @Autowired

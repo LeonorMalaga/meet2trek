@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @Controller
 @RestController
+@RequestMapping("/api")
 public class UserController {
     @Autowired
     UserService userService;
