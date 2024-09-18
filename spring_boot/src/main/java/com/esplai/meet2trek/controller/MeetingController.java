@@ -69,8 +69,8 @@ public class MeetingController {
         return meetingService.addUserToMeeting(meetingId, userId);
     }
 
-    @DeleteMapping("/meetings/{meetingId}/users/{userId}")
-    public MeetingDto removeUserFromMeeting(@PathVariable Long meetingId, @PathVariable Long userId) {
+    @DeleteMapping("/meetings/{meetingId}/users")
+    public MeetingDto removeUserFromMeeting(@PathVariable Long meetingId, @RequestParam Long userId) {
         return meetingService.removeUserFromMeeting(meetingId, userId);
     }
 
