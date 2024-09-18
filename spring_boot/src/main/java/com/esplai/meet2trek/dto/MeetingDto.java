@@ -19,10 +19,6 @@ import java.util.List;
 public class MeetingDto {
     private Long meetingId;
 
-    private Route route;
-
-    private List<UserDto> users;
-
     @DateTimeFormat(pattern="dd/MM/yyyy")
     @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate meetingDate;
@@ -33,9 +29,16 @@ public class MeetingDto {
 
     private String meetingPoint;
 
+    private Route route;
+
+    private List<UserDto> users;
+
 
     public MeetingDto(Meeting meeting) {
         this.meetingId = meeting.getMeetingId();
+        this.meetingDate = meeting.getMeetingDate();
+        this.meetingTime = meeting.getMeetingTime();
+        this.meetingPoint = meeting.getMeetingPoint();
         this.route = meeting.getRoute();
         List<User> userList = meeting.getUsers();
         List<UserDto> userDtoList = new ArrayList<>();
@@ -43,8 +46,5 @@ public class MeetingDto {
             userDtoList.add(new UserDto(user));
         }
         this.users = userDtoList;
-        this.meetingDate = meeting.getMeetingDate();
-        this.meetingTime = meeting.getMeetingTime();
-        this.meetingPoint = meeting.getMeetingPoint();
     }
 }

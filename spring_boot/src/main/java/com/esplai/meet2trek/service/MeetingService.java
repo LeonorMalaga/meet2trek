@@ -10,8 +10,10 @@ import com.esplai.meet2trek.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.sql.Timestamp;
+import java.time.*;
+import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -157,5 +159,33 @@ public class MeetingService {
         } else {
             return meetingDtoList;
         }
+    }
+
+    public List<MeetingDto> getActiveMeetings() {
+        List<Meeting> meetingList = meetingRepository.findAll();
+        List<MeetingDto> activeMeetings = new ArrayList<>();
+        for (Meeting meeting : meetingList) {
+            LocalDate meetingDate = meeting.getMeetingDate();
+            LocalTime meetingTime = meeting.getMeetingTime();
+            LocalDateTime meetingDateTime = LocalDateTime.of(meetingDate, meetingTime);
+            LocalDateTime currentDateTime = LocalDateTime.now();
+            if (meetingDateTime.isAfter(currentDateTime)) {
+                activeMeetings.add(new MeetingDto(meeting));
+            }
+        }
+        if (activeMeetings.isEmpty()) {
+            throw new IllegalArgumentException("There are no active meeting.");
+        } else {
+            return activeMeetings;
+        }
+    }
+
+    public boolean isUserInMeeting(Long meetingId, Long userId) {
+        Meeting meeting = meetingRepository.findById(meetingId)
+                .orElseThrow(() -> new IllegalArgumentException("Meeting not found."));
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found."));
+        return meeting.getUsers().stream()
+                .anyMatch(existingUser -> existingUser.getUserId().equals(userId));
     }
 }

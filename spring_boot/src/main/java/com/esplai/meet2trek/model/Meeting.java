@@ -23,6 +23,16 @@ public class Meeting {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long meetingId;
 
+    @DateTimeFormat(pattern="dd/MM/yyyy")
+    @JsonFormat(pattern="dd/MM/yyyy")
+    private LocalDate meetingDate;
+
+    @DateTimeFormat(pattern="HH:mm")
+    @JsonFormat(pattern="HH:mm")
+    private LocalTime meetingTime;
+
+    private String meetingPoint;
+
     @ManyToOne
     @JoinColumn(name = "route_id", nullable = false)
     private Route route;
@@ -34,15 +44,5 @@ public class Meeting {
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     private List<User> users = new ArrayList<>();
-
-    @DateTimeFormat(pattern="dd/MM/yyyy")
-    @JsonFormat(pattern="dd/MM/yyyy")
-    private LocalDate meetingDate;
-
-    @DateTimeFormat(pattern="HH:mm")
-    @JsonFormat(pattern="HH:mm")
-    private LocalTime meetingTime;
-
-    private String meetingPoint;
 }
 

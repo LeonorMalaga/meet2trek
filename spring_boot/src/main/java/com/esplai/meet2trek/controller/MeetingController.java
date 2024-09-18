@@ -64,12 +64,12 @@ public class MeetingController {
         return meetingService.getMeetingsByUser(userId);
     }
 
-    @PostMapping("/meetings/{meetingId}/addUser")
+    @PostMapping("/meetings/{meetingId}/users")
     public MeetingDto addUserToMeeting(@PathVariable Long meetingId, @RequestParam Long userId) {
         return meetingService.addUserToMeeting(meetingId, userId);
     }
 
-    @DeleteMapping("/meetings/{meetingId}/removeUser/{userId}")
+    @DeleteMapping("/meetings/{meetingId}/users/{userId}")
     public MeetingDto removeUserFromMeeting(@PathVariable Long meetingId, @PathVariable Long userId) {
         return meetingService.removeUserFromMeeting(meetingId, userId);
     }
@@ -83,5 +83,15 @@ public class MeetingController {
     public List<MeetingDto> findMeetingByDateAndTime(@RequestParam LocalDate meetingDate,
                                                      @RequestParam LocalTime meetingTime) {
         return meetingService.getMeetingByDateAndTime(meetingDate, meetingTime);
+    }
+
+    @GetMapping("/meetings/activeMeetings")
+    public List<MeetingDto> findActiveMeetings() {
+        return meetingService.getActiveMeetings();
+    }
+
+    @GetMapping("/meetings/{meetingId}/users/{userId}")
+    public boolean isUserInMeeting(@PathVariable Long meetingId, @PathVariable Long userId) {
+        return meetingService.isUserInMeeting(meetingId, userId);
     }
 }
