@@ -2,7 +2,6 @@ package com.esplai.meet2trek.controller;
 
 import com.esplai.meet2trek.dto.MeetingDto;
 import com.esplai.meet2trek.model.Meeting;
-import com.esplai.meet2trek.repository.MeetingRepository;
 import com.esplai.meet2trek.service.MeetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
