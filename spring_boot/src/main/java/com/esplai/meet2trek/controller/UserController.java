@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+@SuppressWarnings("unused")
 @Controller
 @RestController
 @RequestMapping("/api")
@@ -91,14 +92,14 @@ public class UserController {
         //System.out.println("-----------------userId: " + userId + ", routeId: " + routeId + ", exists: " + count+"----------------");
         if(count > 0)
         {
-            return ResponseEntity.status(409).body(new ResponseMessage("NO CHANGES APPLIED:The route with id: " + routeId +
-                    " has already been saved by the user with id: " + userId + "."));
+            return ResponseEntity.status(409).body(new ResponseMessage("The route with id " + routeId +
+                    " has already been saved by the user with id " + userId + "."));
         }
         else
         {
             userService.saveRoute(userId,routeId);
-            return ResponseEntity.status(200).body(new ResponseMessage("The route with id: " + routeId +
-                    " has been saved to the user with id: " + userId + "."));
+            return ResponseEntity.status(200).body(new ResponseMessage("The route with id " + routeId +
+                    " has been saved to the user with id " + userId + "."));
         }
     }
 

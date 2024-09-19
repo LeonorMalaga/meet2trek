@@ -206,12 +206,14 @@ public class UserService {
         return userRepository.existsByUserId(userId);
     }
     public Set<Route> getSavedRoutersByUser(Long userId){
-       User user = userRepository.findById(userId).orElseThrow(() -> new NotFoundErrorResponse("User not found"));
+       User user = userRepository.findById(userId).orElseThrow(() -> new NotFoundErrorResponse("User not found."));
        return user.getSavedRoutes();
    }
     public void saveRoute(Long userId, Long routeId){
-       User user = userRepository.findById(userId).orElseThrow(() -> new NotFoundErrorResponse("User not found"));
-       Route route = routeRepository.findById(routeId).orElseThrow(() -> new NotFoundErrorResponse("Route not found"));
+       User user = userRepository.findById(userId).orElseThrow(()
+               -> new NotFoundErrorResponse("User not found."));
+       Route route = routeRepository.findById(routeId).orElseThrow(()
+               -> new NotFoundErrorResponse("Route not found."));
        user.getSavedRoutes().add(route);
        userRepository.save(user);
     }
