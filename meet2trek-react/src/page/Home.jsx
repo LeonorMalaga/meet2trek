@@ -1,12 +1,17 @@
+
 import { useState } from "react"
 
 export function Home() {
-  const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false)
+  const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
 
   const toggleRegisterPopup = () => {
-    setIsRegisterPopupOpen(!isRegisterPopupOpen)
-  }
+    setIsRegisterPopupOpen(!isRegisterPopupOpen);
+  };
 
+  const toggleLoginPopup = () => {
+    setIsLoginPopupOpen(!isLoginPopupOpen);
+  };
   return (  <>
     
 
