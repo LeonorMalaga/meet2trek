@@ -13,6 +13,6 @@ public class RouterFilters {
     private String country;
     private String province;
     private String area;
-    private Double distance;
+    private Integer distance;
     private String difficulty;
 }

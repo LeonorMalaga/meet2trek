@@ -79,7 +79,7 @@ public class RouteController {
             @RequestParam(required = false) String country,
             @RequestParam(required = false) String province,
             @RequestParam(required = false) String area,
-            @RequestParam(required = false) Double distance,
+            @RequestParam(required = false) Integer distance,
             @RequestParam(required = false) String difficulty
     ){
         RouterFilters filter = new RouterFilters();
