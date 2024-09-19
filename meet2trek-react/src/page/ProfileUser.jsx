@@ -199,15 +199,9 @@ import { useState } from "react"
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Antequera</td>
                                              <td className="stg-0pky"><a href="user-rute1-detail.html"><u>Sendero del Torcal</u></a></td>
-<<<<<<< HEAD
-                                             <td className="stg-0pky" id="formarGrupo3" style="text-align: center; cursor: pointer;"><a
-                                                 style="scolor: green;"><u>Ver quedadas en esta ruta</u></a></td>
-                                             <td className="tg-0pky" id="eliminar6" style="text-align: center; color: red;"><u>Eliminar</u></td>
-=======
                                              <td className="stg-0pky" id="formarGrupo3" style={{textAlign: "center", cursor: "pointer"}}><a
                                                  style={{scolor: "green"}}><u>Ver quedadas en esta ruta</u></a></td>
                                              <td className="tg-0pky" id="eliminar6" style={{textAlign: "center", color: "red"}}><u>Eliminar</u></td>
->>>>>>> 6444d9a60bf7199befe666952d717fdb8162ce7d
 
                                              </tr>
                                      </tbody>
@@ -215,18 +209,10 @@ import { useState } from "react"
                              </div>
                          </div>
                  </div>
-<<<<<<< HEAD
-             <button style="float: right; margin-top: 30px;" type="submit" className="btn btn-primary" onclick="confirmarCierreSesion()">Cerrar sesión
-=======
              <button style={{float: "right", marginTop: "30px"}} type="submit" className="btn btn-primary" onclick="confirmarCierreSesion()">Cerrar sesión
->>>>>>> 6444d9a60bf7199befe666952d717fdb8162ce7d
              </button>
          </div>
      </section>
  </main>
  </> )
-<<<<<<< HEAD
- }
-=======
 }
->>>>>>> 6444d9a60bf7199befe666952d717fdb8162ce7d
