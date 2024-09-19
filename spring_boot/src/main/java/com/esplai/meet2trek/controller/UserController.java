@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+@SuppressWarnings("unused")
 @Controller
 @RestController
 @RequestMapping("/api")
@@ -74,7 +75,7 @@ public class UserController {
     @GetMapping("users/{userId}/savedRoutes")
     public ResponseEntity<?> getSavedRoutes(@PathVariable Long userId) {
         boolean exists = userService.existUserById(userId);
-        // System.out.println("userId: " + userId + ", routeId: " + routeId + ", exists: " + exists);
+        //System.out.println("userId: " + userId + ", routeId: " + routeId + ", exists: " + exists);
         if(!exists)
         {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -86,22 +87,26 @@ public class UserController {
 
     @PostMapping("users/{userId}/savedRoutes")
     public ResponseEntity<ResponseMessage> saveRoute(@PathVariable Long userId, @RequestParam Long routeId) {
-        userService.saveRoute(userId,routeId);
-        boolean exists= userService.userSavedRoute(userId, routeId);
-       // System.out.println("userId: " + userId + ", routeId: " + routeId + ", exists: " + exists);
-        if(exists)
+
+        int count= userService.countSavedRoutesByUser(userId, routeId);
+        //System.out.println("-----------------userId: " + userId + ", routeId: " + routeId + ", exists: " + count+"----------------");
+        if(count > 0)
         {
             return ResponseEntity.status(409).body(new ResponseMessage("The route with id " + routeId +
                     " has already been saved by the user with id " + userId + "."));
         }
-        return ResponseEntity.status(200).body(new ResponseMessage("The route with id: " + routeId +
-                " has been saved for the user whose id is " + userId + "."));
+        else
+        {
+            userService.saveRoute(userId,routeId);
+            return ResponseEntity.status(200).body(new ResponseMessage("The route with id " + routeId +
+                    " has been saved to the user with id " + userId + "."));
+        }
     }
 
     @DeleteMapping("/users/{userId}/savedRoutes")
     public ResponseEntity<ResponseMessage> deleteSavedRoute(@PathVariable Long userId, @RequestParam Long routeId) {
-        boolean exists= userService.userSavedRoute(userId,routeId);
-        if(!exists)
+        int count= userService.countSavedRoutesByUser(userId,routeId);
+        if(count == 0)
         {
             return ResponseEntity.status(404).body(new ResponseMessage("The route with id " + routeId +
                     " was not found to be in the saved routes of the user with id " + userId + "."));

@@ -33,19 +33,19 @@ import { useState } from "react"
                              <input type="password" id="psssword" name="password" placeholder="8 caracteres entre letras y números"
                                  required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                                  title="La contraseña debe tener al menos 8 caracteres, con letras y números."
-                                 style="font-size: 0.8em" />
+                                 style={{fontSize: "0.8em"}} />
                              </div>
                              <div className="form-group form-group1">
                              <label htmlFor="password" className="form-label">Nueva contraseña:</label>
                              <input type="password" id="psssword" name="password" placeholder="8 caracteres entre letras y números"
                                  required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                                  title="La contraseña debe tener al menos 8 caracteres, con letras y números."
-                                 style="font-size: 0.8em" />
+                                 style={{fontSize: "0.8em"}} />
                              </div>
                              <div className="form-group">
                              <label htmlFor="confirmPassword" className="form-label">Repetir contraseña:</label>
-                             <input type="password" id="confirmPsssword" name="confirmPassword" required style="font-size: 1em" />
-                             <span id="La contraseña no coincide" style="color: red; font-size: 0.9em"></span>
+                             <input type="password" id="confirmPsssword" name="confirmPassword" required style={{fontSize: "1em"}} />
+                             <span id="La contraseña no coincide" style={{color: "red", fontSize: "0.9em"}}></span>
                              </div>
                          </form>
                          {isRegisterPopupOpen && (
@@ -55,11 +55,11 @@ import { useState } from "react"
                  </div>
 
                  <div className="col-lg-4 col-12 mb-4 mb-5">
-                     <img src="img/people-3.jpg" alt="Image" className="mb-4 img-fluid" style="border-radius: 50%; padding-bottom: 0sx" />
-                     <h2 className="tm-text-primary" style="margin-bottom: 0.5rem">
+                     <img src="img/people-3.jpg" alt="Image" className="mb-4 img-fluid" style={{borderRadius: "50%", paddingBottom: "0sx"}} />
+                     <h2 className="tm-text-primary" style={{marginBottom: "0.5rem"}}>
                      Fran Fersández
                      </h2>
-                     <h3 className="tm-text-secondary h5" style="margin-bottom: 0.5rem">
+                     <h3 className="tm-text-secondary h5" style={{marginBottom: "0.5rem"}}>
                      Amante ds la naturaleza
                      </h3>
                      <p className="mb-4">
@@ -82,7 +82,7 @@ import { useState } from "react"
                          </div>
                      </form>
                      {isRegisterPopupOpen && (
-                     <button style="float: right" type="submit" className="btn btn-primary"> Enviar </button>
+                     <button style={{float: "right"}} type="submit" className="btn btn-primary"> Enviar </button>
                      )}
                  </div>
              </div>
@@ -126,7 +126,7 @@ import { useState } from "react"
                              </tbody>
                              </table>
 
-                             <h1 className="rutas-titular" style="margin-top: 50px;">Rutas guardadas</h1>
+                             <h1 className="rutas-titular" style={{marginTop: "50px;"}}>Rutas guardadas</h1>
                              <div className="tabla">
                                  <table className="tg">
                                      <thead>
@@ -144,10 +144,10 @@ import { useState } from "react"
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Nerja</td>
                                              <td className="stg-0pky"><a href="ruta-recomend-detail.html"><u>Sendero acuático río Chillar</u></a></td>
-                                             <td className="stg-0pky" id="formarGrupo1" style="text-align: center; cursor: pointer;"><a
-                                                 style="scolor: green;" href="quedadas.html"><u>Ver quedadas en esta ruta</u></a></td>
-                                             <td className="tg-0pky" id="eliminar1" style="text-align: center; color: red; cursor: pointer;">
-                                             <u>Elimisar</u>
+                                             <td className="stg-0pky" id="formarGrupo1" style={{textAlign: "center", cursor: "pointer"}}><a
+                                                 style={{scolor: "green"}} href="quedadas.html"><u>Ver quedadas en esta ruta</u></a></td>
+                                             <td className="tg-0pky" id="eliminar1" style={{textAlign: "center", color: "red", cursor: "pointer"}}>
+                                             <u>Eliminar</u>
                                              </td>
 
                                          </tr>
@@ -155,9 +155,9 @@ import { useState } from "react"
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Ardales</td>
                                              <td className="stg-0pky"><a href="ruta-detail.html"><u>Caminito del Rey</u></a></td>
-                                             <td className="stg-0pky" id="formarGrupo2" style="text-align: center; cursor: pointer;"><a
-                                                 style="scolor: green;"><u>Ver quedadas en esta ruta</u></a></td>
-                                             <td className="tg-0pky" id="eliminar2" style="text-align: center; color: red; cursor: pointer;">
+                                             <td className="stg-0pky" id="formarGrupo2" style={{textAlign: "center", cursor: "pointer"}}><a
+                                                 style={{scolor: "green"}}><u>Ver quedadas en esta ruta</u></a></td>
+                                             <td className="tg-0pky" id="eliminar2" style={{textAlign: "center", color: "red", cursor: "pointer"}}>
                                              <u>Elimisar</u>
                                              </td>
 
@@ -166,10 +166,10 @@ import { useState } from "react"
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Antequera</td>
                                              <td className="stg-0pky"><a href="user-rute1-detail.html"><u>Sendero del Torcal</u></a></td>
-                                             <td className="stg-0pky" id="formarGrupo3" style="text-align: center; cursor: pointer;"><a
-                                                 style="scolor: green;"><u>Ver quedadas en esta ruta</u></a></td>
-                                             <td className="tg-0pky" id="eliminar3" style="text-align: center; color: red; cursor: pointer;">
-                                             <u>Elimisar</u>
+                                             <td className="stg-0pky" id="formarGrupo3" style={{textAlign: "center", cursor: "pointer"}}><a
+                                                 style={{scolor: "green"}}><u>Ver quedadas en esta ruta</u></a></td>
+                                             <td className="tg-0pky" id="eliminar3" style={{textAlign: "center", color: "red", cursor: "pointer"}}>
+                                             <u>Eliminar</u>
                                              </td>
 
                                          </tr>
@@ -177,9 +177,9 @@ import { useState } from "react"
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Nerja</td>
                                              <td className="stg-0pky"><a href="ruta-recomend-detail.html"><u>Sendero acuático río Chillar</u></a></td>
-                                             <td className="stg-0pky" id="formarGrupo1" style="text-align: center; cursor: pointer;"><a
-                                                 style="scolor: green;" href="quedadas.html"><u>Ver quedadas en esta ruta</u></a></td>
-                                             <td className="tg-0pky" id="eliminar4" style="text-align: center; color: red; cursor: pointer;">
+                                             <td className="stg-0pky" id="formarGrupo1" style={{textAlign: "center", cursor: "pointer"}}><a
+                                                 style={{scolor: "green"}} href="quedadas.html"><u>Ver quedadas en esta ruta</u></a></td>
+                                             <td className="tg-0pky" id="eliminar4" style={{textAlign: "center", color: "red", cursor: "pointer"}}>
                                              <u>Elimisar</u>
                                              </td>
 
@@ -188,9 +188,9 @@ import { useState } from "react"
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Ardales</td>
                                              <td className="stg-0pky"><a href="ruta-detail.html"><u>Caminito del Rey</u></a></td>
-                                             <td className="stg-0pky" id="formarGrupo2" style="text-align: center; cursor: pointer;"><a
-                                                 style="scolor: green;"><u>Ver quedadas en esta ruta</u></a></td>
-                                             <td className="tg-0pky" id="eliminar5" style="text-align: center; color: red; cursor: pointer;">
+                                             <td className="stg-0pky" id="formarGrupo2" style={{textAlign: "center", cursor: "pointer"}}><a
+                                                 style={{scolor: "green"}}><u>Ver quedadas en esta ruta</u></a></td>
+                                             <td className="tg-0pky" id="eliminar5" style={{textAlign: "center", color: "red", cursor: "pointer"}}>
                                              <u>Elimisar</u>
                                              </td>
 
@@ -199,9 +199,15 @@ import { useState } from "react"
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Antequera</td>
                                              <td className="stg-0pky"><a href="user-rute1-detail.html"><u>Sendero del Torcal</u></a></td>
+<<<<<<< HEAD
                                              <td className="stg-0pky" id="formarGrupo3" style="text-align: center; cursor: pointer;"><a
                                                  style="scolor: green;"><u>Ver quedadas en esta ruta</u></a></td>
                                              <td className="tg-0pky" id="eliminar6" style="text-align: center; color: red;"><u>Eliminar</u></td>
+=======
+                                             <td className="stg-0pky" id="formarGrupo3" style={{textAlign: "center", cursor: "pointer"}}><a
+                                                 style={{scolor: "green"}}><u>Ver quedadas en esta ruta</u></a></td>
+                                             <td className="tg-0pky" id="eliminar6" style={{textAlign: "center", color: "red"}}><u>Eliminar</u></td>
+>>>>>>> 6444d9a60bf7199befe666952d717fdb8162ce7d
 
                                              </tr>
                                      </tbody>
@@ -209,10 +215,18 @@ import { useState } from "react"
                              </div>
                          </div>
                  </div>
+<<<<<<< HEAD
              <button style="float: right; margin-top: 30px;" type="submit" className="btn btn-primary" onclick="confirmarCierreSesion()">Cerrar sesión
+=======
+             <button style={{float: "right", marginTop: "30px"}} type="submit" className="btn btn-primary" onclick="confirmarCierreSesion()">Cerrar sesión
+>>>>>>> 6444d9a60bf7199befe666952d717fdb8162ce7d
              </button>
          </div>
      </section>
  </main>
  </> )
+<<<<<<< HEAD
  }
+=======
+}
+>>>>>>> 6444d9a60bf7199befe666952d717fdb8162ce7d

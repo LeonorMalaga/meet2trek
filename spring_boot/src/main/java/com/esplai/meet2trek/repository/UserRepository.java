@@ -19,8 +19,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     /**
      * Custom query to determinate if a route is saved by a user
      * */
-    @Query("SELECT CASE WHEN COUNT(u) > 0 THEN true ELSE false END FROM User u JOIN u.savedRoutes r WHERE u.userId = :userId AND r.routeId = :routeId")
-    boolean userSavedRoute(@Param("userId") Long userId, @Param("routeId") Long routeId);
+    //@Query("SELECT CASE WHEN COUNT(u) > 0 THEN true ELSE false END FROM User u JOIN u.savedRoutes r WHERE u.userId = :userId AND r.routeId = :routeId")
+    //boolean userSavedRoute(@Param("userId") Long userId, @Param("routeId") Long routeId);
+    @Query(value = "SELECT COUNT(*) FROM user_saved_routes WHERE user_id = :userId AND route_id = :routeId", nativeQuery = true)
+    int countSavedRoutesByUser(@Param("userId") Long userId, @Param("routeId") Long routeId);
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM user_saved_routes WHERE user_id = :userId AND route_id = :routeId", nativeQuery = true)
