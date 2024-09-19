@@ -73,12 +73,12 @@ public class UserController {
 
     @GetMapping("users/{userId}/savedRoutes")
     public ResponseEntity<?> getSavedRoutes(@PathVariable Long userId) {
-        boolean exists= userService.existUserById(userId);
-        // System.out.println("userId: " + userId +", routeId:"+ routeId +",exists:"+ exists);
+        boolean exists = userService.existUserById(userId);
+        // System.out.println("userId: " + userId + ", routeId: " + routeId + ", exists: " + exists);
         if(!exists)
         {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(new ResponseMessage("User with id: " + userId + ", not found"));
+                    .body(new ResponseMessage("User with id " + userId + " was not found."));
         }
 
         return ResponseEntity.ok(userService.getSavedRoutersByUser(userId));
@@ -88,28 +88,33 @@ public class UserController {
     public ResponseEntity<ResponseMessage> saveRoute(@PathVariable Long userId, @RequestParam Long routeId) {
         userService.saveRoute(userId,routeId);
         boolean exists= userService.userSavedRoute(userId, routeId);
-       // System.out.println("userId: " + userId +", routeId:"+ routeId +",exists:"+ exists);
+       // System.out.println("userId: " + userId + ", routeId: " + routeId + ", exists: " + exists);
         if(exists)
         {
-            return ResponseEntity.status(409).body(new ResponseMessage("Route: "+routeId+", already saved by user:"+ userId));
+            return ResponseEntity.status(409).body(new ResponseMessage("The route with id " + routeId +
+                    " has already been saved by the user with id " + userId + "."));
         }
-        return ResponseEntity.status(200).body(new ResponseMessage("The route with id: " + routeId + ", has been saved for the user with id:"+ userId ));
+        return ResponseEntity.status(200).body(new ResponseMessage("The route with id: " + routeId +
+                " has been saved for the user whose id is " + userId + "."));
     }
 
     @DeleteMapping("/users/{userId}/savedRoutes")
-    public ResponseEntity<ResponseMessage> deleteRoute(@PathVariable Long userId, @RequestParam Long routeId) {
+    public ResponseEntity<ResponseMessage> deleteSavedRoute(@PathVariable Long userId, @RequestParam Long routeId) {
         boolean exists= userService.userSavedRoute(userId,routeId);
         if(!exists)
         {
-            return ResponseEntity.status(404).body(new ResponseMessage("Route not found"));
+            return ResponseEntity.status(404).body(new ResponseMessage("The route with id " + routeId +
+                    " was not found to be in the saved routes of the user with id " + userId + "."));
         }
-        System.out.println("---------------DELETE--------------userId: " + userId +", routeId:"+ routeId +", ---------------------------------");
+        System.out.println("---------------DELETE-------------- userId: " + userId + ", routeId: " + routeId +
+                ", ---------------------------------");
         boolean deleted = userService.deleteSavedRoute(userId,routeId);
-        System.out.println("userId: " + userId +", routeId:"+ routeId +", deleted:"+ deleted);
+        System.out.println("userId: " + userId + ", routeId: " + routeId + ", deleted: " + deleted);
         if(deleted) {
-            return ResponseEntity.status(200).body(new ResponseMessage("The route with id: " + routeId + " has been removed from the user: "+userId+" in the saved_routed table."));
+            return ResponseEntity.status(200).body(new ResponseMessage("The route with id " + routeId +
+                    " has been removed from the saved routes of the user with id " + userId + "."));
         }
-        return ResponseEntity.status(500).body(new ResponseMessage("Action can by done"));
+        return ResponseEntity.status(500).body(new ResponseMessage("Action can't be done."));
     }
 
 }
