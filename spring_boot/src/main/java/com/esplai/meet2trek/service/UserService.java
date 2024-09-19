@@ -216,12 +216,9 @@ public class UserService {
        userRepository.save(user);
     }
 
-    public int countSavedRoutesByUser(Long userId, Long routeId) {
-        int count= userRepository.countSavedRoutesByUser(userId, routeId);
-        System.out.println("-----------------userId: " + userId + ", routeId: " + routeId + ", exists: " + count+"----------------");
-        return count;
+    public int countSavedRoutesByUser(Long userId, Long routeId) {;
+        return userRepository.countSavedRoutesByUser(userId, routeId);
     }
-
 
     public boolean deleteSavedRoute(Long userId, Long routeId) {
         int rowsAffected = userRepository.deleteSavedRoute(userId, routeId);

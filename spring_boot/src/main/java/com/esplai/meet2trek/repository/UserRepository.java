@@ -21,7 +21,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
      * */
     //@Query("SELECT CASE WHEN COUNT(u) > 0 THEN true ELSE false END FROM User u JOIN u.savedRoutes r WHERE u.userId = :userId AND r.routeId = :routeId")
     //boolean userSavedRoute(@Param("userId") Long userId, @Param("routeId") Long routeId);
-    @Query(value = "SELECT COUNT(*) FROM user_saved_routes  WHERE user_id = :userId AND route_id = :routeId", nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM user_saved_routes WHERE user_id = :userId AND route_id = :routeId", nativeQuery = true)
     int countSavedRoutesByUser(@Param("userId") Long userId, @Param("routeId") Long routeId);
     @Modifying
     @Transactional

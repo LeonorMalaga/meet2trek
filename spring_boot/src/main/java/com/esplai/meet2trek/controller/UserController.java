@@ -88,10 +88,10 @@ public class UserController {
     public ResponseEntity<ResponseMessage> saveRoute(@PathVariable Long userId, @RequestParam Long routeId) {
 
         int count= userService.countSavedRoutesByUser(userId, routeId);
-        System.out.println("-----------------userId: " + userId + ", routeId: " + routeId + ", exists: " + count+"----------------");
+        //System.out.println("-----------------userId: " + userId + ", routeId: " + routeId + ", exists: " + count+"----------------");
         if(count > 0)
         {
-            return ResponseEntity.status(409).body(new ResponseMessage("NOT CHANGES APPLY:The route with id: " + routeId +
+            return ResponseEntity.status(409).body(new ResponseMessage("NO CHANGES APPLIED:The route with id: " + routeId +
                     " has already been saved by the user with id: " + userId + "."));
         }
         else
