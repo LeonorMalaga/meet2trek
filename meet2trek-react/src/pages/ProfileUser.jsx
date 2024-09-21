@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React from "react"
      const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false)
      const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false)
     
@@ -9,7 +9,7 @@ import { useState } from "react"
          const toggleLoginPopup = () => {
              setIsRegisterPopupOpen(!isRegisterPopupOpen)
              }
- export function ProfileUser () {
+ export default function ProfileUser () {
   
  return ( <>
  <main>

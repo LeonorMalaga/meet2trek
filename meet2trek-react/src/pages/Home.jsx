@@ -1,7 +1,7 @@
 
-import { useState } from "react"
+import React from "react";
 
-export function Home() {
+export default function Home() {
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
 
