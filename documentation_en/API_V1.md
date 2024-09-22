@@ -629,7 +629,7 @@ Possible responses:
 
 ### post_Route
 Creates a new Route object, given a Json body.  
-POST URL: http://localhost:8080/routes  
+POST URL: http://localhost:8080/api/routes  
 Json Body to send:
 ```json
 {
@@ -663,53 +663,49 @@ Possible responses:
 ### post_User
 Creates a new User object, given a Json body.
 
-POST URL: https://121.0.0.1:8080/api/v1/user/  
+POST http://127.0.0.1:8080/api/users 
 Json Body to send:
 ```json
 {  
-    "username": "Jonatan0",  
-    "password": "\*\*\*\*\*\*\*\*",  
-    "email": "\*\*\*\*\*\*\*\*@\*\*\*\*\*.\*\*\*",    
-    "p_difficulty": 3,  
-    "p_distanceApprox": 8000,  
-    "p_country": "SPAIN",  
-    "p_province": "MALAGA",  
-    "p_area": "MALAGA"  
+    "username": "Claudia0",
+    "password": "1234asdf",  
+    "email": "Claudia@gmail.com",
+    "icon":  "../USERS/Claudia/icon/people-2.jpg",
+    "name": "Claudia",  
+    "surname": "Gonzalez",
+    "slogan": "Aire, viento y sol es todo lo que necesito",
+    "aboutMe": "Joven entusiasta de la naturaleza a la que le gusta descubrir nuevos rincones.",
+    "preferredDifficulty": 6,
+    "preferredDistance": 10000,
+    "preferredCountry": "SPAIN",
+    "preferredProvince" : "MALAGA",
+    "preferredArea" : "FRIGILIANA"
 }
 ```  
 Possible responses:  
 201(OK):
 ```json
 {
-    "user_id": 15,
-    "username": "Jonatan0",  
-    "password": "\*\*\*\*\*\*\*\*",  
-    "email": "\*\*\*\*\*\*\*\*@\*\*\*\*\*.\*\*\*",  
-    "icon": "/Users/15",   
-    "p_difficulty": 3,  
-    "p_distanceApprox": 8000,  
-    "p_country": "SPAIN",  
-    "p_province": "MALAGA",  
-    "p_area": "MALAGA"  
+    "userId": 3,
+    "username": "Claudia0",
+    "password": "********",
+    "email": "********@*****.***",
+    "icon": "../USERS/Claudia/icon/people-2.jpg",
+    "name": "Claudia",
+    "surname": "Gonzalez",
+    "slogan": "Aire, viento y sol es todo lo que necesito",
+    "aboutMe": "Joven entusiasta de la naturaleza a la que le gusta descubrir nuevos rincones.",
+    "preferredDifficulty": 6,
+    "preferredDistance": 10000,
+    "preferredCountry": "SPAIN",
+    "preferredProvince": "MALAGA",
+    "preferredArea": "FRIGILIANA"
 }
-```
-406(Not Acceptable):
-```json
-{
-    message:"Incorrect or Incomplete Json body Fields",
-    incorrectFields: "List of incorrect fields"
-}
-```
 409(Conflict):
 ```json
 {
-    message:"The user already exists. Please use a different username."
-}
-```
-501(Internal Server Error):
-```json
-{
-    "message": "The server is currently saturated. Please try again later."
+    "status": 409,
+    "message": "Username already exists, and this email is already in use."
 }
 ```
 ### post_Meeting
@@ -829,48 +825,54 @@ Possible responses:
 ### put_User
 Edits an existing User object, given a Json body and having specified its Username (PK).
 PUT URL: https://121.0.0.1:8080/api/v1/user/{Id}  
+ex: http://127.0.0.1:8080/api/users/1
 Json Body to send: 
 ```json
-{  
-    "username": "Jonatan0",  
-    "password": "\*\*\*\*\*\*\*\*",  
-    "email": "\*\*\*\*\*\*\*\*@\*\*\*\*\*.\*\*\*",    
-    "p_difficulty": 3,  
-    "p_distanceApprox": 9000,  
-    "p_country": "SPAIN",  
-    "p_province": "MALAGA",  
-    "p_area": "Antequera"  
+{
+    "userId": 1,
+    "username": "Jonathan0",
+    "password": "1234asdf",
+    "email": "Jonathan@hotmail.com",
+    "icon": "../USERS/Jonathan0/icon/people-4.jpg",
+    "name": "Jonathan",
+    "surname": "Hein",
+    "slogan": "I am the best",
+    "aboutMe": "strong young man",
+    "preferredDifficulty": 5,
+    "preferredDistance": 8000,
+    "preferredCountry": "SPAIN",
+    "preferredProvince": "MALAGA",
+    "preferredArea": "ARDALES"
 }
 ```  
 Possible responses:  
 201(OK):
 ```json
 {
-    "user_id": 15,
-    "username": "Jonatan0",  
-    "password": "\*\*\*\*\*\*\*\*",  
-    "email": "\*\*\*\*\*\*\*\*@\*\*\*\*\*.\*\*\*",  
-    "icon": "/Users/15",   
-    "p_difficulty": 3,  
-    "p_distanceApprox": 9000,  
-    "p_country": "SPAIN",  
-    "p_province": "MALAGA",  
-    "p_area": "Antequera"  
+    "userId": 1,
+    "username": "Jonathan0",
+    "password": "********",
+    "email": "********@*****.***",
+    "icon": "../USERS/Jonathan0/icon/people-4.jpg",
+    "name": "Jonathan",
+    "surname": "Hein",
+    "slogan": "I am the best",
+    "aboutMe": "strong young man",
+    "preferredDifficulty": 5,
+    "preferredDistance": 8000,
+    "preferredCountry": "SPAIN",
+    "preferredProvince": "MALAGA",
+    "preferredArea": "ARDALES"
 }
 ```
-406(Not Acceptable):
+409(Not Acceptable):API MAL IMPLEMENTADA-ERROR
 ```json
 {
-    message:"User_id = Incorrect or Incomplete Json body Fields",
-    incorrectFields: "user_id does not exist" or "List of incorrect fields"
+    "status": 409,
+    "message": "Username already exists, and this email is already in use."
 }
 ```
-501(Internal Server Error):
-```json
-{
-    "message": "The server is currently saturated. Please try again later."
-}
-```
+
 ### put_Meeting
 Edits an existing Meeting object, given a Json body and having specified its Id (PK).
 PUT URL: https://121.0.0.1:8080/api/v1/meeting/{Id}  
