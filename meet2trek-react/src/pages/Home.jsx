@@ -141,7 +141,7 @@ export default function Home() {
             </a>
             <img className="img-destacada" src="img/Chilla/rioChilla3.jpg" alt="Imagen destacada" />
             <div className="card-content">
-              <a href="ruta-recomend-detail.html">
+              <a href="/recommended-route">
                 <h2 className="tm-text-primary" style={{ marginBottom: "0px", textAlign: "center" }}>
                   Sendero acuático río Chillar
                 </h2>

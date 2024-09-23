@@ -86,7 +86,7 @@ export default function RecommendedRoute() {
                                 </a>
                             </div>
                             <div className="text-center mb-5">
-                                <a className="btn btn-primary tm-btn-big" id="openLoginPopupBtn4">Ver quedadas</a>
+                                <a className="btn btn-primary tm-btn-big" id="openLoginPopupBtn4" href='/meets'>Ver quedadas</a>
                             </div>
                         </div>
                     </div>
