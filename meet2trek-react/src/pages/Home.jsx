@@ -1,4 +1,5 @@
 import { useState } from "react";
+import RouteList from "./RouteList";
 
 export default function Home() {
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
@@ -175,11 +176,12 @@ export default function Home() {
                 pequeño
                 paraíso natural de cascadas y piscinas naturales.
               </p>
-              <p className="card-features">Dificultad: Alta<br />Distancia: 15km</p>
+              <p className="card-features">Dificultad: 6/10<br />Distancia: 15km</p>
             </div>
           </div>
           <div className="card-columns">
-            <div className="card">
+            <RouteList />
+            {/*<div className="card">
               <img src="https://via.placeholder.com/300x150" alt="Imagen 1" />
               <div className="card-content">
                 <h3 className="card-title">Título 1</h3>
@@ -226,7 +228,7 @@ export default function Home() {
                 <h4>Descripción 1</h4>
                 <p className="card-features">Dificultad: Fácil<br />Distancia: 5km</p>
               </div>
-            </div>
+            </div>*/}
           </div>
         </section>
       </div>
