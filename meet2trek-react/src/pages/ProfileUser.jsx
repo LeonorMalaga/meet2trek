@@ -1,6 +1,12 @@
-import { useState } from "react"
+import { useState} from "react";
+import { useAuth } from '../context/AuthContext';
 export default function ProfileUser() {
-
+    const { isAuthenticated, login, logout } = useAuth();
+    if (isAuthenticated) {
+        console.log('-------------Está autenticado-----------');
+    }else{
+        console.log('-------------NO Está autenticado-----------');
+    }
  return ( <>
  <main>
      <section>
