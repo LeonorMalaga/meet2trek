@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-export default function Header() {
+export default function Header({toggleRegisterPopup, toggleLoginPopup}) {
   const { isAuthenticated, logout } = useContext(AuthContext);
 
   return (
@@ -19,7 +19,7 @@ export default function Header() {
               {isAuthenticated ? (
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/profile">
+                    <Link className="nav-link" to="/profile-user">
                       Perfil
                     </Link>
                   </li>
@@ -37,14 +37,14 @@ export default function Header() {
               ) : (
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/register">
+                    <a className="nav-link" onClick={toggleRegisterPopup}>
                       Regístrate
-                    </Link>
+                    </a>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/login">
+                    <a className="nav-link" onClick={toggleLoginPopup}>
                       Iniciar Sesión
-                    </Link>
+                    </a>
                   </li>
                 </>
               )}

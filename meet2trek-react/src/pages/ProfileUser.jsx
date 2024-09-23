@@ -1,16 +1,6 @@
 import { useState } from "react"
 export default function ProfileUser () {
-    const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false)
-    const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false)
-    
-    const toggleRegisterPopup = () => {
-        setIsRegisterPopupOpen(!isRegisterPopupOpen)
-    }
-    
-    const toggleLoginPopup = () => {
-        setIsRegisterPopupOpen(!isRegisterPopupOpen)
-    }
-  
+
  return ( <>
  <main>
      <section>

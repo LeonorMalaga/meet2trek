@@ -1,86 +1,16 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
-  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
 
-  const toggleRegisterPopup = () => {
-    setIsRegisterPopupOpen(!isRegisterPopupOpen);
-  };
-
-  const toggleLoginPopup = () => {
-    setIsLoginPopupOpen(!isLoginPopupOpen);
-  };
+  const aplicarFiltros = () => {
+    console.log('Aplicando filtros')
+  }
+  const guardarFiltros = () => {
+    console.log('Guardando filtros')
+  }
   return (  <>
-    
 
   <main>
-      {/* Popup de Registro */}
-      {isRegisterPopupOpen && (
-        <div className="popup-overlay">
-          <div className="popup-content">
-            <span className="close-btn" onClick={toggleRegisterPopup}>&times;</span>
-            <h2>Registro</h2>
-            <form id="registrationForm" action="tu-url-de-base-de-datos" method="POST">
-              <div className="form-group">
-                <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="username">Nombre de usuario:</label>
-                <input type="text" id="usernSame" name="username" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">Contraseña:</label>
-                <input 
-                  type="password" 
-                  id="password" 
-                  name="password" 
-                  placeholder="8 caracteres entre letras y números" 
-                  required 
-                  pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" 
-                  title="La contraseña debe tener al menos 8 caracteres, con letras y números." 
-                  style={{ fontSize: "1em" }} 
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="confirmPassword">Repetir contraseña:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required style={{ fontSize: "1em" }} />
-                <span id="La contraseña no coincide" style={{ color: "red", fontSize: "0.9em" }}></span>
-              </div>
-              <button type="submit" className="btn btn-primary">Enviar</button>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Popup de Inicio de Sesión */}
-      {isLoginPopupOpen && (
-        <div className="popup-overlay">
-          <div className="popup-content">
-            <span className="close-btn" onClick={toggleLoginPopup}>&times;</span>
-            <h2>Iniciar Sesión</h2>
-            <form id="loginForm" action="url-base-de-datos" method="POST">
-              <div className="form-group">
-                <label htmlFor="loginUsername">Nombre de usuario:</label>
-                <input type="text" id="loginUsername" name="loginUsername" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="loginPassword">Contraseña:</label>
-                <input type="password" id="loginPassword" name="loginPassword" required />
-              </div>
-              <button type="submit" className="btn btn-primary">Iniciar</button>
-              <p style={{ color: "black", marginTop: "10px" }}>
-                Si no estás registrado haz clic <a href="#" onClick={toggleRegisterPopup}><u>aquí</u></a>.
-              </p>
-              <p style={{ color: "black", marginTop: "10px" }}>
-                Has olvidado la contraseña? Haz clic <a href="#"><u>aquí</u></a>.
-              </p>
-            </form>
-          </div>
-        </div>
-      )}
-
       <div className="row" style={{ marginTop: "30px" }}>
         <div className="col-xl-3 mb-5">
           <img src="img/past2.jpg" alt="Image" className="img-fluid" style={{ maxWidth: "100%" }} />
@@ -99,7 +29,7 @@ export default function Home() {
             <h2 className="tm-text-primary">Filtros de búsqueda</h2>
             <form id="contact-form" action="" method="POST">
               <div className="form-group">
-                <select className="form-control" id="contact-select" name="inquiry">
+                <select className="form-control" name="inquiry">
                   <option>Provincia</option>
                   <option>Málaga</option>
                   <option disabled>Córdoba</option>
@@ -112,7 +42,7 @@ export default function Home() {
                 </select>
               </div>
               <div className="form-group">
-                <select className="form-control" id="contact-select" name="inquiry">
+                <select className="form-control" name="inquiry">
                   <option>Población</option>
                   <option>Málaga</option>
                   <option>Ronda</option>
@@ -145,8 +75,8 @@ export default function Home() {
                 />
               </div>
               <div className="tm-text-right" style={{ marginTop: "20px" }}>
-                <button type="submit" className="btn btn-primary">Buscar rutas</button>
-                <button type="button" className="btn btn-primary" onClick={toggleLoginPopup}>Guardar filtros</button>
+                <button type="button" className="btn btn-primary" onClick={aplicarFiltros}>Buscar rutas</button>
+                <button type="button" className="btn btn-primary" onClick={guardarFiltros}>Guardar filtros</button>
               </div>
             </form>
           </div>
