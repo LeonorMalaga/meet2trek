@@ -1,15 +1,15 @@
-import React from "react"
-     const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false)
-     const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false)
+import { useState } from "react"
+export default function ProfileUser () {
+    const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false)
+    const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false)
     
-     const toggleRegisterPopup = () => {
-         setIsRegisterPopupOpen(!isRegisterPopupOpen)
-         }
-        
-         const toggleLoginPopup = () => {
-             setIsRegisterPopupOpen(!isRegisterPopupOpen)
-             }
- export default function ProfileUser () {
+    const toggleRegisterPopup = () => {
+        setIsRegisterPopupOpen(!isRegisterPopupOpen)
+    }
+    
+    const toggleLoginPopup = () => {
+        setIsRegisterPopupOpen(!isRegisterPopupOpen)
+    }
   
  return ( <>
  <main>
@@ -209,7 +209,7 @@ import React from "react"
                              </div>
                          </div>
                  </div>
-             <button style={{float: "right", marginTop: "30px"}} type="submit" className="btn btn-primary" onclick="confirmarCierreSesion()">Cerrar sesión
+             <button style={{float: "right", marginTop: "30px"}} type="submit" className="btn btn-primary" onClick="confirmarCierreSesion()">Cerrar sesión
              </button>
          </div>
      </section>

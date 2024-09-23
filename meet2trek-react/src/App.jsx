@@ -1,5 +1,4 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Header from './pages/Header';
 import Footer from './pages/Footer';
@@ -14,14 +13,15 @@ export default function App() {
   return (
     <AuthProvider>
       <Router>
-        
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/meets" component={Meets} />
-          <Route path="/profile-user" component={ProfileUser} />
-          <Route path="/recommended-route" component={RecommendedRoute} />
-          <Route path="/route-detail" component={RouteDetail} />
-        </Switch>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/meets" element={<Meets />} />
+          <Route path="/profile-user" element={<ProfileUser />} />
+          <Route path="/recommended-route" element={<RecommendedRoute />} />
+          <Route path="/route-detail" element={<RouteDetail />} />
+        </Routes>
+        {/* <Footer /> */ }
      </Router>
     </AuthProvider>
   );
