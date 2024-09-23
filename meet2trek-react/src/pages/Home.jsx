@@ -6,7 +6,19 @@ export default function Home() {
   const [filter, setFilter] = useState({})
 
   const fetchRoutes = () => {
-    const queryParams = new URLSearchParams(filter).toString();
+    const filterMetre = {
+      ...filter,
+      distance: filter.distance ? filter.distance * 1000 : "",
+    }
+    const noEmptyFilters = Object.fromEntries(
+      Object.entries(filterMetre).filter(([key, value]) => {
+        if (typeof value === "string") {
+          return value.trim() !== "";
+        }
+        return value !== "" && value > 0;
+      })
+    )
+    const queryParams = new URLSearchParams(noEmptyFilters).toString();
 
     fetch(`http://localhost:8080/api/routes/getByFilter?${queryParams}`, 
       {method:"GET", 
@@ -29,6 +41,15 @@ export default function Home() {
   const guardarFiltros = () => {
     console.log('Guardando filtros')
   }
+
+  const fetchFilter = (e) => {
+    const { name, value } = e.target;
+    setFilter({
+      ...filter,
+      [name]: value,
+    })
+  }
+
   return (  <>
 
   <main>
@@ -50,8 +71,8 @@ export default function Home() {
             <h2 className="tm-text-primary">Filtros de búsqueda</h2>
             <form id="contact-form" onSubmit={fetchFilteredPosts} method="GET">
               <div className="form-group">
-                <select className="form-control" name="inquiry">
-                  <option>Provincia</option>
+                <select className="form-control" name="province" value={filter.province} onChange={fetchFilter}>
+                  <option value="">Provincia</option>
                   <option>Málaga</option>
                   <option disabled>Córdoba</option>
                   <option disabled>Sevilla</option>
@@ -63,11 +84,15 @@ export default function Home() {
                 </select>
               </div>
               <div className="form-group">
-                <select className="form-control" name="inquiry">
-                  <option>Población</option>
+                <select className="form-control" name="area" value={filter.area} onChange={fetchFilter}>
+                  <option value="">Área</option>
                   <option>Málaga</option>
                   <option>Ronda</option>
+                  <option value="CHILLAR">Nerja</option>
                   <option>Antequera</option>
+                  <option>Ardales</option>
+                  <option>Frigiliana</option>
+                  <option value="MONTES_DE_MALAGA">Montes de Málaga</option>
                   <option>Axarquía</option>
                   <option>Guadalhorce</option>
                   <option>Abdalajís</option>
@@ -84,16 +109,19 @@ export default function Home() {
                   placeholder="Dificultad (del 1 al 10)" 
                   min="1" 
                   max="10" 
+                  onChange={fetchFilter}
                 />
               </div>
               <div className="form-group">
                 <input 
                   type="number" 
-                  name="distancia" 
+                  name="distance"
+                  value={filter.distance}  
                   className="form-control" 
                   placeholder="Distancia (de 1 a 30km)" 
                   min="0" 
-                  max="30" 
+                  max="30"
+                  onChange={fetchFilter} 
                 />
               </div>
               <div className="tm-text-right" style={{ marginTop: "20px" }}>
