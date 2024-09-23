@@ -1,5 +1,5 @@
 import { useState } from "react"
-export default function ProfileUser () {
+export default function ProfileUser() {
 
  return ( <>
  <main>
@@ -38,9 +38,6 @@ export default function ProfileUser () {
                              <span id="La contraseña no coincide" style={{color: "red", fontSize: "0.9em"}}></span>
                              </div>
                          </form>
-                         {isRegisterPopupOpen && (
-                         <button type="submit" className="btn btn-primary">Enviar</button>
-                         )}
                      </div>
                  </div>
 
@@ -71,9 +68,6 @@ export default function ProfileUser () {
                              <textarea id="perfil" className="form-control" rows="7" maxLength="200" placeholder="Describete coso quieras"></textarea>
                          </div>
                      </form>
-                     {isRegisterPopupOpen && (
-                     <button style={{float: "right"}} type="submit" className="btn btn-primary"> Enviar </button>
-                     )}
                  </div>
              </div>
 

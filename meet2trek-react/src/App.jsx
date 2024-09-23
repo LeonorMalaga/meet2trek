@@ -95,7 +95,7 @@ export default function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/meets" element={<Meets />} />
-          <Route path="/profile-user" element={<ProfileUser />} />
+          <Route path="/profile_user" element={<ProfileUser />} />
           <Route path="/recommended-route" element={<RecommendedRoute />} />
           <Route path="/route-detail" element={<RouteDetail />} />
         </Routes>
