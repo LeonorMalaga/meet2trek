@@ -6,7 +6,9 @@ export default function Home() {
   const [filter, setFilter] = useState({})
 
   const fetchRoutes = () => {
-    fetch("http://localhost:8080/api/routes/getByFilter", 
+    const queryParams = new URLSearchParams(filter).toString();
+
+    fetch(`http://localhost:8080/api/routes/getByFilter?${queryParams}`, 
       {method:"GET", 
         headers: {
           "Content-Type": 'application/x-www-form-urlencoded'
@@ -76,7 +78,8 @@ export default function Home() {
               <div className="form-group">
                 <input 
                   type="number" 
-                  name="dific" 
+                  name="difficulty"
+                  value={filter.difficulty} 
                   className="form-control" 
                   placeholder="Dificultad (del 1 al 10)" 
                   min="1" 
