@@ -22,6 +22,7 @@ export default function App() {
   const toggleLoginPopup = () => {
     console.log('toggleLoginPopup')
     setIsLoginPopupOpen(!isLoginPopupOpen)
+    login()
   }
   const toggleLoginAndRegisterPopup = () => {
     console.log('toggleLoginAndRegisterPopup')
