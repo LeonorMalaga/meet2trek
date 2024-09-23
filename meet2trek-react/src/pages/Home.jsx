@@ -86,18 +86,17 @@ export default function Home() {
               <div className="form-group">
                 <select className="form-control" name="area" value={filter.area} onChange={fetchFilter}>
                   <option value="">Área</option>
-                  <option>Málaga</option>
-                  <option>Ronda</option>
                   <option value="CHILLAR">Nerja</option>
                   <option>Antequera</option>
                   <option>Ardales</option>
                   <option>Frigiliana</option>
                   <option value="MONTES_DE_MALAGA">Montes de Málaga</option>
-                  <option>Axarquía</option>
-                  <option>Guadalhorce</option>
-                  <option>Abdalajís</option>
-                  <option>Costa del Sol</option>
-                  <option>Almijara</option>
+                  <option disabled>Ronda</option>
+                  <option disabled>Guadalhorce</option>
+                  <option disabled>Abdalajís</option>
+                  <option disabled>Costa del Sol</option>
+                  <option disabled>Almijara</option>
+                  <option disabled>Málaga</option>
                 </select>
               </div>
               <div className="form-group">
