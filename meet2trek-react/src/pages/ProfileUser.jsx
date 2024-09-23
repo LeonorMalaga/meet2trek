@@ -1,6 +1,12 @@
-import { useState } from "react"
-export default function ProfileUser () {
-
+import { useState} from "react";
+import { useAuth } from '../context/AuthContext';
+export default function ProfileUser() {
+    const { isAuthenticated, login, logout } = useAuth();
+    if (isAuthenticated) {
+        console.log('-------------Está autenticado-----------');
+    }else{
+        console.log('-------------NO Está autenticado-----------');
+    }
  return ( <>
  <main>
      <section>
@@ -38,9 +44,6 @@ export default function ProfileUser () {
                              <span id="La contraseña no coincide" style={{color: "red", fontSize: "0.9em"}}></span>
                              </div>
                          </form>
-                         {isRegisterPopupOpen && (
-                         <button type="submit" className="btn btn-primary">Enviar</button>
-                         )}
                      </div>
                  </div>
 
@@ -71,9 +74,6 @@ export default function ProfileUser () {
                              <textarea id="perfil" className="form-control" rows="7" maxLength="200" placeholder="Describete coso quieras"></textarea>
                          </div>
                      </form>
-                     {isRegisterPopupOpen && (
-                     <button style={{float: "right"}} type="submit" className="btn btn-primary"> Enviar </button>
-                     )}
                  </div>
              </div>
 

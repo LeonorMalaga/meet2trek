@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Header from './pages/Header';
 import Footer from './pages/Footer';
@@ -22,6 +22,12 @@ export default function App() {
   const toggleLoginPopup = () => {
     console.log('toggleLoginPopup')
     setIsLoginPopupOpen(!isLoginPopupOpen)
+    login()
+  }
+  const toggleLoginAndRegisterPopup = () => {
+    console.log('toggleLoginAndRegisterPopup')
+    setIsLoginPopupOpen(!isLoginPopupOpen)
+    setIsRegisterPopupOpen(!isRegisterPopupOpen)
   }
 
   return (
@@ -63,7 +69,7 @@ export default function App() {
                 <input type="password" id="confirmPassword" name="confirmPassword" required style={{ fontSize: "1em" }} />
                 <span id="La contraseña no coincide" style={{ color: "red", fontSize: "0.9em" }}></span>
               </div>
-              <button type="submit" className="btn btn-primary">Enviar</button>
+              <Link to="/profile_user" onClick={toggleRegisterPopup} className="btn btn-primary">Enviar</Link>
             </form>
           </div>
         </div>
@@ -82,12 +88,9 @@ export default function App() {
                 <label htmlFor="loginPassword">Contraseña:</label>
                 <input type="password" id="loginPassword" name="loginPassword" required />
               </div>
-              <button type="submit" className="btn btn-primary">Iniciar</button>
+              <Link to="/profile_user" onClick={toggleLoginPopup} className="btn btn-primary">Iniciar</Link>
               <p style={{ color: "black", marginTop: "10px" }}>
-                Si no estás registrado haz clic <a href="#" onClick={toggleRegisterPopup}><u>aquí</u></a>.
-              </p>
-              <p style={{ color: "black", marginTop: "10px" }}>
-                Has olvidado la contraseña? Haz clic <a href="#"><u>aquí</u></a>.
+                Si no estás registrado haz clic <a href="#" onClick={toggleLoginAndRegisterPopup}><u>aquí</u></a>.
               </p>
             </form>
           </div>
@@ -95,7 +98,7 @@ export default function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/meets" element={<Meets />} />
-          <Route path="/profile-user" element={<ProfileUser />} />
+          <Route path="/profile_user" element={<ProfileUser />} />
           <Route path="/recommended-route" element={<RecommendedRoute />} />
           <Route path="/route-detail" element={<RouteDetail />} />
         </Routes>
