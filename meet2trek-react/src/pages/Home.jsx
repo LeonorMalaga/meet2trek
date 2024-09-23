@@ -15,7 +15,7 @@ export default function Home() {
         if (typeof value === "string") {
           return value.trim() !== "";
         }
-        return value !== "" && value > 0;
+        return value !== "";
       })
     )
     const queryParams = new URLSearchParams(noEmptyFilters).toString();
