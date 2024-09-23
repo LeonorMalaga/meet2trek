@@ -19,6 +19,7 @@ import java.util.Set;
 @SuppressWarnings("unused")
 @Controller
 @Data
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api")
 public class RouteController {
