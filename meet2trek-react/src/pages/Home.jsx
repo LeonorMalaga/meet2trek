@@ -134,7 +134,7 @@ export default function Home() {
 
         <section className="css-raul">
           <div className="card featured-card">
-            <a href="ruta-recomend-detail.html">
+            <a href="/recommended-route">
               <h1 className="titular" style={{ textAlign: "center", padding: "15px", margin: "20px 20px 0 20px" }}>
                 Ruta recomendada del mes
               </h1>
