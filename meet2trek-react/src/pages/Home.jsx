@@ -1,10 +1,28 @@
-import { useState } from "react";
-import RouteList from "./RouteList";
+import { useEffect, useState } from "react";
+import RouteCard from "./RouteCard";
 
 export default function Home() {
+  const [routes, setRoutes] = useState([])
+  const [filter, setFilter] = useState({})
 
-  const aplicarFiltros = () => {
+  const fetchRoutes = () => {
+    fetch("http://localhost:8080/api/routes/getByFilter", 
+      {method:"GET", 
+        headers: {
+          "Content-Type": 'application/x-www-form-urlencoded'
+        }})
+      .then(response => response.json())
+      .then(data => setRoutes(data))
+      .catch(error => console.error("Error: " + error))
+  }
+
+  useEffect(() => {
+      fetchRoutes()
+  }, [])
+
+  const fetchFilteredPosts = () => {
     console.log('Aplicando filtros')
+    fetchRoutes()
   }
   const guardarFiltros = () => {
     console.log('Guardando filtros')
@@ -28,7 +46,7 @@ export default function Home() {
         <aside>
           <div id="filter">
             <h2 className="tm-text-primary">Filtros de búsqueda</h2>
-            <form id="contact-form" action="" method="POST">
+            <form id="contact-form" onSubmit={fetchFilteredPosts} method="GET">
               <div className="form-group">
                 <select className="form-control" name="inquiry">
                   <option>Provincia</option>
@@ -61,7 +79,7 @@ export default function Home() {
                   name="dific" 
                   className="form-control" 
                   placeholder="Dificultad (del 1 al 10)" 
-                  min="0" 
+                  min="1" 
                   max="10" 
                 />
               </div>
@@ -76,7 +94,7 @@ export default function Home() {
                 />
               </div>
               <div className="tm-text-right" style={{ marginTop: "20px" }}>
-                <button type="button" className="btn btn-primary" onClick={aplicarFiltros}>Buscar rutas</button>
+                <button type="button" className="btn btn-primary" onClick={fetchFilteredPosts}>Buscar rutas</button>
                 <button type="button" className="btn btn-primary" onClick={guardarFiltros}>Guardar filtros</button>
               </div>
             </form>
@@ -110,7 +128,9 @@ export default function Home() {
             </div>
           </div>
           <div className="card-columns">
-            <RouteList />
+            {routes.map((route) => (
+                <RouteCard route={route} key={route.id} />
+            ))}
             {/*<div className="card">
               <img src="https://via.placeholder.com/300x150" alt="Imagen 1" />
               <div className="card-content">
