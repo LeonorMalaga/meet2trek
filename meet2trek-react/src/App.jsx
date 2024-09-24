@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import Header from './pages/Header';
 import Footer from './pages/Footer';
 import Home from './pages/Home';
@@ -13,16 +13,17 @@ import { useState } from 'react';
 export default function App() {
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
-
+  //const { login } = useAuth(); 
   const toggleRegisterPopup = () => {
     console.log('toggleRegisterPopup')
     setIsRegisterPopupOpen(!isRegisterPopupOpen)
+    //login();
   }
 
   const toggleLoginPopup = () => {
     console.log('toggleLoginPopup')
     setIsLoginPopupOpen(!isLoginPopupOpen)
-    login()
+    //login()
   }
   const toggleLoginAndRegisterPopup = () => {
     console.log('toggleLoginAndRegisterPopup')
