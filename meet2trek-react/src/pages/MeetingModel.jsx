@@ -22,7 +22,7 @@ function MeetingModel() {
     return (
     <main>
         <div className="cont-rutas" style={{height: "80vh"}}>
-            <h1 className="rutas-titular">Quedada en {meeting.route.name}</h1>
+            <h1 className="rutas-titular">Quedada en {/*{meeting.route.name}*/}</h1>
             <div className="tabla">
                 <table className="tg">
                     <thead>
@@ -42,7 +42,7 @@ function MeetingModel() {
                         </tr>
                     </tbody>
                 </table>
-            {meeting.users.length === 0 ? ("") : (
+            {/*{meeting.users.length === 0 ? ("") : (
                 <div className="row tm-mb-74 tm-people-row" style={{marginTop: "20px"}}>
             {meeting.users.map(user => (
               <div className="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
@@ -53,7 +53,7 @@ function MeetingModel() {
                 </div>
             ))}
       </div>
-      )}
+      )}*/}
             </div>
         </div>
     </main>

@@ -26,7 +26,7 @@ public class User {
     private String password;
     @NotBlank
     private String email;
-    private String icon;
+    private String icon = "../USERS/Default.jpg";
     private String name;
     private String surname;
     @Size(max = 120)
