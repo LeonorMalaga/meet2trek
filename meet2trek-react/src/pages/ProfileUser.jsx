@@ -15,7 +15,7 @@ export default function ProfileUser() {
          <div className="container-fluid tm-mt-60 mb-4">
         
              <div className="row tm-mb-50">
-             <img src="img/cascada.jpg" alt="Image" style={{ padding:"0", margin:"0" }} />
+             <img src="img/img-09.jpg" alt="Image" style={{width: '100vw', height: '35vh', marginBottom:"5vh", objectFit: 'cover' }} />
                  <div className="col-lg-4 col-12">
                          <div>
                          <h2 className="tm-text-primary mb-4">Modificar mis datos de registro</h2>

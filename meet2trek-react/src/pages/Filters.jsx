@@ -9,7 +9,9 @@ const App = () => {
         <div>
 
             <main>
+            <img src="img/img-06.jpg" alt="Image" style={{width: '100vw', height: '35vh', marginBottom:"0vh", objectFit: 'cover' }} />
                 <div className="main2">
+            
                     <aside>
                         <div id="filter">
                             <h2 className="tm-text-primary">Filtros de búsqueda</h2>

@@ -51,6 +51,7 @@ export default function App() {
           toggleRegisterPopup={toggleRegisterPopup}
           login={login}
           setLoginFalse={setLoginFalse}
+          setLoginTrue={setLoginTrue}
         />
         {/* Popup de Registro */}
         <div className="popup-overlay" style={{display: isRegisterPopupOpen ? 'block': 'none'}}>
