@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:5173/", allowedHeaders = "http://localhost:5173/")
 @RestController
 @RequestMapping("/api")
 public class MeetingController {

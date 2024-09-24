@@ -19,7 +19,7 @@ import java.util.Set;
 
 @SuppressWarnings("unused")
 @Controller
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:5173/", allowedHeaders = "http://localhost:5173/")
 @RestController
 @RequestMapping("/api")
 public class UserController {

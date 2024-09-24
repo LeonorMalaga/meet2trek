@@ -2,7 +2,7 @@ function RouteCard({ route }) {
     return (
         <>
         <div className="card">
-            <img src={route.portraitPath} alt="Imagen 1" />
+            <img src={route.portraitPath} />
             <div className="card-content">
                 <h3 className="card-title">{route.name}</h3>
                 <h4>{route.shortDescription}</h4>
