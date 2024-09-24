@@ -68,7 +68,7 @@ public class RouteController {
         return ResponseEntity.status(200).body(new ResponseMessage("Route ID: " + routeId));
     }
     @GetMapping("/routes/{id}")
-    public  Optional<Route> getTasks(@PathVariable Long id){
+    public  Optional<Route> getRoutes(@PathVariable Long id){
         return routeService.findRouteById(id);
     }
     @GetMapping("/routes")

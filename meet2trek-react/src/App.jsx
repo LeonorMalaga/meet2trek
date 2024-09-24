@@ -11,6 +11,7 @@ import RouteList from './pages/RouteList';
 import './App.css';
 import { useState } from 'react';
 import RouteModel from './pages/RouteModel';
+import MeetingModel from './pages/MeetingModel';
 
 export default function App() {
 
@@ -115,7 +116,8 @@ export default function App() {
           <Route path="/profile_user" element={<ProfileUser />} />
           <Route path="/recommended-route" element={<RecommendedRoute />} />
           <Route path="/route-detail" element={<RouteDetail />} />
-          <Route path="/routes/:id" element={<RouteModel />} />
+          <Route path="/routes/:routeId" element={<RouteModel />} />
+          <Route path="/meetings/:meetingId" element={<MeetingModel />} />
         </Routes>
         <Footer /> 
      </Router>

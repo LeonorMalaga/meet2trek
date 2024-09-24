@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Youtube from 'react-youtube'
+import MeetingList from "./MeetingList";
 
 function RouteModel() {
-    const { id } = useParams();
-    console.log({id})
+    const { routeId } = useParams();
     const [route, setRoute] = useState({})
     useEffect(() => {
         async function getRoute() {
-            console.log('getRoute')
-            const route = await fetch(`http://localhost:8080/api/routes/${id}`, 
+            const route = await fetch(`http://localhost:8080/api/routes/${routeId}`, 
                 {method:"GET", 
                   headers: {
                     "Content-Type": 'application/x-www-form-urlencoded'
@@ -19,7 +19,21 @@ function RouteModel() {
             setRoute(route)
         }
         getRoute()
-    }, [id])
+    }, [routeId])
+
+    const [meetings, setMeetings] = useState([])
+
+    const fetchMeetings = () => {
+        fetch(`http://localhost:8080/api/routes/${routeId}/meetings`, 
+            {method: "GET"})
+            .then(response => response.json())
+            .then(data => setMeetings(data))
+            .catch(error => console.error("Error: " + error))
+    }
+
+    useEffect(() => {
+        fetchMeetings()
+    }, [])
 
     return (
         <main>
@@ -31,20 +45,20 @@ function RouteModel() {
                 </div>
                 <div className="row tm-mb-90">
                     <div className="col-xl-8 col-lg-7 col-md-6 col-sm-12">
-                        <iframe
+                        {route.videoUrl && <Youtube
                             id="vid"
                             width="743"
                             height="418"
-                            src={route.videoUrl}
+                            videoId={route.videoUrl}
                             allowFullScreen
-                        ></iframe>
+                        ></Youtube>}
 
                         <div>
                             <img
                                 src={route.portraitPath}
                                 alt="Image"
-                                className=""
-                                style={{ marginTop: "10px", width: "100%" }}
+                                style={{ marginTop: "10px" }}
+                                width="100%"
                             />
                             <h2 style={{ margin: "20px 0", color: "#437571" }}>Mapa de la ruta</h2>
                             <div className="gmap-canvas">
@@ -84,15 +98,137 @@ function RouteModel() {
                                     Guardar Ruta
                                 </a>
                             </div>
-                            <div className="text-center mb-5">
-                                <a className="btn btn-primary tm-btn-big" id="openLoginPopupBtn4" href='/meets'>Ver quedadas</a>
-                            </div>
+              {/* Popup de Inicio de Sesión */}
+              <LoginPopup />
+              {/* Popup de Registro */}
+              <RegistrationPopup />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="cont-rutas" style={{ height: '80vh', maxWidth: '70%' }}>
+        <h1 className="rutas-titular">Próximas quedadas</h1>
+        <div className="tabla">
+            <table className="tg">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Ver quedadas</th>
+                    </tr>
+                </thead>
+                <tbody>
+        {meetings.map((meeting) => (
+            <MeetingList meeting={meeting} key={meeting.meetingId} />
+            ))}
+                </tbody>
+            </table>
+
+            <section style={{marginTop: "50px"}}>
+                    <h1 className="rutas-titular">Crear quedada</h1>
+                    <div className="contenedor">
+                        <div className="form-group">
+                            <label style={{color: "#437571", margin: "0px", textAlign: "left"}} htmlFor="dat">Selecionar
+                                fecha</label><br />
+                            <input type="date" name="fecha" className="form-control" min="0" max="30" required
+                                style={{padding: "15px 20px 15px 20px", marginTop: "-20px"}} />
+                        </div>
+
+                        <div className="form-group">
+                            <label style={{color: "#437571", margin: "0px", textAlign: "left"}} htmlFor="hora">Seleccionar
+                                hora</label><br />
+                            <input type="time" name="hora" className="form-control" required
+                                style={{padding: "15px 20px 15px 20px", marginTop: "-20px"}} />
                         </div>
                     </div>
-                </div>
+                    <div className="form-group">
+                        <label htmlFor="encuentro" style={{color: "#437571", margin: "0px", textAlign: "left"}} required>Punto de
+                            encuentro</label>
+                        <textarea id="perfil" className="form-control" rows="3" maxLength="200"
+                            placeholder="Escribe un punto de encuentro"></textarea>
+                    </div>
+            </section>
             </div>
-        </main>
-    )
-}
+            <a href="#" style={{float: "right", marginTop: "30px"}}>
+                <button type="button" className="btn btn-primary" style={{marginBottom: "30px"}}>Crear</button>
+            </a>
+        </div>
+    </main>
+  );
+};
+
+const LoginPopup = () => {
+  return (
+    <div id="loginPopupForm" className="popup-overlay">
+      <div className="popup-content">
+        <span className="close-btn" id="closeLoginPopup">&times;</span>
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm" action="quedadas.html" method="POST">
+          <div className="form-group">
+            <label htmlFor="loginUsername">Nombre de usuario:</label>
+            <input type="text" id="loginUsername" name="loginUsername" required />
+          </div>
+          <div className="form-group">
+            <label htmlFor="loginPassword">Contraseña:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required />
+          </div>
+          <button type="submit" className="btn btn-primary">Ver</button>
+          <p style={{ color: 'black', marginTop: '10px' }}>
+            Si no estás registrado haz clic <a href="#" id="openPopup"><u>aquí</u></a>.
+          </p>
+          <p style={{ color: 'black', marginTop: '10px' }}>
+            Has olvidado la contraseña? Haz clic <a href="#" id="#"><u>aquí</u></a>.
+          </p>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+const RegistrationPopup = () => {
+  return (
+    <div id="popupForm" className="popup-overlay">
+      <div className="popup-content">
+        <span className="close-btn" id="closePopup">&times;</span>
+        <h2>Registro</h2>
+        <form id="registrationForm" action="tu-url-de-base-de-datos" method="POST">
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div className="form-group">
+            <label htmlFor="username">Nombre de usuario:</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Contraseña:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="8 caracteres entre letras y números"
+              required
+              pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+              title="La contraseña debe tener al menos 8 caracteres, con letras y números."
+              style={{ fontSize: '1em' }}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="confirmPassword">Repetir contraseña:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+              style={{ fontSize: '1em' }}
+            />
+            <span id="La contraseña no coincide" style={{ color: 'red', fontSize: '0.9em' }}></span>
+          </div>
+          <button type="submit" className="btn btn-primary">Enviar</button>
+        </form>
+      </div>
+    </div>
+  );
+};
 
 export default RouteModel
