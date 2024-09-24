@@ -1,11 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function Header({toggleRegisterPopup, toggleLoginPopup}) {
-  const { isAuthenticated, logout } = useContext(AuthContext);
-
   return (
     <header>
       <nav className="navbar navbar-expand-lg">
@@ -16,26 +13,17 @@ export default function Header({toggleRegisterPopup, toggleLoginPopup}) {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-              {isAuthenticated ? (
                 <>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/profile-user">
-                      Perfil
+                <li className="nav-item">
+                    <Link className="nav-link" to="/profile_user">
+                      Mi Perfil
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/">
+                      Log out
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/meets">
-                      Quedadas
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <button className="nav-link btn btn-link" onClick={logout}>
-                      Cerrar Sesión
-                    </button>
-                  </li>
-                </>
-              ) : (
-                <>
                   <li className="nav-item">
                     <a className="nav-link" onClick={toggleRegisterPopup}>
                       Regístrate
@@ -47,20 +35,11 @@ export default function Header({toggleRegisterPopup, toggleLoginPopup}) {
                     </a>
                   </li>
                 </>
-              )}
             </ul>
           </div>
         </div>
       </nav>
-      <div className="video-container">
-        <video loop autoPlay muted id="hero-video" style={{ width: '100vw' }}>
-          <source src="/video/hero.mp4" type="video/mp4" />
-          No se puede reproducir el video
-        </video>
-        <div id="overlay-text" className="overlay-text">
-          Mucho más que senderismo...
-        </div>
-      </div>
+
     </header>
   );
 }

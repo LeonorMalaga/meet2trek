@@ -53,6 +53,15 @@ export default function Home() {
   return (  <>
 
   <main>
+  <div className="video-container">
+        <video loop autoPlay muted id="hero-video" style={{ width: '100vw' }}>
+          <source src="/video/hero.mp4" type="video/mp4" />
+          No se puede reproducir el video
+        </video>
+        <div id="overlay-text" className="overlay-text">
+          Mucho más que senderismo...
+        </div>
+      </div>
       <div className="row" style={{ marginTop: "30px" }}>
         <div className="col-xl-3 mb-5">
           <img src="img/past2.jpg" alt="Image" className="img-fluid" style={{ maxWidth: "100%" }} />
