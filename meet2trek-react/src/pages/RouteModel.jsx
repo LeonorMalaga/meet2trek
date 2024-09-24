@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-router-dom";
-import { getRoute } from "../placeholders/getRoute";
 import { useEffect, useState } from "react";
 
 function RouteModel() {
