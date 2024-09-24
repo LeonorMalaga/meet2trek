@@ -108,22 +108,26 @@ function RouteModel() {
       </div>
       <div className="cont-rutas" style={{ height: '80vh', maxWidth: '70%' }}>
         <h1 className="rutas-titular">Próximas quedadas</h1>
-        <div className="tabla">
-            <table className="tg">
-                <thead>
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>Ver quedadas</th>
-                    </tr>
-                </thead>
-                <tbody>
-        {meetings.map((meeting) => (
+        {meetings.length === 0 ? (
+          <p style={{color: "black"}}>No hay quedadas para esta ruta. Crea una abajo.</p>
+        ) : (
+        meetings.map((meeting) => (
+          <div className="tabla">
+          <table className="tg">
+              <thead>
+                  <tr>
+                      <th>Fecha</th>
+                      <th>Hora</th>
+                      <th>Ver quedadas</th>
+                  </tr>
+              </thead>
+              <tbody>
             <MeetingList meeting={meeting} key={meeting.meetingId} />
-            ))}
-                </tbody>
+            </tbody>
             </table>
-
+            </div>
+            ))
+)}
             <section style={{marginTop: "50px"}}>
                     <h1 className="rutas-titular">Crear quedada</h1>
                     <div className="contenedor">
@@ -152,7 +156,6 @@ function RouteModel() {
             <a href="#" style={{float: "right", marginTop: "30px"}}>
                 <button type="button" className="btn btn-primary" style={{marginBottom: "30px"}}>Crear</button>
             </a>
-        </div>
     </main>
   );
 };
