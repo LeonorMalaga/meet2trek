@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 
-export default function Meets () {
+export default function MeetNews () {
 
     useEffect(() => {
       // Scripts del componente
@@ -22,12 +22,13 @@ export default function Meets () {
   
     return (
       <div>
-        {/* Loader */}
+    
+        {/* Loader 
         <div id="loader-wrapper">
           <div id="loader"></div>
           <div className="loader-section section-left"></div>
           <div className="loader-section section-right"></div>
-        </div>
+        </div>*/}
   
         {/* Header */}
         <header>

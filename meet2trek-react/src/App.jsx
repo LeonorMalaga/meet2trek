@@ -4,10 +4,11 @@ import Header from './pages/Header';
 import Footer from './pages/Footer';
 import Home from './pages/Home';
 import Meets from './pages/Meets';
+import MeetNews from './pages/MeetNews';
 import ProfileUser from './pages/ProfileUser';
-import RecommendedRoute from './pages/RecommendedRoute';
-import RouteDetail from './pages/RouteDetail';
-import RouteList from './pages/RouteList';
+import RecommendedRoute from './pages/Reco-RouteDetailNew';
+import RouteDetail from './pages/RouteDetailNew';
+import Filters from './pages/Filters';
 import './App.css';
 import { useState } from 'react';
 import RouteModel from './pages/RouteModel';
@@ -51,6 +52,7 @@ export default function App() {
           toggleRegisterPopup={toggleRegisterPopup}
           login={login}
           setLoginFalse={setLoginFalse}
+          setLoginTrue={setLoginTrue}
         />
         {/* Popup de Registro */}
         <div className="popup-overlay" style={{display: isRegisterPopupOpen ? 'block': 'none'}}>
@@ -112,12 +114,14 @@ export default function App() {
         </div>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/meets" element={<Meets />} />
+          <Route path="/meetNews" element={<MeetNews />} />
+          <Route path="/meet" element={<Meets />} />
           <Route path="/profile_user" element={<ProfileUser />} />
           <Route path="/recommended-route" element={<RecommendedRoute />} />
           <Route path="/route-detail" element={<RouteDetail />} />
           <Route path="/routes/:routeId" element={<RouteModel />} />
           <Route path="/meetings/:meetingId" element={<MeetingModel />} />
+          <Route path="/filter" element={<Filters />} />
         </Routes>
         <Footer /> 
      </Router>

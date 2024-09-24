@@ -9,24 +9,28 @@ export default function ProfileUser() {
     }*/
  return ( <>
  <main>
-     <section>
+          
+        <section>
+   
          <div className="container-fluid tm-mt-60 mb-4">
+        
              <div className="row tm-mb-50">
+             <img src="img/img-09.jpg" alt="Image" style={{width: '100vw', height: '35vh', marginBottom:"5vh", objectFit: 'cover' }} />
                  <div className="col-lg-4 col-12">
                          <div>
                          <h2 className="tm-text-primary mb-4">Modificar mis datos de registro</h2>
                          <form id="segistrationForm" action="url-de-base-de-datos-user" method="POST">
                              <div className="form-group form-group1">
                              <label htmlFor="email" className="form-label">Email:</label>
-                             <input type="email" id="esail" name="email" className="form-control" required />
+                             <input type="email" id="esail" name="email" className="form-control" defaultValue="Fran@gmail.com" required />
                              </div>
                              <div className="form-group form-group1">
                              <label htmlFor="username" className="form-label">Nombre de usuario:</label>
-                             <input type="text" id="usernsme" name="username" className="form-control" required />
+                             <input type="text" id="usernsme" name="username" className="form-control" defaultValue="Fran0" required />
                              </div>
                              <div className="form-group form-group1">
                              <label htmlFor="password" className="form-label">Antigua contraseña:</label>
-                             <input type="password" id="oldpsssword" name="password" className="form-control" placeholder="8 caracteres entre letras y números"
+                             <input type="password" id="oldpsssword" name="password" className="form-control" defaultValue="********" placeholder="8 caracteres entre letras y números"
                                  required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                                  title="La contraseña debe tener al menos 8 caracteres, con letras y números."
                                  style={{fontSize: "0.8em"}} />
@@ -50,15 +54,13 @@ export default function ProfileUser() {
                  <div className="col-lg-4 col-12 mb-4 mb-5">
                      <img src="img/people-3.jpg" alt="Image" className="mb-4 img-fluid" style={{borderRadius: "50%", paddingBottom: "0sx"}} />
                      <h2 className="tm-text-primary" style={{marginBottom: "0.5rem"}}>
-                     Fran Fersández
+                     Fran Martinez
                      </h2>
                      <h3 className="tm-text-secondary h5" style={{marginBottom: "0.5rem"}}>
-                     Amante ds la naturaleza
+                     Amante de la naturaleza
                      </h3>
                      <p className="mb-4">
-                     Mauris snte tellus, feugiat nec metus non, bibendum semper velit.
-                     Praesent laoreet urna id tristique fermentum. Morbi venenatis dui
-                     quis diam mollis pellentesque.
+                     Soy un apasionado de los deportes al aire libre (ciclismo, kayac, arbolismo, senderismo, descenso de cañón), vivo en Málaga capital y me encanta conocer gente nueva.
                      </p>
                  </div>
 
@@ -67,11 +69,11 @@ export default function ProfileUser() {
                      <form id="segistrationForm" action="url-de-base-de-datos-user" method="POST">
                          <div className="form-group form-group1 frase">
                              <label htmlFor="frase" className="form-label">Frase que me define</label>
-                             <input type="text" id="frsse" className="form-control" maxLength="30" placeholder="Escribe tu frase" />
+                             <input type="text" id="frsse" className="form-control" maxLength="30" placeholder="Escribe tu frase" defaultValue=" Amante de la naturaleza"/>
                          </div>
                          <div className="form-group perfil">
                              <label htmlFor="perfil" className="form-label">Mi perfil</label>
-                             <textarea id="perfil" className="form-control" rows="7" maxLength="200" placeholder="Describete coso quieras"></textarea>
+                             <textarea id="perfil" className="form-control" rows="7" maxLength="200" placeholder="Describete coso quieras" defaultValue="Soy un apasionado de los deportes al aire libre (ciclismo, kayac, arbolismo, senderismo, descenso de cañón), vivo en Málaga capital y me encanta conocer gente nueva."></textarea>
                          </div>
                      </form>
                  </div>

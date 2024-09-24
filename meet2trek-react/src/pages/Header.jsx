@@ -2,7 +2,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Header({toggleRegisterPopup, toggleLoginPopup, login, setLoginFalse}) {
+export default function Header({toggleRegisterPopup, toggleLoginPopup, login, setLoginFalse, setLoginTrue}) {
   return (
     <header>
       <nav className="navbar navbar-expand-lg">
@@ -22,8 +22,13 @@ export default function Header({toggleRegisterPopup, toggleLoginPopup, login, se
                     </Link>
                   </li>
                   <li className="nav-item">
+                    <Link className="nav-link" to="/filter" onClick={setLoginTrue}>
+                      Buscar Rutas
+                    </Link>
+                  </li>
+                  <li className="nav-item">
                     <Link className="nav-link" to="/" onClick={setLoginFalse}>
-                      Log out
+                      Cerrar Sesión
                     </Link>
                   </li>
                 </>
