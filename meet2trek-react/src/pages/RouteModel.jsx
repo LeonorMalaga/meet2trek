@@ -111,7 +111,6 @@ function RouteModel() {
         {meetings.length === 0 ? (
           <p style={{color: "black"}}>No hay quedadas para esta ruta. Crea una abajo.</p>
         ) : (
-        meetings.map((meeting) => (
           <div className="tabla">
           <table className="tg">
               <thead>
@@ -122,11 +121,12 @@ function RouteModel() {
                   </tr>
               </thead>
               <tbody>
+        {meetings.map((meeting) => (
             <MeetingList meeting={meeting} key={meeting.meetingId} />
+            ))}
             </tbody>
             </table>
             </div>
-            ))
 )}
             <section style={{marginTop: "50px"}}>
                     <h1 className="rutas-titular">Crear quedada</h1>
@@ -151,11 +151,11 @@ function RouteModel() {
                         <textarea id="perfil" className="form-control" rows="3" maxLength="200"
                             placeholder="Escribe un punto de encuentro"></textarea>
                     </div>
-            </section>
-            </div>
-            <a href="#" style={{float: "right", marginTop: "30px"}}>
+                    <a href="#" style={{float: "left", marginTop: "10px"}}>
                 <button type="button" className="btn btn-primary" style={{marginBottom: "30px"}}>Crear</button>
             </a>
+            </section>
+            </div>
     </main>
   );
 };
