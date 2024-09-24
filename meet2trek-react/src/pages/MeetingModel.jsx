@@ -6,25 +6,69 @@ function MeetingModel() {
     const [meeting, setMeeting] = useState({})
     const [route, setRoute] = useState({});
     const [users, setUsers] = useState([]);
+
+    const fetchData = async () => {
+        const response = await fetch(`http://localhost:8080/api/meetings/${meetingId}`, 
+            {method:"GET", 
+              headers: {
+                "Content-Type": 'application/x-www-form-urlencoded'
+              }})
+            const data = await response.json()
+        setMeeting({
+            meetingId: data.meetingId,
+            meetingDate: data.meetingDate,
+            meetingTime: data.meetingTime,
+            meetingPoint: data.meetingPoint
+        })
+        setRoute(data.route)
+        setUsers(data.users)
+    }
+    
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(`http://localhost:8080/api/meetings/${meetingId}`, 
-                {method:"GET", 
-                  headers: {
-                    "Content-Type": 'application/x-www-form-urlencoded'
-                  }})
-                const data = await response.json()
-            setMeeting({
-                meetingId: data.meetingId,
-                meetingDate: data.meetingDate,
-                meetingTime: data.meetingTime,
-                meetingPoint: data.meetingPoint
-            })
-            setRoute(data.route)
-            setUsers(data.users)
-        }
         fetchData()
     }, [meetingId])
+
+    const [userJoined, setUserJoined] = useState()
+
+    const userCheck = async () => {
+        const response = await fetch(`http://localhost:8080/api/meetings/${meetingId}/users/1`, 
+            {method:"GET", 
+              headers: {
+                "Content-Type": 'application/x-www-form-urlencoded'
+              }})
+            const data = await response.json()
+            setUserJoined(data)
+    }
+
+    useEffect(() => {
+        userCheck()
+    }, [])
+
+    const addUserToMeeting = async () => {
+        const response = await fetch(`http://localhost:8080/api/meetings/${meetingId}/users?userId=1`, 
+            {method:"POST", 
+              headers: {
+                "Content-Type": 'application/x-www-form-urlencoded'
+              }})
+            const meetingDto = await response.json()
+            console.log("User added to meeting")
+            await fetchData();
+            await userCheck();
+            return meetingDto
+    }
+
+    const removeUserFromMeeting = async () => {
+        const response = await fetch(`http://localhost:8080/api/meetings/${meetingId}/users?userId=1`, 
+            {method:"DELETE", 
+              headers: {
+                "Content-Type": 'application/x-www-form-urlencoded'
+              }})
+            const meetingDto = await response.json()
+            console.log("User removed from meeting")
+            await fetchData();
+            await userCheck();
+            return meetingDto
+    }
 
     return (
     <main>
@@ -45,7 +89,7 @@ function MeetingModel() {
                             <td className="tg-0pky">{meeting.meetingDate}</td>
                             <td className="tg-0pky">{meeting.meetingTime}</td>
                             <td className="tg-0pky">{meeting.meetingPoint}</td>
-                            <td className="tg-0pky" id="eliminar1" style={{textAlign: "center", color: "red", cursor: "pointer"}}><u>Eliminar</u></td>
+                            <td className="tg-0pky" id="eliminar1" style={{textAlign: "center", cursor: "pointer"}}>{userJoined ? (<button onClick={removeUserFromMeeting}>Desapuntarme</button>) : (<button onClick={addUserToMeeting}>Apuntarme</button>)}</td>
                         </tr>
                     </tbody>
                 </table>
