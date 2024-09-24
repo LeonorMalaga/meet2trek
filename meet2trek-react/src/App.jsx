@@ -115,7 +115,6 @@ export default function App() {
           <Route path="/profile_user" element={<ProfileUser />} />
           <Route path="/recommended-route" element={<RecommendedRoute />} />
           <Route path="/route-detail" element={<RouteDetail />} />
-          <Route path="/route-list" element={<RouteList />} />
           <Route path="/routes/:id" element={<RouteModel />} />
         </Routes>
         <Footer /> 
