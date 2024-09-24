@@ -1,9 +1,16 @@
 import React, { useContext } from 'react';
+import { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function Header({toggleRegisterPopup, toggleLoginPopup}) {
+  useEffect(() => {
+    setTimeout(function () {
+      document.getElementById("overlay-text").classList.add("visible");
+    }, 2000);
+  }, [])
+
   const { isAuthenticated, logout } = useContext(AuthContext);
 
   return (
@@ -52,8 +59,8 @@ export default function Header({toggleRegisterPopup, toggleLoginPopup}) {
           </div>
         </div>
       </nav>
-      <div className="video-container">
-        <video loop autoPlay muted id="hero-video" style={{ width: '100vw' }}>
+      <div className="video-container" style={{width: "100vw"}}>
+        <video loop autoPlay muted id="hero-video" style={{width: "100vw"}}>
           <source src="/video/hero.mp4" type="video/mp4" />
           No se puede reproducir el video
         </video>
