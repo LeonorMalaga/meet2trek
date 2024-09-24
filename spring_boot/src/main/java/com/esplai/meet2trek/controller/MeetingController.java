@@ -59,6 +59,12 @@ public class MeetingController {
         return meetingService.getMeetingsByRoute(routeId);
     }
 
+    @GetMapping("routes/{routeId}/meetings/activeMeetings")
+    public List<MeetingDto> getActiveMeetingsByRoute(@PathVariable Long routeId) {
+        return meetingService.getActiveMeetingsByRoute(routeId);
+    }
+
+
     @GetMapping("/users/{userId}/meetings")
     public List<MeetingDto> getMeetingsByUser(@PathVariable Long userId) {
         return meetingService.getMeetingsByUser(userId);

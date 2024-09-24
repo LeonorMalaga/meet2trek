@@ -24,7 +24,7 @@ function RouteModel() {
     const [meetings, setMeetings] = useState([])
 
     const fetchMeetings = () => {
-        fetch(`http://localhost:8080/api/routes/${routeId}/meetings`, 
+        fetch(`http://localhost:8080/api/routes/${routeId}/meetings/activeMeetings`, 
             {method: "GET"})
             .then(response => response.json())
             .then(data => setMeetings(data))

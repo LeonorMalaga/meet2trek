@@ -95,6 +95,25 @@ public class MeetingService {
         return meetingDtoList;
     }
 
+    public List<MeetingDto> getActiveMeetingsByRoute(Long routeId) {
+        List<Meeting> meetingList = meetingRepository.findByRoute_RouteId(routeId);
+        List<MeetingDto> activeMeetings = new ArrayList<>();
+        for (Meeting meeting : meetingList) {
+            LocalDate meetingDate = meeting.getMeetingDate();
+            LocalTime meetingTime = meeting.getMeetingTime();
+            LocalDateTime meetingDateTime = LocalDateTime.of(meetingDate, meetingTime);
+            LocalDateTime currentDateTime = LocalDateTime.now();
+            if (meetingDateTime.isAfter(currentDateTime)) {
+                activeMeetings.add(new MeetingDto(meeting));
+            }
+        }
+        if (activeMeetings.isEmpty()) {
+            throw new NotFoundErrorResponse("There are no active meetings for this route.");
+        } else {
+            return activeMeetings;
+        }
+    }
+
     public List<MeetingDto> getMeetingsByUser(Long userId) {
         List<Meeting> meetingList = meetingRepository.findByUsers_UserId(userId);
         List<MeetingDto> meetingDtoList = new ArrayList<>();
