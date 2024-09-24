@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-export default function Header({toggleRegisterPopup, toggleLoginPopup}) {
+export default function Header({toggleRegisterPopup, toggleLoginPopup, login, setLoginFalse}) {
   return (
     <header>
       <nav className="navbar navbar-expand-lg">
@@ -13,17 +13,23 @@ export default function Header({toggleRegisterPopup, toggleLoginPopup}) {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
+            {login ? (
+                // Show "Mi Perfil" and "Log out" if login equals 2
                 <>
-                <li className="nav-item">
+                  <li className="nav-item">
                     <Link className="nav-link" to="/profile_user">
                       Mi Perfil
                     </Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/">
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/" onClick={setLoginFalse}>
                       Log out
                     </Link>
                   </li>
+                </>
+              ) : (
+                // Show "Regístrate" and "Iniciar Sesión" if login equals 1
+                <>
                   <li className="nav-item">
                     <a className="nav-link" onClick={toggleRegisterPopup}>
                       Regístrate
@@ -35,6 +41,7 @@ export default function Header({toggleRegisterPopup, toggleLoginPopup}) {
                     </a>
                   </li>
                 </>
+              )}
             </ul>
           </div>
         </div>

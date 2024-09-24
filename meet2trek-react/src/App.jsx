@@ -15,18 +15,25 @@ export default function App() {
 
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
-
+  const [login, setLogin] =  useState(false);
+  console.log(`-------------login=${login}-----------`);
   //const { login } = useAuth(); 
+  const setLoginTrue=() => {
+    setLogin(true)
+  }
+  const setLoginFalse=() => {
+    setLogin(false)
+  }
   const toggleRegisterPopup = () => {
     console.log('toggleRegisterPopup')
     setIsRegisterPopupOpen(!isRegisterPopupOpen)
-    //login();
+    setLoginTrue()
   }
 
   const toggleLoginPopup = () => {
     console.log('toggleLoginPopup')
     setIsLoginPopupOpen(!isLoginPopupOpen)
-    //login()
+    setLoginTrue()
   }
   const toggleLoginAndRegisterPopup = () => {
     console.log('toggleLoginAndRegisterPopup')
@@ -40,6 +47,8 @@ export default function App() {
         <Header
           toggleLoginPopup={toggleLoginPopup}
           toggleRegisterPopup={toggleRegisterPopup}
+          login={login}
+          setLoginFalse={setLoginFalse}
         />
         {/* Popup de Registro */}
         <div className="popup-overlay" style={{display: isRegisterPopupOpen ? 'block': 'none'}}>
