@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-//import { AuthProvider} from './context/AuthContext';
+import { BrowserRouter as Router, Route, Routes, Link, useParams } from 'react-router-dom';
+// import { AuthProvider, useAuth } from './context/AuthContext';
 import Header from './pages/Header';
 import Footer from './pages/Footer';
 import Home from './pages/Home';
@@ -12,6 +12,7 @@ import RouteList from './pages/RouteList';
 import Filters from './pages/Filters';
 import './App.css';
 import { useState } from 'react';
+import RouteModel from './pages/RouteModel';
 
 export default function App() {
 
@@ -117,8 +118,7 @@ export default function App() {
           <Route path="/profile_user" element={<ProfileUser />} />
           <Route path="/recommended-route" element={<RecommendedRoute />} />
           <Route path="/route-detail" element={<RouteDetail />} />
-          <Route path="/route-list" element={<RouteList />} />
-          <Route path="/filters" element={<Filters />} />
+          <Route path="/routes/:id" element={<RouteModel />} />
         </Routes>
         <Footer /> 
      </Router>
