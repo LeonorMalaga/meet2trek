@@ -3,26 +3,33 @@ import { useEffect, useState } from "react";
 
 function MeetingModel() {
     const { meetingId } = useParams();
-    const [meeting, setRoute] = useState({})
+    const [meeting, setMeeting] = useState({})
+    const [route, setRoute] = useState({});
+    const [users, setUsers] = useState([]);
     useEffect(() => {
-        async function getMeeting() {
-            const meeting = await fetch(`http://localhost:8080/api/meetings/${meetingId}`, 
+        const fetchData = async () => {
+            const response = await fetch(`http://localhost:8080/api/meetings/${meetingId}`, 
                 {method:"GET", 
                   headers: {
                     "Content-Type": 'application/x-www-form-urlencoded'
                   }})
-                .then(response => response.json())
-                .then(data => data)
-                .catch(error => console.error("Error: " + error))
-            setRoute(meeting)
+                const data = await response.json()
+            setMeeting({
+                meetingId: data.meetingId,
+                meetingDate: data.meetingDate,
+                meetingTime: data.meetingTime,
+                meetingPoint: data.meetingPoint
+            })
+            setRoute(data.route)
+            setUsers(data.users)
         }
-        getMeeting()
+        fetchData()
     }, [meetingId])
 
     return (
     <main>
         <div className="cont-rutas" style={{height: "80vh"}}>
-            <h1 className="rutas-titular">Quedada en {/*{meeting.route.name}*/}</h1>
+            <h1 className="rutas-titular">Quedada en {route.name}</h1>
             <div className="tabla">
                 <table className="tg">
                     <thead>
@@ -42,9 +49,9 @@ function MeetingModel() {
                         </tr>
                     </tbody>
                 </table>
-            {/*{meeting.users.length === 0 ? ("") : (
+            {users.length === 0 ? ("") : (
                 <div className="row tm-mb-74 tm-people-row" style={{marginTop: "20px"}}>
-            {meeting.users.map(user => (
+            {users.map(user => (
               <div className="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
                 <img src={user.icon} alt="Image" className="mb-4 img-fluid" />
                 <h2 className="tm-text-primary" style={{marginBottom: "1.5rem"}}>
@@ -53,7 +60,7 @@ function MeetingModel() {
                 </div>
             ))}
       </div>
-      )}*/}
+      )}
             </div>
         </div>
     </main>
