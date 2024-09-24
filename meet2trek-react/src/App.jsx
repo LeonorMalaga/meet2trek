@@ -8,7 +8,6 @@ import MeetNews from './pages/MeetNews';
 import ProfileUser from './pages/ProfileUser';
 import RecommendedRoute from './pages/Reco-RouteDetailNew';
 import RouteDetail from './pages/RouteDetailNew';
-import RouteList from './pages/RouteList';
 import Filters from './pages/Filters';
 import './App.css';
 import { useState } from 'react';
@@ -119,6 +118,7 @@ export default function App() {
           <Route path="/recommended-route" element={<RecommendedRoute />} />
           <Route path="/route-detail" element={<RouteDetail />} />
           <Route path="/routes/:id" element={<RouteModel />} />
+          <Route path="/filter" element={<Filters />} />
         </Routes>
         <Footer /> 
      </Router>
