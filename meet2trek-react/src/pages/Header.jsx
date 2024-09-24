@@ -1,18 +1,8 @@
-import React, { useContext } from 'react';
-import { useEffect } from "react";
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function Header({toggleRegisterPopup, toggleLoginPopup}) {
-  useEffect(() => {
-    setTimeout(function () {
-      document.getElementById("overlay-text").classList.add("visible");
-    }, 2000);
-  }, [])
-
-  const { isAuthenticated, logout } = useContext(AuthContext);
-
+export default function Header({toggleRegisterPopup, toggleLoginPopup, login, setLoginFalse}) {
   return (
     <header>
       <nav className="navbar navbar-expand-lg">
@@ -23,25 +13,22 @@ export default function Header({toggleRegisterPopup, toggleLoginPopup}) {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-              {isAuthenticated ? (
+            {login ? (
+                // Show "Mi Perfil" and "Log out" if login equals 2
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/profile-user">
-                      Perfil
+                    <Link className="nav-link" to="/profile_user">
+                      Mi Perfil
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/meets">
-                      Quedadas
+                    <Link className="nav-link" to="/" onClick={setLoginFalse}>
+                      Log out
                     </Link>
-                  </li>
-                  <li className="nav-item">
-                    <button className="nav-link btn btn-link" onClick={logout}>
-                      Cerrar Sesión
-                    </button>
                   </li>
                 </>
               ) : (
+                // Show "Regístrate" and "Iniciar Sesión" if login equals 1
                 <>
                   <li className="nav-item">
                     <a className="nav-link" onClick={toggleRegisterPopup}>
@@ -59,15 +46,6 @@ export default function Header({toggleRegisterPopup, toggleLoginPopup}) {
           </div>
         </div>
       </nav>
-      <div className="video-container" style={{width: "100vw"}}>
-        <video loop autoPlay muted id="hero-video" style={{width: "100vw"}}>
-          <source src="/video/hero.mp4" type="video/mp4" />
-          No se puede reproducir el video
-        </video>
-        <div id="overlay-text" className="overlay-text">
-          Mucho más que senderismo...
-        </div>
-      </div>
     </header>
   );
 }

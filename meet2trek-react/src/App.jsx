@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, Link, useParams } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
+// import { AuthProvider, useAuth } from './context/AuthContext';
 import Header from './pages/Header';
 import Footer from './pages/Footer';
 import Home from './pages/Home';
@@ -7,24 +7,34 @@ import Meets from './pages/Meets';
 import ProfileUser from './pages/ProfileUser';
 import RecommendedRoute from './pages/RecommendedRoute';
 import RouteDetail from './pages/RouteDetail';
+import RouteList from './pages/RouteList';
 import './App.css';
 import { useState } from 'react';
 import RouteModel from './pages/RouteModel';
 
 export default function App() {
+
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
+  const [login, setLogin] =  useState(false);
+  console.log(`-------------login=${login}-----------`);
   //const { login } = useAuth(); 
+  const setLoginTrue=() => {
+    setLogin(true)
+  }
+  const setLoginFalse=() => {
+    setLogin(false)
+  }
   const toggleRegisterPopup = () => {
     console.log('toggleRegisterPopup')
     setIsRegisterPopupOpen(!isRegisterPopupOpen)
-    //login();
+    setLoginTrue()
   }
 
   const toggleLoginPopup = () => {
     console.log('toggleLoginPopup')
     setIsLoginPopupOpen(!isLoginPopupOpen)
-    //login()
+    setLoginTrue()
   }
   const toggleLoginAndRegisterPopup = () => {
     console.log('toggleLoginAndRegisterPopup')
@@ -33,11 +43,13 @@ export default function App() {
   }
 
   return (
-    <AuthProvider>
+    //<AuthProvider>
       <Router>
         <Header
           toggleLoginPopup={toggleLoginPopup}
           toggleRegisterPopup={toggleRegisterPopup}
+          login={login}
+          setLoginFalse={setLoginFalse}
         />
         {/* Popup de Registro */}
         <div className="popup-overlay" style={{display: isRegisterPopupOpen ? 'block': 'none'}}>
@@ -103,10 +115,11 @@ export default function App() {
           <Route path="/profile_user" element={<ProfileUser />} />
           <Route path="/recommended-route" element={<RecommendedRoute />} />
           <Route path="/route-detail" element={<RouteDetail />} />
+          <Route path="/route-list" element={<RouteList />} />
           <Route path="/routes/:id" element={<RouteModel />} />
         </Routes>
         <Footer /> 
      </Router>
-    </AuthProvider>
+    //</AuthProvider>
   );
 }
