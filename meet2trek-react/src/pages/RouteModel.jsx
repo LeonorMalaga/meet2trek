@@ -1,4 +1,27 @@
-function RouteModel({ route }) {
+import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-router-dom";
+import { getRoute } from "../placeholders/getRoute";
+import { useEffect, useState } from "react";
+
+function RouteModel() {
+    const { id } = useParams();
+    console.log({id})
+    const [route, setRoute] = useState({})
+    useEffect(() => {
+        async function getRoute() {
+            console.log('getRoute')
+            const route = await fetch(`http://localhost:8080/api/routes/${id}`, 
+                {method:"GET", 
+                  headers: {
+                    "Content-Type": 'application/x-www-form-urlencoded'
+                  }})
+                .then(response => response.json())
+                .then(data => data)
+                .catch(error => console.error("Error: " + error))
+            setRoute(route)
+        }
+        getRoute()
+    }, [id])
+
     return (
         <main>
             <div className="container-fluid tm-container-content tm-mt-60">

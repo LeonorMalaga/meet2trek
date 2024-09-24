@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useParams } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Header from './pages/Header';
 import Footer from './pages/Footer';
@@ -9,6 +9,7 @@ import RecommendedRoute from './pages/RecommendedRoute';
 import RouteDetail from './pages/RouteDetail';
 import './App.css';
 import { useState } from 'react';
+import RouteModel from './pages/RouteModel';
 
 export default function App() {
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
@@ -102,6 +103,7 @@ export default function App() {
           <Route path="/profile_user" element={<ProfileUser />} />
           <Route path="/recommended-route" element={<RecommendedRoute />} />
           <Route path="/route-detail" element={<RouteDetail />} />
+          <Route path="/routes/:id" element={<RouteModel />} />
         </Routes>
         <Footer /> 
      </Router>
