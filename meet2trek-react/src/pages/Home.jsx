@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import RouteCard from "./RouteCard";
 
 export default function Home() {
+  window.onload = function () {
+    setTimeout(function () {
+      document.getElementById("overlay-text").classList.add("visible");
+    }, 2000);}
   const [routes, setRoutes] = useState([])
   const [filter, setFilter] = useState({})
 
