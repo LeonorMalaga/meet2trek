@@ -1,12 +1,12 @@
-import { useState} from "react";
-import { useAuth } from '../context/AuthContext';
+//import { useState} from "react";
+//import { useAuth } from '../context/AuthContext';
 export default function ProfileUser() {
-    const { isAuthenticated, login, logout } = useAuth();
+    /*const { isAuthenticated, login, logout } = useAuth();
     if (isAuthenticated) {
         console.log('-------------Está autenticado-----------');
     }else{
         console.log('-------------NO Está autenticado-----------');
-    }
+    }*/
  return ( <>
  <main>
      <section>
@@ -18,29 +18,29 @@ export default function ProfileUser() {
                          <form id="segistrationForm" action="url-de-base-de-datos-user" method="POST">
                              <div className="form-group form-group1">
                              <label htmlFor="email" className="form-label">Email:</label>
-                             <input type="email" id="esail" name="email" required />
+                             <input type="email" id="esail" name="email" className="form-control" required />
                              </div>
                              <div className="form-group form-group1">
                              <label htmlFor="username" className="form-label">Nombre de usuario:</label>
-                             <input type="text" id="usernsme" name="username" required />
+                             <input type="text" id="usernsme" name="username" className="form-control" required />
                              </div>
                              <div className="form-group form-group1">
                              <label htmlFor="password" className="form-label">Antigua contraseña:</label>
-                             <input type="password" id="psssword" name="password" placeholder="8 caracteres entre letras y números"
+                             <input type="password" id="oldpsssword" name="password" className="form-control" placeholder="8 caracteres entre letras y números"
                                  required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                                  title="La contraseña debe tener al menos 8 caracteres, con letras y números."
                                  style={{fontSize: "0.8em"}} />
                              </div>
                              <div className="form-group form-group1">
                              <label htmlFor="password" className="form-label">Nueva contraseña:</label>
-                             <input type="password" id="psssword" name="password" placeholder="8 caracteres entre letras y números"
+                             <input type="password" id="psssword" name="password" className="form-control" placeholder="8 caracteres entre letras y números"
                                  required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                                  title="La contraseña debe tener al menos 8 caracteres, con letras y números."
                                  style={{fontSize: "0.8em"}} />
                              </div>
                              <div className="form-group">
                              <label htmlFor="confirmPassword" className="form-label">Repetir contraseña:</label>
-                             <input type="password" id="confirmPsssword" name="confirmPassword" required style={{fontSize: "1em"}} />
+                             <input type="password" id="confirmPsssword" className="form-control" name="confirmPassword" placeholder="8 caracteres entre letras y números" required style={{fontSize: "1em"}} />
                              <span id="La contraseña no coincide" style={{color: "red", fontSize: "0.9em"}}></span>
                              </div>
                          </form>
