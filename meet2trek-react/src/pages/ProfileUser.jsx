@@ -158,7 +158,7 @@ export default function ProfileUser({login, setLoginTrue, setLoginFalse}) {
                                  <td className="tg-0pky">Málaga</td>
                                  <td className="stg-0pky">Antequera</td>
                                  <td className="stg-0pky">24/10/2024 a la 08,30h.</td>
-                                 <td className="stg-0pky"><a href="#"><u>Sendero del Torcal</u></a></td>
+                                 <td className="stg-0pky"><a href="/recommended-route"><u>Sendero del Torcal</u></a></td>
 
                                  </tr>
                                  {/*<!-- Repetir lo mismo para las demás filas -->*/}
@@ -243,7 +243,7 @@ export default function ProfileUser({login, setLoginTrue, setLoginFalse}) {
                                          <tr>
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Antequera</td>
-                                             <td className="stg-0pky"><a href="user-rute1-detail.html"><u>Sendero del Torcal</u></a></td>
+                                             <td className="stg-0pky"><a href="/recommended-route"><u>Sendero del Torcal</u></a></td>
                                              <td className="stg-0pky" id="formarGrupo3" style={{textAlign: "center", cursor: "pointer"}}><a
                                                  style={{scolor: "green"}}><u>Ver quedadas en esta ruta</u></a></td>
                                              <td className="tg-0pky" id="eliminar3" style={{textAlign: "center", color: "red", cursor: "pointer"}}>
@@ -292,7 +292,7 @@ export default function ProfileUser({login, setLoginTrue, setLoginFalse}) {
                                              <tr>
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Antequera</td>
-                                             <td className="stg-0pky"><a href="user-rute1-detail.html"><u>Sendero del Torcal</u></a></td>
+                                             <td className="stg-0pky"><a href="/recommended-route"><u>Sendero del Torcal</u></a></td>
                                              <td className="stg-0pky" id="formarGrupo3" style={{textAlign: "center", cursor: "pointer"}}><a
                                                  style={{scolor: "green"}}><u>Ver quedadas en esta ruta</u></a></td>
                                              <td className="tg-0pky" id="eliminar6" style={{textAlign: "center", color: "red"}}><u>Eliminar</u></td>
