@@ -97,7 +97,7 @@ function MeetingModel() {
                 <div className="row tm-mb-74 tm-people-row" style={{marginTop: "20px"}}>
             {users.map(user => (
               <div className="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
-                <img src={user.icon} alt="Image" className="mb-4 img-fluid" />
+                <img src={user.icon} alt="Image" className="mb-4 img-fluid" style={{width:'20vw',height:'16vw'}}/>
                 <h2 className="tm-text-primary" style={{marginBottom: "1.5rem"}}>
                   {user.username}
                 </h2>
