@@ -84,6 +84,31 @@ export default function Home() {
 
       <div className="main-index">
       </div>
+      <div className="card featured-card">
+            <a href="/recommended-route">
+              <h1 className="titular" style={{ textAlign: "center", padding: "15px", margin: "20px 20px 0 20px" }}>
+                Ruta recomendada del mes
+              </h1>
+            </a>
+            <img className="img-destacada" src="img/Chilla/rioChilla3.jpg" alt="Imagen destacada" />
+            <div className="card-content">
+              <a href="/recommended-route">
+                <h2 className="tm-text-primary" style={{ marginBottom: "0px", textAlign: "center" }}>
+                  Sendero acuático río Chillar
+                </h2>
+              </a>
+              <h3 className="tm-text-primary" style={{ marginTop: "0px", textAlign: "center" }}>Nerja. Málaga</h3>
+              <p className="article-title" style={{ fontSize: "15px", textAlign: "center", padding: "0px 60px", lineHeight: "1.3rem" }}>
+                El camino del Río Chillar es una ruta muy conocida, pero el 99% de las personas se detienen en el Vado de
+                Los Patos o incluso antes. No todo el mundo sabe que con un poco más de dificultad, esfuerzo y
+                orientación,
+                dos kilómetros más arriba, en medio de una naturaleza mucho más salvaje y exuberante, se esconde un
+                pequeño
+                paraíso natural de cascadas y piscinas naturales.
+              </p>
+              <p className="card-features">Dificultad: 6/10<br />Distancia: 15km</p>
+            </div>
+          </div>
 </main>
     </>
     )
