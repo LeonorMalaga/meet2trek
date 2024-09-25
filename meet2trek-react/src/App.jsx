@@ -1,18 +1,18 @@
-import { BrowserRouter as Router, Route, Routes, Link, useParams } from 'react-router-dom';
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 // import { AuthProvider, useAuth } from './context/AuthContext';
-import Header from './pages/Header';
+import { useState } from 'react';
+import './App.css';
+import Filters from './pages/Filters';
 import Footer from './pages/Footer';
+import Header from './pages/Header';
 import Home from './pages/Home';
-import Meets from './pages/Meets';
+import MeetingModel from './pages/MeetingModel';
 import MeetNews from './pages/MeetNews';
+import Meets from './pages/Meets';
 import ProfileUser from './pages/ProfileUser';
 import RecommendedRoute from './pages/Reco-RouteDetailNew';
 import RouteDetail from './pages/RouteDetailNew';
-import Filters from './pages/Filters';
-import './App.css';
-import { useState } from 'react';
 import RouteModel from './pages/RouteModel';
-import MeetingModel from './pages/MeetingModel';
 
 export default function App() {
 
@@ -21,27 +21,29 @@ export default function App() {
   const [login, setLogin] =  useState(false);
   console.log(`-------------login=${login}-----------`);
   //const { login } = useAuth(); 
-  const setLoginTrue=() => {
+  const setLoginTrue=() => { 
+    setIsRegisterPopupOpen(false);
+    setIsLoginPopupOpen(false);
     setLogin(true)
   }
   const setLoginFalse=() => {
     setLogin(false)
   }
+
   const toggleRegisterPopup = () => {
     console.log('toggleRegisterPopup')
     setIsRegisterPopupOpen(!isRegisterPopupOpen)
-    setLoginTrue()
   }
 
   const toggleLoginPopup = () => {
     console.log('toggleLoginPopup')
     setIsLoginPopupOpen(!isLoginPopupOpen)
-    setLoginTrue()
   }
   const toggleLoginAndRegisterPopup = () => {
     console.log('toggleLoginAndRegisterPopup')
     setIsLoginPopupOpen(!isLoginPopupOpen)
     setIsRegisterPopupOpen(!isRegisterPopupOpen)
+
   }
 
   return (
@@ -57,9 +59,9 @@ export default function App() {
         {/* Popup de Registro */}
         <div className="popup-overlay" style={{display: isRegisterPopupOpen ? 'block': 'none'}}>
           <div className="popup-content">
-            <span className="close-btn" onClick={toggleRegisterPopup}>&times;</span>
+            <span className="close-btn">&times;</span>
             <h2>Registro</h2>
-            <form id="registrationForm" action="tu-url-de-base-de-datos" method="POST">
+            <form id="registrationForm">
               <div className="form-group">
                 <label htmlFor="email">Email:</label>
                 <input type="email" id="email" name="email" required />
@@ -86,7 +88,7 @@ export default function App() {
                 <input type="password" id="confirmPassword" name="confirmPassword" required style={{ fontSize: "1em" }} />
                 <span id="La contraseña no coincide" style={{ color: "red", fontSize: "0.9em" }}></span>
               </div>
-              <Link to="/profile_user" onClick={toggleRegisterPopup} className="btn btn-primary">Enviar</Link>
+              <Link to="/profile_user" onClick={setLoginTrue} className="btn btn-primary">Enviar</Link>
             </form>
           </div>
         </div>
@@ -94,9 +96,9 @@ export default function App() {
         {/* Popup de Inicio de Sesión */}
         <div className="popup-overlay"  style={{display: isLoginPopupOpen ? 'block': 'none'}}>
           <div className="popup-content">
-            <span className="close-btn" onClick={toggleLoginPopup}>&times;</span>
+            <span className="close-btn">&times;</span>
             <h2>Iniciar Sesión</h2>
-            <form id="loginForm" action="url-base-de-datos" method="POST">
+            <form id="loginForm">
               <div className="form-group">
                 <label htmlFor="loginUsername">Nombre de usuario:</label>
                 <input type="text" id="loginUsername" name="loginUsername" required />
@@ -105,10 +107,10 @@ export default function App() {
                 <label htmlFor="loginPassword">Contraseña:</label>
                 <input type="password" id="loginPassword" name="loginPassword" required />
               </div>
-              <Link to="/profile_user" onClick={toggleLoginPopup} className="btn btn-primary">Iniciar</Link>
-              <p style={{ color: "black", marginTop: "10px" }}>
-                Si no estás registrado haz clic <a href="#" onClick={toggleLoginAndRegisterPopup}><u>aquí</u></a>.
-              </p>
+              <Link to="/profile_user" onClick={setLoginTrue} className="btn btn-primary">Iniciar</Link>
+                  <p style={{ color: "black", marginTop: "10px" }}>
+                    Si no estás registrado haz clic <a href="#" onClick={toggleLoginAndRegisterPopup}><u>aquí</u></a>.
+                  </p>
             </form>
           </div>
         </div>
