@@ -35,6 +35,11 @@ export default function Header({toggleRegisterPopup, toggleLoginPopup, login, se
               ) : (
                 // Show "Regístrate" and "Iniciar Sesión" if login equals 1
                 <>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/filter" onClick={setLoginTrue}>
+                      Buscar Rutas
+                    </Link>
+                  </li>
                   <li className="nav-item">
                     <a className="nav-link" onClick={toggleRegisterPopup}>
                       Regístrate
