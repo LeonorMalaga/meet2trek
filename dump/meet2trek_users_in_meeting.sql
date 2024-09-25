@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for macos14 (arm64)
 --
 -- Host: 127.0.0.1    Database: meet2trek
 -- ------------------------------------------------------
--- Server version	8.0.37
+-- Server version	8.4.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -38,7 +38,7 @@ CREATE TABLE `users_in_meeting` (
 
 LOCK TABLES `users_in_meeting` WRITE;
 /*!40000 ALTER TABLE `users_in_meeting` DISABLE KEYS */;
-INSERT INTO `users_in_meeting` VALUES (3,1),(2,2);
+INSERT INTO `users_in_meeting` VALUES (3,1),(2,1),(2,2),(2,3),(3,4),(3,2),(3,3);
 /*!40000 ALTER TABLE `users_in_meeting` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-25 14:16:03
+-- Dump completed on 2024-09-25 22:39:41

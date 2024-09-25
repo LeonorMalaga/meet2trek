@@ -98,7 +98,7 @@ function MeetingModel() {
                   {users.length == 0 ? (<p style={{ color: 'black' }}>No hay participantes</p>) : (
                     users.map(user => (
                       <div className="col-lg-3 col-md-6 col-sm-6 col-12 mb-5" key={user.userId}>
-                        <img src={user.icon} alt="Image" className="mb-4 img-fluid" />
+                        <img src={user.icon} alt="Image" className="mb-4 img-fluid" style={{width:'20vw',height:'16vw'}} />
                         <h2 className="tm-text-primary" style={{marginBottom: "1.5rem"}}>
                           {user.username}
                         </h2>
