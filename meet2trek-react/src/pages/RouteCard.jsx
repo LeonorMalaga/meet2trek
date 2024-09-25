@@ -8,7 +8,10 @@ function RouteCard({ route }) {
                 <div className="card-content">
                     <h3 className="card-title">{route.name}</h3>
                     <h4>{route.shortDescription}</h4>
-                    <p className="card-features">Dificultad: {route.difficulty}/10<br />Distancia: {Intl.NumberFormat("es-ES").format(route.distance / 1000)}km</p>
+                    <div style={{display: "grid", gridTemplateColumns: "auto auto", alignItems: "center"}}>
+                        <div className="card-features">Dificultad: {route.difficulty}/10<br />Distancia: {Intl.NumberFormat("es-ES").format(route.distance / 1000)}km</div>
+                        <div style={{textAlign: "right"}}>{route.area}, {route.province}</div>
+                    </div>
                 </div>
             </div>
         </Link>

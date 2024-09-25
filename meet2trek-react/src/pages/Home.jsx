@@ -8,53 +8,18 @@ export default function Home() {
     }, 2000);
   }
   
-  const [routes, setRoutes] = useState([])
-  const [filter, setFilter] = useState({})
+  const [route, setRoute] = useState([])
 
-  const fetchRoutes = () => {
-    const filterMetre = {
-      ...filter,
-      distance: filter.distance ? filter.distance * 1000 : "",
-    }
-    const noEmptyFilters = Object.fromEntries(
-      Object.entries(filterMetre).filter(([key, value]) => {
-        if (typeof value === "string") {
-          return value.trim() !== "";
-        }
-        return value !== "";
-      })
-    )
-    const queryParams = new URLSearchParams(noEmptyFilters).toString();
-
-    fetch(`http://localhost:8080/api/routes/getByFilter?${queryParams}`, 
-      {method:"GET", 
-        headers: {
-          "Content-Type": 'application/x-www-form-urlencoded'
-        }})
-      .then(response => response.json())
-      .then(data => setRoutes(data))
-      .catch(error => console.error("Error: " + error))
+  const fetchMonthlyRoute = async () => {
+    const response = await fetch(`http://localhost:8080/api/routes/2`, 
+      {method:"GET"})
+      const data = await response.json()
+      setRoute(data)
   }
 
   useEffect(() => {
-      fetchRoutes()
+      fetchMonthlyRoute()
   }, [])
-
-  const fetchFilteredPosts = () => {
-    console.log('Aplicando filtros')
-    fetchRoutes()
-  }
-  const guardarFiltros = () => {
-    console.log('Guardando filtros')
-  }
-
-  const fetchFilter = (e) => {
-    const { name, value } = e.target;
-    setFilter({
-      ...filter,
-      [name]: value,
-    })
-  }
 
   return (  <>
 
