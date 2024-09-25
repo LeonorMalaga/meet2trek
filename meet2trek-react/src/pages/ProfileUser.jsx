@@ -2,14 +2,7 @@ import { useEffect, useState} from "react";
 import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-router-dom";
 import MeetingList from "./MeetingList";
 
-//import { useAuth } from '../context/AuthContext';
 export default function ProfileUser() {
-    /*const { isAuthenticated, login, logout } = useAuth();
-    if (isAuthenticated) {
-        console.log('-------------Está autenticado-----------');
-    }else{
-        console.log('-------------NO Está autenticado-----------');
-    }*/
 
         const [user, setUser] = useState({})
 
@@ -70,46 +63,17 @@ export default function ProfileUser() {
          <div className="container-fluid tm-mt-60 mb-4">
         
              <div className="row tm-mb-50">
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh", flexDirection: "column" }}>
              <img src={"img/img-09.jpg"} alt="Image" style={{width: '100vw', height: '35vh', marginBottom:"5vh", objectFit: 'cover' }} />
-                 <div className="col-lg-4 col-12">
-                         <div>
-                         <h2 className="tm-text-primary mb-4">Modificar mis datos de registro</h2>
-                         <form id="segistrationForm" action="url-de-base-de-datos-user" method="POST">
-                             <div className="form-group form-group1">
-                             <label htmlFor="email" className="form-label">Email:</label>
-                             <input type="email" id="esail" name="email" className="form-control" defaultValue={user.email} required />
-                             </div>
-                             <div className="form-group form-group1">
-                             <label htmlFor="username" className="form-label">Nombre de usuario:</label>
-                             <input type="text" id="usernsme" name="username" className="form-control" defaultValue={user.username} required />
-                             </div>
-                             <div className="form-group form-group1">
-                             <label htmlFor="password" className="form-label">Antigua contraseña:</label>
-                             <input type="password" id="oldpsssword" name="password" className="form-control" defaultValue={user.password} placeholder="8 caracteres entre letras y números"
-                                 required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-                                 title="La contraseña debe tener al menos 8 caracteres, con letras y números."
-                                 style={{fontSize: "0.8em"}} />
-                             </div>
-                             <div className="form-group form-group1">
-                             <label htmlFor="password" className="form-label">Nueva contraseña:</label>
-                             <input type="password" id="psssword" name="password" className="form-control" placeholder="8 caracteres entre letras y números"
-                                 required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-                                 title="La contraseña debe tener al menos 8 caracteres, con letras y números."
-                                 style={{fontSize: "0.8em"}} />
-                             </div>
-                             <div className="form-group">
-                             <label htmlFor="confirmPassword" className="form-label">Repetir contraseña:</label>
-                             <input type="password" id="confirmPsssword" className="form-control" name="confirmPassword" placeholder="8 caracteres entre letras y números" required style={{fontSize: "1em"}} />
-                             <span id="La contraseña no coincide" style={{color: "red", fontSize: "0.9em"}}></span>
-                             </div>
-                         </form>
-                     </div>
-                 </div>
+             <h1 className="tm-text-primary mb-4" >Mi Perfil</h1>
 
                  <div className="col-lg-4 col-12 mb-4 mb-5">
                      <img src={user.icon} alt="Image" className="mb-4 img-fluid" style={{borderRadius: "50%", paddingBottom: "0sx"}} />
                      <h2 className="tm-text-primary" style={{marginBottom: "0.5rem"}}>
                      {user.username}
+                     </h2>
+                     <h2 className="tm-text-secondary" style={{marginBottom: "0.5rem"}}>
+                     {user.email}
                      </h2>
                      <h3 className="tm-text-secondary h5" style={{marginBottom: "0.5rem"}}>
                      {user.slogan}
@@ -118,20 +82,7 @@ export default function ProfileUser() {
                      {user.aboutMe}
                      </p>
                  </div>
-
-                 <div className="col-lg-4 col-12 mb-4">
-                     <h2 className="tm-text-primary mb-4">Modificar mi perfil</h2>
-                     <form id="segistrationForm" action="url-de-base-de-datos-user" method="POST">
-                         <div className="form-group form-group1 frase">
-                             <label htmlFor="frase" className="form-label">Frase que me define</label>
-                             <input type="text" id="frsse" className="form-control" maxLength="30" placeholder="Escribe tu frase" defaultValue={user.slogan}/>
-                         </div>
-                         <div className="form-group perfil">
-                             <label htmlFor="perfil" className="form-label">Mi perfil</label>
-                             <textarea id="perfil" className="form-control" rows="7" maxLength="200" placeholder="Descríbete como quieras" defaultValue={user.aboutMe}></textarea>
-                         </div>
-                     </form>
-                 </div>
+</div>
              </div>
 
                  <div className="cont-rutas">
