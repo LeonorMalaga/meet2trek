@@ -59,7 +59,7 @@ export default function App() {
         {/* Popup de Registro */}
         <div className="popup-overlay" style={{display: isRegisterPopupOpen ? 'block': 'none'}}>
           <div className="popup-content">
-            <span className="close-btn">&times;</span>
+            <span className="close-btn" onClick={toggleRegisterPopup}>&times;</span>
             <h2>Registro</h2>
             <form id="registrationForm">
               <div className="form-group">
@@ -96,7 +96,7 @@ export default function App() {
         {/* Popup de Inicio de Sesión */}
         <div className="popup-overlay"  style={{display: isLoginPopupOpen ? 'block': 'none'}}>
           <div className="popup-content">
-            <span className="close-btn">&times;</span>
+            <span className="close-btn" onClick={toggleLoginPopup}>&times;</span>
             <h2>Iniciar Sesión</h2>
             <form id="loginForm">
               <div className="form-group">
