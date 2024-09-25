@@ -14,10 +14,12 @@ function RouteModel() {
                 "Content-Type": 'application/x-www-form-urlencoded'
               }})
             const data = await response.json()
+            console.log("routes-1------"+data.videoUrl+"--------")
         setRoute(data)
     }
     useEffect(() => {
         getRoute()
+        console.log("routes-1------"+route.videoUrl+"--------")
     }, [routeId])
 
     const [meetings, setMeetings] = useState([])
@@ -34,6 +36,7 @@ function RouteModel() {
 
     useEffect(() => {
         getMeetings()
+        
     }, [])
 
     const saveRoute = async () => {
@@ -43,6 +46,7 @@ function RouteModel() {
               "Content-Type": 'application/x-www-form-urlencoded'
             }})
           const route = await response.json()
+          console.log("routes-save------"+route.videoUrl+"--------")
           console.log("Route added to user's saved routes")
           return route
   }
@@ -57,14 +61,13 @@ function RouteModel() {
                 </div>
                 <div className="row tm-mb-90">
                     <div className="col-xl-8 col-lg-7 col-md-6 col-sm-12">
-                        {route.videoUrl && <Youtube
-                            id="vid"
-                            width="743"
-                            height="418"
-                            videoId={route.videoUrl}
-                            allowFullScreen
-                        ></Youtube>}
-
+                         <iframe
+                          id="vid"
+                          width="743"
+                          height="418"
+                          src={route.videoUrl}
+                          allowFullScreen
+                        ></iframe>
                         <div>
                             <img
                                 src={route.portraitPath}
