@@ -68,7 +68,7 @@ export default function ProfileUser() {
              <h1 className="tm-text-primary mb-4" >Mi Perfil</h1>
 
                  <div className="col-lg-4 col-12 mb-4 mb-5">
-                     <img src={user.icon} alt="Image" className="mb-4 img-fluid" style={{borderRadius: "50%", paddingBottom: "0sx"}} />
+                     <img src={user.icon} alt="Image" className="mb-4 img-fluid" style={{borderRadius: "50%", paddingBottom: "0sx", width:'30vw',height:'25vw'}} />
                      <h2 className="tm-text-primary" style={{marginBottom: "0.5rem"}}>
                      {user.username}
                      </h2>
@@ -108,44 +108,6 @@ export default function ProfileUser() {
                         </div>
                     )}
 
-                         {/*<div className="tabla">
-                             <table className="tg">
-                             <thead>
-                                 <tr>
-                                 <th>Provincia</th>
-                                 <th>Localidad</th>
-                                 <th>Fecha y hora</th>
-                                 <th>Rutas guardadas</th>
-
-                                 </tr>
-                             </thead>
-
-                             <tbody>
-                                 <tr>
-                                 <td className="tg-0pky">Málaga</td>
-                                 <td className="stg-0pky">Nerja</td>
-                                 <td className="stg-0pky">22/09/2024 a la 09h.</td>
-                                 <td className="stg-0pky"><a href="ruta-recomend-detail.html"><u>Sendero acuático río Chillar</u></a></td>
-
-                                 </tr>
-                                 <tr>
-                                 <td className="tg-0pky">Málaga</td>
-                                 <td className="stg-0pky">Ardales</td>
-                                 <td className="stg-0pky">10/10/2024 a la 08h.</td>
-                                 <td className="stg-0pky"><a href="ruta-detail.html"><u>Caminito del Rey</u></a></td>
-                                 </tr>
-                                 <tr>
-                                 <td className="tg-0pky">Málaga</td>
-                                 <td className="stg-0pky">Antequera</td>
-                                 <td className="stg-0pky">24/10/2024 a la 08,30h.</td>
-                                 <td className="stg-0pky"><a href="#"><u>Sendero del Torcal</u></a></td>
-
-                                 </tr>
-                                 {<!-- Repetir lo mismo para las demás filas -->}
-                             </tbody>
-                             </table>*/}
-
-
                              <div style={{paddingTop: "35px"}}>
                              <h1 className="rutas-titular" style={{marginTop: "50px;"}}>Rutas guardadas</h1>
                              {routes.length === 0 ? (
@@ -157,7 +119,7 @@ export default function ProfileUser() {
                                          <tr>
                                              <th>Provincia</th>
                                              <th>Localidad</th>
-                                             <th>Ruta</th>
+                                             <th>Apuntarme/Ver Ruta</th>
                                              <th>Eliminar</th>
                                          </tr>
                                      </thead>
