@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"
 
 export default function Home() {
 
@@ -8,53 +9,18 @@ export default function Home() {
     }, 2000);
   }
   
-  const [routes, setRoutes] = useState([])
-  const [filter, setFilter] = useState({})
+  const [route, setRoute] = useState([])
 
-  const fetchRoutes = () => {
-    const filterMetre = {
-      ...filter,
-      distance: filter.distance ? filter.distance * 1000 : "",
-    }
-    const noEmptyFilters = Object.fromEntries(
-      Object.entries(filterMetre).filter(([key, value]) => {
-        if (typeof value === "string") {
-          return value.trim() !== "";
-        }
-        return value !== "";
-      })
-    )
-    const queryParams = new URLSearchParams(noEmptyFilters).toString();
-
-    fetch(`http://localhost:8080/api/routes/getByFilter?${queryParams}`, 
-      {method:"GET", 
-        headers: {
-          "Content-Type": 'application/x-www-form-urlencoded'
-        }})
-      .then(response => response.json())
-      .then(data => setRoutes(data))
-      .catch(error => console.error("Error: " + error))
+  const fetchRoute = async () => {
+    const response = await fetch(`http://localhost:8080/api/routes/2`, 
+      {method:"GET"})
+      const data = await response.json()
+      setRoute(data)
   }
 
   useEffect(() => {
-      fetchRoutes()
+      fetchRoute()
   }, [])
-
-  const fetchFilteredPosts = () => {
-    console.log('Aplicando filtros')
-    fetchRoutes()
-  }
-  const guardarFiltros = () => {
-    console.log('Guardando filtros')
-  }
-
-  const fetchFilter = (e) => {
-    const { name, value } = e.target;
-    setFilter({
-      ...filter,
-      [name]: value,
-    })
-  }
 
   return (
     <>
@@ -96,31 +62,24 @@ export default function Home() {
         </div>
   
         <div className="main-index"></div>
+        <Link to={`../routes/2`}>
         <div className="card featured-card" style={{ margin: "60px", maxWidth: "90%", textAlign: "center" }}>
-          <a href="/recommended-route">
             <h1 className="titular" style={{ textAlign: "center", padding: "15px", margin: "20px 20px 0 20px" }}>
               Ruta recomendada
             </h1>
-          </a>
-          <img className="img-destacada" src="img/Chilla/rioChilla3.jpg" alt="Imagen destacada" />
+          <img className="img-destacada" src={"img/Chilla/rioChilla3.jpg"} alt="Imagen destacada" />
           <div className="card-content">
-            <a href="/recommended-route">
               <h2 className="tm-text-primary" style={{ marginBottom: "0px", textAlign: "center" }}>
-                Sendero acuático río Chillar
+                {route.name}
               </h2>
-            </a>
-            <h3 className="tm-text-primary" style={{ marginTop: "0px", textAlign: "center" }}>Nerja. Málaga</h3>
+            <h3 className="tm-text-primary" style={{ marginTop: "0px", textAlign: "center" }}>{route.area}, {route.province}</h3>
             <p className="article-title" style={{ fontSize: "15px", textAlign: "center", padding: "0px 60px", lineHeight: "1.3rem" }}>
-              El camino del Río Chillar es una ruta muy conocida, pero el 99% de las personas se detienen en el Vado de
-              Los Patos o incluso antes. No todo el mundo sabe que con un poco más de dificultad, esfuerzo y
-              orientación,
-              dos kilómetros más arriba, en medio de una naturaleza mucho más salvaje y exuberante, se esconde un
-              pequeño
-              paraíso natural de cascadas y piscinas naturales.
+              {route.shortDescription}
             </p>
-            <p className="card-features">Dificultad: 6/10<br />Distancia: 15km</p>
+            <p className="card-features">Dificultad: {route.difficulty}/10<br />Distancia: {Intl.NumberFormat("es-ES").format(route.distance / 1000)}km</p>
           </div>
         </div>
+        </Link>
         <div  style={{ borderRadius: "1%", marginTop: "30px", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div style={{ position: "relative", width: "100%", marginBottom: "20px" }}>
             <img src="../ROUTES/child.jpg" alt="Image" className="img-fluid" style={{ width: "100vw", maxWidth: "100%", height: "120vh", borderRadius: "0%"}} />
