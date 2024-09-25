@@ -1,9 +1,60 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from "react";
+import RouteCard from "./RouteCard";
 
 const App = () => {
-    const [isLoginPopupOpen, setLoginPopupOpen] = useState(false);
-
-    const toggleLoginPopup = () => setLoginPopupOpen(!isLoginPopupOpen);
+    window.onload = function () {
+        setTimeout(function () {
+          document.getElementById("overlay-text").classList.add("visible");
+        }, 2000);
+      }
+      
+      const [routes, setRoutes] = useState([])
+      const [filter, setFilter] = useState({})
+    
+      const fetchRoutes = () => {
+        const filterMetre = {
+          ...filter,
+          distance: filter.distance ? filter.distance * 1000 : "",
+        }
+        const noEmptyFilters = Object.fromEntries(
+          Object.entries(filterMetre).filter(([key, value]) => {
+            if (typeof value === "string") {
+              return value.trim() !== "";
+            }
+            return value !== "";
+          })
+        )
+        const queryParams = new URLSearchParams(noEmptyFilters).toString();
+    
+        fetch(`http://localhost:8080/api/routes/getByFilter?${queryParams}`, 
+          {method:"GET", 
+            headers: {
+              "Content-Type": 'application/x-www-form-urlencoded'
+            }})
+          .then(response => response.json())
+          .then(data => setRoutes(data))
+          .catch(error => console.error("Error: " + error))
+      }
+    
+      useEffect(() => {
+          fetchRoutes()
+      }, [])
+    
+      const fetchFilteredPosts = () => {
+        console.log('Aplicando filtros')
+        fetchRoutes()
+      }
+      const guardarFiltros = () => {
+        console.log('Guardando filtros')
+      }
+    
+      const fetchFilter = (e) => {
+        const { name, value } = e.target;
+        setFilter({
+          ...filter,
+          [name]: value,
+        })
+      }
 
     return (
         <div>
@@ -12,104 +63,80 @@ const App = () => {
             <img src="img/img-06.jpg" alt="Image" style={{width: '100vw', height: '35vh', marginBottom:"0vh", objectFit: 'cover' }} />
                 <div className="main2">
             
-                    <aside>
-                        <div id="filter">
-                            <h2 className="tm-text-primary">Filtros de búsqueda</h2>
-                            <form id="contact-form" action="" method="POST">
-                                <div className="form-group">
-                                    <select className="form-control" id="contact-select" name="inquiry">
-                                        <option>Destino</option>
-                                        <option>Málaga</option>
-                                        <option disabled>Córdoba</option>
-                                        <option disabled>Sevilla</option>
-                                        <option disabled>Cádiz</option>
-                                        <option disabled>Huelva</option>
-                                        <option disabled>Almería</option>
-                                        <option disabled>Jaén</option>
-                                        <option disabled>Granada</option>
-                                    </select>
-                                </div>
-                                <div className="form-group">
-                                    <select className="form-control" id="contact-select" name="inquiry">
-                                        <option>Población</option>
-                                        <option>Málaga</option>
-                                        <option>Ronda</option>
-                                        <option>Antequera</option>
-                                        <option>Axarquía</option>
-                                        <option>Guadalhorce</option>
-                                        <option>Abdalajís</option>
-                                        <option>Costa del Sol</option>
-                                        <option>Almijara</option>
-                                    </select>
-                                </div>
-
-                                <div className="form-group">
-                                    <input
-                                        type="number"
-                                        name="dific"
-                                        className="form-control"
-                                        placeholder="Dificultad (del 1 al 10)"
-                                        min="0"
-                                        max="10"
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <input
-                                        type="number"
-                                        name="distancia"
-                                        className="form-control"
-                                        placeholder="Distancia (de 1 a 30km)"
-                                        min="0"
-                                        max="30"
-                                    />
-                                </div>
-                                <div className="tm-text-right" style={{ marginTop: '20px' }}>
-                                    <button type="submit" className="btn btn-primary">Buscar rutas</button>
-                                    <button type="button" className="btn btn-primary" onClick={toggleLoginPopup}>
-                                        Guardar filtros
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </aside>
+                <aside>
+          <div id="filter">
+            <h2 className="tm-text-primary">Filtros de búsqueda</h2>
+            <form id="contact-form" onSubmit={fetchFilteredPosts} method="GET">
+              <div className="form-group">
+                <select className="form-control" name="province" value={filter.province} onChange={fetchFilter}>
+                  <option value="">Provincia</option>
+                  <option>Málaga</option>
+                  <option disabled>Córdoba</option>
+                  <option disabled>Sevilla</option>
+                  <option disabled>Cádiz</option>
+                  <option disabled>Huelva</option>
+                  <option disabled>Almería</option>
+                  <option disabled>Jaén</option>
+                  <option disabled>Granada</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <select className="form-control" name="area" value={filter.area} onChange={fetchFilter}>
+                  <option value="">Área</option>
+                  <option>Nerja</option>
+                  <option>Antequera</option>
+                  <option>Ardales</option>
+                  <option>Frigiliana</option>
+                  <option>Montes de Málaga</option>
+                  <option disabled>Ronda</option>
+                  <option disabled>Guadalhorce</option>
+                  <option disabled>Abdalajís</option>
+                  <option disabled>Costa del Sol</option>
+                  <option disabled>Almijara</option>
+                  <option disabled>Málaga</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <input 
+                  type="number" 
+                  name="difficulty"
+                  value={filter.difficulty} 
+                  className="form-control" 
+                  placeholder="Dificultad (del 1 al 10)" 
+                  min="1" 
+                  max="10" 
+                  onChange={fetchFilter}
+                />
+              </div>
+              <div className="form-group">
+                <input 
+                  type="number" 
+                  name="distance"
+                  value={filter.distance}  
+                  className="form-control" 
+                  placeholder="Distancia (de 1 a 30km)" 
+                  min="0" 
+                  max="30"
+                  onChange={fetchFilter} 
+                />
+              </div>
+              <div className="tm-text-right" style={{ marginTop: "20px" }}>
+                <button type="button" className="btn btn-primary" onClick={fetchFilteredPosts}>Buscar rutas</button>
+                <button type="button" className="btn btn-primary" onClick={guardarFiltros}>Guardar filtros</button>
+              </div>
+            </form>
+          </div>
+        </aside>
 
                     <section className="css-raul">
                         <div className="card-columns">
-                            {Array(6).fill(null).map((_, index) => (
-                                <div className="card" key={index}>
-                                    <img src="https://via.placeholder.com/300x150" alt="Imagen" />
-                                    <div className="card-content">
-                                        <h3 className="card-title">Título {index + 1}</h3>
-                                        <h4>Descripción {index + 1}</h4>
-                                        <p className="card-features">Dificultad: Fácil<br />Distancia: 5km</p>
-                                    </div>
-                                </div>
-                            ))}
+                        {routes.map((route) => (
+                <RouteCard route={route} key={route.id} />
+            ))}
                         </div>
                     </section>
                 </div>
             </main>
-
-            {/* Popup de Inicio de Sesión */}
-            {isLoginPopupOpen && (
-                <div id="loginPopupForm" className="popup-overlay">
-                    <div className="popup-content">
-                        <span className="close-btn" onClick={toggleLoginPopup}>&times;</span>
-                        <h2>Iniciar Sesión</h2>
-                        <form id="loginForm" action="Editar-perfil.html" method="POST">
-                            <div className="form-group">
-                                <label htmlFor="loginUsername">Nombre de usuario:</label>
-                                <input type="text" id="loginUsername" name="loginUsername" required />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="loginPassword">Contraseña:</label>
-                                <input type="password" id="loginPassword" name="loginPassword" required />
-                            </div>
-                            <button type="submit" className="btn btn-primary">Ver</button>
-                        </form>
-                    </div>
-                </div>
-            )}
         </div>
     );
 };
