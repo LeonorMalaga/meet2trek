@@ -1,12 +1,41 @@
-//import { useState} from "react";
-//import { useAuth } from '../context/AuthContext';
-export default function ProfileUser() {
-    /*const { isAuthenticated, login, logout } = useAuth();
-    if (isAuthenticated) {
-        console.log('-------------Está autenticado-----------');
-    }else{
-        console.log('-------------NO Está autenticado-----------');
-    }*/
+import { Link } from "react-router-dom";
+import { useEffect } from 'react';
+export default function ProfileUser({login, setLoginTrue, setLoginFalse}) {
+    useEffect(() => {
+        // Scripts del componente
+        const eliminarFila = (id) => {
+          const fila = document.getElementById(id).parentNode;
+          fila.remove();
+        };
+    
+        document.getElementById('eliminar1')?.addEventListener('click', function () {
+          eliminarFila('eliminar1');
+        });
+
+        document.getElementById('eliminar2')?.addEventListener('click', function () {
+          eliminarFila('eliminar2');
+        });
+
+        document.getElementById('eliminar3')?.addEventListener('click', function () {
+            eliminarFila('eliminar3');
+          });
+
+        document.getElementById('eliminar4')?.addEventListener('click', function () {
+            eliminarFila('eliminar4');
+          });
+
+        document.getElementById('eliminar5')?.addEventListener('click', function () {
+            eliminarFila('eliminar5');
+          });
+        document.getElementById('eliminar5')?.addEventListener('click', function () {
+            eliminarFila('eliminar6');
+          });
+        // Limpia eventos al desmontar el componente
+        return () => {
+          document.getElementById('eliminar1')?.removeEventListener('click', () => {});
+        };
+      }, []);     
+
  return ( <>
  <main>
           
@@ -98,14 +127,32 @@ export default function ProfileUser() {
                                  <td className="tg-0pky">Málaga</td>
                                  <td className="stg-0pky">Nerja</td>
                                  <td className="stg-0pky">22/09/2024 a la 09h.</td>
-                                 <td className="stg-0pky"><a href="ruta-recomend-detail.html"><u>Sendero acuático río Chillar</u></a></td>
-
+                                 <td className="stg-0pky">
+                                 <Link
+                                      to={{
+                                      pathname: "/recommended-route",
+                                      state: { login, setLoginTrue, setLoginFalse } // passing login and setLoginTrue as state
+                                    }}
+                                    onClick={() => setLoginTrue()}
+                                    >
+                                    <u>Sendero acuático río Chillar</u> </Link>
+                                    </td>                                 
                                  </tr>
                                  <tr>
                                  <td className="tg-0pky">Málaga</td>
                                  <td className="stg-0pky">Ardales</td>
                                  <td className="stg-0pky">10/10/2024 a la 08h.</td>
-                                 <td className="stg-0pky"><a href="ruta-detail.html"><u>Caminito del Rey</u></a></td>
+                                 <td className="stg-0pky">
+                                   <Link
+                                      to={{
+                                      pathname: "/route-detail",
+                                      state: { login, setLoginTrue, setLoginFalse } // passing login and setLoginTrue as state
+                                    }}
+                                    onClick={() => setLoginTrue()}
+                                    >
+                                    <u>Caminito del Rey</u>
+                                    </Link>
+                                    </td>
                                  </tr>
                                  <tr>
                                  <td className="tg-0pky">Málaga</td>
@@ -135,9 +182,28 @@ export default function ProfileUser() {
                                          <tr>
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Nerja</td>
-                                             <td className="stg-0pky"><a href="ruta-recomend-detail.html"><u>Sendero acuático río Chillar</u></a></td>
-                                             <td className="stg-0pky" id="formarGrupo1" style={{textAlign: "center", cursor: "pointer"}}><a
-                                                 style={{scolor: "green"}} href="quedadas.html"><u>Ver quedadas en esta ruta</u></a></td>
+                                             <td className="stg-0pky">
+                                                <Link
+                                                  to={{
+                                                  pathname: "/recommended-route",
+                                                  state: { login, setLoginTrue, setLoginFalse } // passing login and setLoginTrue as state
+                                                }}
+                                                onClick={() => setLoginTrue()}
+                                                  >
+                                                 <u>Sendero acuático río Chillar</u> </Link>
+                                                </td>
+                                             <td className="stg-0pky" id="formarGrupo1" style={{textAlign: "center", cursor: "pointer"}}>
+                                                 <Link
+                                                    to={{
+                                                    pathname: "/meetNews",
+                                                    state: { login, setLoginTrue, setLoginFalse } // passing login and setLoginTrue as state
+                                                }}
+                                                onClick={() => setLoginTrue()}
+                                                    >
+                                                    <u>Ver quedadas en esta ruta</u>
+                                                    </Link>
+                                                 
+                                                 </td>
                                              <td className="tg-0pky" id="eliminar1" style={{textAlign: "center", color: "red", cursor: "pointer"}}>
                                              <u>Eliminar</u>
                                              </td>
@@ -146,9 +212,29 @@ export default function ProfileUser() {
                                          <tr>
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Ardales</td>
-                                             <td className="stg-0pky"><a href="ruta-detail.html"><u>Caminito del Rey</u></a></td>
-                                             <td className="stg-0pky" id="formarGrupo2" style={{textAlign: "center", cursor: "pointer"}}><a
-                                                 style={{scolor: "green"}}><u>Ver quedadas en esta ruta</u></a></td>
+                                             <td className="stg-0pky">
+                                            <Link
+                                             to={{
+                                             pathname: "/route-detail",
+                                             state: { login, setLoginTrue, setLoginFalse } // passing login and setLoginTrue as state
+                                            }}
+                                            onClick={() => setLoginTrue()}
+                                             >
+                                            <u>Caminito del Rey</u>
+                                             </Link>
+                                            </td>
+                                             <td className="stg-0pky" id="formarGrupo2" style={{textAlign: "center", cursor: "pointer", scolor: "green"}}>
+                                             <Link
+                                                    to={{
+                                                    pathname: "/meetNews",
+                                                    state: { login, setLoginTrue, setLoginFalse } // passing login and setLoginTrue as state
+                                                }}
+                                                onClick={() => setLoginTrue()}
+                                                    >
+                                                    <u>Ver quedadas en esta ruta</u>
+                                                    </Link>
+                                                 
+                                                 </td>
                                              <td className="tg-0pky" id="eliminar2" style={{textAlign: "center", color: "red", cursor: "pointer"}}>
                                              <u>Elimisar</u>
                                              </td>
@@ -168,9 +254,18 @@ export default function ProfileUser() {
                                          <tr>
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Nerja</td>
-                                             <td className="stg-0pky"><a href="ruta-recomend-detail.html"><u>Sendero acuático río Chillar</u></a></td>
+                                             <td className="stg-0pky">
+                                             <Link
+                                               to={{
+                                               pathname: "/recommended-route",
+                                               state: { login, setLoginTrue, setLoginFalse } // passing login and setLoginTrue as state
+                                            }}
+                                            onClick={() => setLoginTrue()}
+                                               >
+                                               <u>Sendero acuático río Chillar</u> </Link>
+                                             </td>
                                              <td className="stg-0pky" id="formarGrupo1" style={{textAlign: "center", cursor: "pointer"}}><a
-                                                 style={{scolor: "green"}} href="quedadas.html"><u>Ver quedadas en esta ruta</u></a></td>
+                                                 style={{scolor: "green"}} href="/meetNews"><u>Ver quedadas en esta ruta</u></a></td>
                                              <td className="tg-0pky" id="eliminar4" style={{textAlign: "center", color: "red", cursor: "pointer"}}>
                                              <u>Elimisar</u>
                                              </td>
@@ -179,7 +274,14 @@ export default function ProfileUser() {
                                          <tr>
                                              <td className="tg-0pky">Málaga</td>
                                              <td className="stg-0pky">Ardales</td>
-                                             <td className="stg-0pky"><a href="ruta-detail.html"><u>Caminito del Rey</u></a></td>
+                                             <td className="stg-0pky">
+                                                <Link
+                                                     to={{pathname: "/route-detail",onClick: {setLoginTrue}}}
+                                                     onClick={() => setLoginTrue()}
+                                                    >
+                                                    <u>Caminito del Rey</u>
+                                                </Link>
+                                                </td>
                                              <td className="stg-0pky" id="formarGrupo2" style={{textAlign: "center", cursor: "pointer"}}><a
                                                  style={{scolor: "green"}}><u>Ver quedadas en esta ruta</u></a></td>
                                              <td className="tg-0pky" id="eliminar5" style={{textAlign: "center", color: "red", cursor: "pointer"}}>

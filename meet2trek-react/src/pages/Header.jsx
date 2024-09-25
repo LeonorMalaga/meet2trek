@@ -17,7 +17,15 @@ export default function Header({toggleRegisterPopup, toggleLoginPopup, login, se
                 // Show "Mi Perfil" and "Log out" if login equals 2
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/profile_user">
+
+                  <Link
+                      className="nav-link"
+                      to={{
+                        pathname: "/profile_user",
+                        state: { login, setLoginTrue, setLoginFalse } // passing login and setLoginTrue as state
+                      }}
+                      onClick={() => setLoginTrue()}
+                    >
                       Mi Perfil
                     </Link>
                   </li>

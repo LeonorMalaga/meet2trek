@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export default function RecommendedRoute() {
+    const location = useLocation();
+    const { login, setLoginTrue, setLoginFalse } = location.state || {}; // Destructure state from location
+  
+    useEffect(() => {
+      if (setLoginTrue) {
+        setLoginTrue(); // Ensure the function exists before calling it
+      }
+    }, [setLoginTrue]);
     return (
         <main>
             <div className="container-fluid tm-container-content tm-mt-60">

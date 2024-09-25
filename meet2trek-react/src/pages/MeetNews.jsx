@@ -2,8 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 
 export default function MeetNews () {
-
-    useEffect(() => {
+   
+    useEffect(() => {  
       // Scripts del componente
       const eliminarFila = (id) => {
         const fila = document.getElementById(id).parentNode;
@@ -22,38 +22,8 @@ export default function MeetNews () {
   
     return (
       <div>
-    
-        {/* Loader 
-        <div id="loader-wrapper">
-          <div id="loader"></div>
-          <div className="loader-section section-left"></div>
-          <div className="loader-section section-right"></div>
-        </div>*/}
-  
-        {/* Header */}
-        <header>
-          <nav className="navbar navbar-expand-lg">
-            <div className="container-fluid">
-              <div className="navbar-brand">
-                <img src="img/logo4.png" alt="Logo" className="img-logo" style={{ marginLeft: 0 }} />
-              </div>
-              <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-                  <li className="nav-item">
-                    <a className="nav-link nav-link-1 active" href="/">Home</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link nav-link-3" href="/editar-perfil">Mi perfil</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-          <div className="tm-hero d-flex justify-content-center align-items-center" style={{ marginBottom: '50px' }}>
-            <img src="img/img-14.jpg" alt="Fondo" />
-          </div>
-        </header>
-  
+            <img src="img/img-14.jpg" alt="Fondo" style={{width: '100vw', height: '35vh', marginBottom:"5vh", objectFit: 'cover' }} />
+          
         {/* Main Content */}
         <main>
           <div className="cont-rutas" style={{ height: '80vh' }}>

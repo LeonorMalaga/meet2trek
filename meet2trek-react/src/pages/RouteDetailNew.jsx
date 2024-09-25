@@ -1,6 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const CaminitoDelRey = () => {
+  const location = useLocation();
+  const { login, setLoginTrue, setLoginFalse } = location.state || {}; // Destructure state from location
+
+  useEffect(() => {
+    if (setLoginTrue) {
+      setLoginTrue(); // Ensure the function exists before calling it
+    }
+  }, [setLoginTrue]); 
     const [isLoginPopupOpen, setLoginPopupOpen] = useState(false);
     const [isRegistrationPopupOpen, setRegistrationPopupOpen] = useState(false);
 
