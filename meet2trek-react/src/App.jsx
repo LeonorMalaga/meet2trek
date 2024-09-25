@@ -88,7 +88,7 @@ export default function App() {
                 <input type="password" id="confirmPassword" name="confirmPassword" required style={{ fontSize: "1em" }} />
                 <span id="La contraseña no coincide" style={{ color: "red", fontSize: "0.9em" }}></span>
               </div>
-              <Link to="/profile_user" onClick={setLoginTrue} className="btn btn-primary">Enviar</Link>
+              <Link to="/users/1" onClick={setLoginTrue} className="btn btn-primary">Enviar</Link>
             </form>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function App() {
                 <label htmlFor="loginPassword">Contraseña:</label>
                 <input type="password" id="loginPassword" name="loginPassword" required />
               </div>
-              <Link to="/profile_user" onClick={setLoginTrue} className="btn btn-primary">Iniciar</Link>
+              <Link to="/users/1" onClick={setLoginTrue} className="btn btn-primary">Iniciar</Link>
                   <p style={{ color: "black", marginTop: "10px" }}>
                     Si no estás registrado haz clic <a href="#" onClick={toggleLoginAndRegisterPopup}><u>aquí</u></a>.
                   </p>
@@ -118,12 +118,12 @@ export default function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/meetNews" element={<MeetNews />} />
           <Route path="/meet" element={<Meets />} />
-          <Route path="/profile_user" element={<ProfileUser />} />
+          <Route path="/users/1" element={<ProfileUser />} />
           <Route path="/recommended-route" element={<RecommendedRoute />} />
           <Route path="/route-detail" element={<RouteDetail />} />
           <Route path="/routes/:routeId" element={<RouteModel />} />
           <Route path="/meetings/:meetingId" element={<MeetingModel />} />
-          <Route path="/filter" element={<Filters />} />
+          <Route path="/routes" element={<Filters />} />
         </Routes>
         <Footer /> 
      </Router>

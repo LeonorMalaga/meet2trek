@@ -64,7 +64,7 @@ export default function ProfileUser() {
         
              <div className="row tm-mb-50">
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh", flexDirection: "column" }}>
-             <img src={"img/img-09.jpg"} alt="Image" style={{width: '100vw', height: '35vh', marginBottom:"5vh", objectFit: 'cover' }} />
+             <img src="../img/img-09.jpg" alt="Image" style={{width: '100vw', height: '35vh', marginBottom:"5vh", objectFit: 'cover' }} />
              <h1 className="tm-text-primary mb-4" >Mi Perfil</h1>
 
                  <div className="col-lg-4 col-12 mb-4 mb-5">

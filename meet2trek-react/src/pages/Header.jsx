@@ -17,12 +17,12 @@ export default function Header({toggleRegisterPopup, toggleLoginPopup, login, se
                 // Show "Mi Perfil" and "Log out" if login equals 2
                 <>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/profile_user">
+                    <Link className="nav-link" to="/users/1">
                       Mi Perfil
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/filter" onClick={setLoginTrue}>
+                    <Link className="nav-link" to="/routes" onClick={setLoginTrue}>
                       Buscar Rutas
                     </Link>
                   </li>
@@ -41,7 +41,7 @@ export default function Header({toggleRegisterPopup, toggleLoginPopup, login, se
                     </Link>
                   </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/filter">
+                    <Link className="nav-link" to="/routes">
                       Buscar Rutas
                     </Link>
                   </li>
