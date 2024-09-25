@@ -60,7 +60,7 @@ const App = () => {
         <div>
 
             <main>
-            <img src="img/img-06.jpg" alt="Image" style={{width: '100vw', height: '35vh', marginBottom:"0vh", objectFit: 'cover' }} />
+            <img src="img/img-06.jpg" alt="Image" style={{width: '100vw', height: '50vh', marginBottom:"0vh", objectFit: 'cover' }} />
                 <div className="main2">
             
                 <aside>
@@ -120,10 +120,10 @@ const App = () => {
                   onChange={fetchFilter} 
                 />
               </div>
-              <div className="tm-text-right" style={{ marginTop: "20px" }}>
+              <div className="tm-text-right" style={{ marginTop: "20px", display: "flex", justifyContent: "flex-end", gap: "10px" }}>
                 <button type="button" className="btn btn-primary" onClick={fetchFilteredPosts}>Buscar rutas</button>
-                <button type="button" className="btn btn-primary" onClick={guardarFiltros}>Guardar filtros</button>
-              </div>
+                <button type="button" className="btn btn-primary" onClick={guardarFiltros}>Limpiar filtros</button>
+            </div>
             </form>
           </div>
         </aside>

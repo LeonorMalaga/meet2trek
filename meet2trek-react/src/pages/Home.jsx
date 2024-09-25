@@ -61,7 +61,7 @@ export default function Home() {
 
   <main>
   <div className="video-container">
-        <video loop autoPlay muted id="hero-video" style={{ width: '100vw', height: '35vh', objectFit: 'cover'  }}>
+        <video loop autoPlay muted id="hero-video" style={{ width: '100vw', height: '90vh', objectFit: 'cover'  }}>
           <source src="/video/hero.mp4" type="video/mp4" />
           No se puede reproducir el video
           </video>
