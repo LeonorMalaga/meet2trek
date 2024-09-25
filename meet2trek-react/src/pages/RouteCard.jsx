@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-r
 function RouteCard({ route }) {
     return (
         <>
-        <Link to={`routes/${route.routeId}`}>
+        <Link to={`../routes/${route.routeId}`}>
         <div className="card">
             <img src={route.portraitPath} />
             <div className="card-content">

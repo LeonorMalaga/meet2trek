@@ -12,7 +12,6 @@ public class UserDto {
     private String username;
     @SuppressWarnings("unused")
     private String password;
-    @SuppressWarnings("unused")
     private String email;
     private String icon;
     private String name;
@@ -44,9 +43,5 @@ public class UserDto {
 
     public String getPassword() {
         return "********";
-    }
-
-    public String getEmail() {
-        return "********@*****.***";
     }
 }

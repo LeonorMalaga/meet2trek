@@ -7,7 +7,7 @@ function MeetingModel() {
     const [route, setRoute] = useState({});
     const [users, setUsers] = useState([]);
 
-    const fetchData = async () => {
+    const getMeeting = async () => {
         const response = await fetch(`http://localhost:8080/api/meetings/${meetingId}`, 
             {method:"GET", 
               headers: {
@@ -23,9 +23,9 @@ function MeetingModel() {
         setRoute(data.route)
         setUsers(data.users)
     }
-    
+
     useEffect(() => {
-        fetchData()
+        getMeeting()
     }, [meetingId])
 
     const [userJoined, setUserJoined] = useState()
@@ -52,7 +52,7 @@ function MeetingModel() {
               }})
             const meetingDto = await response.json()
             console.log("User added to meeting")
-            await fetchData();
+            await getMeeting();
             await userCheck();
             return meetingDto
     }
@@ -65,7 +65,7 @@ function MeetingModel() {
               }})
             const meetingDto = await response.json()
             console.log("User removed from meeting")
-            await fetchData();
+            await getMeeting();
             await userCheck();
             return meetingDto
     }

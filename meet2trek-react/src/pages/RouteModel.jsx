@@ -6,34 +6,46 @@ import MeetingList from "./MeetingList";
 function RouteModel() {
     const { routeId } = useParams();
     const [route, setRoute] = useState({})
+
+    const getRoute = async () => {
+        const response = await fetch(`http://localhost:8080/api/routes/${routeId}`, 
+            {method:"GET", 
+              headers: {
+                "Content-Type": 'application/x-www-form-urlencoded'
+              }})
+            const data = await response.json()
+        setRoute(data)
+    }
     useEffect(() => {
-        async function getRoute() {
-            const route = await fetch(`http://localhost:8080/api/routes/${routeId}`, 
-                {method:"GET", 
-                  headers: {
-                    "Content-Type": 'application/x-www-form-urlencoded'
-                  }})
-                .then(response => response.json())
-                .then(data => data)
-                .catch(error => console.error("Error: " + error))
-            setRoute(route)
-        }
         getRoute()
     }, [routeId])
 
     const [meetings, setMeetings] = useState([])
 
-    const fetchMeetings = () => {
-        fetch(`http://localhost:8080/api/routes/${routeId}/meetings/activeMeetings`, 
-            {method: "GET"})
-            .then(response => response.json())
-            .then(data => setMeetings(data))
-            .catch(error => console.error("Error: " + error))
+    const getMeetings = async () => {
+        const response = await fetch(`http://localhost:8080/api/routes/${routeId}/meetings/activeMeetings`, 
+          {method:"GET", 
+            headers: {
+              "Content-Type": 'application/x-www-form-urlencoded'
+            }})
+          const data = await response.json()
+      setMeetings(data)
     }
 
     useEffect(() => {
-        fetchMeetings()
+        getMeetings()
     }, [])
+
+    const saveRoute = async () => {
+      const response = await fetch(`http://localhost:8080/api/users/1/savedRoutes?routeId=${routeId}`, 
+          {method:"POST", 
+            headers: {
+              "Content-Type": 'application/x-www-form-urlencoded'
+            }})
+          const route = await response.json()
+          console.log("Route added to user's saved routes")
+          return route
+  }
 
     return (
         <main>
@@ -90,13 +102,14 @@ function RouteModel() {
                                 <span className="tm-text-gray-dark">Dificultad: </span><span className="mb-5">{route.difficulty}/10</span>
                             </div>
                             <div className="text-center mb-5">
-                                <a
+                                <button
+                                    onClick={saveRoute}
                                     className="btn btn-primary tm-btn-big"
                                     style={{ marginTop: "20px" }}
                                     id="openLoginPopupBtn3"
                                 >
                                     Guardar Ruta
-                                </a>
+                                </button>
                             </div>
               {/* Popup de Inicio de Sesión */}
               <LoginPopup />

@@ -107,11 +107,7 @@ public class MeetingService {
                 activeMeetings.add(new MeetingDto(meeting));
             }
         }
-        if (activeMeetings.isEmpty()) {
-            throw new NotFoundErrorResponse("There are no active meetings for this route.");
-        } else {
-            return activeMeetings;
-        }
+        return activeMeetings;
     }
 
     public List<MeetingDto> getMeetingsByUser(Long userId) {
