@@ -5,7 +5,7 @@ import React from "react"
 export default function Meets() {
     return (
         <main>
-            <div className="cont-rutas" style={{ height: "80vh" }}>
+            <div className="cont-rutas">
                 <h1 className="rutas-titular">Quedadas Sendero río Chillar</h1>
                 <div className="tabla">
                     <table className="tg">

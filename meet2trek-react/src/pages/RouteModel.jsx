@@ -1,11 +1,13 @@
-import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-router-dom";
+import { BrowserRouter as Router, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Youtube from 'react-youtube'
 import MeetingList from "./MeetingList";
+import parse from 'html-react-parser';
 
 function RouteModel() {
     const { routeId } = useParams();
-    const [route, setRoute] = useState({})
+    const [route, setRoute] = useState({fullDescription: ''})
+    const navigate = useNavigate()
 
     const getRoute = async () => {
         const response = await fetch(`http://localhost:8080/api/routes/${routeId}`, 
@@ -45,6 +47,57 @@ function RouteModel() {
           const route = await response.json()
           console.log("Route added to user's saved routes")
           return route
+    }
+
+    const [meetingDate, setMeetingDate] = useState('');
+    const [meetingTime, setMeetingTime] = useState('');
+    const [meetingPoint, setMeetingPoint] = useState('');
+    const [meetingId, setMeetingId] = useState(null);
+
+    const crearQuedada = async () => {
+      try { 
+        const response = await fetch(`http://localhost:8080/api/meetings`,
+          {method:"POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({
+              routeId: routeId,
+            meetingDate: meetingDate,
+            meetingTime: meetingTime,
+            meetingPoint: meetingPoint,
+          }).toString()
+        })
+        if (response.ok) {
+          const meeting = await response.json()
+          setMeetingId(meeting.meetingId);
+          await addUserToMeeting(meeting.meetingId)
+          navigate(`/meetings/${meeting.meetingId}`)
+        } else {
+          console.error("No se ha podido crear la quedada")
+        }
+    } catch (error) {
+      console.error("Error:", error)
+    }
+  }
+
+    const addUserToMeeting = async (meetingId) => {
+      try {
+      const response = await fetch(`http://localhost:8080/api/meetings/${meetingId}/users?userId=1`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      })
+      if (response.ok) {
+      const meetingDto = await response.json()
+      console.log("Usuario añadido a la quedada:", meeting)
+      } else {
+        console.error("Ha abido un fallo añadiendo el usuario a la quedada")
+      }
+    } catch (error) {
+      console.error("Error añadiendo el usuario a la quedada")
+    }
   }
 
     return (
@@ -92,9 +145,9 @@ function RouteModel() {
                             <h2 className="col-12 tm-text-primary" style={{ paddingTop: "25px", marginTop: "0px" }}>
                                 Descripción de la ruta
                             </h2>
-                            <p>
-                                {route.fullDescription}
-                            </p>
+                            <div className="route-description">
+                              {parse(route.fullDescription)}
+                            </div>
                             <div className="mr-4 mb-2">
                                 <span className="tm-text-gray-dark">Distancia: </span><span className="mb-5">{Intl.NumberFormat("es-ES").format(route.distance / 1000)}km</span>
                             </div>
@@ -119,7 +172,7 @@ function RouteModel() {
           </div>
         </div>
       </div>
-      <div className="cont-rutas" style={{ height: '80vh', maxWidth: '70%' }}>
+      <div className="cont-rutas">
         <h1 className="rutas-titular">Próximas quedadas</h1>
         {meetings.length === 0 ? (
           <p style={{color: "black"}}>No hay quedadas para esta ruta. Crea una abajo.</p>
@@ -143,30 +196,33 @@ function RouteModel() {
 )}
             <section style={{marginTop: "50px"}}>
                     <h1 className="rutas-titular">Crear quedada</h1>
+                    <form class="form-quedada">
                     <div className="contenedor">
                         <div className="form-group">
                             <label style={{color: "#437571", margin: "0px", textAlign: "left"}} htmlFor="dat">Selecionar
                                 fecha</label><br />
                             <input type="date" name="fecha" className="form-control" min="0" max="30" required
-                                style={{padding: "15px 20px 15px 20px", marginTop: "-20px"}} />
+                                style={{padding: "15px 20px 15px 20px", marginTop: "-20px"}} 
+                                value={meetingDate} onChange={(e) => setMeetingDate(e.target.value)}/>
                         </div>
 
                         <div className="form-group">
                             <label style={{color: "#437571", margin: "0px", textAlign: "left"}} htmlFor="hora">Seleccionar
                                 hora</label><br />
                             <input type="time" name="hora" className="form-control" required
-                                style={{padding: "15px 20px 15px 20px", marginTop: "-20px"}} />
+                                style={{padding: "15px 20px 15px 20px", marginTop: "-20px"}} 
+                                value={meetingTime} onChange={(e) => setMeetingTime(e.target.value)}/>
                         </div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="encuentro" style={{color: "#437571", margin: "0px", textAlign: "left"}} required>Punto de
                             encuentro</label>
                         <textarea id="perfil" className="form-control" rows="3" maxLength="200"
-                            placeholder="Escribe un punto de encuentro"></textarea>
+                            placeholder="Escribe un punto de encuentro" 
+                            value={meetingPoint} onChange={(e) => setMeetingPoint(e.target.value)}></textarea>
                     </div>
-                    <a href="#" style={{float: "left", marginTop: "10px"}}>
-                <button type="button" className="btn btn-primary" style={{marginBottom: "30px"}}>Crear</button>
-            </a>
+                <button type="button" className="btn btn-primary" style={{marginBottom: "30px"}} onClick={crearQuedada}>Crear</button>
+            </form>
             </section>
             </div>
     </main>

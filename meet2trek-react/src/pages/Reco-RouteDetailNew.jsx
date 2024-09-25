@@ -172,7 +172,7 @@ const RegistrationPopup = () => {
 
 const UpcomingMeetings = () => {
   return (
-    <div className="cont-rutas" style={{ height: '80vh', maxWidth: '70%' }}>
+    <div className="cont-rutas">
       <h1 className="rutas-titular">Próximas quedadas</h1>
       <div className="tabla">
         <div className="rutas-dias">

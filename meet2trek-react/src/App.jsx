@@ -68,7 +68,7 @@ export default function App() {
               </div>
               <div className="form-group">
                 <label htmlFor="username">Nombre de usuario:</label>
-                <input type="text" id="usernSame" name="username" required />
+                <input type="text" id="username" name="username" required />
               </div>
               <div className="form-group">
                 <label htmlFor="password">Contraseña:</label>

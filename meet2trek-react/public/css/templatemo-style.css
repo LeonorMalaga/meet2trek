@@ -361,7 +361,6 @@ footer {
     /* Centra horizontalmente */
     align-items: center;
     /* Centra verticalmente */
-    height: 65vw;
     width: 80%;
     text-align: center;
 }
@@ -1412,7 +1411,6 @@ select:not([multiple]) {
 
 .form-control {
     border: solid 1px;
-
 }
 
 
@@ -1421,6 +1419,14 @@ select:not([multiple]) {
     padding-left: 5px !important;
     opacity: 1
         /* Firefox */
+}
+
+form.form-quedada .contenedor {
+    margin: 0;
+}
+
+.route-description {
+    color: white;
 }
 
 @media (max-width: 991px) {
