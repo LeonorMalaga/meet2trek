@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import RouteCard from "./RouteCard";
 
 export default function Home() {
 
@@ -84,7 +83,7 @@ export default function Home() {
 
       <div className="main-index">
       </div>
-      <div className="card featured-card">
+      <div className="card featured-card" style={{ margin: "60px", maxWidth: "90%", textAlign: "center"}}>
             <a href="/recommended-route">
               <h1 className="titular" style={{ textAlign: "center", padding: "15px", margin: "20px 20px 0 20px" }}>
                 Ruta recomendada del mes
