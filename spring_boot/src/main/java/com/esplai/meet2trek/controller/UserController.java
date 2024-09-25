@@ -91,17 +91,12 @@ public class UserController {
 
         int count= userService.countSavedRoutesByUser(userId, routeId);
         //System.out.println("-----------------userId: " + userId + ", routeId: " + routeId + ", exists: " + count+"----------------");
-        if(count > 0)
-        {
-            return ResponseEntity.status(409).body(new ResponseMessage("The route with id " + routeId +
-                    " has already been saved by the user with id " + userId + "."));
-        }
-        else
+       if (count == 0)
         {
             userService.saveRoute(userId,routeId);
-            return ResponseEntity.status(200).body(new ResponseMessage("The route with id " + routeId +
-                    " has been saved to the user with id " + userId + "."));
         }
+        return ResponseEntity.status(200).body(new ResponseMessage("The route with id " + routeId +
+                " has been saved to the user with id " + userId + "."));
     }
 
     @DeleteMapping("/users/{userId}/savedRoutes")
