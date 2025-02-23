@@ -1,34 +1,45 @@
 
 # EN
-## Match Project
-Related SDGs: Health and well-being (3) and Terrestrial Life and Ecosystems (15)
+
 ## Objective :
-To implement a website facilitating practices aimed at ensuring the sustainable use of natural resources and promoting healthy living practices.
+A website that facilitate practices aimed at ensuring the sustainable use of natural resources and promoting healthy living practices.
 Tangentially, it also achieves social work, in that it connects people with common interests and tastes.
 
 ## Method :
-Creation of a web page in which, by providing the user with some data in a questionnaire, the web itself connects them with the most suitable routes according to their tastes, limitations, characteristics, crossing the information contained in the database.
+Creation of a web page using (MySQL+ SpringBoot + SpringData +SpringWeb + REACT) in which, by providing the user with some data in a questionnaire, the web itself connects them with the most suitable routes according to their tastes, limitations, characteristics, crossing the information contained in the database.
+![Search for a Route](documentation_es/Init.jpg)
+
+![Route details](documentation_es/RouteCard.jpg)
+![Register](documentation_es/Register.jpg)
+![log in](documentation_es/IniciasSesion.jpg)
+
+And it allows you to create meetups, which can be joined by other users, as well as join meetups created by other users.
+
+![Create a Meeting](documentation_es/CreateMeeting.jpg)
+![User home](documentation_es/User.jpg!)
+![MeetingCard](documentation_es/meeting.jpg)
 
 ## V1
-You can see the avaliable Http requests at our [API_V1 documentation](documentation_en/API_V1.md).
+You can see the available Http requests at our [API_V1 documentation](documentation_en/API_V1.md).
 ### Views Flows diagram
 ![V1-Views Elements](documentation_en/Views_V1.jpg)
 ### Database Entity Relation diagram
 ![V1-Entity Relation](documentation_en/EntityRelation_V1.jpg)
 ## Run
-1. Create a database named 'meet2treek' in MySQL with access credentials 'root/root', or use any credentials you prefer if you later change the file: "/../meet2trek/spring_boot/src/main/resources/application.properties"
-2. Open the folder:  "/.../meet2trek/spring_boot" con IntelliJIDEA.
+1. Create a database named 'meet2treek' in MySQL with access credentials 'root/root', or use any credentials you prefer if you adapt the file: "/../meet2trek/spring_boot/src/main/resources/application.properties".
+2. Open the folder:  "/.../meet2trek/spring_boot" using "IntelliJIDEA" with "Java 21".
 3. Right-click on the file:
 - "/.../meet2trek/spring_boot"
-- busca:"Maven"-->"Download Sources".
+- Scroll down to: "Maven"-->"Download Sources".
 4. Right-click on the file:
  - "/.../meet2trek/spring_boot"
-- busca:"Maven"-->"Reload Project".
+- Scroll down to: "Maven"-->"Reload Project".
 5. Open:
 - "/../meet2trek/spring_boot/src/main/java/com/esplai/meet2trek/Meet2trekApplication.java" 
-- and run it. If the connection to the database works, the tables 'meeting', 'route', 'user', 'user_saved_routes', and 'users_in_meeting' will be created. The API will be running at:  "http://localhost:8080".
+- and run it. 
+- If the connection to the database works, the tables: 'meeting', 'route', 'user', 'user_saved_routes', and 'users_in_meeting' will be created. The API will be running at:  "http://localhost:8080".
 ![Run API](documentacion_es/Run_Meet2Trek.png)
-6. To run the graphical interface, open the directory: "/.../meet2trek/meet2trek-react" in the console. "/.../meet2trek/meet2trek-react".
+6. To run the graphical interface (I use Visual Studio Code), open the directory: "/.../meet2trek/meet2trek-react", in the console.
 7. Run:
 - If Node+Vite is not installed: 
 https://nodejs.org/en/download/prebuilt-installer
@@ -41,6 +52,7 @@ install all requiered
    Javascript-swc
 ```
 - If Node+Vite is already installed: 
+
 ```bash
 npm install
 npm run dev
@@ -48,8 +60,7 @@ npm run dev
 8. Open in your browser: "http://localhost:5173/".
 
 # ES
-## Tematica
-ODS relacionados: Salud y bienestar (3) y Vida y ecosistemas terrestres (15)
+
 ## Objetivo :
 Implementar una web facilitando prácticas encaminadas a garantizar el uso sostenible de los recursos naturales y fomentando practicas de vida saludable.
 Tangencialmente, se consigue además una labor social, en cuanto a que conecta personas con intereses y gustos comunes.
