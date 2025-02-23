@@ -8,7 +8,7 @@ Tangentially, it also achieves social work, in that it connects people with comm
 ## Method :
 Creation of a web page using (MySQL+ SpringBoot + SpringData +SpringWeb + REACT) in which, by providing the user with some data in a questionnaire, the web itself connects them with the most suitable routes according to their tastes, limitations, characteristics, crossing the information contained in the database.
 ![Search for a Route](documentacion_es/Init.png)
-![Route details](documentacion_es/RouteCard.png)
+![Route details](documentacion_es/routeCard.png)
 ![Register](documentacion_es/Register.png)
 ![log in](documentacion_es/IniciasSesion.png)
 
