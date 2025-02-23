@@ -9,25 +9,36 @@ Tangencialmente, se consigue además una labor social, en cuanto a que conecta p
 Creación de un projecto en el que, facilitando el usuario unos datos, la propia web le conecte con las rutas mas adecuadas a sus gustos, limitaciones, características, cruzando la información contenida en la base de datos y le facilita el establecer comunicacion con otros usuarios con gustos similares. Además de permitirle dar de alta sus propias rutas y propuestas de quedadas.
 
 ## Run
--1- Crear una base de datos llamada 'meet2treek' en mysql con credenciales de acceso 'root/root', o las que se deseen si luego cambias el fichero :"/../meet2trek/spring_boot/src/main/resources/application.properties"
--2- Abrir la carpeta: "/.../meet2trek/spring_boot" con IntelliJIDEA.
--3- Boton derecho sobre : "/.../meet2trek/spring_boot"-->Maven-->Download Sources.
--4- Boton derecho sobre : "/.../meet2trek/spring_boot"-->Maven-->Reload Project.
--5- Abrir: "/../meet2trek/spring_boot/src/main/java/com/esplai/meet2trek/Meet2trekApplication.java" y ejecutar. Si la conexion a la base de datos funciona se crearan las tablas: 'meeting', 'route', 'user','user_saved_routes' y 'users_in_meeting'. Y quedara la API ejecutandose en el puerto http://localhost:8080.
+1. Crear una base de datos llamada 'meet2treek' en mysql con credenciales de acceso 'root/root', o las que se deseen si luego cambias el fichero :"/../meet2trek/spring_boot/src/main/resources/application.properties"
+2. Abrir la carpeta: "/.../meet2trek/spring_boot" con IntelliJIDEA.
+3. Boton derecho sobre el fichero :
+- "/.../meet2trek/spring_boot"
+- busca:"Maven"-->"Download Sources".
+4. Boton derecho sobre el fichero:
+ - "/.../meet2trek/spring_boot"
+- busca:"Maven"-->"Reload Project".
+5. Abrir: 
+- "/../meet2trek/spring_boot/src/main/java/com/esplai/meet2trek/Meet2trekApplication.java" 
+- y ejecutar.
+ Si la conexion a la base de datos funciona, se crearan las tablas: 'meeting', 'route', 'user','user_saved_routes' y 'users_in_meeting'. Y quedara la API ejecutandose en : "http://localhost:8080".
 ![Run API](documentacion_es/Run_Meet2Trek.png)
--6- Para ejecutar la interfaz grafica abri con la cosola el directorio: "/.../meet2trek/meet2trek-react".
--7- Ejecutar:
+6. Para ejecutar la interfaz grafica abri con la cosola el directorio: "/.../meet2trek/meet2trek-react".
+7. Ejecutar:
+- Si no tiene instalado Node+Vite:
 https://nodejs.org/en/download/prebuilt-installer
 install all requiered
+```bash
 #npm créate vite@latest
    Y 
    React
    Javascript-swc
+```
+- Si ya tines instalado Node+Vite:   
 ```bash
 npm install
 npm run dev
-```bash
-8- Abrir en tu navegador: "http://localhost:5173/".
+```
+8. Abrir en tu navegador: "http://localhost:5173/".
 
 ## Prototipo
 Permite :registro, eliminación y modificacion de Usuarios;  creación, eliminación , modificacion y busqueda de rutas ; creación, eliminación y modificacion de quedadas, para ello se desarrolla en SpringBootData + Hibernate un API RESTFULL[ pinche aqui para ver la documentación del API](documentacion_es/API_Prototipo.md).
