@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "axion": "^0.1.0",
+    "react-tab": "^1.0.0",
+    "yum": "^0.1.1"
+  }
+}
