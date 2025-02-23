@@ -7,16 +7,16 @@ Tangentially, it also achieves social work, in that it connects people with comm
 
 ## Method :
 Creation of a web page using (MySQL+ SpringBoot + SpringData +SpringWeb + REACT) in which, by providing the user with some data in a questionnaire, the web itself connects them with the most suitable routes according to their tastes, limitations, characteristics, crossing the information contained in the database.
-![Search for a Route](documentation_es/Init.png)
-![Route details](documentation_es/RouteCard.png)
-![Register](documentation_es/Register.png)
-![log in](documentation_es/IniciasSesion.png)
+![Search for a Route](documentacion_es/Init.png)
+![Route details](documentacion_es/RouteCard.png)
+![Register](documentacion_es/Register.png)
+![log in](documentacion_es/IniciasSesion.png)
 
 And it allows you to create meetups, which can be joined by other users, as well as join meetups created by other users.
 
-![Create a Meeting](documentation_es/CreateMeeting.png)
-![User home](documentation_es/User.jpg)
-![MeetingCard](documentation_es/meeting.png)
+![Create a Meeting](documentacion_es/CreateMeeting.png)
+![User home](documentacion_es/User.jpg)
+![MeetingCard](documentacion_es/meeting.png)
 
 ## V1
 You can see the available Http requests at our [API_V1 documentation](documentation_en/API_V1.md).
