@@ -7,10 +7,10 @@ Tangentially, it also achieves social work, in that it connects people with comm
 
 ## Method :
 Creation a API with (MySQL+ SpringBoot + SpringData +SpringWeb ) and Hexagonal Architecture:
-       Model (Domain Layer)---core business logic(Entities)
-       Repositories(Adapters)--persistence(JPA)
-       Services--Business use case
-       Controller--Interact with the external world
+- Model folder (Domain Layer) forcore - business logic(Entities).
+- Repositories folder (Adapters) for persistence.
+ - Services folder for Business use case.
+ - Controller folder for Interact with the external world.
 
 An a Responsibe Frontend using f a web page using  REACT in which, by providing the user with some data in a questionnaire, the web itself connects them with the most suitable routes according to their tastes, limitations, characteristics, crossing the information contained in the database.
 
