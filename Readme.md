@@ -6,7 +6,14 @@ A website that facilitate practices aimed at ensuring the sustainable use of nat
 Tangentially, it also achieves social work, in that it connects people with common interests and tastes.
 
 ## Method :
-Creation of a web page using (MySQL+ SpringBoot + SpringData +SpringWeb + REACT) in which, by providing the user with some data in a questionnaire, the web itself connects them with the most suitable routes according to their tastes, limitations, characteristics, crossing the information contained in the database.
+Creation a API with (MySQL+ SpringBoot + SpringData +SpringWeb ) and Hexagonal Architecture:
+       Model (Domain Layer)---core business logic(Entities)
+       Repositories(Adapters)--persistence(JPA)
+       Services--Business use case
+       Controller--Interact with the external world
+
+An a Responsibe Frontend using f a web page using  REACT in which, by providing the user with some data in a questionnaire, the web itself connects them with the most suitable routes according to their tastes, limitations, characteristics, crossing the information contained in the database.
+
 ![Search for a Route](documentacion_es/Init.png)
 ![Route details](documentacion_es/routeCard.png)
 ![Register](documentacion_es/Register.png)
